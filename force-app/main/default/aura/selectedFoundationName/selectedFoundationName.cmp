@@ -1,0 +1,15 @@
+<aura:component description="selectedFoundationName"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" 
+                controller="membershipOpportunityViewCMP_controller">
+    
+    <!-- Attributes -->
+    <aura:attribute name="foundationId" type="String"/>
+    <aura:attribute name="foundationName" type="Sobject"/>
+    <aura:handler event="c:foundationName" action="{!c.foundationId}"/>
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  
+    
+    <lightning:card class="custom-css-card" title="{!'Project : ' + v.foundationName.Name}" iconName="standard:person_account" />
+    
+</aura:component>

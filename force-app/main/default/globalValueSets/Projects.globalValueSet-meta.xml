@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>3MF Consortium</fullName>
+        <default>false</default>
+        <label>3MF Consortium</label>
+    </customValue>
+    <customValue>
+        <fullName>Academy Software Foundation</fullName>
+        <default>false</default>
+        <label>Academy Software Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>Akraino Edge Stack</fullName>
+        <default>false</default>
+        <label>Akraino Edge Stack</label>
+    </customValue>
+    <customValue>
+        <fullName>Alliance for Open Media (AOM)</fullName>
+        <default>false</default>
+        <label>Alliance for Open Media (AOM)</label>
+    </customValue>
+    <customValue>
+        <fullName>AllSeen Alliance, Inc.</fullName>
+        <default>false</default>
+        <label>AllSeen Alliance, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Automated Compliance Tooling (ACT)</fullName>
+        <default>false</default>
+        <label>Automated Compliance Tooling (ACT)</label>
+    </customValue>
+    <customValue>
+        <fullName>Automotive Grade Linux</fullName>
+        <default>false</default>
+        <label>Automotive Grade Linux</label>
+    </customValue>
+    <customValue>
+        <fullName>Ceph Foundation</fullName>
+        <default>false</default>
+        <label>Ceph Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>Chips Alliance Fund</fullName>
+        <default>false</default>
+        <label>Chips Alliance Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>Civil Infrastructure Platform</fullName>
+        <default>false</default>
+        <label>Civil Infrastructure Platform</label>
+    </customValue>
+    <customValue>
+        <fullName>Clearwater Pass</fullName>
+        <default>false</default>
+        <label>Clearwater Pass</label>
+    </customValue>
+    <customValue>
+        <fullName>CloudFoundry.org Foundation, Inc.</fullName>
+        <default>false</default>
+        <label>CloudFoundry.org Foundation, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Cloud Native Computing Foundation</fullName>
+        <default>false</default>
+        <label>Cloud Native Computing Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>Code Aurora Forum</fullName>
+        <default>false</default>
+        <label>Code Aurora Forum</label>
+    </customValue>
+    <customValue>
+        <fullName>Continuous Delivery Foundation</fullName>
+        <default>false</default>
+        <label>Continuous Delivery Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>Cord (Central Office Re-Architected As A Datacenter)</fullName>
+        <default>false</default>
+        <label>Cord (Central Office Re-Architected As A Datacenter)</label>
+    </customValue>
+    <customValue>
+        <fullName>Core Embedded Linux</fullName>
+        <default>false</default>
+        <label>Core Embedded Linux</label>
+    </customValue>
+    <customValue>
+        <fullName>Core Infrastructure Initiative</fullName>
+        <default>false</default>
+        <label>Core Infrastructure Initiative</label>
+    </customValue>
+    <customValue>
+        <fullName>Diamon Workgroup</fullName>
+        <default>false</default>
+        <label>Diamon Workgroup</label>
+    </customValue>
+    <customValue>
+        <fullName>Distributed Identity Foundation(DIF)</fullName>
+        <default>false</default>
+        <label>Distributed Identity Foundation(DIF)</label>
+    </customValue>
+    <customValue>
+        <fullName>DPDK</fullName>
+        <default>false</default>
+        <label>DPDK</label>
+    </customValue>
+    <customValue>
+        <fullName>Dronecode Project, Inc.</fullName>
+        <default>false</default>
+        <label>Dronecode Project, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>EdgeX Foundry</fullName>
+        <default>false</default>
+        <label>EdgeX Foundry</label>
+    </customValue>
+    <customValue>
+        <fullName>ELISA Fund</fullName>
+        <default>false</default>
+        <label>ELISA Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>FD.io Project</fullName>
+        <default>false</default>
+        <label>FD.io Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Fossology</fullName>
+        <default>false</default>
+        <label>Fossology</label>
+    </customValue>
+    <customValue>
+        <fullName>GraphQL Foundation</fullName>
+        <default>false</default>
+        <label>GraphQL Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>Hyperledger Project</fullName>
+        <default>false</default>
+        <label>Hyperledger Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Internet Security Research Group</fullName>
+        <default>false</default>
+        <label>Internet Security Research Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Iotivity</fullName>
+        <default>false</default>
+        <label>Iotivity</label>
+    </customValue>
+    <customValue>
+        <fullName>IO Visor Project</fullName>
+        <default>false</default>
+        <label>IO Visor Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Janusgraph</fullName>
+        <default>false</default>
+        <label>Janusgraph</label>
+    </customValue>
+    <customValue>
+        <fullName>Joint Development Foundation</fullName>
+        <default>false</default>
+        <label>Joint Development Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>JS Foundation</fullName>
+        <default>false</default>
+        <label>JS Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>KernelCI Initiative</fullName>
+        <default>false</default>
+        <label>KernelCI Initiative</label>
+    </customValue>
+    <customValue>
+        <fullName>Kinetic Open Storage Project</fullName>
+        <default>false</default>
+        <label>Kinetic Open Storage Project</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Asia LLC</fullName>
+        <default>false</default>
+        <label>LF Asia LLC</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Deep Learning</fullName>
+        <default>false</default>
+        <label>LF Deep Learning</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Edge Foundation</fullName>
+        <default>false</default>
+        <label>LF Edge Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Energy Foundation</fullName>
+        <default>false</default>
+        <label>LF Energy Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Networking</fullName>
+        <default>false</default>
+        <label>LF Networking</label>
+    </customValue>
+    <customValue>
+        <fullName>Linux Labs Limited</fullName>
+        <default>false</default>
+        <label>Linux Labs Limited</label>
+    </customValue>
+    <customValue>
+        <fullName>Linux Standard Base (LSB)</fullName>
+        <default>false</default>
+        <label>Linux Standard Base (LSB)</label>
+    </customValue>
+    <customValue>
+        <fullName>MOJA Global Project</fullName>
+        <default>false</default>
+        <label>MOJA Global Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Newticity Fund</fullName>
+        <default>false</default>
+        <label>Newticity Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>ODPi, Inc.</fullName>
+        <default>false</default>
+        <label>ODPi, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>ONF</fullName>
+        <default>false</default>
+        <label>ONF</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Accessibility</fullName>
+        <default>false</default>
+        <label>Open Accessibility</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenAPI Initiative</fullName>
+        <default>false</default>
+        <label>OpenAPI Initiative</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenBEL</fullName>
+        <default>false</default>
+        <label>OpenBEL</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenBMC</fullName>
+        <default>false</default>
+        <label>OpenBMC</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenChain Project</fullName>
+        <default>false</default>
+        <label>OpenChain Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Container Initiative</fullName>
+        <default>false</default>
+        <label>Open Container Initiative</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenDaylight Project, Inc.</fullName>
+        <default>false</default>
+        <label>OpenDaylight Project, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenFabrics, Inc.</fullName>
+        <default>false</default>
+        <label>OpenFabrics, Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Finance</fullName>
+        <default>false</default>
+        <label>Open Finance</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenHPC Project</fullName>
+        <default>false</default>
+        <label>OpenHPC Project</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenJS Foundation</fullName>
+        <default>false</default>
+        <label>OpenJS Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Mainframe Project</fullName>
+        <default>false</default>
+        <label>Open Mainframe Project</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenMAMA</fullName>
+        <default>false</default>
+        <label>OpenMAMA</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Networking Automation Platform</fullName>
+        <default>false</default>
+        <label>Open Networking Automation Platform</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Network Operating System (ONOS)</fullName>
+        <default>false</default>
+        <label>Open Network Operating System (ONOS)</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Orchestrator Project</fullName>
+        <default>false</default>
+        <label>Open Orchestrator Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Platform for NFV</fullName>
+        <default>false</default>
+        <label>Open Platform for NFV</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenPrinting</fullName>
+        <default>false</default>
+        <label>OpenPrinting</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenSDS Formation Fund</fullName>
+        <default>false</default>
+        <label>OpenSDS Formation Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Security Controller</fullName>
+        <default>false</default>
+        <label>Open Security Controller</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenSwitch Project</fullName>
+        <default>false</default>
+        <label>OpenSwitch Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Virtualization Alliance</fullName>
+        <default>false</default>
+        <label>Open Virtualization Alliance</label>
+    </customValue>
+    <customValue>
+        <fullName>Open VSwitch Project</fullName>
+        <default>false</default>
+        <label>Open VSwitch Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Platform for Network Data Analytics</fullName>
+        <default>false</default>
+        <label>Platform for Network Data Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>Quartermaster</fullName>
+        <default>false</default>
+        <label>Quartermaster</label>
+    </customValue>
+    <customValue>
+        <fullName>R Consortium</fullName>
+        <default>false</default>
+        <label>R Consortium</label>
+    </customValue>
+    <customValue>
+        <fullName>Real Time Linux</fullName>
+        <default>false</default>
+        <label>Real Time Linux</label>
+    </customValue>
+    <customValue>
+        <fullName>RISC-V Foundation</fullName>
+        <default>false</default>
+        <label>RISC-V Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>SPDX</fullName>
+        <default>false</default>
+        <label>SPDX</label>
+    </customValue>
+    <customValue>
+        <fullName>The Linux Foundation</fullName>
+        <default>false</default>
+        <label>The Linux Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>Tizen Project</fullName>
+        <default>false</default>
+        <label>Tizen Project</label>
+    </customValue>
+    <customValue>
+        <fullName>TODO Group</fullName>
+        <default>false</default>
+        <label>TODO Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Tungsten Fabric</fullName>
+        <default>false</default>
+        <label>Tungsten Fabric</label>
+    </customValue>
+    <customValue>
+        <fullName>Xen Project</fullName>
+        <default>false</default>
+        <label>Xen Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Yocto Project</fullName>
+        <default>false</default>
+        <label>Yocto Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Zephyr Project</fullName>
+        <default>false</default>
+        <label>Zephyr Project</label>
+    </customValue>
+    <description>list of transactional projects</description>
+    <masterLabel>Projects</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

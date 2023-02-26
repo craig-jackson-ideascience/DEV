@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="dashboardId" type="String" default="0FK2M000000XdEgWAK"/>
+    <aura:attribute name="ProductFoundationFilterData" type="string" />  
+    <aura:attribute name="isPProjectDisplay" type="boolean" default="false"/>  
+    <aura:handler event="c:purchaseHistoryByFoundation" action="{!c.productByFoundation}"/>
+    <aura:registerEvent name="waveAccountReceivableEvent" type="c:waveAccountReceivableEvent" />
+    <aura:if isTrue="{!v.isPProjectDisplay}">
+        <wave:waveDashboard showTitle="false" showHeader="false" dashboardId="{!v.dashboardId}" height="510" filter="{!v.ProductFoundationFilterData}"/>
+        <aura:set attribute="else">
+            Loading....
+        </aura:set>
+    </aura:if>  
+</aura:component>

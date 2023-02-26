@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>Assign_Docusign_Fields</name>
+        <label>Assign Docusign Fields</label>
+        <locationX>478</locationX>
+        <locationY>126</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Docusign_Template_Id__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Project__r.Docusign_Template_Id__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Project_Signatory__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Project__r.Project_Signatory__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <interviewLabel>Update docusign fields on product details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update docusign fields on product details</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>49</locationY>
+        <connector>
+            <targetReference>Assign_Docusign_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Project__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Product_Details__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

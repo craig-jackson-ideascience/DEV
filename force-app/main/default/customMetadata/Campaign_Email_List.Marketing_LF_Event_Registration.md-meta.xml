@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Marketing LF Event Registration</label>
+    <protected>false</protected>
+    <values>
+        <field>CampaignId__c</field>
+        <value xsi:type="xsd:string">7012M000001rcnLQAQ</value>
+    </values>
+    <values>
+        <field>ContactId__c</field>
+        <value xsi:type="xsd:string">Contact__c</value>
+    </values>
+    <values>
+        <field>Cron_Expression__c</field>
+        <value xsi:type="xsd:string">0 30 3 * * ?</value>
+    </values>
+    <values>
+        <field>Job_Run_Time__c</field>
+        <value xsi:type="xsd:string">Daily 03:30 AM</value>
+    </values>
+    <values>
+        <field>LeadId__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Query__c</field>
+        <value xsi:type="xsd:string">SELECT Id,Contact__c FROM Event_Registrations__c WHERE CreatedDate&gt;=Yesterday AND SF_Opt_Out__c=false</value>
+    </values>
+</CustomMetadata>

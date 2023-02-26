@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Benchmark Signal Definition</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Benchmark Signal Definitions</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>MaxThresholdGEMinThreshold</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>MinThresholdGE0</name>
+    </validationRules>
+</CustomObjectTranslation>

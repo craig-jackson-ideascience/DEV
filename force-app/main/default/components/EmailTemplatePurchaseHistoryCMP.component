@@ -1,0 +1,22 @@
+<apex:component access="global" controller="PurchaseHistoryController">
+    <table style="border: 1px solid black;">
+        <thead>    
+            <tr>
+                <th style="border: 1px solid black;">Name</th> 
+                <th style="border: 1px solid black;">Created Date</th>
+            </tr>
+        </thead>        
+        <tbody>
+            <apex:repeat value="{!AssetList}" var="asset">
+                <tr>
+                    <td style="border: 1px solid black;"><a href='{!CustombaseUrl}/{!asset.id}' target="_blank">{!asset.Name}</a></td>
+                    <td style="border: 1px solid black;">
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!asset.CreatedDate}" /> 
+                        </apex:outputText>
+                    </td>
+                </tr>
+            </apex:repeat>                        
+        </tbody>   
+    </table>
+</apex:component>

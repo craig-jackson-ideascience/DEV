@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>nkartchner@linuxfoundation.org</contactEmail>
+    <contactPhone>2146209089</contactPhone>
+    <label>GravityFormsCNCF</label>
+    <oauthConfig>
+        <callbackUrl>https://www.cncf.io/?callback=gravityformssalesforce</callbackUrl>
+        <consumerKey>3MVG9Nc1qcZ7BbZ0Ep18pfQsltQdeKe3qy8d_Cw1kZ7sCz6RC4DLjvuaxA0X8QOKUDl5tC9vksn03zLx5GTA2</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

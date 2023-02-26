@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:registerEvent name="meetingRecordEvent" type="c:createMeetingEvent"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+	<lightning:layoutItem size="12" padding="around-small">
+                <div class="slds-grid slds-grid_align-center">
+                    <div class="slds-col slds-p-right_small">
+                        <span>
+                            <lightning:button label="Save" title="Save" onclick="{!c.createMeeting}"/>
+                        </span>
+                    </div>
+                    <div class="slds-col slds-p-left_small">
+                        <span>
+                            <lightning:button label="Cancel" title="Cancel" onclick="{!c.cancel}"/>
+                        </span>
+                    </div>
+                </div>
+            </lightning:layoutItem>
+</aura:component>

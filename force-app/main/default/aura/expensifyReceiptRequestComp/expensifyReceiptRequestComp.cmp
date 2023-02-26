@@ -1,0 +1,37 @@
+<aura:component controller="ExpensifyReceiptRequest_Controller" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <!-- For display the toast-->
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <!-- Handlers--> 
+    <aura:handler name="init" value="{!this}" action="{!c.fetchReceipt}"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    
+    <!--Component attributs -->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="returnResult" type="boolean" default="false"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="msg" type="String" default="Receipt are being fetched!!"/>
+    
+    <!--loading spinner start -->
+    
+    <div>
+        <lightning:card>
+            <aura:if isTrue="{!v.Spinner}">
+                <div aura:id="spinnerId" class="slds-spinner_container">
+                    <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </aura:if>                 
+            <!-- Loading spinner end-->            
+            <ui:message title="Confirmation" severity="confirm" closable="true">
+                {!v.msg}
+            </ui:message>            
+        </lightning:card>
+    </div>
+</aura:component>

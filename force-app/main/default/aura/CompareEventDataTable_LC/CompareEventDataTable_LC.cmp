@@ -1,0 +1,38 @@
+<!--c:CompareEventDataTable_LC-->
+<aura:component>
+    <!--================================= attributes ================================-->
+    <aura:attribute name="registrationTableList" type="List" />
+
+    <!--=============================== component part =============================-->
+    <!-- table -->
+    <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_striped slds-table_col-bordered"
+        border="1" styel="border: 1px solid #98c6f5">
+        <!-- Header -->
+        <thead>
+            <tr>
+                <div class="slds-grid">
+                    <th class="header slds-col slds-size_3-of-12"> Bucket</th>
+                    <th class="header slds-col slds-size_3-of-12"> New Reg</th>
+                    <th class="header slds-col slds-size_3-of-12"> Total to date</th>
+                    <th class="header slds-col slds-size_3-of-12"> Revenue</th>
+                </div>
+            </tr>
+        </thead>
+        <!-- Body -->
+        <tbody>
+            <aura:iteration items="{!v.registrationTableList}" var="record" indexVar="index">
+                <div class="slds-grid">
+                    <td class="slds-col slds-size_3-of-12 slds-cell-wrap cellStyle borderStyle">
+                        {!record.bucket}</td>
+                    <td class="slds-col slds-size_3-of-12 slds-cell-wrap cellStyle borderStyle alignStyle ">
+                        {!record.newReg}</td>
+                    <td class="slds-col slds-size_3-of-12 slds-cell-wrap cellStyle borderStyle alignStyle ">
+                        {!record.totalToDate}</td>
+                    <td class="slds-col slds-size_3-of-12 slds-cell-wrap cellStyle borderStyle alignStyle">
+                        <lightning:formattedNumber value="{!record.revenue}" currency-code="USD" style="currency" />
+                    </td>
+                </div>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

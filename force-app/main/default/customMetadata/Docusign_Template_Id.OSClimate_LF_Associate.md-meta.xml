@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>OSClimate + LF Associate</label>
+    <protected>false</protected>
+    <values>
+        <field>Product_List__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Projects_List__c</field>
+        <value xsi:type="xsd:string">LFCF;tlf-Associate;</value>
+    </values>
+    <values>
+        <field>Template_ID__c</field>
+        <value xsi:type="xsd:string">021d41c2-cca5-40e0-9230-36aafa4b1f35</value>
+    </values>
+</CustomMetadata>

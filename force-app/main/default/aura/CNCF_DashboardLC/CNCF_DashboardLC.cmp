@@ -1,0 +1,95 @@
+<!--** Created by Cloudroute Soulutions on 05-04-2021 
+ * CNCF Dashboard
+-->
+
+<aura:component description="CNCF_DashboardLC"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global" controller="CNCF_DashboardController">
+    <!--================================= attributes ================================-->
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <!-- <aura:attribute name="reportURL" type="String" access="global" default="{!$Label.c.CNCF_Report_Link}" /> -->
+    <!-- chart attributes -->
+    <aura:attribute name="listOfEvent" type="Object[]" />
+    <aura:attribute name="listOfAllEvent" type="Object[]" />
+    <aura:attribute name="chartData" type="String" access="global" />
+    <aura:attribute name="selectedStage" type="String" />
+
+    <!--================================= handlers ================================-->
+    <!-- init -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- chart click -->
+    <aura:handler name="funnelChartClickEvent" event="c.FunnelChartClickEvent" action="{!c.handlerChartClickEvent}" />
+
+    <!--================================= component part ================================-->
+
+    <!-- spinner -->
+    <aura:if isTrue="{!v.showSpinner}">
+        <div class="spinnerFixed">
+            <lightning:spinner alternativetext="Loading" variant="brand" class="spins" />
+        </div>
+    </aura:if>
+    <lightning:layout multiplerows="false" class="slds-wrap">
+        <aura:if isTrue="{!not(empty(v.listOfEvent))}">
+            <aura:iteration items="{!v.listOfEvent}" var="event">
+                <lightning:layoutItem size="12" class="slds-p-top_medium">
+                    <lightning:card>
+                        <div class="slds-align_absolute-center slds-text-heading_large slds-p-bottom_medium">
+                            {!event.eventName}
+                        </div>
+                        <lightning:layout multiplerows="false" class="slds-wrap">
+                            <lightning:layoutItem size="4" padding="medium">
+                                <table>
+                                    <tr>
+                                        <td class="slds-p-left_small slds-p-bottom_medium">
+                                            % of Goal
+                                        </td>
+                                        <td class="slds-p-bottom_medium">
+                                            {!event.percentOfGoal}%
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-p-left_small slds-p-bottom_medium">
+                                            Revenue Goal
+                                        </td>
+                                        <td class="slds-p-bottom_medium">
+                                            <lightning:formattedNumber value="{!event.revenueGoal}" style="currency"
+                                                currencyCode="USD" />
+                                        </td>
+                                    </tr>
+                                    <aura:iteration items="{!event.StageValue}" var="stage">
+                                        <tr>
+                                            <td class="slds-p-left_small slds-p-bottom_medium">
+                                                {!stage.stageName}
+                                            </td>
+                                            <td class="slds-p-bottom_medium">
+                                                <aura:if isTrue="{!not(empty(stage.totalPrice))}">
+                                                    <lightning:formattedNumber value="{!stage.totalPrice}"
+                                                        style="currency" currencyCode="USD" />
+                                                    <aura:set attribute="else">
+                                                        No Results Found
+                                                    </aura:set>
+                                                </aura:if>
+                                            </td>
+                                        </tr>
+                                    </aura:iteration>
+                                </table>
+                                <div class=" slds-p-left_small slds-p-top_x-large">
+                                    <a href="{!event.reportLink}" target="_blank"> View full Opportunity Report</a>
+                                </div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="4">
+                                <c:FunnelChart canvasId="{!event.eventName}" color="#0283f1,#06477d" chartTitle=" "
+                                    height="100" width="100" chartJson="{!event.chart}" />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:card>
+
+                </lightning:layoutItem>
+
+            </aura:iteration>
+        </aura:if>
+    </lightning:layout>
+
+    <!--================================= apex service ================================-->
+    <c:ApexService aura:id="service" />
+</aura:component>

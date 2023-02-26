@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>PersonOrgCertCnt</fullName>
+        <default>false</default>
+        <label>Associated Person Certifications</label>
+    </customValue>
+    <customValue>
+        <fullName>BoardMeetingAttendCnt</fullName>
+        <default>false</default>
+        <label>Board Meetings Attended</label>
+    </customValue>
+    <customValue>
+        <fullName>CodeCommitCnt</fullName>
+        <default>false</default>
+        <label>Code Commits</label>
+    </customValue>
+    <customValue>
+        <fullName>EvntAttendCnt</fullName>
+        <default>false</default>
+        <label>Event Attendence</label>
+    </customValue>
+    <customValue>
+        <fullName>ForumContribCnt</fullName>
+        <default>false</default>
+        <label>Forum Contributions</label>
+    </customValue>
+    <customValue>
+        <fullName>QBRAttendCnt</fullName>
+        <default>false</default>
+        <label>QBR Attendence</label>
+    </customValue>
+    <customValue>
+        <fullName>TrainingCmpltCnt</fullName>
+        <default>false</default>
+        <label>Training Completed</label>
+    </customValue>
+    <masterLabel>Benchmark Input Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

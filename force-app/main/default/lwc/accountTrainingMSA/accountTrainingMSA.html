@@ -1,0 +1,36 @@
+<template>
+    <div class="msa-container">
+
+        <div class="bold-heading">
+            General Event Sponsorship, Training and Certification MSA
+        </div>
+
+        <!-- if Account has MSA -->
+        <template if:true={hasMSA}>
+            <lightning-icon icon-name="utility:success" size="small" class="green-icon"></lightning-icon>
+            This account has a Master Training and Certification Agreement (MTCA) on file. 
+            Click <a href={msaURL} target="_blank">here</a> to view it.
+        </template>
+
+        <!-- if Account doesn't have MSA -->
+        <template if:false={hasMSA}>
+            <lightning-icon icon-name="utility:warning" size="small" class="orange-icon"></lightning-icon>
+            This account does not have a Master Training and Certification Agreement (MTCA) on file. 
+            You can upload one here:
+            <div class="uploader-container">
+                <lightning-file-upload
+                    name="fileUploader"
+                    accept={acceptedFormats}
+                    record-id={recordId}
+                    onuploadfinished={handleUploadFinished}>
+                </lightning-file-upload>
+            </div>
+            <template if:true={showMsg}>
+                <div class="msg">
+                    <em>{successMessage}</em>
+                </div>
+            </template>
+        </template>
+
+    </div>
+</template>

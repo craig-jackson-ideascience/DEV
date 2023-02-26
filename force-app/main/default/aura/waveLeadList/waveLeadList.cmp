@@ -1,0 +1,14 @@
+<aura:component description="waveLeadList"
+                implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+	
+    <!-- Atrributes -->
+    <aura:attribute name="leadListDashboardId" type="String" default="0FK2M000000bofTWAQ"/>
+
+        <lightning:card>
+            <div>
+                <wave:waveDashboard  showTitle="false" showHeader="false" dashboardId="{!v.leadListDashboardId}" height="600"/>
+            </div>
+        </lightning:card>
+    
+</aura:component>

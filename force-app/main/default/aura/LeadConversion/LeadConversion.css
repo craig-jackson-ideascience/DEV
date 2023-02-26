@@ -1,0 +1,10 @@
+.THIS .paddingClass{
+    padding : 4px !important;
+}
+.THIS .colorRedClass{
+    color : red !important;
+}
+.THIS.redBackgroundClass{
+    border-color: rgb(234,78,78) !important;
+    background-color: rgb(234, 78, 78) !important;
+}

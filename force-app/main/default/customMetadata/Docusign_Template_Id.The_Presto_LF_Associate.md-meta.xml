@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>The Presto - LF Associate</label>
+    <protected>false</protected>
+    <values>
+        <field>Product_List__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Projects_List__c</field>
+        <value xsi:type="xsd:string">tlf-Associate;presto;</value>
+    </values>
+    <values>
+        <field>Template_ID__c</field>
+        <value xsi:type="xsd:string">cc9bf37e-0f46-4304-84ad-f90a5dd0a331</value>
+    </values>
+</CustomMetadata>

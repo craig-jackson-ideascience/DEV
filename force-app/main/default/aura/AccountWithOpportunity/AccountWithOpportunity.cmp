@@ -1,0 +1,185 @@
+<aura:component controller="OpportunitylistViewCom"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="contacts" type="List" />
+    <aura:attribute name="OpportunityList" type="List" />
+    <aura:attribute name="OpportunityID" type="Id" />
+    <aura:attribute name="url" type="String"/>
+    <!-- Attribute for sorting -->
+    <aura:attribute name="arrowDirection" type="string" default="arrowup" description="Use for change arrow sign direction on header based on click"/>
+    <aura:attribute name="isAsc" type="boolean" default="true" description="boolean flag for pass sorting condition to apex class"/> 
+    <aura:attribute name="selectedTabsoft" type="string" default="firstName" description="Use for show/hide arraow sign on header based on conditions"/>
+    <!-- Attribute for paggination -->
+    <aura:attribute name="selectedCount" type="integer" default="0"/>
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:attribute type="Integer" name="totalRecords" />
+    <aura:attribute name="Attendees" type="List"/>
+    <aura:attribute type="Integer" name="pageSize" default="10" />
+    <aura:attribute name="backupPaginationList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <lightning:card iconName="standard:work_capacity_usage" title="Opportunity with Product">
+   <aura:set attribute="actions">
+            <div onkeyup="{! c.handleKeyUp }">
+                            <lightning:input aura:id="searchInput"
+                                             name="inline-search-input"
+                                             label="This is a search input with a hidden label. The label is still required for accessibility reasons"
+                                             type="search"
+                                             variant="label-hidden"
+                                             autocomplete="off"
+                                             />
+             </div>
+        </aura:set>
+ 		<div class="slds-scrollable_x" >
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                <thead>
+                    <tr class="slds-text-title--caps">
+                        <th>
+                        </th>
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.sortName}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="Name"> Name</span>  
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Name') }">&nbsp;  &#9660; </aura:if>  
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Name') }"> &nbsp;  &#9650; </aura:if>                        
+                            </a>
+                        </th>
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.sortRelatedTo}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span> 	
+                                <span class="slds-truncate" title="RelatedTo"> Related To</span>  
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Related_To__c') }">&nbsp;  &#9660; </aura:if>  
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Related_To__c') }"> &nbsp;  &#9650; </aura:if>                        
+                            </a>
+                        </th>
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.sortRecordType}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="Record Type">Record Type</span>
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Opportunity.RecordType.Name') }">&nbsp;  &#9660;</aura:if>
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Opportunity.RecordType.Name') }">&nbsp;  &#9650;</aura:if>     
+                                
+                            </a>
+                        </th>
+                        
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.sortAmount}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="Amount"> Amount</span>  
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Opportunity.Amount') }">&nbsp;  &#9660; </aura:if>  
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Opportunity.Amount') }"> &nbsp;  &#9650; </aura:if>                        
+                            </a>
+                        </th>
+                        
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.sortStageName}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="Stage Name">Stage Name</span>
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Opportunity.StageName') }">&nbsp;  &#9660;</aura:if>
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Opportunity.StageName') }">&nbsp;  &#9650;</aura:if>     
+                                
+                            </a>
+                        </th>
+                        
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.ProductName}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="Product Name">Product Name</span>
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Product_Name__c') }">&nbsp;  &#9660;</aura:if>
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Product_Name__c') }">&nbsp;  &#9650;</aura:if>     
+                            </a>
+                        </th>
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.TotalPrice}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="Total Price"> Total Price</span>  
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'TotalPrice') }">&nbsp;  &#9660; </aura:if>  
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'TotalPrice') }"> &nbsp;  &#9650; </aura:if>                        
+                            </a>
+                        </th>
+                        
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.InstallDate}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="Install Date">Install Date</span>
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Opportunity.Parent_Asset__r.InstallDate') }">&nbsp;  &#9660;</aura:if>
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Opportunity.Parent_Asset__r.InstallDate') }">&nbsp;  &#9650;</aura:if>     
+                                
+                            </a>
+                        </th>
+                        
+                        <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.EndDate}">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                <span class="slds-assistive-text">Sort</span>
+                                <span class="slds-truncate" title="End Date">End Date</span>
+                                <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'End_Date__c') }">&nbsp;  &#9660;</aura:if>
+                                <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'End_Date__c') }">&nbsp;  &#9650;</aura:if>     
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <!--table body start, 
+      Iterate contact list as a <tr>
+     -->
+                <tbody>
+                    <aura:iteration items="{!v.OpportunityList}" var="con">  
+                        <tr>
+                            <th><a id="{!con.OpportunityId}" href="" onclick="{!c.editAccount}">Edit</a></th>
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Opportunity.Name}"><!--<a href="{!con.url}"  target="_blank" class=" slds-text-link " style="font-size: 0.75rem;">
+                                                    {!con.Opportunity.Name}
+                                                </a>--><a id="{!con.OpportunityId}" onclick="{!c.openRecord}">{!con.Opportunity.Name}</a></div>
+                            </th>
+                            <th scope="row">
+                                <div class="slds-truncate" >{!con.Related_To__c}</div>
+                            </th>
+                            
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Opportunity.RecordType.Name}">{!con.Opportunity.RecordType.Name}</div>
+                            </th>
+                            
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Opportunity.Amount}">{!con.Opportunity.Amount}</div>
+                            </th> 
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Opportunity.StageName}">{!con.Opportunity.StageName}</div>
+                            </th>
+                            
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Product_Name__c}">{!con.Product_Name__c}</div>
+                            </th>
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.TotalPrice}">{!con.TotalPrice}</div>
+                            </th> 
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.Opportunity.Parent_Asset__r.InstallDate}"><ui:outputDate aura:id="EndDateField" value="{!con.Opportunity.Parent_Asset__r.InstallDate}"  format="MM/dd/yyyy"/></div>
+                            </th> 
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!con.End_Date__c}"><ui:outputDate aura:id="EndDateField" value="{!con.End_Date__c}"  format="MM/dd/yyyy"/></div>
+                            </th> 
+                        </tr>
+                        
+                    </aura:iteration>
+                    
+                </tbody>
+            </table> 
+        <br/>
+        <div class="slds-align_absolute-center">
+        <aura:renderIf isTrue="{!v.totalRecords > v.pageSize}">
+            <c:Pagination currentPageNumber="{!v.pageNumber}" 
+                          maxPageNumber="{!v.maxPage}"
+                          totalRecords="{!v.totalRecords}"
+                          pageSize="{!v.pageSize}"/>
+        </aura:renderIf>
+    </div>
+    <aura:set attribute="else">
+                <div aura:id="noRecordsFound"  style="text-align: center;">
+                    No Records Found  
+                </div>
+            </aura:set>
+        </div>
+      </lightning:card>
+    
+      
+</aura:component>

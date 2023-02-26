@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>pratik@cloudroute.in</contactEmail>
+    <contactPhone>09821345631</contactPhone>
+    <label>RenewalForm</label>
+    <oauthConfig>
+        <callbackUrl>https://linuxfoundation.my.salesforce.com/</callbackUrl>
+        <consumerKey>3MVG9Nc1qcZ7BbZ0Ep18pfQsltclRbu_SoCrfMJlEXvaogQT6B_2ZUtzPMRhAmo8oS1593n5UhMdVGhy4noac</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Full</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

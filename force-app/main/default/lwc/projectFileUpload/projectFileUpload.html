@@ -1,0 +1,87 @@
+<template>
+    <div class="project-files-container">
+
+        <!-- show if running user doesn't have edit access to current Project record -->
+        <template if:false={currentUserHasEditAccess}>
+            <em>The file uploader is hidden because you have read-only access to this project.</em>
+        </template>
+
+        <!-- show if running user does have edit access to current Project record -->
+        <template if:true={currentUserHasEditAccess}>
+
+            <!-- show if the Entity Type of this Project doesn't support file uploads -->
+            <template if:true={unsupportedEntityType}>
+                <em>The file uploader is hidden because the Entity Type of this project doesn't support file uploads.</em>
+            </template>
+            
+            <!-- show if the Entity Type of this Project does support file uploads -->
+            <template if:false={unsupportedEntityType}>
+
+                <!-- show if there are any file types left to upload -->
+                <template if:false={allFilesUploaded}>
+                    <div class="uploader-title small-bottom-margin">
+                        Upload a New File
+                    </div>
+                    <div class="small-bottom-margin">
+                        Before uploading any document, please confirm it has been signed by all parties.
+                    </div>
+
+                    <!-- show if the Entity Type hasn't been selected for this Project -->
+                    <template if:true={noEntityType}>
+                        <div class="small-bottom-margin">
+                            <b>Not seeing a document type you expect here?</b> Please select an Entity Type for this project, then refresh this page.
+                        </div>
+                    </template>
+
+                    <div class="small-bottom-margin">
+                        <lightning-combobox
+                            name="type"
+                            label="Select the document type:"
+                            value={docType}
+                            onchange={selectType}
+                            options={docTypes}
+                            field-level-help="The types available here will depend on 1) the Entity Type of this project, and 2) which document types have already been uploaded for this project.">
+                        </lightning-combobox>
+                    </div>
+                    <template if:true={requireEffectiveDate}>
+                        <div class="small-bottom-margin">
+                            <lightning-input
+                                type="date"
+                                name="effectivedate"
+                                label="Enter the effective date of the document:"
+                                onchange={handleEffectiveDateChange}
+                                date-style="short"
+                                field-level-help="Use the effective date written into the text of the document if possible.  Never use the document's version date.">
+                            </lightning-input>
+                        </div>
+                    </template>
+                    <template if:true={showInfoMessage}>
+                        <div class="small-bottom-margin">
+                            <b>{infoMessage}</b>
+                        </div>
+                    </template>
+                    <div class="uploader-container">
+                        <lightning-file-upload
+                            name="fileUploader"
+                            accept={acceptedFormats}
+                            record-id={recordId}
+                            onuploadfinished={handleUploadFinished}
+                            disabled={disableUpload}>
+                        </lightning-file-upload>
+                    </div>
+                    <template if:true={showSuccessMessage}>
+                        <div class="small-top-margin">
+                            <em>{successMessage}</em>
+                        </div>
+                    </template>
+                </template>
+
+                <!-- show if all file types are already uploaded -->
+                <template if:true={allFilesUploaded}>
+                    <em>The file uploader is hidden because all relevant files for this project have already been uploaded.</em>
+                </template>
+
+            </template>
+        </template>
+    </div>
+</template>

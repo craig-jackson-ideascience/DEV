@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Marketing Edx Enrollments</label>
+    <protected>false</protected>
+    <values>
+        <field>CampaignId__c</field>
+        <value xsi:type="xsd:string">7012M0000023yYLQAY</value>
+    </values>
+    <values>
+        <field>ContactId__c</field>
+        <value xsi:type="xsd:string">Contact_Name__c</value>
+    </values>
+    <values>
+        <field>Cron_Expression__c</field>
+        <value xsi:type="xsd:string">0 50 23 ? * THU *</value>
+    </values>
+    <values>
+        <field>Job_Run_Time__c</field>
+        <value xsi:type="xsd:string">Thursday 11:50 PM</value>
+    </values>
+    <values>
+        <field>LeadId__c</field>
+        <value xsi:type="xsd:string">Lead_Name__c</value>
+    </values>
+    <values>
+        <field>Query__c</field>
+        <value xsi:type="xsd:string">Select Id, Lead_Name__c, Contact_Name__c From Enrollment__c Where CreatedDate&gt;=LAST_N_DAYS:7 and Source__c = &apos;Edx&apos; AND ((Contact_Name__c  !=null AND Contact_Name__r.HasOptedOutOfEmail=false) OR (Lead_Name__c !=null AND Lead_Name__r.HasOptedOutOfEmail=false AND Lead_Name__r.isconverted=false))</value>
+    </values>
+</CustomMetadata>

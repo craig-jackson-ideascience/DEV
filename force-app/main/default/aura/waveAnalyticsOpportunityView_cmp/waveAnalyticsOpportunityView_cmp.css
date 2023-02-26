@@ -1,0 +1,11 @@
+.THIS .tableStyle {
+    overflow : auto;
+}
+
+.THIS .custom-css-table {
+    width: 100%;
+    overflow-y: scroll;
+}
+.THIS .custom-css-card {
+    width: 100% !important;
+}

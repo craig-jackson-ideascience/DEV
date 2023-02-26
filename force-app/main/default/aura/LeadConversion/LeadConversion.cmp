@@ -1,0 +1,39 @@
+<!--c:LeadConvesion-->
+<!--DESCRIPTION: THIS COMPONENT IS A CUSTOM COMPONENT FOR LEAD CONVERSION-->
+<!--USED ON THE RECORD PAGE OF LEAD-->
+
+<aura:component implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes"
+                access="global" controller="LeadConversionController">
+    
+    <!--ATTRIBUTE-->
+    <aura:attribute name="lead" type="object"/>
+    <aura:attribute name="alternateEmail" type="object"/>
+    <aura:attribute name="duplicateLeads" type="List" />
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+    
+    <!--START-->
+    <force:recordData aura:id="leadConversion"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.lead}"
+                      recordUpdated="{!c.handleRecordUpdated}"
+                      fields="FirstName,LastName,OwnerId,Email"
+                      mode="EDIT"/>
+    
+    
+    <aura:if isTrue="{!not(empty(v.alternateEmail))}">
+        <ui:message title="Information" severity="error" closable="false" class="redBackgroundClass">
+            <lightning:icon iconName="utility:info" alternativeText="Warning!" variant="warning" size="small"/>
+            <span ><b>Duplicate contact found <a href="{!'/'+v.alternateEmail.Contact_Name__c}"  target="_blank">{!v.alternateEmail.Contact_Name__r.Name}</a>. Do you want to <a onclick="{!c.handleConvert}">Convert</a>?</b></span>
+        </ui:message>
+    </aura:if>
+    <aura:if isTrue="{!not(empty(v.duplicateLeads))}">
+        <ui:message title="Information" severity="error" closable="false" class="redBackgroundClass">
+            <lightning:icon iconName="utility:info" alternativeText="Warning!" variant="warning" size="small"/>
+            <span ><b>Duplicate leads found <a href="{!'/'+v.duplicateLeads[0].Id}"  target="_blank">{!v.duplicateLeads[0].LastName}</a>. Do you want to <a onclick="{!c.handleMerge}">Merge</a> ?</b></span>
+        </ui:message>
+    </aura:if>
+    
+    <!--END-->
+</aura:component>

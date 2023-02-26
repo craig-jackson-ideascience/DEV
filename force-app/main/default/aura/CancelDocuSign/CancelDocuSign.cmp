@@ -1,0 +1,41 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,flexipage:availableForRecordHome,force:hasRecordId" 
+                											controller ="CancelOrResendDocusignController">
+    <c:ApexService aura:id="service" />
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:attribute name="envelopeId" type="string"/>
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    
+   	<div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium" >Cancel DocuSign</h4>
+    </div>
+    
+    <!-- MODAL BODY / INPUT FORM -->    
+    <div class="slds-modal__content slds-p-around--x-small slds-align_left  slds-is-relative" aura:id="modalbody" id="modalbody">
+        <form >
+            <!-- All the fields for the form input -->
+            <lightning:textarea  aura:id="field" required = "true" label="Enter reason to cancel:" name="reason" placeholder="Enter void reason" />
+        </form> 
+        
+    </div>   <!-- End of Modal Content -->  
+    
+    <!-- MODAL FOOTER -->
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <div class="forceChangeRecordTypeFooter">
+            <lightning:button label="Cancel" title="Cancel" onclick="{!c.handleCancel }"/>
+            <lightning:button variant="brand" label="Save" title="Save" onclick="{!c.handleSave}" />
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CCC Fund + LF Associates</label>
+    <protected>false</protected>
+    <values>
+        <field>Product_List__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Projects_List__c</field>
+        <value xsi:type="xsd:string">ccc;tlf-Associate;</value>
+    </values>
+    <values>
+        <field>Template_ID__c</field>
+        <value xsi:type="xsd:string">48298fbd-09e7-4adb-a3db-2ce803a4583d</value>
+    </values>
+</CustomMetadata>

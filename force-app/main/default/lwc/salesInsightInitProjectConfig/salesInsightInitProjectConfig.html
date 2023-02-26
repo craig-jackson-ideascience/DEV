@@ -1,0 +1,39 @@
+<template>
+    <lightning-quick-action-panel header="Sales Insight Project Configuration">
+        <lightning-spinner if:true={showSpinner}></lightning-spinner>
+        <P>Select an existing project to clone the configuration or select "--None--"" to create a default configuration </P>
+        <template if:true={recordId}>
+            <template if:true={hasConfigLoaded}>
+                <template if:true={hasConfig}>
+                    <div class="slds-text-color_destructive"></BR>This Project already has a configuration.</br>Creating a new configuration will overwrite the existing configuration</div>
+                    <lightning-input type="checkbox" 
+                                     label="Overwrite Existing?"
+                                     onchange={handleCheckboxChange}>
+                    </lightning-input>
+                    <P>&nbsp;</P>
+                </template>
+            </template>
+            <template if:true={prjsWithConfigLoaded}>
+                <lightning-combobox
+                        name="CloneProject"
+                        label="Project To Clone"
+                        value={cloneProjectId}
+                        placeholder="--None--"
+                        options={prjsWithConfig}
+                        onchange={handleProjectSelect}>
+                </lightning-combobox>
+            </template>
+            <div slot="footer">
+                <lightning-button variant="neutral"
+                    label="Cancel" onclick={closeAction}>
+                </lightning-button>
+                <lightning-button variant="brand"
+                    disabled={btnCreateDisabled}
+                    label={btnCreateLabel}
+                    onclick={cloneProject} 
+                    class="slds-m-left_x-small">
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-quick-action-panel>
+</template>

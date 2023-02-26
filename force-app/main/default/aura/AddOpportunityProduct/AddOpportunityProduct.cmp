@@ -1,0 +1,115 @@
+<!--c:AddOpportunityProduct-->
+<aura:component controller="AddOpportunityProductController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <!--ATTRIBUTES-->
+    <aura:attribute name="productTypes" type="List"/>
+    <aura:attribute name="selectedProductType" type="String"/>
+    <aura:attribute name="productCategories" type="List"/>
+    <aura:attribute name="selectedProductCategory" type="String"/>
+    <aura:attribute name="projectOrEvents" type="List"/>
+    <aura:attribute name="mainSelectedProducts" type="List"/>
+    <aura:attribute name="selectedProjectOrEvent" type="String"/>
+    <aura:attribute name="showSpinner" type="boolean" default="false"/>
+    <aura:attribute name="isWon" type="boolean" default="false"/>
+    <aura:attribute name="showChooseProducts" type="boolean" default="false"/>
+    <aura:attribute name="certificationNo" type="Integer"/>
+    <aura:attribute name="contractAmount" type="Decimal"/>
+    <aura:attribute name="endDate" type="Date"/>
+    <aura:attribute name="opportunityId" type="string" default="00656000007fBxcAAE"/>
+    <aura:attribute name="notificationmessage" type="string" default=""/>
+    <aura:attribute name="activeSections" type="List" default="['addProducts']"/>
+    
+    <aura:attribute name="opportunityCurrency" type="String"/>
+
+    <!--HANDLER-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+    
+    <!--START-->
+    <!--SPINNER-->
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner aura:id="spin"  size="large"  alternativeText="Processing.." />
+    </aura:if>
+    
+    <aura:if isTrue="{!v.isWon}">
+        <lightning:card   class="slds-card_boundary" variant="base">
+            <span style="font-size:16px;font-weight:bold" class="slds-align_absolute-center">Can not add Opportunity Product under Close Win Opportunity!</span>
+        </lightning:card>
+        <aura:set attribute="else">
+            <lightning:card  title="Insert The Opportunity Product" class="slds-card_boundary" variant="base">
+                <aura:set attribute="actions">
+                    <lightning:button label="Insert Opportunity Products" title="Insert Opportunity Products" onclick="{! c.handleInsert }"/>
+                    <lightning:button label="Cancel" title="Cancel" onclick="{! c.handleCancel }"/>
+                </aura:set>
+                <aura:set attribute="body">
+                    <div class="slds-card__body_inner">
+                        <div style="font-weight:bold;color:red;margin-bottom:7px;" class="slds-hide" aura:id="errorDiv">
+                            This product requires an active LF membership, please confirm before continuing.<br/>
+                        </div>
+                        <div style="font-weight:bold;color:red;margin-bottom:7px; font-size: large;" class="slds-hide" aura:id="warningDiv">
+                            {!v.notificationmessage}<br/>
+                        </div>
+                        <!--CHOOSE PRODUCT TYPE CARD-->
+                        <lightning:accordion aura:id="accordion" activeSectionName="{!v.activeSections}" allowMultipleSectionsOpen="true"
+                                             class="accordionMargin">
+                            <lightning:card class="slds-card_boundary" variant="base">
+                                <lightning:accordionSection name="addProducts" label="Add Products"> 
+                                    <lightning:layout>
+                                        <lightning:layoutItem padding="around-small" size="4">
+                                            <lightning:combobox aura:id="productType" label="Product Type" value="{!v.selectedProductType}" placeholder="--None--"
+                                                                options="{! v.productTypes }" onchange="{!c.handleProductTypeChange}"/>
+                                        </lightning:layoutItem>
+                                        <aura:if isTrue="{!and(v.selectedProductType != 'Membership', v.selectedProductType != 'Alternate Funding')}">
+                                            <lightning:layoutItem padding="around-small" size="4">
+                                                <lightning:combobox aura:id="productCategory" label="Product Category" value="" placeholder="--None--"
+                                                                    options="{! v.productCategories }" onchange="{!c.handleProductCategoryChange}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.selectedProductType != 'Training'}">
+                                            <lightning:layoutItem padding="around-small" size="4">
+                                                <lightning:combobox aura:id="projectOrEvent" label="Project / Event" value="" placeholder="--None--"
+                                                                    options="{! v.projectOrEvents }" onchange="{!c.handleProjectChange}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                    </lightning:layout>
+                                </lightning:accordionSection>
+                            </lightning:card>
+                        </lightning:accordion>
+                        
+                        <!-- Choose contract amount  only for subscription /bundles-->
+                        <aura:if isTrue ="{!v.selectedProductCategory == 'Bundle' || v.selectedProductCategory =='Subscription'}">
+                            <lightning:card  title="Add Details" class="slds-card_boundary" variant="base">
+                                <lightning:layout>
+                                    <lightning:layoutItem padding="around-small" size="4">
+                                        <!-- All the fields for the form input -->
+                                        <lightning:input type="number" required="true" name="amount" label="Contract Amount" value="{!v.contractAmount}" />
+                                        <aura:if isTrue="{!v.selectedProductCategory == 'Subscription'}">
+                                            <lightning:input required="true" type="number" name="amount" label="Number of Certificates" value="{!v.certificationNo}" />
+                                        </aura:if>
+                                        <!--<lightning:input type="date" required="true" name="date" label="End Date" value="{!v.endDate}" />-->
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                            </lightning:card>
+                        </aura:if>
+                        
+                        
+                        <!--Choose Products Component-->
+                        <aura:if isTrue="{!v.showChooseProducts}">
+                            <c:ChooseProducts aura:id="chooseProducts" selectedProductType="{!v.selectedProductType}" selectedProductCategory="{!v.selectedProductCategory}" 
+                                              selectedProjectOrEvent="{!v.selectedProjectOrEvent}" showSpinner="{!v.showSpinner}"
+                                              mainSelectedProducts="{!v.mainSelectedProducts}" selectedCurrency="{!v.opportunityCurrency}"/>
+                        </aura:if>   
+                        
+                    </div>
+                </aura:set>        
+            </lightning:card>
+        </aura:set>
+    </aura:if>
+    
+    
+    
+    
+    <!--END-->
+    
+</aura:component>

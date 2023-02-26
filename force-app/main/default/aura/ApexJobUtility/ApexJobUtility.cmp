@@ -1,0 +1,116 @@
+<!--ApexJobUtility-->
+<aura:component implements="force:appHostable" controller="ApexJobUtilityController">
+    
+    <!-- Atrributes -->
+    <aura:attribute name="configuredJobs" type="List" default="[]"/>
+    <aura:attribute name="selectedJob" type="Object" />
+    <aura:attribute name="showSpinner" type="boolean" default="true"/>
+    
+    <!--PAGINATION VARIABLES-->
+    <aura:attribute name="PaginationList" type="list"/> 
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:attribute type="Integer" name="totalRecords" /> 
+    <aura:attribute type="Integer" name="pageSize" default="4" />
+    
+    <!-- Handlers -->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+    <lightning:navigation aura:id="navService"/>
+    
+    <!--Start-->
+    <div class="slds-box slds-theme_shade">
+        <lightning:card title="Configured Jobs">
+            <aura:set attribute="actions">
+                <lightning:button label="View Settings" name="View Settings" onclick="{!c.viewSettingsController}"/>
+                <lightning:button label="View All Scheduled Jobs" name="View All Scheduled Jobs" onclick="{!c.viewAllScheduledJobsController}"/>
+                <lightning:button label="Monitor Jobs" name="Monitor Jobs" onclick="{!c.viewMonitorJobsController}"/>
+                <lightning:button label="Schedule All Jobs" name="Schedule All Jobs" onclick="{!c.executeAllJobsController}"/>
+                <lightning:button label="Cancel All Jobs" name="Cancel All Jobs" onclick="{!c.cancelAllScheduledJobsController}"/>
+            </aura:set>
+            
+            <!--SPINNER-->
+            <aura:if isTrue="{!v.showSpinner}">
+                <lightning:spinner aura:id="spin"  size="large"  alternativeText="Processing.." />
+            </aura:if>
+            
+            <div style="padding:5px">
+                <table class="slds-table  slds-table_bordered slds-table_col-bordered" border="1" style="border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <div class="slds-grid">
+                                <th class="slds-col slds-size_1-of-12"> Action</th>
+                                <th class="slds-col slds-size_2-of-12"> Scheduled Job Name</th>
+                                <th class="slds-col slds-size_3-of-12"> Query</th>
+                                <th class="slds-col slds-size_1-of-12"> Contact Api Name</th>
+                                <th class="slds-col slds-size_1-of-12"> Lead Api Name</th>
+                                <th class="slds-col slds-size_1-of-12"> Campaign Id</th>
+                                <th class="slds-col slds-size_1-of-12">Job Run TIme</th>
+                                <th class="slds-col slds-size_1-of-12">Cron Expression</th>
+                                <th class="slds-col slds-size_1-of-12">Next Fire Time</th>
+                            </div>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <!--<div class="slds-scrollable_y" style="height:200px">-->
+                        <aura:iteration items="{!v.PaginationList}" var="job" indexVar="index">
+                            <div class="slds-grid">
+                                <td class="slds-col slds-size_1-of-12">
+                                    <div >
+                                        <aura:If isTrue="{!job.canExecute}">
+                                            <lightning:button variant="brand" label="Execute" title="Execute" class="widthClass" onclick="{! c.executeTheJob }" name="{!index}"/>
+                                            
+                                            
+                                        </aura:If>
+                                    </div>
+                                    <div>
+                                        <aura:If isTrue="{!job.canSchedule}">
+                                            <lightning:button variant="brand" label="Schedule" title="Schedule" onclick="{! c.scheduleTheJob }" name="{!index}" class="widthClass"/>
+                                        </aura:If> 
+                                    </div>
+                                    <div>
+                                        <aura:If isTrue="{!job.canCancel}">
+                                            <lightning:button variant="brand" label="Cancel" title="Cancel" onclick="{! c.cancelTheSchedule }" name="{!index}" class="widthClass"/>
+                                        </aura:If> 
+                                    </div>
+                                </td>
+                                <td class="slds-col slds-size_2-of-12 slds-cell-wrap">{!job.name}</td>
+                                
+                                <td class="slds-col slds-size_3-of-12 slds-cell-wrap">{!job.query}</td>
+                                
+                                <td class="slds-col slds-size_1-of-12 slds-cell-wrap">{!job.contactId}</td>
+                                
+                                <td class="slds-col slds-size_1-of-12 slds-cell-wrap">{!job.leadId}</td>
+                                
+                                <td class="slds-col slds-size_1-of-12 slds-cell-wrap">{!job.campaignId}</td>
+                                
+                                <td class="slds-col slds-size_1-of-12 slds-cell-wrap">{!job.jobRunTime}</td>
+                                
+                                <td class="slds-col slds-size_1-of-12 slds-cell-wrap">{!job.cronExpression}</td>
+                                
+                                <td class="slds-col slds-size_1-of-12 slds-cell-wrap">
+                                    <lightning:formattedDateTime value="{!job.nextFireTime}" year="numeric" month="numeric" day="numeric"  hour="2-digit" minute="2-digit" timeZone="America/Los_Angeles"/> 
+                                </td>
+                            </div>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                
+                <!--Pagination-->
+                <div class="slds-align_absolute-center" style="padding: 30px;">
+                    <aura:if isTrue="{!v.totalRecords > v.pageSize}">
+                        <c:Pagination currentPageNumber="{!v.pageNumber}" 
+                                      maxPageNumber="{!v.maxPage}"
+                                      totalRecords="{!v.totalRecords}"
+                                      pageSize="{!v.pageSize}"/>
+                    </aura:if>
+                </div>
+            </div>
+        </lightning:card>
+    </div>
+    <!--End-->
+</aura:component>

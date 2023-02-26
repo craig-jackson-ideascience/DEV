@@ -1,0 +1,256 @@
+<aura:component
+	implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable"
+	access="global" controller="ViewMoreController">
+
+	<!--================================= attributes ================================-->
+	<!-- chart attributes -->
+	<aura:attribute name="chartData" type="String" access="global" />
+	<aura:attribute name="chartTableData" type="List" access="global" />
+	<aura:attribute name="leadTableAllRecords" type="List" access="global" />
+	<aura:attribute name="dataInPercent" type="List" />
+
+	<!-- table attributes -->
+	<aura:attribute name="columns" type="List" access="global" />
+	<aura:attribute name="loaded" type="Boolean" default="false" access="global" />
+	<aura:attribute name="foundationId" type="string" default="a0941000002wBz9AAE" access="global" />
+	<aura:attribute name="componentType" type="string" default="" access="global" />
+
+	<!-- filter attributes -->
+	<aura:attribute name="selectedSource" type="List" default="" />
+	<aura:attribute name="selectedPurchaseTypes" type="List" default="" />
+	<aura:attribute name="daysFromPurchaseDate" type="string" default="0" />
+	<aura:attribute name="hasData" type="Boolean" default="false" />
+	<aura:attribute name="hasTableData" type="Boolean" default="false" />
+	<aura:attribute name="selectedDate" type="String" default="0" />
+	<aura:attribute name="selectedProjectName" type="String" />
+	<aura:attribute name="operatorOptions" type="List" default="[
+    {'label': 'Equals', 'value': 'Equals'},
+    {'label': 'Not equals', 'value': 'Not equals'},
+    {'label': 'Contains', 'value': 'contains'},
+    ]" />
+	<aura:attribute name="checkboxOptions" type="List" />
+	<aura:attribute name="checkboxValues" type="List" />
+	<aura:attribute name="selectedOperator" type="String" default="Equals" />
+	<aura:attribute name="changePicklistValues" type="Boolean" default="false" />
+
+	<!-- date filter attributes -->
+	<aura:attribute name="selectedDateValues" type="List" />
+	<aura:attribute name="selectedDateValue" type="string" default="" />
+	<aura:attribute name="compareOperator" type="string" default="" />
+	<aura:attribute name="dateOptions" type="List" default="[
+                    {'label': 'All Time', 'value': 'All'},
+                    {'label': 'Custom', 'value': 'Custom'},
+                    {'label': 'Fiscal Year', 'value': 'Static'},
+                    {'label': 'Current Fiscal Year', 'value': 'THIS_FISCAL_YEAR'},
+                    {'label': 'Previous Fiscal Year', 'value': 'LAST_FISCAL_YEAR'},
+                    {'label': 'Next Fiscal Year', 'value': 'NEXT_FISCAL_YEAR'},
+                    {'label': 'Current Fiscal Year To Date', 'value': 'This_Fiscal_Year_Plus_To_Date'},
+                    {'label': 'Previous Fiscal Year To Date', 'value': 'Last_Fiscal_Year_Plus_To_Date'},
+                    {'label': 'Fiscal Quarter', 'value': 'Static'},
+                    {'label': 'Current Fiscal Quarter', 'value': 'THIS_FISCAL_QUARTER'},
+                    {'label': 'Previous Fiscal Quarter', 'value': 'LAST_FISCAL_QUARTER'},
+                    {'label': 'Next Fiscal Quarter', 'value': 'NEXT_FISCAL_QUARTER'},
+                    {'label': 'Current Fiscal Quarter To Date', 'value': 'This_Fiscal_Quarter_Plus_To_Date'},
+                    {'label': 'Previous Fiscal Quarter To Date', 'value': 'Last_Fiscal_Quarter_Plus_To_Date'},
+                    {'label': 'Calender Year', 'value': 'Static'},
+                    {'label': 'Current Year', 'value': 'THIS_YEAR'},
+                    {'label': 'Previous Year', 'value': 'LAST_YEAR'},
+                    {'label': 'Next Year', 'value': 'NEXT_YEAR'},
+                    {'label': 'Current Year To Date', 'value': 'This_Year_Plus_To_Date'},
+                    {'label': 'Previous Year To Date', 'value': 'Last_Year_Plus_To_Date'},
+                    {'label': 'Calender Quarter', 'value': 'Static'},
+                    {'label': 'Current Quarter', 'value': 'THIS_QUARTER'},
+                    {'label': 'Previous Quarter', 'value': 'LAST_QUARTER'},
+                    {'label': 'Next Quarter', 'value': 'NEXT_QUARTER'},
+                    {'label': 'Current Quarter To Date', 'value': 'This_Quarter_Plus_To_Date'},
+                    {'label': 'Previous Quarter To Date', 'value': 'Last_Quarter_Plus_To_Date'},
+                    {'label': 'Calender Month', 'value': 'Static'},
+                    {'label': 'Current Month', 'value': 'THIS_MONTH'},
+                    {'label': 'Previous Month', 'value': 'LAST_MONTH'},
+                    {'label': 'Next Month', 'value': 'NEXT_MONTH'},
+                    {'label': 'Current Month To Date', 'value': 'This_Month_Plus_To_Date'},
+                    {'label': 'Previous Month To Date', 'value': 'Last_Month_Plus_To_Date'},
+                    {'label': 'Day', 'value': 'Static'},
+                    {'label': 'Last 7 Days', 'value': 'LAST_N_DAYS:7'},
+                    {'label': 'Last 30 Days', 'value': 'LAST_N_DAYS:30'},
+                    {'label': 'Last 90 Days', 'value': 'LAST_90_DAYS'},
+                    {'label': 'Last 180 Days', 'value': 'LAST_N_DAYS:180'},
+                    {'label': 'Next 7 Days', 'value': 'NEXT_N_DAYS:7'},
+                    {'label': 'Next 30 Days', 'value': 'NEXT_N_DAYS:30'},
+                    {'label': 'Next 90 Days', 'value': 'NEXT_90_DAYS'},
+                    {'label': 'Next 180 Days', 'value': 'NEXT_N_DAYS:180'}]" />
+
+	<!-- pagination attributes -->
+	<aura:attribute name="pageNumber" type="Integer" default="1" />
+	<aura:attribute name="maxPage" type="Integer" default="1" />
+	<aura:attribute name="totalRecords" type="Integer" />
+	<aura:attribute name="pageSize" type="Integer" default="10" />
+	<!-- for message -->
+	<aura:attribute name="message" type="string" access="public" />
+	<aura:attribute name="reportURL" type="string" access="public" />
+
+	<aura:attribute name="purchaseTypeOptions" type="List" default="[
+    {'label': 'All', 'value': 'All'}
+    ]" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler name="AdvancedDateChangedEvent" event="c.AdvancedDateChangedEvent"
+		action="{!c.handleDateChangeEvent}" />
+	<aura:handler name="selectChange" event="c.selectChange" action="{!c.handleSourceChangeEvent}" />
+	<aura:handler name="change" value="{!v.pageNumber}" action="{!c.renderPage}" />
+	<c:ApexService aura:id="service" />
+
+	<aura:if isTrue="{!v.loaded}">
+		<div class="spinnerFixed">
+			<lightning:spinner alternativeText="Loading" variant="brand" class="spins" />
+		</div>
+	</aura:if>
+
+	<aura:html tag="style">
+		.cDataTable .cTable thead th:first-child { width: 55% !important; }
+		.cDataTable .cTable thead th { background-color: #f4f6f9 !important;
+		font-weight: 700 !important; font-size: 12px !important; color: #16325c
+		!important; fill: #16325c !important; border-color: #e0e5ee !important;
+		line-height: 1.5 !important; padding: 3px 0px !important; border-left: 1px
+		solid #e0e5ee !important; border-bottom-color: #a8b7c7 !important; }
+		.cDataTable .cTable tbody td{ padding-top: 0.50rem !important;
+		padding-bottom: 0.50rem !important; font-size: 12px !important; font-weight:
+		400 !important; color: #16325c !important; fill: #16325c !important;
+		line-height: 1.5 !important; border-left: 1px solid #e0e5ee !important; }
+		.cDataTable .cTable tbody td a{ color: #16325c !important; }
+		.app_flexipage-header[app_flexipage-lwcAppFlexipageDecorator_lwcAppFlexipageDecorator]
+		{ display: none !important; } .accRecvHeader{ font-size: 20px; color: rgb(9,
+		26, 62); background-color: rgb(255, 255, 255); line-height: 2; }
+	</aura:html>
+
+	<div class="slds-card">
+		<div class="slds-card__header slds-grid">
+			<header class="slds-media slds-media_center slds-has-flexi-truncate">
+				<div class="slds-media__body">
+					<h2 class="slds-card__header-title">
+						<span class="slds-text-heading_small slds-truncate">Foundation : {!v.selectedProjectName}</span>
+					</h2>
+				</div>
+			</header>
+		</div>
+
+		<!--div class="slds-grid">
+            <div class="slds-col">-->
+		<lightning:layout verticalAlign="center" horizontalAlign="spread">
+			<lightning:layoutItem size="4">
+				<lightning:layout verticalAlign="center">
+					<lightning:layoutItem padding="around-small">
+						<div class="custom-box">
+							<img src="{!$ContentAsset.03S2M000000XdgV}" width="40" alt="holiday wreath" />
+						</div>
+					</lightning:layoutItem>
+					<lightning:layoutItem padding="around-small">
+						<aura:if isTrue="{!v.componentType == 'AccountReceivable'}">
+							<div class="accRecvHeader">Account Receivable</div>
+							<aura:set attribute="else">
+								<aura:if isTrue="{!v.componentType == 'Lead'}">
+									<div class="accRecvHeader">Leads</div>
+									<aura:set attribute="else">
+										<div class="accRecvHeader">Stacked graph of MEMBERSHIP by Product </div>
+									</aura:set>
+								</aura:if>
+							</aura:set>
+						</aura:if>
+					</lightning:layoutItem>
+				</lightning:layout>
+			</lightning:layoutItem>
+			<lightning:layoutItem size="2">
+				<div style="color: rgb(243, 13, 13);" title="{!v.message}">
+					{!v.message} <aura:if isTrue="{!if(and(v.message != '', v.message != null), true , false)}"> <a
+							href="{!v.reportURL}" target="_blank"> Report View </a> </aura:if>
+				</div>
+			</lightning:layoutItem>
+
+			<lightning:layoutItem size="6">
+				<aura:if isTrue="{!v.componentType == 'AccountReceivable'}">
+					<!-- Account Receivable filters -->
+
+					<lightning:layout verticalAlign="end" horizontalAlign="space">
+						<lightning:layoutItem padding="around-small">
+							<lightning:combobox name="Select operator" label="Operator" value="{! v.selectedOperator}"
+								options="{! v.operatorOptions }" />
+						</lightning:layoutItem>
+
+						<lightning:layoutItem padding="around-small">
+							<c:MultiSelectLC aura:id="my-multi-monthDownload" options="{!v.checkboxOptions}"
+								infoText="None Selected" label="Days" auraidmodal="my-multi-monthDownload"
+								selectedItems="{!v.checkboxValues}" showApplyButton="false" />
+							<!-- <lightning:select name="Days" label="Days" value="{!v.selectedDate}" onchange="{!c.dateChanged}">
+                                    <option value="All">All</option>
+                                    <option value="30">30</option>
+                                    <option value="60">60</option>
+                                    <option value="90">90</option>
+                                    <option value="120">120+</option>
+                                </lightning:select> -->
+							<!-- <lightning:checkboxGroup label="Days" options="{! v.checkboxOptions }" value="{! v.checkboxValues }" /> -->
+						</lightning:layoutItem>
+
+						<lightning:layoutItem padding="around-small">
+							<lightning:button label="Apply" onclick="{!c.dataChanged}" variant="brand" />
+						</lightning:layoutItem>
+					</lightning:layout>
+					<aura:set attribute="else">
+						<aura:if isTrue="{!v.componentType == 'Lead'}">
+							<!-- Lead  filters -->
+							<lightning:layout verticalAlign="end" horizontalAlign="space">
+								<lightning:layoutItem padding="around-small">
+									<c:AdvancedDateFilter aura:id="my-multi-createdDate" label="Created Date"
+										auraidmodal="my-multi-createdDate" options="{!v.dateOptions}"
+										selectedItems="{!v.selectedDateValues}" componentType="{!v.componentType}" />
+								</lightning:layoutItem>
+								<lightning:layoutItem padding="around-small">
+									<aura:if isTrue="{!not(empty(v.checkboxOptions))}">
+										<c:MultiSelectLC aura:id="my-multi-monthDownload" options="{!v.checkboxOptions}"
+											infoText="None Selected" label="Lead Source"
+											auraidmodal="my-multi-monthDownload" selectedItems="{!v.checkboxValues}"
+											showApplyButton="true" loaded="{!v.loaded}" showCancelButton="true" />
+									</aura:if>
+								</lightning:layoutItem>
+							</lightning:layout>
+							<aura:set attribute="else">
+								<!-- Revenue filters -->
+								<lightning:layout verticalAlign="end" horizontalAlign="space">
+									<lightning:layoutItem padding="around-small">
+										<c:AdvancedDateFilter aura:id="my-multi-createdDate" label="Install Date"
+											auraidmodal="my-multi-createdDate" options="{!v.dateOptions}"
+											selectedItems="{!v.selectedDateValues}"
+											componentType="{!v.componentType}" />
+									</lightning:layoutItem>
+									<lightning:layoutItem padding="around-small">
+										<c:MultiSelectLC aura:id="my-multi-monthDownload"
+											options="{!v.purchaseTypeOptions}" infoText="None Selected"
+											label="Purchase Type" auraidmodal="my-multi-monthDownload"
+											selectedItems="{!v.checkboxValues}" showApplyButton="true"
+											showCancelButton="true" loaded="{!v.loaded}" />
+									</lightning:layoutItem>
+								</lightning:layout>
+							</aura:set>
+						</aura:if>
+					</aura:set>
+				</aura:if>
+			</lightning:layoutItem>
+		</lightning:layout>
+		<!--</div>
+            <div class="slds-col">-->
+
+		<!-- </div>-->
+		<!-- </div>-->
+		<div class="slds-p-around--small">
+			<c:dataTable aura:id="datatableId" auraId="datatableId" columns="{!v.columns}" data="{!v.chartTableData}"
+				showRowNumberColumn="false" />
+			<div class="slds-align_absolute-center">
+				<aura:if isTrue="{!v.componentType == 'Lead'}">
+					<aura:renderIf isTrue="{!v.totalRecords > v.pageSize}">
+						<c:Pagination currentPageNumber="{!v.pageNumber}" maxPageNumber="{!v.maxPage}"
+							totalRecords="{!v.totalRecords}" pageSize="{!v.pageSize}" />
+					</aura:renderIf>
+				</aura:if>
+			</div>
+		</div>
+	</div>
+</aura:component>

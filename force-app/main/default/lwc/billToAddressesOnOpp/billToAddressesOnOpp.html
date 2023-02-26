@@ -1,0 +1,78 @@
+<template>
+    
+    <lightning-card title="Alternate Bill To Name and Address">
+        <template if:true={addressesExist}>
+            <div class="card-body">
+                <lightning-combobox
+                    name="addresses"
+                    label="Alternate Bill To Names and Address options for this Account:"
+                    placeholder="None selected (using Account's Name and Address)"
+                    value={selectedAddress}
+                    options={addresses}
+                    field-level-help="If an alternate Bill To Name and Address is selected, those values will be used instead of the name and address of the Account itself."
+                    onchange={handleAddressChange}>
+                </lightning-combobox>
+                <div class="button-container">
+                    <lightning-button-group>
+                        <lightning-button variant="brand-outline" label="Create New" onclick={handleOpenModal}></lightning-button>
+                        <lightning-button variant="brand-outline" label="Revert to Account's Name and Address" onclick={useAccountAddress}></lightning-button>
+                        <lightning-button variant="brand" label="Save" onclick={saveBillToAddress}></lightning-button>
+                    </lightning-button-group>
+                    <template if:true={showMessage}>
+                        <div class="message">{message}</div>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <template if:false={addressesExist}>
+            <div class="card-body">
+                <p class="slds-p-horizontal_small">There are no alternate Bill To Name and Addresses for this Account.</p>
+                <div class="button-container">
+                    <lightning-button-group>
+                        <lightning-button variant="brand-outline" label="Create New" onclick={handleOpenModal}></lightning-button>
+                    </lightning-button-group>
+                    <template if:true={showMessage}>
+                        <div class="message">{message}</div>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+
+    <template if:true={modalOpen}>
+        <div>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 class="slds-text-heading_medium slds-hyphenate">New Bill To Name and Address</h2>
+                    </header>
+                    <div class="slds-modal__content">
+                        <lightning-record-edit-form object-api-name={addressObject} onsuccess={handleAddressCreated}>
+                            <lightning-messages></lightning-messages>
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input-field field-name={nameField} required></lightning-input-field>
+                                    <lightning-input-field field-name={streetField}></lightning-input-field>
+                                    <lightning-input-field field-name={cityField}></lightning-input-field>
+                                    <lightning-input-field field-name={stateField}></lightning-input-field>
+                                    <lightning-input-field field-name={zipField}></lightning-input-field>
+                                    <lightning-input-field field-name={countryField}></lightning-input-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-input-field field-name={accountField} required value={accountID}></lightning-input-field>
+                                    <lightning-input-field field-name={descriptionField}></lightning-input-field>
+                                </div>
+                                </div>
+                                <footer class="slds-modal__footer">
+                                <lightning-button label="Cancel" variant="neutral" onclick={handleCloseModal} class="slds-m-left_x-small small-button"></lightning-button>
+                                <lightning-button type="submit" variant="brand" label="Save" class="slds-m-left_x-small small-button"></lightning-button>
+                            </footer>
+                        </lightning-record-edit-form>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </template>
+
+</template>

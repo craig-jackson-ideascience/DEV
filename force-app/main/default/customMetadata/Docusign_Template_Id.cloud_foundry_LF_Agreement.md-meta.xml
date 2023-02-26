@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>cloud-foundry + LF Agreement</label>
+    <protected>false</protected>
+    <values>
+        <field>Product_List__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Projects_List__c</field>
+        <value xsi:type="xsd:string">cloud-foundry;tlf;</value>
+    </values>
+    <values>
+        <field>Template_ID__c</field>
+        <value xsi:type="xsd:string">a6016780-7a94-4009-abd3-37f60b5960af</value>
+    </values>
+</CustomMetadata>

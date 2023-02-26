@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>LF Auto Renew Email</label>
+    <protected>false</protected>
+    <values>
+        <field>Auto_Renew__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Called_From__c</field>
+        <value xsi:type="xsd:string">Report</value>
+    </values>
+    <values>
+        <field>CampaignId__c</field>
+        <value xsi:type="xsd:string">7012M000001rc2gQAA</value>
+    </values>
+    <values>
+        <field>ProductId__c</field>
+        <value xsi:type="xsd:string">01t2M000005wBb0QAE</value>
+    </values>
+    <values>
+        <field>ProjectId__c</field>
+        <value xsi:type="xsd:string">a0941000002wBz9AAE</value>
+    </values>
+</CustomMetadata>

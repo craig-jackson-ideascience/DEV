@@ -1,0 +1,19 @@
+.project-files-container{
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: 0.25rem;
+    background-color: white;
+    padding: 16px;
+}
+.uploader-title{
+    font-size: 16px;
+    font-weight: 700;
+}
+.uploader-container{
+    margin-top: -10px;
+}
+.small-bottom-margin{
+    margin-bottom: 12px;
+}
+.small-top-margin{
+    margin-top: 12px;
+}

@@ -1,0 +1,28 @@
+<aura:component description="stackedMembershipByProduct"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+	
+    <!-- Atrributes -->
+    <aura:attribute name="dashboardId" type="String" default="0FK2M000000bosKWAQ"/>
+    
+    <aura:attribute name="dashboardData" type="string" />  
+    <aura:attribute name="isWADisplay" type="boolean" default="false"/>
+    <aura:attribute name="foundationRecord" type="Sobject" />
+    <!-- Handlers -->
+    <aura:handler event="c:StackedMembershipByProductEvent" action="{!c.filteronOnStackedMembership}"/>
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    
+    <aura:if isTrue="{!v.dashboardData}">
+        <lightning:card>
+            <div>
+                <wave:waveDashboard aura:id="myDashboard" openLinksInNewWindow="true" showTitle="false" showHeader="false" dashboardId="{!v.dashboardId}" height="560" filter="{!v.dashboardData}"/>
+            </div>
+        </lightning:card>
+        <aura:set attribute="else">
+            Loading....
+        </aura:set>
+    </aura:if>
+</aura:component>

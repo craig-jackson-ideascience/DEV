@@ -1,0 +1,4 @@
+<design:component label="Foundation View">
+    <design:attribute name="developerName" label="Dashboard Name" />
+    <design:attribute name="recordId" label="Record ID" description="ID of the record"/>
+</design:component>

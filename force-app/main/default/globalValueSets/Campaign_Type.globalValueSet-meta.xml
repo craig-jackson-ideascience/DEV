@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Email</fullName>
+        <default>false</default>
+        <label>Email</label>
+    </customValue>
+    <customValue>
+        <fullName>Event</fullName>
+        <default>false</default>
+        <label>Event</label>
+    </customValue>
+    <customValue>
+        <fullName>Gated Asset</fullName>
+        <default>false</default>
+        <label>Gated Asset</label>
+    </customValue>
+    <customValue>
+        <fullName>Member Engagement</fullName>
+        <default>false</default>
+        <label>Member Engagement</label>
+    </customValue>
+    <customValue>
+        <fullName>New Member Onboarding</fullName>
+        <default>false</default>
+        <label>New Member Onboarding</label>
+    </customValue>
+    <customValue>
+        <fullName>Project</fullName>
+        <default>false</default>
+        <label>Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Request for Information</fullName>
+        <default>false</default>
+        <label>Request for Information</label>
+    </customValue>
+    <customValue>
+        <fullName>Subscription Center</fullName>
+        <default>false</default>
+        <label>Subscription Center</label>
+    </customValue>
+    <customValue>
+        <fullName>Survey</fullName>
+        <default>false</default>
+        <label>Survey</label>
+    </customValue>
+    <customValue>
+        <fullName>Third Party Event</fullName>
+        <default>false</default>
+        <label>Third Party Event</label>
+    </customValue>
+    <customValue>
+        <fullName>Training</fullName>
+        <default>false</default>
+        <label>Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Web Form</fullName>
+        <default>false</default>
+        <label>Web Form</label>
+    </customValue>
+    <customValue>
+        <fullName>Webinar</fullName>
+        <default>false</default>
+        <label>Webinar</label>
+    </customValue>
+    <customValue>
+        <fullName>Webform</fullName>
+        <default>false</default>
+        <label>Webform</label>
+    </customValue>
+    <masterLabel>Campaign Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

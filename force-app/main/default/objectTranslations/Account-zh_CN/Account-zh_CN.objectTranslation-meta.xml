@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Member Notes</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Partner Programs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Purchase History</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout - Sept 2020</layout>
+        <sections>
+            <label></label>
+            <section>Billing Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>CNCF Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Company Description (appears on the Member Dashboard on LFX)</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>DemandBase</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hyperledger Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hyperledger Information (wide)</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Industry Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Partner Programs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Social</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Spend</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Validated Join Now Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Admin Account Layout</layout>
+        <sections>
+            <label></label>
+            <section>HL_Membership Notes</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>LF Membership</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Partner Programs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Purchase History</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Sugar &amp; Random</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Infrormation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Admin Account Layout - Sept 2020</layout>
+        <sections>
+            <label></label>
+            <section>Billing Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>CNCF Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Company Description (appears on the Member Dashboard on LFX)</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Domain Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hyperledger Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hyperledger Information (wide)</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Industry Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>JoinNow Validated Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Partner Programs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Social</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Spend</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Admin Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Admin Fields (wide)</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Admin Fields - Sugar</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CCR Account Layout</layout>
+        <sections>
+            <label></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Partner Programs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Purchase History</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Person Account Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>LFID</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Training And Certifications</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Test Account Layout</layout>
+        <sections>
+            <label></label>
+            <section>Partner Programs</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Log_a_Ticket</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>View_ZoomInfo</name>
+    </quickActions>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Company_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Project_Account</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Billing_Address_is_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cannot_Update_Individual_No_Account_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Validate_Website</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>CY_Purchase_History</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Convert_To_Business_Account</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Project_Contacts_Associated_With_Account_Report</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Restore_from_Backup</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__Email_Docs</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__S_Docs</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>dsfs__Verify_with_DNB</name>
+    </webLinks>
+</CustomObjectTranslation>

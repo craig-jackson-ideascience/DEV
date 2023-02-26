@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bad Data</fullName>
+        <default>false</default>
+        <label>Bad Data</label>
+    </customValue>
+    <customValue>
+        <fullName>Non Responsive</fullName>
+        <default>false</default>
+        <label>Non Responsive</label>
+    </customValue>
+    <customValue>
+        <fullName>Competitor</fullName>
+        <default>false</default>
+        <label>Competitor</label>
+    </customValue>
+    <description>Graveyard reason for leads/contacts</description>
+    <masterLabel>Disqualified Reason</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,36 @@
+<aura:component description="LeadWithCampaignDashboard_SA_Sales"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <!-- Atrributes -->
+    <aura:attribute name="dashboardId" type="String" default="0FK2M000000boglWAA"/>
+    <!-- 
+  Campaigns With Leads Dashboard : 0FK2M000000bogRWAQ
+  Dev - Campaigns With Leads Dashboard : 0FK2M000000boglWAA
+ -->
+    <aura:attribute name="dashboardData" type="string" />  
+    <aura:attribute name="isWADisplay" type="boolean" default="false"/>
+    <aura:attribute name="foundationRecord" type="Sobject" />
+    <!-- Handlers -->
+    <aura:handler event="c:LeadWithCampaignDashboardEvent" action="{!c.filteronOnLeadWithCampaign}"/>
+    <aura:registerEvent name="StackedMembershipByProductEvent" type="c:StackedMembershipByProductEvent" />
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="isViewAll" type="boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.dashboardData}">
+        <lightning:card>
+            <div>
+                <wave:waveDashboard aura:id="myDashboard" openLinksInNewWindow="true" showTitle="false" showHeader="false" dashboardId="{!v.dashboardId}" height="900" filter="{!v.dashboardData}"/>
+            </div>
+            <div>
+                <span class="slds-p-around_small"><a onclick = "{!c.viewAll}" class="custom-css-link">View All</a></span>
+            </div>
+        </lightning:card>
+        <aura:set attribute="else">
+            Loading....
+        </aura:set>
+    </aura:if>
+</aura:component>

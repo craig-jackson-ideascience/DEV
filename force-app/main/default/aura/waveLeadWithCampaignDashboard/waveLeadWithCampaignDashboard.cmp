@@ -1,0 +1,21 @@
+<aura:component description="waveLeadWithCampaignDashboard"
+                implements="lightning:isUrlAddressable,force:appHostable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" 
+                controller="membershipOpportunityViewCMP_controller">
+    
+    <!-- Atrributes -->
+    <aura:attribute name="DashboardId" type="String" default="0FK2M000000bogWWAQ"/>
+    <aura:attribute name="filterData" type="string" />
+    <aura:attribute name="foundationName" type="Sobject"/>
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.doInit}"/> 
+    
+    <div>
+        <aura:if isTrue="{!v.filterData}">
+            <lightning:card title="{!'Foundation : ' + v.foundationName.Name}">
+                <wave:waveDashboard  showTitle="false" showHeader="false" dashboardId="{!v.DashboardId}" height="600" filter="{!v.filterData}"/>
+            </lightning:card>
+        </aura:if>
+    </div>
+</aura:component>

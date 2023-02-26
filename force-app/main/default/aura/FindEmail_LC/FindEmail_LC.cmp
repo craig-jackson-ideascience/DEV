@@ -1,0 +1,115 @@
+<!--c:FindEmail_LC-->
+<aura:component controller="FindEmailController">
+
+    <!--================================= attributes ================================-->
+    <aura:attribute name="emailAddress" type="String" />
+    <aura:attribute name="contactId" type="String" />
+    <aura:attribute name="showContactModal" type="Boolean" default="false" />
+    <aura:attribute name="noContactFound" type="Boolean" default="false" />
+    <aura:attribute name="showContactLookup" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="boolean" default="false" />
+    <aura:attribute name="emptyMailAddress" type="boolean" default="false" />
+    <aura:attribute name="fieldsList" type="List" default="['FirstName','MiddleName','LastName',
+                                                           'Title','AccountId']" />
+
+    <!-- ApexService -->
+    <c:ApexService aura:id="service" />
+
+    <!--=============================== component part =============================-->
+    <lightning:layout multipleRows="true">
+
+        <!-- Email Input -->
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12">
+            <lightning:input type="email" name="Email" label="Email" variant="label-inline" value="{!v.emailAddress}"
+                oncommit="{!c.showFindButton }" />
+        </lightning:layoutItem>
+
+        <!-- Find Contact Button -->
+        <aura:if isTrue="{!not(v.showContactLookup)}">
+            <lightning:layoutItem padding="around-small" size="8" smallDeviceSize="12"  mediumDeviceSize="8">                
+            </lightning:layoutItem>
+
+
+            <lightning:layoutItem padding="around-small" size="4" smallDeviceSize="12" alignmentBump="left" mediumDeviceSize="4">
+                <lightning:button label="Find Contact" title="Find Contact" onclick="{!c.findContact }" />
+            </lightning:layoutItem>
+
+            <!-- Empty Email Error -->
+            <aura:if isTrue="{!v.emptyMailAddress}">
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12">
+                    <ui:message title="Error" severity="error" closable="true">
+                        Please provide the email address to be searched.
+                    </ui:message>
+                </lightning:layoutItem>
+            </aura:if>
+        </aura:if>
+
+        <!-- No Contact found for email -->
+        <aura:if isTrue="{!v.noContactFound}">
+            <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12">
+                <b>There is no contact with the above Email,So do you want to create new Contact?</b>
+            </lightning:layoutItem>
+
+            <!-- Create New Contact Button-->
+            <lightning:layoutItem padding="around-small" size="7" smallDeviceSize="12"  mediumDeviceSize="7">                
+            </lightning:layoutItem>
+
+            <lightning:layoutItem padding="around-small" size="5" smallDeviceSize="12" mediumDeviceSize="5">
+                <lightning:button label="Create New Contact" title="Create New Contact"
+                    onclick="{! c.openContactModal }" />
+            </lightning:layoutItem>
+        </aura:if>
+    </lightning:layout>
+
+    <!--New Contact Modal -->
+    <aura:if isTrue="{!v.showContactModal}">
+
+        <lightning:recordEditForm objectApiName="Contact" onsuccess="{!c.handleContactSuccess}"
+            onerror="{!c.handleError}" onload="{!c.handleLoad}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" onclick="{! c.handleCancel }"
+                            alternativeText="close" variant="bare-inverse" class="slds-modal__close" />
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New Contact</h2>
+                    </header>
+
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:if isTrue="{!v.showSpinner}">
+                            <lightning:spinner />
+                        </aura:if>
+
+                        <!-- Fields-->
+                        <lightning:layout multipleRows="true">
+                            <lightning:messages />
+                            <aura:iteration items="{!v.fieldsList}" var="item">
+                                <lightning:layoutItem padding="around-small" size="6" alignmentBump="right">
+                                    <lightning:inputField fieldName="{!item}" />
+                                </lightning:layoutItem>
+                            </aura:iteration>
+
+                            <!-- Email Field-->
+                            <lightning:layoutItem padding="around-small" size="6" alignmentBump="right">
+                                <lightning:inputField fieldName="Email" value="{!v.emailAddress}" />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" label="Cancel" title="Cancel"
+                            onclick="{! c.handleCancel }" />
+
+                        <lightning:button variant="brand" label="Save" title="Save" type="submit" />
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </lightning:recordEditForm>
+    </aura:if>
+
+    <!-- End-->
+</aura:component>

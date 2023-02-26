@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Marketing Edx Leads</label>
+    <protected>false</protected>
+    <values>
+        <field>CampaignId__c</field>
+        <value xsi:type="xsd:string">7012M0000023yYLQAY</value>
+    </values>
+    <values>
+        <field>ContactId__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Cron_Expression__c</field>
+        <value xsi:type="xsd:string">0 20 23 ? * THU *</value>
+    </values>
+    <values>
+        <field>Job_Run_Time__c</field>
+        <value xsi:type="xsd:string">Thursday 11:20 PM</value>
+    </values>
+    <values>
+        <field>LeadId__c</field>
+        <value xsi:type="xsd:string">Id</value>
+    </values>
+    <values>
+        <field>Query__c</field>
+        <value xsi:type="xsd:string">SELECT Id FROM Lead WHERE Lead_Source_Detail_p__c=&apos;Edx&apos; and HasOptedOutOfEmail=false AND CreatedDate&gt;=LAST_N_DAYS:7</value>
+    </values>
+</CustomMetadata>

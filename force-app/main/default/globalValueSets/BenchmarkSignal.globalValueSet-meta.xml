@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>AtRisk</fullName>
+        <default>false</default>
+        <label>At Risk</label>
+    </customValue>
+    <customValue>
+        <fullName>OnTarget</fullName>
+        <default>false</default>
+        <label>On Target</label>
+    </customValue>
+    <customValue>
+        <fullName>MetTarget</fullName>
+        <default>false</default>
+        <label>Met Target</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenOpportunity</fullName>
+        <default>false</default>
+        <label>Could Be Higher</label>
+    </customValue>
+    <customValue>
+        <fullName>NewMember</fullName>
+        <default>false</default>
+        <label>New Member</label>
+    </customValue>
+    <description>Valid Benchmark Signals</description>
+    <masterLabel>Benchmark Signal</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

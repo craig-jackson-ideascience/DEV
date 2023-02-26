@@ -1,0 +1,9 @@
+<!--
+ - Created by cloudroutesolutions on 10/02/21.
+ -->
+
+<aura:event type="COMPONENT" description="AdvancedDateChangedEvent">
+    <aura:attribute name="dateValues" type="String[]" description="Selected values" access="global" />
+    <aura:attribute name="compareOperator" type="String" description="Selected operator" access="global" />
+    <aura:attribute name="type" type="String" description="Event firing component" access="global" />
+</aura:event>

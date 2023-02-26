@@ -1,0 +1,39 @@
+.THIS .yearlyMonthlyGroup .slds-radio_button-group {
+  width: 100%;
+}
+
+.THIS .yearlyMonthlyGroup .slds-radio_button-group .slds-radio_button {
+  text-align: center;
+  width: 50%;
+}
+.THIS
+  .yearlyMonthlyGroup
+  .slds-radio_button-group
+  .slds-radio_button
+  .slds-radio_button__label {
+  width: 100%;
+}
+
+.THIS .accRecvHeader {
+  font-size: 20px;
+  color: rgb(9, 26, 62);
+  background-color: rgb(255, 255, 255);
+  line-height: 2;
+}
+
+.THIS .headerSize{
+  font-size: 16px;
+  color: rgb(9, 26, 62);
+}
+
+.THIS.spinnerFixed .slds-spinner_container {
+  position: fixed !important;
+}
+
+.THIS .spins::after {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-weight: bold;
+}

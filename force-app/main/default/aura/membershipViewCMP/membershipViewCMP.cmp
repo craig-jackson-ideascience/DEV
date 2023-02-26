@@ -1,0 +1,71 @@
+<aura:component description="membershipViewCMP"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global"
+                controller="membershipOpportunityViewCMP_controller">
+    
+    <!-- selectionChangedEvent Attributes -->
+    <aura:attribute name="msg" type="String" default="Please make a selection in Analytics that contains a record Stage" access="GLOBAL"/>
+    <aura:attribute name="installDateMonth" type="Integer" default="" access="GLOBAL"/>
+    <aura:attribute name="membershipDetails" type="list" />
+    <aura:attribute name="foundationRecord" type="Sobject"/>
+    <aura:attribute name="ifNoRecordsFound" type="Boolean" default="true"/>
+    
+    <!-- handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.foundationId}"/>
+    <aura:handler event="c:foundationName" action="{!c.foundationId}"/>
+    <aura:handler event="wave:selectionChanged" action="{!c.handleSelection}"/>
+    <!-- dependency Event Attributes -->
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+    
+    <div class="slds-p-around_xxx-small slds-card slds-card_boundary slds-grid slds-wrap">
+        <aura:if isTrue="{!v.ifNoRecordsFound}">
+            <lightning:card class="custom-css-card" title="All - Membership Details" iconName="standard:contact_list" />
+            <aura:set attribute="else">
+                <lightning:card class="custom-css-card" title="All - Membership Details" iconName="standard:contact_list">
+                    <div aura:id="dataTable" class="tableStyle">
+                        <!-- data table start--> 
+                        <table class="slds-table slds-table_bordered slds-p-around_x-small">
+                            <thead>
+                                <tr class="slds-text-title_caps thStyle">
+                                    <th class="slds-cell-wrap">
+                                        <span class="slds-truncate" title="Member">Member</span>
+                                    </th>
+                                    <th class="slds-cell-wrap">
+                                        <span class="slds-truncate" title="Product">Product</span>
+                                    </th>
+                                    <th class="slds-cell-wrap">
+                                        <span class="slds-truncate" title="Revenue">Revenue</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.membershipDetails}" var="md" indexVar="index">
+                                    <tr class="slds-hint-parent thStyle">
+                                        <td class="slds-cell-wrap">
+                                            <div class="slds-text-title slds-text-color_default">
+                                                <a href="{!'/lightning/r/Account/'+ md.objAsset.AccountId + '/view'}" target="_blank">
+                                                    {! md.objAsset.Account.Name}
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="slds-cell-wrap">
+                                            <div class="slds-text-title slds-text-color_default">
+                                                {! md.objAsset.Product2.Name}
+                                            </div>
+                                        </td>
+                                        <td class="slds-cell-wrap">
+                                            <div class="slds-text-title slds-text-color_default">
+                                                <lightning:formattedNumber value="{! md.objAsset.Price}" style="currency" currencyCode="USD"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                        <!-- DataTable End -->
+                    </div>
+                </lightning:card>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

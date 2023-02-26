@@ -1,0 +1,58 @@
+<!--DESCRIPTION: THIS COMPONENT IS USED AS QUICK ACTION TO CREATE NEW PRODUCT DETAILS FROM PROJECT,EVENT AND TRAINING-->
+<!--c:CreateNewProductDetail-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader"
+                access="global" controller="NewProductDetailsController">
+    
+    <!--STYLING FOR QUICK ACTION-->
+    <aura:html tag="style">
+        .createProductDetailContainer:focus {
+            outline: 0px !important;
+        }
+    </aura:html>
+    
+    <!--ATTRIBUTE-->
+    <aura:attribute name="productDetailsRecordTypeId" type="string"/>
+    <aura:attribute name="lstOfRecordType" type="String[]" />
+    <aura:attribute name="selectedValue" type="String" default="Alternate Funding" />
+    <aura:attribute name="showRecordTypeModal" type="boolean" default="false" />
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+    
+    <!--Handler-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInIt}"/>
+
+    
+
+    <!-- Model Box Start -->
+    <aura:if isTrue="{!v.showRecordTypeModal}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open slds-modal--large">
+            <div class="slds-modal__container createProductDetailContainer">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" style="font-size: 22px;" title="Close" onclick="{!c.closeModal}">
+                        X<span class="slds-assistive-text">Cancel</span>
+                    </button>
+                    <h2 id="header43" class="slds-text-heading--medium">Choose Record Type</h2>
+                </div>
+
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size--2-of-2 slds-large-size--2-of-2">
+                            <lightning:select aura:id="selectid" label="Select a Record Type:" value="{!v.selectedValue}">
+                                <aura:iteration items="{!v.lstOfRecordType}" var="recType">
+                                    <option value="{!recType}">{!recType}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>&nbsp; &nbsp;
+                    </div>
+                </div>
+
+                <div class="slds-modal__footer">
+                    <lightning:button class="slds-button slds-button--neutral" onclick="{!c.closeModal}">Cancel</lightning:button>
+                    <lightning:button class="slds-button slds-button--brand" onclick="{!c.createRecord}">Next</lightning:button>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+
+</aura:component>

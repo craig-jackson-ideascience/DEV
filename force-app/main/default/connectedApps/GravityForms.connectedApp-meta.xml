@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>pchennoju@contractor.linuxfoundation.org</contactEmail>
+    <description>Salesforce and Gravity form plugin</description>
+    <label>GravityForms</label>
+    <oauthConfig>
+        <callbackUrl>https://communitybridge.platform.linuxfoundation.org/?callback=gravityformssalesforce
+https://www.automotivelinux.org/?callback=gravityformssalesforce
+https://www.aswf.io/?callback=gravityformssalesforce
+https://www.cloudfoundry.org/?callback=gravityformssalesforce</callbackUrl>
+        <consumerKey>3MVG9Nc1qcZ7BbZ0Ep18pfQsltaCXZEeY02wMdOup0avwUqrARJgKu52kKYBuSaBmn1N8_OYz6nxOhXcvK43K</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

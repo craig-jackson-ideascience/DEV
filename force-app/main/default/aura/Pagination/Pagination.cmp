@@ -1,0 +1,49 @@
+<aura:component >
+	<aura:attribute name="currentPageNumber" type="Integer" required="true" />
+    <aura:attribute name="maxPageNumber" type="Integer" required="true" />
+    <aura:attribute name="pageSize" type="Integer" required="true" />
+    <aura:attribute name="totalRecords" type="Integer" />
+
+    <!--<span class="slds-button-group " role="group">-->
+       <!-- <lightning:button onclick="{!c.firstPage}" variant="bare" disabled="{!v.currentPageNumber == 1}">
+            &lt;&lt;
+        </lightning:button>-->
+        <lightning:button label="Previous"
+                          disabled="{!v.currentPageNumber == 1}"  
+                          onclick="{!c.prevPage}"
+                          variant="brand"
+                          iconName="utility:back"
+                          name="previous"
+                          />
+        <!--<lightning:button  class="leftBtn" title="Previous" onclick="{!c.prevPage}" variant="bare" 
+                          disabled="{!v.currentPageNumber == 1}">
+           &lt;
+        </lightning:button>-->
+        <!--<span class="slds-align_absolute-center" >
+            Showing {!(v.currentPageNumber * v.pageSize)+1-v.pageSize}-{!(v.currentPageNumber * v.pageSize)>v.totalRecords ? v.totalRecords:
+            (v.currentPageNumber * v.pageSize)} of {!v.totalRecords} entries 
+        </span>-->
+       
+          <span  class="slds-align_absolute-center slds-badge slds-badge_lightest"
+                      style="margin-right: 10px;margin-left: 10px;">
+            
+               Page {!v.currentPageNumber} out of {!v.maxPageNumber}
+        </span>
+                <lightning:button label="Next"
+                                  disabled="{!v.currentPageNumber == v.maxPageNumber}"  
+                                  onclick="{!c.nextPage}"
+                                  variant="brand"
+                                  iconName="utility:forward"
+                                  iconPosition="right"
+                                  name="next"/>
+        <!--<lightning:button  class="slds-m-right_x-small slds-m-left_x-small" title="Next" disabled="{!v.currentPageNumber == v.maxPageNumber}"  
+                              onclick="{!c.nextPage}" variant="bare">
+               &gt;
+        </lightning:button>-->
+        
+        <!--<lightning:button onclick="{!c.lastPage}"  variant="bare" disabled="{!v.currentPageNumber == v.maxPageNumber}">
+           &gt;&gt;
+        </lightning:button>-->
+         
+    <!--</span>-->
+</aura:component>

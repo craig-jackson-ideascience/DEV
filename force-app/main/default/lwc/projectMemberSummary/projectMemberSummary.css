@@ -1,0 +1,55 @@
+.outermost-container{
+    /* contain floating child divs */
+    overflow: hidden;
+}
+.container-border{
+    float: left;
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: 0.25rem;
+    background-color: #f3f2f2;
+}
+.container{
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.left-and-middle-container{
+    width: 24%;
+    margin-right: 2%;
+}
+.right-container{
+    width: 48%;
+}
+.logo{
+    height: 100%;
+    align-self: center;
+}
+.logo-wrapper{
+    justify-content: center;
+    padding: 10px;
+}
+.member-summary-wrapper{
+    padding: 10px;
+    overflow: visible;
+    justify-content: space-between;
+}
+.no-memberships{
+    padding: 10px;
+    justify-content: center;
+}
+.slds-grid_vertical{
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.slds-size_12-of-12{
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.slds-size_3-of-12{
+    text-align: right;
+    padding-right: 5px;
+}

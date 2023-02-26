@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Email Marketing</fullName>
+        <default>false</default>
+        <label>Email Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Organic Search</fullName>
+        <default>false</default>
+        <label>Organic Search</label>
+    </customValue>
+    <customValue>
+        <fullName>Paid Search</fullName>
+        <default>false</default>
+        <label>Paid Search</label>
+    </customValue>
+    <customValue>
+        <fullName>Paid Social</fullName>
+        <default>false</default>
+        <label>Paid Social</label>
+    </customValue>
+    <customValue>
+        <fullName>Social Media</fullName>
+        <default>false</default>
+        <label>Social Media</label>
+    </customValue>
+    <customValue>
+        <fullName>Chat</fullName>
+        <default>false</default>
+        <label>Chat</label>
+    </customValue>
+    <customValue>
+        <fullName>Direct Mail</fullName>
+        <default>false</default>
+        <label>Direct Mail</label>
+    </customValue>
+    <customValue>
+        <fullName>Referral</fullName>
+        <default>false</default>
+        <label>Referral</label>
+    </customValue>
+    <customValue>
+        <fullName>Premium Content</fullName>
+        <default>false</default>
+        <label>Premium Content</label>
+    </customValue>
+    <customValue>
+        <fullName>Event</fullName>
+        <default>false</default>
+        <label>Event</label>
+    </customValue>
+    <customValue>
+        <fullName>Webinar</fullName>
+        <default>false</default>
+        <label>Webinar</label>
+    </customValue>
+    <customValue>
+        <fullName>Blog</fullName>
+        <default>false</default>
+        <label>Blog</label>
+    </customValue>
+    <customValue>
+        <fullName>Affiliate</fullName>
+        <default>false</default>
+        <label>Affiliate</label>
+    </customValue>
+    <customValue>
+        <fullName>Sales</fullName>
+        <default>false</default>
+        <label>Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>Direct Traffic</fullName>
+        <default>false</default>
+        <label>Direct Traffic</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>External Data Source</fullName>
+        <default>false</default>
+        <label>External Data Source</label>
+    </customValue>
+    <customValue>
+        <fullName>Training</fullName>
+        <default>false</default>
+        <label>Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Web</fullName>
+        <default>false</default>
+        <label>Web</label>
+    </customValue>
+    <description>To be used across Lead/Contact/Opportunity objects</description>
+    <masterLabel>Last Lead Source</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

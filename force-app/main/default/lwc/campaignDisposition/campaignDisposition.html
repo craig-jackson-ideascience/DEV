@@ -1,0 +1,75 @@
+<template>
+    <div class="container">
+        <div class="bold-heading">
+            Auto-Disposition Campaign Member Statuses
+        </div>
+        <template if:false={hasStatuses}>
+            <lightning-button label="Add Statuses" onclick={addStatuses}></lightning-button>
+        </template>
+        <template if:true={hasStatuses}>
+            <span class="update-button">
+                <lightning-button label="Update Status of New Members" onclick={updateStatuses}></lightning-button>
+            </span>
+            <template if:false={showPriorData}>
+                <lightning-button label="Show Last Updates" onclick={showLastUpdates}></lightning-button>
+            </template>
+            <template if:true={showPriorData}>
+                <lightning-button label="Hide Last Updates" onclick={hideLastUpdates}></lightning-button>
+            </template>
+        </template>
+        <div class="messages">
+            <template if:true={showPriorData}>
+                <div class="table-heading">
+                    Last auto-disposition updates for this Campaign:
+                </div>
+                <div class="scrollable-section">
+                    <table>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Reason for Status
+                            </th>
+                            <th>
+                                Last Auto-Dispositioned
+                            </th>
+                        </tr>
+                        <template for:each={priorData} for:item="row">
+                            <tr key={row.index}>
+                                <td>
+                                    {row.Name}
+                                </td>
+                                <td>
+                                    {row.Type}
+                                </td>
+                                <td>
+                                    {row.Status}
+                                </td>
+                                <td>
+                                    {row.Status_Reason__c}
+                                </td>
+                                <td>
+                                    <lightning-formatted-date-time
+                                        value={row.Status_Date__c}
+                                        year="numeric"
+                                        month="numeric"
+                                        day="numeric"
+                                        time-zone="UTC">
+                                    </lightning-formatted-date-time>
+                                </td>
+                            </tr>
+                        </template>
+                    </table>
+                </div>
+            </template>
+            {message}
+        </div>
+    </div>
+</template>

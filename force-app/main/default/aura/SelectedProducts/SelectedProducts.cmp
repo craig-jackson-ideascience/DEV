@@ -1,0 +1,46 @@
+<!--
+ - Created by ANT-MAN on 12-05-2020.
+ -->
+<!--c:SelectedProducts-->
+<aura:component description="SelectedProducts">
+    <!--ATTRIBUTES-->
+    <aura:attribute name="mainSelectedProducts" type="List"/>
+    <aura:attribute name="products" type="List"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="activeSections" type="List" default="['selectedProducts']"/>
+    
+    <!--EVENT-->
+    <aura:registerEvent name="appEvent" type="c:RemoveProductEvent"/>
+    
+    <!--HANDLER-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service"/>
+    
+    <!--START-->
+    <lightning:accordion aura:id="accordion" activeSectionName="{!v.activeSections}" allowMultipleSectionsOpen="true"
+                         class="accordionMargin">
+        <lightning:card class="slds-card_boundary" variant="base">
+            <lightning:accordionSection name="selectedProducts" label="Selected Products">
+                <aura:if isTrue="{!not(empty(v.mainSelectedProducts))}">
+                    <div aura:id="dataTable" class="tableStyle1">
+                        <lightning:datatable aura:id="selectProducts"
+                                             columns="{! v.columns }"
+                                             data="{! v.mainSelectedProducts }"
+                                             keyField="id"
+                                             resizeColumnDisabled="true"
+                                             hideCheckboxColumn="true"
+                                             onrowaction="{! c.handleRowAction }"
+                                             />
+                    </div>
+                    <aura:set attribute="else">
+                        <div style="margin-left:2%">Please Select Products to be added.</div>
+                    </aura:set>
+                </aura:if>
+            </lightning:accordionSection>
+        </lightning:card>
+    </lightning:accordion>
+    
+    <!--END-->
+</aura:component>

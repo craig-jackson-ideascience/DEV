@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Mailing List</fullName>
+        <default>true</default>
+        <label>Mailing List</label>
+    </customValue>
+    <customValue>
+        <fullName>Maintainers</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Maintainers</label>
+    </customValue>
+    <customValue>
+        <fullName>Committee</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>Special Interest Group</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Special Interest Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Working Group</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Working Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Project</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Project</label>
+    </customValue>
+    <customValue>
+        <fullName>Committers</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Committers</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Board</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Board</label>
+    </customValue>
+    <customValue>
+        <fullName>Subcommittee</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Subcommittee</label>
+    </customValue>
+    <customValue>
+        <fullName>User group</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>User group</label>
+    </customValue>
+    <masterLabel>Collaboration Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

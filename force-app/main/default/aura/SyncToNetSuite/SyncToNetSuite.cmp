@@ -1,0 +1,28 @@
+<!--
+ - Created by Martand Atrey on 12-11-2019.
+ -->
+
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,force:hasSObjectName"
+                description="SyncToNetSuite" controller="SyncToNetSuiteController" access="global">
+
+    <aura:attribute type="Boolean" name="isLoading" default="true"/>
+
+    <!--Apex Service-->
+    <c:ApexService aura:id="service"/>
+
+    <!--Handler-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <!--ATTRIBUTES-->
+    <aura:attribute name="object" type="string"/>
+
+    <div class="slds-is-relative spinner">
+        <lightning:spinner alternativeText="Loading" size="large">
+        </lightning:spinner>
+        <div class="spinnerText">
+            <aura:unescapedHtml value="Syncing in Progress"/>
+        </div>
+    </div>
+
+
+</aura:component>

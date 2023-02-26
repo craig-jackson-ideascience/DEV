@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>By checking here, you opt-in to being li</label>
+    <protected>false</protected>
+    <values>
+        <field>Cvent_Field__c</field>
+        <value xsi:type="xsd:string">By checking here, you opt-in to being listed in the event’s online attendee directory. Some of your registration data will be made available to other event attendees in the directory (name, title, com</value>
+    </values>
+    <values>
+        <field>Salesforce_Field__c</field>
+        <value xsi:type="xsd:string">Cvent_Registration_Q_AttendeeDirectory__c</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Registration</value>
+    </values>
+</CustomMetadata>

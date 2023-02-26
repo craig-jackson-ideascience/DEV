@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="myDasHId" type="String" default="0FKS00000004K9lOAE"/>
+    <aura:attribute name="purchaseHistoryData" type="string"/>    
+    <aura:handler event="c:foundationName" action="{!c.filteronOnPurchaseHistory}"/>
+    <aura:if isTrue="{!v.purchaseHistoryData}">
+        <!--wave:waveDashboard  showTitle="true" dashboardId="{!v.myDasHId}" height="600" filter="{!v.purchaseHistoryData}"/-->
+        <aura:set attribute="else">
+            Loading....
+        </aura:set>
+    </aura:if>  
+</aura:component>

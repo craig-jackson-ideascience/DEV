@@ -1,0 +1,20 @@
+<aura:component description="waveLeadDashboard"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    <!-- Atrributes -->
+    <aura:attribute name="leadDashboardId" type="String" default="0FK2M000000bof9WAA"/>
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="isViewAll" type="boolean" default="false"/>
+    
+    <lightning:card>
+        <div class="dashboard-container">
+            <wave:waveDashboard  showTitle="false" showHeader="false" dashboardId="{!v.leadDashboardId}" height="800" />
+        </div>
+        <div>
+            <span class="slds-p-around_small"><a onclick = "{!c.viewAll}" class="custom-css-link">View All</a></span>
+        </div>
+    </lightning:card>
+</aura:component>

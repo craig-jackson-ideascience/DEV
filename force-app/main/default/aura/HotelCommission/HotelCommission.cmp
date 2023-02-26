@@ -1,0 +1,15 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" >
+    <aura:attribute name="hotelCommissions" type="Object"/>
+    <aura:attribute name="showSpinner" type="boolean" default="true"/>
+    <force:recordData 
+                      aura:id="getRecord"
+                      recordId="{!v.recordId}"
+                      fields="Name , Event_Name__c,Product__c,Amount__c,
+                              Product_Description__c,Start_Date__c,End_Date__c,
+                              SubsidiaryId__c,Bill_to_Account__c,Bill_to_Contact__c,
+                              Bill_to_Contact_2__c,Bill_to_Contact_3__c,NS_Department__c,
+                              NS_Deferred_Revenue_Account__c,NS_Income_GL_Account__c,
+                              NS_Invoice_Memo__c"
+                      targetFields="{!v.hotelCommissions}"
+                      recordUpdated="{!c.createRecord}"/>
+</aura:component>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Enrollment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Enrollments</value>
+    </caseValues>
+    <layouts>
+        <layout>Admin Enrollment Layout</layout>
+        <sections>
+            <label></label>
+            <section>Course / Enrollment</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Enrollment Layout</layout>
+        <sections>
+            <label></label>
+            <section>Course / Enrollment</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Log_a_Ticket</name>
+    </quickActions>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

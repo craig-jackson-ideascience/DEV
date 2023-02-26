@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DuplicateRule xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOnInsert>Block</actionOnInsert>
+    <actionOnUpdate>Block</actionOnUpdate>
+    <alertText>Use one of these records???</alertText>
+    <description xsi:nil="true"/>
+    <duplicateRuleFilter xsi:nil="true"/>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>Contact</matchRuleSObjectType>
+        <matchingRule>Contact_UserName_and_Edx_UserId_matching_rule</matchingRule>
+        <objectMapping xsi:nil="true"/>
+    </duplicateRuleMatchRules>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>Lead</matchRuleSObjectType>
+        <matchingRule>Lead_UserName_and_Edx_UserId_matching_rule</matchingRule>
+        <objectMapping>
+            <inputObject>Contact</inputObject>
+            <mappingFields>
+                <inputField>Username__c</inputField>
+                <outputField>Username__c</outputField>
+            </mappingFields>
+            <mappingFields>
+                <inputField>edx_user_id__c</inputField>
+                <outputField>edx_user_id__c</outputField>
+            </mappingFields>
+            <outputObject>Lead</outputObject>
+        </objectMapping>
+    </duplicateRuleMatchRules>
+    <isActive>true</isActive>
+    <masterLabel>Contact UserName and Edx UserId Duplicate Rule</masterLabel>
+    <securityOption>EnforceSharingRules</securityOption>
+    <sortOrder>7</sortOrder>
+</DuplicateRule>

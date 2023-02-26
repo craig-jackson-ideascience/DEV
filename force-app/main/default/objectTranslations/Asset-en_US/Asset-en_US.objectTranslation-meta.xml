@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Purchase History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Purchase History</value>
+    </caseValues>
+    <layouts>
+        <layout>Admin Asset Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Renewal Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Admin Training Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Renewal Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Training</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Asset Admin</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Renewal Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Asset Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order &amp; Sync</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Renewal Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Community Asset Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order &amp; Sync</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Renewal Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Test Asset Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Renewal Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Training Layout</layout>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Renewal Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Training</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Cancel_Renewal</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Create_Renewal</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Get_Sales_Order_Status</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Log_a_Ticket</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Sync_to_NetSuite</name>
+    </quickActions>
+    <recordTypes>
+        <label></label>
+        <name>Corporate</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Corporate_Training</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>EdxTraining</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Event_Sponsorship</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Individual</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>If_Status_is_Invoiced_Cancelled</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Lock_Expired_Purchase_History</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Reason_for_change_required_for_non_admin</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Require_Cancellation_details</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Cancel_Renewal</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Create_Renewal</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,37 @@
+<aura:component controller="getFoundationRecord" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="foundationName" type="Sobject"/>
+    <aura:attribute name="fields" type="String[]" default="['Comment__c']" />
+    <aura:attribute name="foundationId" type="String"/>
+    <aura:attribute name="reloadForm" type="boolean" default="true" />
+    <aura:handler event="c:foundationName" action="{!c.foundationId}"/>
+    <aura:Attribute name="outputValue" type="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doint}"/>
+   
+    <lightning:notificationsLibrary aura:id="notifLib" />
+    <lightning:card title="{!v.foundationName.Name +' Comment'}">
+        <lightning:recordEditForm
+                                  onload="{!c.handleLoad}"
+                                  onsubmit="{!c.handleSubmit}"
+                                  onsuccess="{!c.handleSuccess}"
+                                  recordId="{!v.foundationId}"
+                                  objectApiName="Project__c">
+            <lightning:messages />
+            
+            <lightning:inputField fieldName="{!v.fields}" />
+            
+            <div class="slds-m-top_medium slds-align_absolute-center">
+                <lightning:button variant="brand" type="submit" name="save" label="Save" />
+                <lightning:button variant="brand" type="Cancel" name="Cancel" label="Cancel" onclick="{!c.cancel}"/>
+            </div>
+        </lightning:recordEditForm>
+            
+            <!--<lightning:recordForm recordId="{!v.foundationId}" 
+                              objectApiName="Project__c"
+                              fields="{!v.fields}"
+                              columns="1"
+                              mode="view"	
+                              onsuccess="{!c.handleSuccess}"
+               onerror="{!c.handleError}"/>-->  
+        </lightning:card>
+    </aura:component>

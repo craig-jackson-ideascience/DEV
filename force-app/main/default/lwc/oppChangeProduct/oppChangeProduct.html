@@ -1,0 +1,48 @@
+<template>
+    <div class="container">
+        <lightning-accordion class="myAccordian" allow-multiple-sections-open onsectiontoggle={handleAccordionToggle} active-section-name={section}>
+            <lightning-accordion-section name="accordionSection" label="Upgrade/Downgrade Membership(s)">
+
+                <div if:true={isLoaded} class="slds-is-relative">
+                    <lightning-spinner
+                        alternative-text="Loading..." variant="brand">
+                    </lightning-spinner>
+                </div>
+
+                <template if:false={isInitialized}>
+                    Loading...
+                </template>
+                <template if:true={isInitialized}>
+                    <template if:true={hasProduct1}>
+                        <div class="combobox-container">
+                            <lightning-combobox
+                                label={optionsLabel1}
+                                options={options1}
+                                value={value1}
+                                onchange={handleChange1}>
+                            </lightning-combobox>
+                        </div>
+                    </template>
+                    <template if:true={hasProduct2}>
+                        <div class="combobox-container"> 
+                            <lightning-combobox
+                                label={optionsLabel2}
+                                options={options2}
+                                value={value2}
+                                onchange={handleChange2}>
+                            </lightning-combobox>
+                        </div>
+                    </template>
+                    <em>{message}</em>
+                    <div class="button-wrapper"> 
+                        <template if:false={hideSave}>
+                            <lightning-button label="Save" variant="brand" onclick={handleSave} class="slds-m-right_x-small"></lightning-button>
+                        </template>
+                        <lightning-button label="Cancel" variant="brand" onclick={handleCancel}></lightning-button>
+                    </div>
+                </template>
+
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </div>
+</template>

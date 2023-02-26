@@ -1,0 +1,17 @@
+<!--
+ - Created by cloudroute on 22/09/20.
+ -->
+
+<aura:component description="GetMissingRegistrations" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"
+                access="global"
+                controller="CventSync">
+    <ltng:require scripts="{!$Resource.FileSaver}" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="fileName" type="string" default="Missing Event Registrations" description="fileName for missing registration files" />
+
+    <div class="slds-is-relative spinner" style="margin-top: 100px;">
+        <lightning:spinner alternativeText="Loading" size="large">
+        </lightning:spinner>
+    </div>
+</aura:component>

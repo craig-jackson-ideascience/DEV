@@ -1,0 +1,200 @@
+<!--
+Created By : Sachin Kumar
+Created Date : Sept 3, 2019
+-->
+<aura:component description="foundationView_cmp" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" controller="foundationViewCMP_controller">
+    
+    <!-- Update Event Attribute Start -->
+    <aura:attribute name="filter" type="String" access="GLOBAL"/>
+    <aura:attribute name="developerName" type="String" access="GLOBAL"/>
+    <aura:registerEvent name="update" type="wave:update"/>
+    <aura:registerEvent name="foundationName" type="c:foundationName" />
+    <!-- Update Event Attribute END -->
+    
+    <!-- Sobject Atrribute-->
+    <aura:attribute name="selectedFonds" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="foundationRecordListForAll" type="list" />
+    <aura:attribute name="foundationRecordListForPM" type="list" />
+    <aura:attribute name="foundationId" type="Id" />
+    
+    <aura:attribute name="SelectedProject" type="Project__c" />
+    <!-- Attribute list for Pagination Function-->
+    <aura:attribute name="PaginationList" type="list"/> 
+    <aura:attribute name="selectedCount" type="integer" default="0"
+                    description="selected Records Count"/>
+    <aura:attribute name="startPage" type="Integer" />
+    <aura:attribute name="endPage" type="Integer"/>
+    <aura:attribute name="totalRecordsCount" type="Integer"/>
+    <aura:attribute name="pageSize" type="Integer" default="5" description="number of records to be display on per page"/>
+    <aura:attribute name="currentPage" type="integer" default="1"/>
+    <aura:attribute name="totalPagesCount" type="integer"/>
+    <aura:attribute name="ifNoRecordsFound" type="boolean"/>
+    
+    <!-- Attribute list for Sort Function-->
+    <aura:attribute name="arrowDirection" type="string" default="arrowdown" description="Use for change arrow sign direction on header based on click"/>
+    <aura:attribute name="isAsc" type="boolean" default="false" description="boolean flag for pass sorting condition to apex class"/> 
+    <aura:attribute name="selectedTabsoft" type="string" default="Current_Year_Revenue__c" description="Use for show/hide arraow sign on header based on conditions"/>
+    
+    <!-- Component start from here -->
+    
+    <aura:if isTrue="{!v.ifNoRecordsFound}">
+        <!--display error message if there is no records available -->
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_info" role="alert">
+            <span class="slds-assistive-text">error</span>
+            <h2>No record found.</h2>
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-p-around_small slds-card slds-card_boundary slds-grid slds-wrap">
+                <lightning:card class="custom-css-card" title="{!'Projects (' + v.totalRecordsCount + ')'}" iconName="standard:person_account">
+                    <!-- <lightning:icon src="{!$Resource.LFIcon + '/LFIcon/LF_icon.jpg'}" alternativeText="My Custom Icon" /> -->
+                    <!-- display total record and selected record count -->    
+                    <!-- <p class="slds-m-around_small">
+                        <span class="slds-badge slds-badge_lightest" style="display:inline-block">
+                            Total Records : {!v.selectedCount > 0 ? v.selectedCount + '/' : ''} {!v.totalRecordsCount} 
+                        </span>
+                    </p> -->
+                    
+                    <!-- data table start--> 
+                   
+                    <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped">
+                       <thead>
+                            <tr class="slds-text-title_caps">
+                                <th class="slds-cell-wrap">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <ui:inputCheckbox disabled="{!v.totalRecordsCount == 0}"
+                                                              aura:id="selectAllId"
+                                                              change="{!c.selectAllCheckbox}"
+                                                              class="custom-hide" />
+                                        </div>
+                                    </div>
+                                </th>
+                                <!--<th class="slds-cell-wrap">
+                                    <span class="slds-truncate" title="">&nbsp;</span>
+                                </th>-->
+                                <th class="slds-cell-wrap" onclick="{!c.sortByName}">
+                                    <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                        <span class="slds-assistive-text">Sort</span>
+                                        <span class="slds-truncate" title="Foundation Name">Project Name</span>  
+                                        <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Current_Year_Revenue__c') }">&nbsp;  &#9660; </aura:if>  
+                                        <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Current_Year_Revenue__c') }"> &nbsp;  &#9650; </aura:if>                        
+                                    </a>
+                                </th>
+                                <th class="slds-cell-wrap">
+                                    <span class="slds-truncate" title="Executive Director">ED</span>
+                                </th>
+                                <th class="slds-cell-wrap">
+                                    <span class="slds-truncate" title="Program Manager">PM</span>
+                                </th>
+                                <th class="slds-cell-wrap">
+                                    <span class="slds-truncate" title="Business Development Manager">BDM</span>
+                                </th>
+                                <!--<th class="slds-cell-wrap">
+                                    <span class="slds-truncate" title="">&nbsp;</span>
+                                </th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <aura:iteration items="{!v.PaginationList}" var="obj" >
+                                <tr class="slds-hint-parent">
+                                    <td class="slds-cell-wrap">
+                                        <!--<ui:inputCheckbox aura:id="checkbox" label="" change="{!c.onSelection}" text="{!foundation.Name}"/>-->
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__control">
+                                                <ui:inputCheckbox text="{!obj.objProject}"
+                                                                  aura:id="selectedCheckbox"
+                                                                  value="{!obj.isChecked}"
+                                                                  change="{!c.onSelection}" />
+                                                <!--<input type="checkbox" text="{!obj.objProject.Name}" value="{!obj.isChecked}" change="{!c.onSelection}"/>-->
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <div class="slds-text-title slds-text-color_default">
+                                            {!obj.objProject.Name}
+                                        </div>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <aura:if isTrue="{!obj.objProject.Executive_Director_U__r.Name != null}">
+                                            <div class="slds-text-title slds-text-color_default">
+                                                {!obj.objProject.Executive_Director_U__r.Name}
+                                            </div>                                          
+                                            <aura:set attribute="else">
+                                                <div class="slds-text-title slds-text-color_default">
+                                                    {!obj.objProject.Executive_Director__r.Name}
+                                                </div>
+                                            </aura:set>
+                                        </aura:if>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <aura:if isTrue="{!obj.objProject.Program_Manager_U__r.Name != null}">
+                                            <div class="slds-text-title slds-text-color_default">
+                                                {!obj.objProject.Program_Manager_U__r.Name}
+                                            </div>
+                                            <aura:set attribute="else">
+                                                <div class="slds-text-title slds-text-color_default">
+                                                    {!obj.objProject.Program_Manager__r.Name}
+                                                </div>
+                                            </aura:set>
+                                        </aura:if>
+                                        <!--div class="slds-text-title slds-text-color_default">
+                                            {!obj.objProject.Program_Manager__r.Name}
+                                        </div -->
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <aura:if isTrue="{!obj.objProject.Business_Development_Manager_U__r.Name != null}">
+                                            <div class="slds-text-title slds-text-color_default">
+                                                {!obj.objProject.Business_Development_Manager_U__r.Name}
+                                            </div>
+                                            <aura:set attribute="else">
+                                                <div class="slds-text-title slds-text-color_default">
+                                                    {!obj.objProject.Business_Development_Manager__r.Name}
+                                                </div>
+                                            </aura:set>
+                                        </aura:if>
+                                    </td>
+                                    <!--<td class="slds-cell-wrap">
+                                                <lightning:buttonMenu variant="border-filled" menuAlignment="right" iconName="utility:down" iconSize="x-small">
+                                                    <lightning:menuItem label="Edit"></lightning:menuItem>
+                                                    <lightning:menuItem label="Delete"></lightning:menuItem>
+                                                </lightning:buttonMenu>
+                                            </td>-->
+                                </tr>
+                            </aura:iteration>
+                            
+                        </tbody>
+                    </table>
+                    <!-- DataTable End -->
+                    <br/>
+                    <!--  Pagination Buttons Start -->
+                    <div class="slds-align_absolute-center">         
+                        <lightning:button label="Previous"
+                                          disabled="{!v.startPage == 0}"  
+                                          onclick="{!c.navigation}"
+                                          variant="brand"
+                                          iconName="utility:back"
+                                          name="previous"/>
+                        
+                        <span class="slds-badge slds-badge_lightest"
+                              style="margin-right: 10px;margin-left: 10px;">
+                            Page {!v.currentPage} out of {!v.totalPagesCount}
+                        </span>
+                        
+                        <lightning:button label="Next"
+                                          disabled="{!(v.endPage + 1) >= v.totalRecordsCount}" 
+                                          onclick="{!c.navigation}"
+                                          variant="brand"
+                                          iconName="utility:forward"
+                                          iconPosition="right"
+                                          name="next"/>
+                    </div>  
+                    <!--  Pagination Buttons End -->
+                </lightning:card>
+            </div>
+        </aura:set>
+    </aura:if>
+    <!-- <c:CommentBox foundationId="{!v.foundationId}"></c:CommentBox>  -->
+</aura:component>

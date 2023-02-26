@@ -1,0 +1,84 @@
+<!--c:Event_DashboardLC-->
+<!--** Created by Cloudroute Soulutions 
+** Event_DashboardLC used to display event dashboard same as analytics events dashboard
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">
+
+  <!--================================= attributes ================================-->
+  <aura:attribute name="isRegistrations" type="Boolean" default="true" />
+  <aura:attribute name="isSponsorships" type="Boolean" default="false" />
+  <aura:attribute name="iscompareEvents" type="Boolean" default="false" />
+  <aura:attribute name="eventDashboardType" type="List" default="[
+    {'label': 'Registrations', 'value': 'Registrations'},
+    {'label': 'Sponsorships', 'value': 'Sponsorships'},
+    {'label': 'Compare Events', 'value': 'Compare Events'}
+    ]" />
+  <aura:attribute name="selectedDashboardType" type="String" default="Registrations" />
+
+  <!--================================= handlers =================================-->
+  <!-- init -->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <!-- Apex Service -->
+  <c:ApexService aura:id="service" />
+
+  <!--=============================== component part =============================-->
+  <!-- First Card -->
+  <!--<lightning:card>
+    <!- - Component header - ->
+    <aura:set attribute="title">
+      <div class="headerStyle">
+        <lightning:icon iconName="custom:custom83" />
+        Event Dashboard
+      </div>
+    </aura:set>
+  </lightning:card>-->
+
+  <!-- Second Card -->
+  <lightning:card>
+    <!-- Component header -->
+    <aura:set attribute="title">
+      <div class="secondHeaderStyle">
+        Event Dashboard
+      </div>
+    </aura:set>
+
+    <lightning:layout multipleRows="true">
+      <lightning:layoutItem size="3" padding="around-small">
+      </lightning:layoutItem>
+
+      <!-- Component Selector RadioGroup -->
+      <lightning:layoutItem size="6" padding="around-small">
+        <lightning:radioGroup name="radioButtonGroup" options="{! v.eventDashboardType }"
+          value="{! v.selectedDashboardType }" onchange="{! c.handleChange }" class="radioButtonCardStyle"
+          type="button" />
+
+      </lightning:layoutItem>
+      <lightning:layoutItem size="3" padding="around-small">
+      </lightning:layoutItem>
+    </lightning:layout>
+
+    <!-- Display Component Based on Component Select in above radio buttons -->
+
+    <!-- Registration Component -->
+    <aura:if isTrue="{!v.isRegistrations}">
+      <c:EventDashboard_Registration />
+    </aura:if>
+
+    <!-- Sponsorships Component -->
+    <aura:if isTrue="{!v.isSponsorships}">
+      <c:EventDashboard_SponsorshipsLC />
+    </aura:if>
+
+    <!-- Compare event Component -->
+    <aura:if isTrue="{!v.iscompareEvents}">
+      <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="12" padding="around-small">
+          <c:Compare_Event_LC />
+        </lightning:layoutItem>
+      </lightning:layout>
+
+    </aura:if>
+  </lightning:card>
+  <!-- End -->
+</aura:component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Hyperledger</label>
+    <protected>false</protected>
+    <values>
+        <field>Campaign_Id__c</field>
+        <value xsi:type="xsd:string">7012M000001v3AsQAI</value>
+    </values>
+    <values>
+        <field>Job_Name__c</field>
+        <value xsi:type="xsd:string">MemberReadoutBatch</value>
+    </values>
+    <values>
+        <field>Job_Run_Time__c</field>
+        <value xsi:type="xsd:string">Daily 1:00 AM</value>
+    </values>
+    <values>
+        <field>Project_Id__c</field>
+        <value xsi:type="xsd:string">a0941000002wByYAAU</value>
+    </values>
+    <values>
+        <field>Roles__c</field>
+        <value xsi:type="xsd:string">Representative/Voting Contact;Marketing Contact;Event Sponsorship;Press Contact;Technical Contact;</value>
+    </values>
+</CustomMetadata>

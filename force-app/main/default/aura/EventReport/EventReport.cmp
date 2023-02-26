@@ -1,0 +1,112 @@
+<!--
+ - Created by CR on 13-07-2020.
+ -->
+<!--c:EventReport-->
+<aura:component description="EventReport" implements="lightning:isUrlAddressable"
+                controller="EventsReportController">
+
+    <!--ATTRIBUTES-->
+    <aura:attribute name="eventNames" type="List"/>
+    <aura:attribute name="eventRegistrations" type="List" default="[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="showSpinner" type="boolean" default="true"/>
+    <aura:attribute name="totalWrapper" type="Object"/>
+
+
+    <!--PAGINATION VARIABLES-->
+    <aura:attribute name="PaginationList" type="list"/>
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:attribute type="Integer" name="totalRecords" />
+    <aura:attribute type="Integer" name="pageSize" default="5" />
+
+    <!--Handler-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+
+    <!--Apex Service-->
+    <c:ApexService aura:id="service"/>
+
+    <!--START-->
+    <lightning:card title="Event Report">
+        <!--SPINNER-->
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="spin"  size="large"  alternativeText="Processing.." />
+        </aura:if>
+        <lightning:card class="slds-card_boundary slds-m-around_x-small" title="Select Event">
+            <aura:set attribute="actions">
+                <lightning:layout>
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:button label="Run" title="Run" onclick="{! c.handleRunReport }" variant="brand"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:button label="Export" title="Export" onclick="{! c.handleExport }" variant="brand"/>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </aura:set>
+            <lightning:layout multipleRows="true">
+                <lightning:layoutItem padding="around-small" size="3">
+                    <lightning:combobox aura:id="events" label="Events" value="" placeholder="--None--"
+                                        options="{! v.eventNames }"/>
+
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:card>
+
+
+        <!--RENDER ONLY IF DATA PRESENT-->
+        <aura:if isTrue="{!not(empty(v.eventRegistrations))}">
+            <!--SUMMARY START-->
+            <lightning:card title="Summary" class="slds-card_boundary slds-m-around_x-small">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem padding="horizontal-small" size="12">
+                        <lightning:layout>
+                            <lightning:layoutItem padding="" class="slds-p-vertical_xx-small" size="3">
+                                <div><label>Total Registrations</label></div>
+                                <p>{!v.totalWrapper.totalRegistrations}</p>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="horizontal-small" class="slds-p-vertical_xx-small" size="3">
+                                <div><label>Total Contacts That Attended This Event Before</label></div>
+                                <p>{!v.totalWrapper.totalContactsThatAttendedThisEvent}</p>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="horizontal-small" class="slds-p-vertical_xx-small" size="3">
+                                <div><label>Total Contacts That Never Attended Events</label></div>
+                                <p>{!v.totalWrapper.totalNeverAttendedEvents}</p>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="horizontal-small" class="slds-p-vertical_xx-small" size="3">
+                                <div><label>Total New Contacts</label></div>
+                                <p>{!v.totalWrapper.totalNewContacts}</p>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:card>
+            <!--SUMMARY END-->
+
+            <!--Datatable Start-->
+            <lightning:card title="Registrations" class="slds-card_boundary slds-m-around_x-small">
+                <div>
+                    <div class="tableStyle">
+                        <lightning:datatable
+                                             keyField="id"
+                                             data="{! v.PaginationList }"
+                                             columns="{! v.columns }"
+                                             hideCheckboxColumn="true"/>
+                    </div>
+                    <div class="slds-align_absolute-center">
+                        <aura:if isTrue="{!v.totalRecords > v.pageSize}">
+                            <c:Pagination currentPageNumber="{!v.pageNumber}"
+                                          maxPageNumber="{!v.maxPage}"
+                                          totalRecords="{!v.totalRecords}"
+                                          pageSize="{!v.pageSize}"/>
+                        </aura:if>
+
+                    </div>
+                </div>
+            </lightning:card>
+            <!--Datatable End-->
+        </aura:if>
+    </lightning:card>
+
+    <!--END-->
+</aura:component>

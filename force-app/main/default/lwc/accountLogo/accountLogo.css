@@ -1,0 +1,17 @@
+.logo-container{
+    background-color: #f3f2f2;
+    padding: 10px;
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    /* max-height of the logo + (padding * 2) */
+    max-height: 120px;
+}
+.logo{
+    height: 100%;
+    max-height: 100px;
+}
+.italic{
+    font-style: italic;
+}

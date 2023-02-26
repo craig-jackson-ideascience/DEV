@@ -1,0 +1,173 @@
+<!--
+Updated by Tushar@cloudroute.in on 13/10/20.
+-->
+<aura:component description="ProjectRoleTablePopup" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,force:lightningQuickActionWithoutHeader" controller="ProjectRolePopUp">
+    <aura:html tag="style">
+        .slds-modal__container {
+        min-width: 90vw;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content{
+        overflow-y:auto !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+        .slds-tabs_default__content{
+        display:none;
+        }
+        .slds-grid .slds-wrap .cAddProjectRoles{
+        display:none !important;
+        }
+    </aura:html>
+    <!--All Attributes-->
+    <aura:attribute name="opp" type="Opportunity" />
+    <aura:attribute name="opportunityLineItemList" type="list" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="RoleMap" type="Map"/>
+    <aura:attribute name="StatusMap" type="Map"/>
+    <aura:attribute name="StatusMapForInlineEdit" type="Map"/>
+    <aura:attribute name="activeLineItemID" type="string" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="showAddRow" type="Boolean" default="true"/>
+    <aura:attribute name="isEditModeOn" type="Boolean" default="false"/>
+    <aura:attribute name="ProjectRoleList" type="ProjectRolePopUp.ProjectRoleWrapper[]"/>
+    <aura:attribute name="prWrapper" type="ProjectRolePopUp.ProjectRoleWrapper" />
+    <aura:attribute name="isAdd" type="Boolean" default="false"/>
+    <aura:attribute name="ContactName" type="string"/>
+    <aura:attribute name="ContactId" type="string" default=""/>
+    <aura:attribute name="copyContact" type="Boolean" default="false"/>
+    <aura:attribute name="SecondOppId" type="Boolean" default="false"/>
+    <aura:attribute name="selectedTabId" type="string" default=""/>
+    
+    <aura:attribute name="isVotingRequired" type="Boolean" default="true"/>
+
+    <!--All Actions-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:handler name="dataTableSaveEvent" event="c:dataTableSaveEvent" action="{!c.saveTableRecords}"/>
+
+    <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium">Membership Roles</h4>
+    </div>
+
+    <aura:if isTrue="{!empty(v.opportunityLineItemList)}">
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_info b1" role="alert">
+            No items to display.
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!not(empty(v.opportunityLineItemList))}">
+        <lightning:tabset selectedTabId ="{!v.selectedTabId}" >
+            <aura:iteration items="{!v.opportunityLineItemList}" var="item" >
+                <lightning:tab label="{!item.Projects__r.Name+ ' - '+item.Product2.Name}" onactive="{!c.handleActive}" id="{!item.Id}">
+                </lightning:tab>
+            </aura:iteration>
+        </lightning:tabset>
+        <aura:if isTrue="{!not(empty(v.data))}">
+            <lightning:card>
+                <aura:set attribute="actions">
+                    <lightning:layout >
+                        <aura:if isTrue ="{!v.showAddRow}">
+                            <div class="slds-float_right slds-p-bottom_small">
+                                <h1 class="slds-page-header__title">
+                                    <lightning:buttonIcon iconName="utility:add"  size="large" variant="bare" alternativeText="abcd" onclick="{!c.addProjectRole}" />
+                                     <aura:if isTrue="{!v.SecondOppId}">
+                                    <lightning:button variant="brand" label="Copy" title="Brand action" onclick="{! c.copyProjectRoleController }"/>
+                                    </aura:if>
+                                </h1>
+                            </div>
+                        </aura:if>
+                    </lightning:layout>
+                </aura:set>
+                <!--All Project Roles-->
+                <c:dataTable aura:id="datatableId" auraId="datatableId" columns="{!v.columns}" data="{!v.data}" showRowNumberColumn="true" method="{!c.parentPress}"/>
+            </lightning:card>
+            <aura:set attribute="else">
+                <aura:if isTrue ="{!v.showAddRow}">
+                    <div class="slds-p-around_small">
+                        <div class="slds-float_right slds-p-bottom_small">
+                            <h1 class="slds-page-header__title">
+                                <lightning:buttonIcon iconName="utility:add"  size="large" variant="bare" alternativeText="Add" onclick="{!c.addProjectRole}" />
+                            </h1>
+                        </div>
+                    </div>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+
+        <div class="slds-m-top_small">
+        </div>
+
+        <aura:if isTrue="{!not(empty(v.ProjectRoleList))}">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                <tr>
+                    <th scope="col"><div class="slds-truncate" title="Contact">Contact</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Role" required="true" >Role</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Primary Contact">Primary Contact</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Board Member">Board Member</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Status" >Status</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Action" >Action</div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <aura:iteration items="{!v.ProjectRoleList}" var="projectRole" indexVar="index">
+                    <tr>
+                        <td style="">
+                            <c:customLookup objectAPIName="Alternate_Email__c" IconName="standard:Contact" label="" selectedRecord="{!projectRole.contactName}" SearchKeyWord ="{!v.ContactName}" CopyContact="{!v.copyContact}" ContactId="{!v.ContactId}"/>
+                            
+                        </td>
+                        <td>
+                            <lightning:select aura:id="rolePicklist" value="{!projectRole.pr.Role__c}" name="RolePicklist" label="" required="true">
+                                <option value="">--None--</option>
+                                <aura:iteration items="{!v.RoleMap}" var="role" indexVar="key">
+                                    <option text="{!role.value}" value="{!role.key}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </td>
+                        <td>
+                            <lightning:input type="checkbox" label="" checked="{!projectRole.pr.PrimaryContact__c}"/>
+                            <!--ui:inputCheckbox label="Primary Contact" value="{!projectRole.pr.PrimaryContact__c}" /-->
+                        </td>
+                        <td>
+                            <lightning:input type="checkbox" label="" checked="{!projectRole.pr.BoardMember__c}"/>
+                            <!--ui:inputCheckbox label="Board Member" value="{!projectRole.pr.BoardMember__c}" /-->
+                        </td>
+                        <td>
+                            <lightning:select aura:id="statusPicklist" value="{!projectRole.pr.Status__c}"  name="StatusPicklist" label="" required="False">
+                                <aura:iteration items="{!v.StatusMap}" var="status" indexVar="key">
+                                    <option text="{!status.value}" value="{!status.key}" />
+                                </aura:iteration>
+                            </lightning:select>
+
+                        </td>
+                        <td>
+                            <a onclick="{!c.removeProjectRole}" data-record="{!index}">
+                                <lightning:icon iconName="utility:delete" size="small" alternativeText="Delete"/>
+                                <span class="slds-assistive-text">Delete</span>
+                            </a>
+                        </td>
+                    </tr>
+                </aura:iteration>
+                </tbody>
+            </table>
+        </aura:if>
+        
+        <aura:if isTrue="{!v.isEditModeOn}">
+            <div class="slds-align_absolute-center slds-p-vertical_small">
+                <lightning:button label="Cancel" title="Cancel" onclick="{!c.CancelRecord}" />
+                <lightning:button variant="brand" label="Save" disabled="{!v.isDisabled}"  title="Save" onclick="{!c.SaveProjectRoles}" />
+            <br/><br/><br/><br/>
+            </div>
+        </aura:if>
+    </aura:if>
+     
+
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" variant="brand"/>
+    </aura:if>
+
+</aura:component>

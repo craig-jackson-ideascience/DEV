@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Instructor-led Training</label>
+    <protected>false</protected>
+    <values>
+        <field>Term__c</field>
+        <value xsi:type="xsd:string">1. The following cancellation policies and procedures will apply to any Virtual Courses and Onsite Courses:
+    1.1. Rescheduling and/or refund requests made 21 full calendar days or less prior to the start date of the class are not available and not refundable;
+    1.2. Rescheduling requests made more than 21 days prior to the start date of the class will be charged a 25% change fee. Date must be chosen at the time of rescheduling. A rescheduled class must start no later than six (6) months after the initial class start date. 
+    1.3. If a student does not attend a scheduled session (no show), payment for the session is forfeited. The student may not reschedule the session.</value>
+    </values>
+</CustomMetadata>

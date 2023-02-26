@@ -1,0 +1,58 @@
+/**
+ * Updated by Tushar@cloudroute.in on 25/09/20.
+ */
+.THIS.slds-modal__content{
+    min-height: 75% !important; 
+    overflow:auto !important;
+}
+.THIS .buttonClass{
+    margin-left: 744px;
+}
+.THIS .tableStyle {
+    overflow : auto;
+
+}
+.THIS .viewALlButtonClass{
+    margin-left: 30px;
+}
+/*.THIS .tableStyle td .slds-truncate {
+    white-space: normal!important;
+    overflow-wrap: break-word!important;
+    word-wrap: break-word!important;
+}*/
+.THIS .comboboxStyle{
+    width : 300px !important;
+}
+.THIS .nameStyle{
+    cursor: pointer;
+
+}
+.THIS .none{
+    display:none;
+}
+
+.THIS .descriptionClass{
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+.THIS .slds-form-element__label{
+    display:none;
+}
+
+.THIS .nameWidth{
+    width: 7% !important;
+}
+.THIS .roleWidth{
+    width: 18% !important;
+}
+.THIS .statusWidth{
+    width: 8% !important;
+}
+.THIS .contactWidth{
+    width: 14% !important;
+}
+.THIS .emailWidth{
+    width: 16% !important;
+}

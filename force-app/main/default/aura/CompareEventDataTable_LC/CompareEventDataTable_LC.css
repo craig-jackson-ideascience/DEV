@@ -1,0 +1,25 @@
+.THIS .borderStyle{
+    border: 1px solid #98c6f5;
+}
+.THIS .header {
+    line-height: normal;
+    font-size: 13px;
+    color: #ffffff;
+    fill: #ffffff;
+    font-weight: 700;
+    background-color: #1589ee;
+    height: 35px;
+    padding-top: 8px;
+    border-color: rgb(152,198,245);
+}
+.THIS .alignStyle{
+    text-align: right;
+}
+.THIS .cellStyle{
+    font-size: 12px;
+    font-weight: 400;
+    color: #16325c;
+    fill: #16325c;
+    line-height: 1.5;
+    padding:8px;
+}

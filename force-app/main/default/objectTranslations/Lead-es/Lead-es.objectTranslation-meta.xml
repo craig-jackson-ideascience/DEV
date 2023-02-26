@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label></label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>DemandBase</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>First &amp; Last Lead Source Attribution</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Lead Source</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Linux Foundation ID Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Marketing Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Personal Info - 1 line</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Personal Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Social Accounts</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>View_ZoomInfo</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>RestrictSalesforceUserNotToUpdateName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Start_Year_must_be_between_1950_and_now</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Stops_Lead_without_Email</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__Email_Docs</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__S_Docs</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+</CustomObjectTranslation>

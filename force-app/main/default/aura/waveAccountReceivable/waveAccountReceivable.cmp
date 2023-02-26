@@ -1,0 +1,15 @@
+<aura:component description="waveAccountReceivable"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    <aura:attribute name="dashboardId" type="String" default="0FK2M000000bof4WAA"/>
+    <aura:attribute name="waveAccountReceivableData" type="string" />  
+    <aura:attribute name="isWADisplay" type="boolean" default="false"/>
+   <aura:handler event="c:waveAccountReceivableEvent" action="{!c.filteronOnAR}"/>
+    <aura:if isTrue="{!v.isWADisplay}">
+        <wave:waveDashboard showTitle="false" showHeader="false" dashboardId="{!v.dashboardId}" height="480" filter="{!v.waveAccountReceivableData}"/>
+        <aura:set attribute="else">
+            Loading....
+        </aura:set>
+    </aura:if>  
+
+</aura:component>

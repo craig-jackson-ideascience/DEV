@@ -1,0 +1,75 @@
+<aura:component description="accountReceivableViewCMP"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global"
+                controller="membershipOpportunityViewCMP_controller">
+    
+    <!-- selectionChangedEvent Attributes -->
+    <!-- <aura:attribute name="msg" type="String" default="Please make a selection in Analytics that contains a record Stage" access="GLOBAL"/> -->
+    <aura:attribute name="daysFromPurchaseDate" type="Integer" access="GLOBAL"/>
+    <aura:attribute name="countOfRecords" type="Integer" access="GLOBAL"/>
+     <aura:attribute name="Days" type="Integer" access="GLOBAL"/>
+    <aura:attribute name="ARDetails" type="list" />
+    <aura:attribute name="arReportViewData" type="list" />
+    <aura:attribute name="foundationRecord" type="Sobject"/>
+    <aura:attribute name="ifNoRecordsFound" type="Boolean" default="true"/>
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="isViewAll" type="boolean" default="false"/>
+    <!-- handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.foundationId}"/>
+    <aura:handler event="c:foundationName" action="{!c.foundationId}"/>
+    <aura:handler event="wave:selectionChanged" action="{!c.handleSelection}"/>
+    <!-- dependency Event Attributes -->
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+    
+    <div class="slds-p-around_xxx-small slds-card slds-card_boundary slds-grid slds-wrap">
+        <aura:if isTrue="{!v.ifNoRecordsFound}">
+            <!--div class="slds-text-title slds-text-color_default">
+                <a  onclick = "{!c.viewReport}" class="custom-css-link">
+                    View Report(Account Receivable group by Days)
+                </a>
+            </div-->
+            <lightning:card class="custom-css-card" title="AR"/>
+            <aura:set attribute="else">
+                <lightning:card class="custom-css-card" title="{! v.Days + ' Days AR'}">
+                    <div aura:id="dataTable" class="tableStyle">
+                        <!-- data table start--> 
+                        <table class="slds-table slds-table_bordered slds-p-around_x-small">
+                            <thead>
+                                <tr class="slds-text-title_caps thStyle">
+                                    <th class="slds-cell-wrap">
+                                        <span class="slds-truncate" title=""></span>
+                                    </th>
+                                    <th class="slds-cell-wrap">
+                                        <span class="slds-truncate" title=""></span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.ARDetails}" var="ar" indexVar="index">
+                                    <tr class="slds-hint-parent thStyle">
+                                        <td class="slds-cell-wrap">
+                                            {!index+1}.
+                                        </td>
+                                        <td class="slds-cell-wrap">
+                                            <div class="slds-text-title slds-text-color_default">
+                                                <a href="{!'/lightning/r/Account/'+ ar.objAsset.AccountId + '/view'}" target="_blank">
+                                                    {! ar.objAsset.Account.Name}
+                                                </a>
+                                                <br /><span>{! ar.objAsset.PurchaseDate}</span>&nbsp;<span>•</span>&nbsp;
+                                                <span><lightning:formattedNumber value="{! ar.objAsset.Price}" style="currency" currencyCode="USD"/></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                        <!-- DataTable End -->
+                    </div>
+                </lightning:card>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

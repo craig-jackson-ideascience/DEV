@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Work 1</fullName>
+        <default>false</default>
+        <label>Work 1</label>
+    </customValue>
+    <customValue>
+        <fullName>Work 2</fullName>
+        <default>false</default>
+        <label>Work 2</label>
+    </customValue>
+    <customValue>
+        <fullName>Personal 1</fullName>
+        <default>false</default>
+        <label>Personal 1</label>
+    </customValue>
+    <customValue>
+        <fullName>Personal 2</fullName>
+        <default>false</default>
+        <label>Personal 2</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Email Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

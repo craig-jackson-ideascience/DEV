@@ -1,0 +1,42 @@
+.THIS {}
+.THIS .select-300px-width{
+    width : 100px;
+}
+.THIS .custom-css-card {
+    width: 100% !important;
+}
+.THIS .custom-hide {
+    display: none !important;
+}
+.THIS .slds-notify_alert {
+    color: black !important;
+}
+.THIS .custom-css-link {
+    margin-left: 30px;
+}
+.THIS .custom-margin {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    max-width: 330px;
+    top: 0;
+    right: 0;
+}
+.THIS .custom-css-card .slds-text-heading_small {
+    font-size: 14px !important;
+}
+.THIS .custom-css_btn {
+    height: 35px !important;
+}
+.THIS .slds-form-element__label {
+    position: relative;
+    top: 5px;
+    max-width:115px;
+}
+.THIS .slds-form-element__control.slds-grow {
+    padding-left: 44%;
+}
+.THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+}

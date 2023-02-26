@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>pchennoju@contractor.linuxfoundation.org</contactEmail>
+    <contactPhone>4157239709</contactPhone>
+    <label>GravityForm7</label>
+    <oauthConfig>
+        <callbackUrl>https://www.opensds.io/?callback=gravityformssalesforce
+https://www.openbmc.org/?callback=gravityformssalesforce
+https://www.openchainproject.org/?callback=gravityformssalesforce
+https://www.opnfv.org/?callback=gravityformssalesforce</callbackUrl>
+        <consumerKey>3MVG9Nc1qcZ7BbZ0Ep18pfQsltaCXZEeY02wM4YmYgBcq_nVxD9SjJskGYH7NSyh7Q1tTkd4Ha_tJPMO1KOWD</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

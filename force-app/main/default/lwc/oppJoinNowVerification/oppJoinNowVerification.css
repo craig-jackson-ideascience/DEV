@@ -1,0 +1,40 @@
+.outer-container{
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.inner-container{
+    padding: 16px;
+}
+.bold-heading{
+    font-size: 16px;
+    font-weight: bold;
+}
+.red-heading-box{
+    height: 65px;
+    background-color: #ffcccb;
+    border-bottom: 1px solid rgb(221, 219, 218);
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+}
+.section{
+    margin-bottom: 20px;
+}
+.instructions{
+    margin-bottom: 10px;
+}
+.message-wrapper{
+    margin-bottom: 15px;
+    font-style: italic;
+    color: rgb(0, 95, 178);
+}
+.button-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.cancel-button{
+    margin-right: 5px;
+}

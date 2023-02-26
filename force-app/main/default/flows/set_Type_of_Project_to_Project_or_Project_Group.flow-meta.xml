@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>if_child_projects_were_found</name>
+        <label>if child projects were found</label>
+        <locationX>167</locationX>
+        <locationY>380</locationY>
+        <defaultConnector>
+            <targetReference>set_Type_to_Project_Group</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>children found</defaultConnectorLabel>
+        <rules>
+            <name>no_children_found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>get_child_projects_of_this_project</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>set_Type_to_Project</targetReference>
+            </connector>
+            <label>no children found</label>
+        </rules>
+    </decisions>
+    <description>sets the Type of a Project record to either &apos;Project&apos; (if that project has no child projects) or &apos;Project Group&apos; (if that project has at least one child project)</description>
+    <interviewLabel>set Type of Project to &apos;Project&apos; or &apos;Project Group&apos; {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>set Type of Project to &apos;Project&apos; or &apos;Project Group&apos;</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>get_child_projects_of_this_project</name>
+        <label>get child projects of this project</label>
+        <locationX>176</locationX>
+        <locationY>218</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>if_child_projects_were_found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Parent_Project__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ProjectID</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Project__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>set_Type_to_Project</name>
+        <label>set Type to &apos;Project&apos;</label>
+        <locationX>468</locationX>
+        <locationY>378</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ProjectID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Project_Type__c</field>
+            <value>
+                <stringValue>Project</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Project__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>set_Type_to_Project_Group</name>
+        <label>set Type to &apos;Project Group&apos;</label>
+        <locationX>469</locationX>
+        <locationY>520</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ProjectID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Project_Type__c</field>
+            <value>
+                <stringValue>Project Group</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Project__c</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>get_child_projects_of_this_project</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ProjectID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

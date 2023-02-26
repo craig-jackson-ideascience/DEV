@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Linux Foundation</fullName>
+        <default>false</default>
+        <label>LF Event</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Projects</fullName>
+        <default>false</default>
+        <label>LF Managed Event</label>
+    </customValue>
+    <customValue>
+        <fullName>3rd Party Event</fullName>
+        <default>false</default>
+        <label>Event Services</label>
+    </customValue>
+    <masterLabel>Product Category</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

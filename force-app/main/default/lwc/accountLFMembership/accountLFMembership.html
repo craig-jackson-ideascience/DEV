@@ -1,0 +1,51 @@
+<template>
+
+        <!-- Linux Foundation membership -->
+    <template if:true={isVisible}>
+        <div class="clrRed container lf-membership-container">
+            
+            <template if:true={activeLFMember}>
+                <div class="bold-heading">{lfMembershipSummary}</div>
+                {lfStartOrEndSummary} <br/>
+                <div class="bold-heading">{StartegicAcount}</div>
+            </template>
+            <template if:false={activeLFMember}>
+                <div class="italic-heading">{lfMembershipSummary}</div>
+                <span class="italic">{lfStartOrEndSummary}</span>
+                <br/>
+                <div class="bold-heading">{StartegicAcount}</div>
+            </template>
+        </div>
+    </template>
+    <template if:false={isVisible}>
+        <div class="container lf-membership-container">
+            <template if:true={activeLFMember}>
+            <div class="bold-heading">{lfMembershipSummary}</div>
+                {lfStartOrEndSummary}
+                </template>
+            <template if:false={activeLFMember}>
+            <div class="italic-heading">{lfMembershipSummary}</div>
+            <span class="italic">{lfStartOrEndSummary}</span>
+            <div class="italic-heading"></div>
+            </template>
+        </div>
+    </template>
+        <!-- at-risk renewals (only shown if at least one at-risk renewal for this account exists) -->
+        <template if:true={hasAtRiskOpps}>
+            <div class="container renewals-container">
+                <div class="red-heading-box">
+                    <div class="bold-heading">At Risk Membership Renewals</div>
+                </div>
+                <div class="renewals-padding">
+                    <template for:each={atRiskOpps} for:item="opp">
+                        <div class="renewal" key={opp.id}>
+                            <a href={opp.nameURL}>{opp.name}</a><br>
+                            {opp.amount} | {opp.owner} | Closes {opp.closeDate}<br>
+                            {opp.atRiskReason}
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+    </template>

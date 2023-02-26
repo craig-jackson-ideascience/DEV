@@ -1,0 +1,82 @@
+<template>
+    <div class="container">
+        <div class="bold-heading">
+            Event Sponsorships
+        </div>
+
+        <!-- if this Account has at least one sponsorship -->
+        <template if:true={hasSponsorships}>
+            <div class="filters-container">
+                <div class="project-combobox-wrapper">
+                    <lightning-combobox
+                        name="project"
+                        placeholder="Filter by Project"
+                        value="all"
+                        variant="label-hidden"
+                        onchange={changeProject}
+                        options={projects}>
+                    </lightning-combobox>
+                </div>
+                <div class="dates-wrapper">
+                    <lightning-button
+                        label="Show All Years"
+                        variant="brand"
+                        onclick={showAllYears}>
+                    </lightning-button>
+                    <template for:each={years} for:item="year">
+                        <lightning-button-stateful key={year.value}
+                            label-when-off={year.label}
+                            label-when-on={year.label}
+                            label-when-hover={year.hideLabel}
+                            icon-name-when-off="utility:add"
+                            icon-name-when-on="utility:check"
+                            icon-name-when-hover="utility:close"
+                            selected={year.isSelected}
+                            class="stateful-button"
+                            onclick={changeYearFilter}>
+                        </lightning-button-stateful>
+                    </template>
+                </div>
+            </div>
+            <template if:true={viewAllButton}> 
+            <div style="height: 200px">
+                <lightning-datatable
+                                                            key-field="id"
+                                                            data={tableData}
+                                                            columns={tableColumns}
+                                                            hide-checkbox-column
+                                                            
+                                                            >
+                </lightning-datatable>
+            </div>
+            </template>
+            <template if:false={viewAllButton}> 
+            <lightning-datatable
+                                                            key-field="id"
+                                                            data={tableData}
+                                                            columns={tableColumns}
+                                                            hide-checkbox-column
+                                                            
+                                                            >
+                </lightning-datatable>
+                </template>
+            <!-- display warning if Account has sponsorships but filters are preventing any from being shown -->
+            <template if:true={warning}>
+                <div class="warning">
+                    {warning}
+                </div>
+            </template>
+        </template>
+        <br/>
+         <template if:true={viewAllButton}> 
+          <lightning-button label="View All" onclick={navigateToHomePage}></lightning-button>
+				</template>
+        <!-- if this Account doesn't have any sponsorships -->
+        <template if:false={hasSponsorships}>
+            <div class="no-sponsorships">
+                This account hasn't purchased any event sponsorships.
+            </div>
+        </template>
+
+    </div>
+</template>

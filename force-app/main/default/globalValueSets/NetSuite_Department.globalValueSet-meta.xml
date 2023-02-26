@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>2</fullName>
+        <default>false</default>
+        <label>Events</label>
+    </customValue>
+    <customValue>
+        <fullName>10</fullName>
+        <default>false</default>
+        <label>Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>8</fullName>
+        <default>false</default>
+        <label>Training</label>
+    </customValue>
+    <customValue>
+        <fullName>13</fullName>
+        <default>false</default>
+        <label>Training (Linux Labs)</label>
+    </customValue>
+    <masterLabel>NetSuite Department</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

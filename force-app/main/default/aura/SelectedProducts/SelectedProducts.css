@@ -1,0 +1,16 @@
+.THIS .tableStyle1 .slds-button_icon-bare{
+    display: none !important;
+}
+.THIS .tableStyle1 tbody td div{
+    float : left !important;
+}
+.THIS .tableStyle1 .slds-grid_align-end{
+    justify-content: flex-start !important;
+}
+.THIS.accordionMargin{
+    margin-top: 2% !important;
+    margin-bottom: 2% !important;
+}
+.THIS .tableStyle1 .slds-grid_align-center{
+    justify-content: flex-start !important;
+}

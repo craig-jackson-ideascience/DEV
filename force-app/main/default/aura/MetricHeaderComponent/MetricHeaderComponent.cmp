@@ -1,0 +1,22 @@
+<!-- c:MetricHeaderComponent -->
+<aura:component>
+
+    <!--=============================== component part =============================-->
+    <lightning:layout multiplerows="false">
+        
+        <!-- Image -->
+        <lightning:layoutItem size="1">
+            <img style="height: 50px;"
+                src="https://linuxfoundation--stage--c.documentforce.com/file-asset/faviconpng7" />
+        </lightning:layoutItem>
+
+        <!-- Header -->
+        <lightning:layoutItem padding="around-medium">
+            <div class="metricHeader">
+                Metrics by time period
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- End -->
+
+</aura:component>

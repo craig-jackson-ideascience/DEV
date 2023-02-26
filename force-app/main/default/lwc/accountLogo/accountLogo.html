@@ -1,0 +1,15 @@
+<template>
+
+    <!-- if Logo URL field is populated -->
+    <div class="logo-container">
+        <template if:true={logoURL}>
+            <img src={logoURL} alt="Account Logo" class="logo">
+        </template>
+
+        <!-- if Logo URL field is blank -->
+        <template if:false={logoURL}>
+            <div class="italic">No logo has been selected for this account.</div>
+        </template>
+    </div>
+
+</template>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>AI, ML, Data &amp; Analytics</fullName>
+        <default>false</default>
+        <label>AI, ML, Data &amp; Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>Blockchain</fullName>
+        <default>false</default>
+        <label>Blockchain</label>
+    </customValue>
+    <customValue>
+        <fullName>Cloud, Containers &amp; Virtualization</fullName>
+        <default>false</default>
+        <label>Cloud, Containers &amp; Virtualization</label>
+    </customValue>
+    <customValue>
+        <fullName>Cross-Technology</fullName>
+        <default>false</default>
+        <label>Cross-Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>DevOps, CI/CD &amp; Site Reliability</fullName>
+        <default>false</default>
+        <label>DevOps, CI/CD &amp; Site Reliability</label>
+    </customValue>
+    <customValue>
+        <fullName>IoT &amp; Embedded</fullName>
+        <default>false</default>
+        <label>IoT &amp; Embedded</label>
+    </customValue>
+    <customValue>
+        <fullName>Linux Kernel</fullName>
+        <default>false</default>
+        <label>Linux Kernel</label>
+    </customValue>
+    <customValue>
+        <fullName>Networking &amp; Edge</fullName>
+        <default>false</default>
+        <label>Networking &amp; Edge</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Hardware</fullName>
+        <default>false</default>
+        <label>Open Hardware</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Source &amp; Compliance Best Practices</fullName>
+        <default>false</default>
+        <label>Open Source &amp; Compliance Best Practices</label>
+    </customValue>
+    <customValue>
+        <fullName>Privacy &amp; Security</fullName>
+        <default>false</default>
+        <label>Privacy &amp; Security</label>
+    </customValue>
+    <customValue>
+        <fullName>Quantum Computing</fullName>
+        <default>false</default>
+        <label>Quantum Computing</label>
+    </customValue>
+    <customValue>
+        <fullName>Safety-Critical Systems</fullName>
+        <default>false</default>
+        <label>Safety-Critical Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>Storage</fullName>
+        <default>false</default>
+        <label>Storage</label>
+    </customValue>
+    <customValue>
+        <fullName>System Administration</fullName>
+        <default>false</default>
+        <label>System Administration</label>
+    </customValue>
+    <customValue>
+        <fullName>System Engineering</fullName>
+        <default>false</default>
+        <label>System Engineering</label>
+    </customValue>
+    <customValue>
+        <fullName>Visual Effects</fullName>
+        <default>false</default>
+        <label>Visual Effects</label>
+    </customValue>
+    <customValue>
+        <fullName>Web &amp; Application Development</fullName>
+        <default>false</default>
+        <label>Web &amp; Application Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Cybersecurity</fullName>
+        <default>false</default>
+        <label>Cybersecurity</label>
+    </customValue>
+    <customValue>
+        <fullName>Security</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Security</label>
+    </customValue>
+    <customValue>
+        <fullName>Node.js Development</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Node.js Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Open Source Best Practices</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Open Source Best Practices</label>
+    </customValue>
+    <customValue>
+        <fullName>Application Development</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Application Development</label>
+    </customValue>
+    <description>Technology categories used by training, events, and projects across the LF.  Note that forms in Cvent need to be updated for any label change needed in this value set.</description>
+    <masterLabel>Technology</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

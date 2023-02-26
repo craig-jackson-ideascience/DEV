@@ -1,0 +1,8 @@
+<!--
+ - Created by cloudroutesolutions on 27/01/21.
+ -->
+
+<aura:event type="COMPONENT" description="Chart_ClickEvent">
+    <aura:attribute name="clickedValue" type="Object"/>
+    <aura:attribute name="yAxisValue" type="Object" />
+</aura:event>

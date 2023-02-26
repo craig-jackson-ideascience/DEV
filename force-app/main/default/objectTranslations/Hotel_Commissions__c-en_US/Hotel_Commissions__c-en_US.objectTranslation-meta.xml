@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Hotel Commissions</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Hotel Commissions</value>
+    </caseValues>
+    <layouts>
+        <layout>Hotel Commissions Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Sales Order</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Clone</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Sync_to_NetSuite</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

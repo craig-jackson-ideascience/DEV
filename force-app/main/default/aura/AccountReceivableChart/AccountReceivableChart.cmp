@@ -1,0 +1,113 @@
+<!--
+ - Created by cloudroutesolutions on 20/01/21.
+ -->
+
+<aura:component description="AccountReceivableChart"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global" controller="AccountReceivableChartController">
+    <aura:attribute name="chartJson" type="string" />
+    <aura:attribute name="foundationId" type="string" default="{!$Label.c.Chart_AR_DefaultProjectId}" />
+    <aura:attribute name="daysFromPurchaseDate" type="string" default="0" />
+    <aura:attribute name="hasData" type="Boolean" default="false" />
+    <aura:attribute name="hasTableData" type="Boolean" default="false" />
+    <aura:attribute name="chartData" type="String" access="global" />
+    <aura:attribute name="chartTableData" type="List" access="global" />
+    <aura:attribute name="dataInPercent" type="List" />
+    <aura:attribute name="baseUrl" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="loaded" type="Boolean" default="false" access="global" />
+    <c:ApexService aura:id="service" />
+
+    <aura:handler event="c:foundationName" action="{!c.setFoundationId}" />
+    <aura:handler name="chartClickEvent" event="c.Chart_ClickEvent" action="{!c.handlerChartClickEvent}" />
+
+    <aura:html tag="style">
+        .cDataTable .cTable thead th:first-child {
+        width: 55% !important;
+        }
+        .cDataTable .cTable thead th {
+        background-color: #f4f6f9 !important;
+        font-weight: 700 !important;
+        font-size: 12px !important;
+        color: #16325c !important;
+        fill: #16325c !important;
+        border-color: #e0e5ee !important;
+        line-height: 1.5 !important;
+        padding: 3px 0px !important;
+        border-left: 1px solid #e0e5ee !important;
+        border-bottom-color: #a8b7c7 !important;
+        }
+
+        .cDataTable .cTable tbody td{
+        padding-top: 0.50rem !important;
+        padding-bottom: 0.50rem !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        color: #16325c !important;
+        fill: #16325c !important;
+        line-height: 1.5 !important;
+        border-left: 1px solid #e0e5ee !important;
+        }
+        .cDataTable .cTable tbody td a{
+        color: #16325c !important;
+        }
+
+        .app_flexipage-header[app_flexipage-lwcAppFlexipageDecorator_lwcAppFlexipageDecorator] {
+        display: none !important;
+        }
+        .accRecvHeader{
+        font-size: 20px;
+        color: rgb(9, 26, 62);
+        background-color: rgb(255, 255, 255);
+        line-height: 2;
+        }
+
+    </aura:html>
+
+    <div class="slds-card">
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small">
+                <div class="custom-box">
+                    <img src="{!$ContentAsset.03S2M000000XdgV}" width="40" alt="holiday wreath" />
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <div class="accRecvHeader">Account Receivable</div>
+            </lightning:layoutItem>
+        </lightning:layout>
+
+        <aura:if isTrue="{!v.loaded}">
+            <div class="spinnerFixed">
+                <lightning:spinner alternativeText="Loading" variant="brand" class="spins" />
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{!not(empty(v.dataInPercent))}">
+            <c:ChartJs currency="USD" canvasId="AccReceivableChart" color="#0283f1,#06477d" chartTitle=""
+                chartType="bar" chartJson="{!v.chartData}" height="300" width="400"
+                xAxisLabel="Days since Purchase Date" yAxisLabel="Sum of sales orders $" />
+            <aura:set attribute="else">
+                <div style="background-color: white;height:5rem" class="slds-align_absolute-center">
+                    No data to show
+                </div>
+            </aura:set>
+        </aura:if>
+
+        <aura:if isTrue="{!not(empty(v.chartTableData))}">
+            <c:dataTable aura:id="datatableId" auraId="datatableId" columns="{!v.columns}" data="{!v.chartTableData}"
+                showRowNumberColumn="false" />
+
+            <div onclick="{!c.callViewAll}" style="cursor: pointer;color: rgb(0, 109, 204);text-decoration: underline;"
+                class="slds-p-around_small">
+                View All
+            </div>
+            <aura:set attribute="else">
+                <div style="background-color: white;height:5rem" class="slds-align_absolute-center">
+                    No data to show
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>

@@ -1,0 +1,205 @@
+<aura:component description="campaignView_cmp"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" 
+                controller="campaignView_conrtoller">
+    
+    <!-- Sobject Attributes-->
+    <aura:attribute name="campaignList" type="list" />
+    <aura:attribute name="ifNoRecordsFound" type="boolean"/> 
+    <!--aura:registerEvent name="campaignObject" type="c:campaignObject" /-->
+    <!-- Handlers -->
+    <aura:attribute name="foundationRecord" type="Sobject"/>
+    <aura:handler event="c:foundationName" action="{!c.foundationId}"/>
+    <!-- Attribute list for Pagination Function-->
+    <aura:attribute name="PaginationList" type="list"/> 
+    <aura:attribute name="selectedCount" type="integer" default="0" description="selected Records Count"/>
+    <aura:attribute name="startPage" type="Integer" />
+    <aura:attribute name="endPage" type="Integer"/>
+    <aura:attribute name="totalRecordsCount" type="Integer"/>
+    <aura:attribute name="pageSize" type="Integer" default="5" description="number of records to be display on per page"/>
+    <aura:attribute name="currentPage" type="integer" default="1"/>
+    <aura:attribute name="totalPagesCount" type="integer"/>
+    <!-- Attribute list for Sort Function-->
+    <aura:attribute name="arrowDirection" type="string" default="arrowup" description="Use for change arrow sign direction on header based on click"/>
+    <aura:attribute name="isAsc" type="boolean" default="true" description="boolean flag for pass sorting condition to apex class"/> 
+    <aura:attribute name="selectedTabsoft" type="string" default="Name" description="Use for show/hide arraow sign on header based on conditions"/>
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="isViewAll" type="boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.ifNoRecordsFound}" >
+        <!--display error message if there is no records available -->
+        <div class="slds-p-around_small slds-card slds-card_boundary slds-grid slds-wrap">        
+            <lightning:card class="custom-css-card" title="{! v.foundationRecord.Name + ' - Campaigns (0)'}" iconName="standard:campaign">
+                <!-- added New button -->
+                <div class="custom-margin">
+                    <lightning:button label="New" name="New"/>
+                </div>
+                <div class="slds-notify slds-notify_alert" role="alert">
+                    <span class="slds-assistive-text">error</span>
+                    <h2>No record found.</h2>
+                </div>
+            </lightning:card>
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-p-around_small slds-card slds-card_boundary slds-grid slds-wrap">
+                <lightning:card class="custom-css-card" title="{! v.foundationRecord.Name + ' - Campaigns (' + v.totalRecordsCount + ')'}" iconName="standard:campaign">
+                    <!-- added New Button -->
+                    <div class="custom-margin">
+                        <lightning:button label="New" name="New"/>
+                    </div>
+                    <!-- data table start--> 
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="slds-cell-wrap custom-hide" scope="col">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <ui:inputCheckbox disabled="{!v.totalRecordsCount == 0}"
+                                                              aura:id="selectAllId"
+                                                              change="{!c.selectAllCheckbox}"
+                                                              class="custom-hide" />
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" onclick="{!c.sortByName}" scope="col">
+                                    <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                        <span class="slds-assistive-text">Sort</span>
+                                        <span class="slds-truncate" title="Campaign Name">Campaign Name</span>  
+                                        <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Name') }">&nbsp;  &#9660; </aura:if>  
+                                        <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Name') }"> &nbsp;  &#9650; </aura:if>                        
+                                    </a>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="Status">Status</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="Type">Type</span>
+                                </th>  
+                                <!--th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="Total Leads">Total Leads</span>
+                                </th>  
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="Closed Opps">Closed Opps</span>
+                                </th-->  
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="Start Date">Start Date</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="End Date">End Date</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="# Contacts"># Contacts</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="# Leads"># Leads</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="# Converted Leads"># Converted Leads</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="# Opportunities"># Opportunities</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="$ Opportunities">$ Opportunities</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="# Won Opportunities"># Won Opportunities</span>
+                                </th>
+                                <th class="slds-cell-wrap slds-p-around_small" scope="col">
+                                    <span class="slds-truncate" title="$ Won Opportunities">$ Won Opportunities</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.PaginationList}" var="obj" indexVar="index">
+                                <tr class="slds-hint-parent">
+                                    <td class="slds-cell-wrap custom-hide">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__control">
+                                                <ui:inputCheckbox text="{!obj.objCampaign}"
+                                                                  aura:id="selectedCheckbox"
+                                                                  value="{!obj.isChecked}"
+                                                                  change="{!c.onSelection}"
+                                                                  class="custom-hide"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <a href="{!'/lightning/r/Campaign/'+ obj.objCampaign.Id + '/view'}" target="_blank">
+                                            {!obj.objCampaign.Name}
+                                        </a>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.objCampaign.Status}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.objCampaign.Type}
+                                    </td>
+                                    <!--td class="slds-cell-wrap">
+                                        {!obj.objCampaign.NumberOfLeads}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.closedOpportunity}
+                                    </td-->
+                                    <td class="slds-cell-wrap">
+                                        {!obj.startDate}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.endDate}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.objCampaign.NumberOfContacts}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.objCampaign.NumberOfLeads}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.objCampaign.NumberOfConvertedLeads}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.objCampaign.NumberOfOpportunities}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <lightning:formattedNumber value="{!obj.objCampaign.AmountAllOpportunities}" style="currency" currencyCode="USD"/>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        {!obj.objCampaign.NumberOfWonOpportunities}
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <lightning:formattedNumber value="{!obj.objCampaign.AmountWonOpportunities}" style="currency" currencyCode="USD"/>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                    <!-- DataTable End -->
+                    
+                    <!--  Pagination Buttons Start -->
+                    <div class="slds-align_absolute-center slds-p-top_medium">         
+                        <lightning:button label="Previous"
+                                          disabled="{!v.startPage == 0}"  
+                                          onclick="{!c.navigation}"
+                                          variant="brand"
+                                          iconName="utility:back"
+                                          name="previous"/>                        
+                        <span class="slds-badge slds-badge_lightest" style="margin-right: 10px;margin-left: 10px;">
+                            Page {!v.currentPage} out of {!v.totalPagesCount}
+                        </span>                        
+                        <lightning:button label="Next"
+                                          disabled="{!(v.endPage + 1) >= v.totalRecordsCount}" 
+                                          onclick="{!c.navigation}"
+                                          variant="brand"
+                                          iconName="utility:forward"
+                                          iconPosition="right"
+                                          name="next"/>
+                        <a onclick = "{!c.viewAll}" class="custom-css-link">View All</a>
+                    </div>
+                    <!--  Pagination Buttons End -->
+                </lightning:card>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

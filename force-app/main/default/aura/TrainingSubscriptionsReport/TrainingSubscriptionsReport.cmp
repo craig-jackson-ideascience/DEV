@@ -1,0 +1,196 @@
+<aura:component implements="lightning:isUrlAddressable" controller="TrainingSubscriptionsReportController">
+    <!--Variables-->
+    <aura:attribute name="AssetProductDetailList" type="Object[]"/> 
+    <aura:attribute name="fromDate" type="Date"/>
+    <aura:attribute name="toDate" type="Date"/>
+    <aura:attribute name="showTable" type="Boolean" default="false"/>
+    <aura:attribute name="hasError" type="Boolean" default="false"/>
+    <aura:attribute name="hasRecords" type="Boolean" default="true"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+    
+    <!--PAGINATION VARIABLES-->
+    <aura:attribute name="PaginationList" type="list"/> 
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:attribute type="Integer" name="totalRecords" /> 
+    <aura:attribute type="Integer" name="pageSize" default="3" />
+    
+    <!--Start-->
+    <lightning:card>
+        <center class="slds-p-around--medium"><h1 style="font-size:25px;">Training Subscriptions Report</h1></center>
+        <div class="slds-p-around--medium">
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-button slds-section__title-action">
+                    <span class="slds-truncate" title="Section Title">Filters</span>
+                    
+                </h3>
+            </div>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_2-of-12">
+                    <lightning:input type="date" name="fromDate" label="From" value="{!v.fromDate}"/>
+                    
+                </div>
+                <div class="slds-col slds-size_1-of-12">
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                    <lightning:input type="date" name="toDate" label="To" value="{!v.toDate}"/> 
+                </div>
+            </div>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_2-of-12"></div>
+                <div class="slds-size_2-of-12">
+                    <lightning:button class="slds-p-top_xx-small slds-size_6-of-12" variant="brand" label="Get" onclick="{! c.getRecords }" />
+                </div>
+            </div>
+            
+            <!--Spinner-->
+            <aura:if isTrue="{! v.showSpinner }">
+                <lightning:spinner alternativeText="Loading" />
+            </aura:if>
+            
+            <aura:if isTrue="{!v.hasError}">
+                <ui:message title="Error" severity="error" closable="false">
+                    Please provide correct From date and To date.
+                </ui:message>
+                <aura:set attribute="else">
+                    <div class="slds-section slds-is-open slds-size_12-of-12 slds-p-top_x-small">
+                        <h3 class="slds-section__title slds-button slds-section__title-action">
+                            <span class="slds-truncate" title="Section Title">Report Table</span>
+                        </h3>
+                        
+                    </div>
+                    
+                    <!--Display Table-->
+                    <aura:if isTrue="{!v.showTable}">
+                        <div class="slds-size_1-of-1">
+                            <div class="slds-align_absolute-center">
+                                <lightning:button class="slds-p-top_xx-small" variant="brand" label="Export" onclick="{! c.downloadCsv }" />
+                            </div>
+                            <table class="slds-table  slds-table_bordered slds-table_col-bordered" border="1" style="border-collapse: collapse;">
+                                <thead>
+                                    <tr>
+                                        <div class="slds-grid">
+                                            <th class="slds-col slds-size_2-of-12"> Purchase History Name</th>
+                                            <th class="slds-col slds-size_2-of-12"> Account Name</th>
+                                            <th class="slds-col slds-size_1-of-12"> Install Date</th>
+                                            <th class="slds-col slds-size_1-of-12"> Amount</th>
+                                            <th class="slds-col slds-size_2-of-12"> ProductName</th>
+                                            <th class="slds-col slds-size_1-of-12"> Product Code</th>
+                                            <th class="slds-col slds-size_1-of-12">Product Type</th>
+                                            <th class="slds-col slds-size_1-of-12"> % or amount</th>
+                                            <th class="slds-col slds-size_1-of-12">Actual revenue</th>
+                                        </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <aura:iteration items="{!v.PaginationList}" var="asstPrdDetail" indexVar="index">
+                                        <tr>
+                                            <div class="slds-grid">
+                                                <td class="slds-col slds-size_2-of-12 slds-cell-wrap" rowspan="{!asstPrdDetail.trainingProductDetail.length+1}">
+                                                    <a href="{!asstPrdDetail.url}"  target="_blank" class=" slds-text-link " style="font-size: 0.75rem;">
+                                                        {!asstPrdDetail.name}
+                                                    </a>
+                                                </td>
+                                                
+                                                <td class="slds-col slds-size_2-of-12 slds-cell-wrap">
+                                                    <a href="{!asstPrdDetail.accountUrl}"  target="_blank" class=" slds-text-link " style="font-size: 0.75rem;">                                                     
+                                                        {!asstPrdDetail.accountName}
+                                                    </a>
+                                                </td>
+                                                
+                                                <td class="slds-col slds-size_1-of-12">
+                                                    {!asstPrdDetail.installDate}
+                                                </td>
+                                                
+                                                <td class="slds-col slds-size_1-of-12">
+                                                    <lightning:formattedNumber value="{!asstPrdDetail.amount}" style="currency" currencyCode="USD"/>
+                                                </td>
+                                                
+                                                <td class="slds-col slds-size_2-of-12 slds-cell-wrap">
+                                                    {!asstPrdDetail.productName}
+                                                </td>
+                                                
+                                                <td class="slds-col slds-size_1-of-12">
+                                                    {!asstPrdDetail.productCode}
+                                                </td>
+                                                
+                                                <td class="slds-col slds-size_1-of-12 slds-cell-wrap">
+                                                    {!asstPrdDetail.productType}
+                                                </td>
+                                                
+                                                <td class="slds-col slds-size_1-of-12"></td>
+                                                <td class="slds-col slds-size_1-of-12"></td>
+                                            </div>
+                                        </tr>
+                                        
+                                        <aura:iteration items="{!asstPrdDetail.trainingProductDetail}" var="productDetail" indexVar="index">
+                                            <tr>
+                                                <div class="slds-grid">
+                                                    <td class="slds-col slds-size_2-of-12"></td>
+                                                    <td class="slds-col slds-size_2-of-12 slds-cell-wrap">
+                                                        <a href="{!asstPrdDetail.accountUrl}"  target="_blank" class=" slds-text-link " style="font-size: 0.75rem;">                                                     
+                                                            {!asstPrdDetail.accountName}
+                                                        </a>
+                                                    </td>
+                                                    
+                                                    <td class="slds-col slds-size_1-of-12">
+                                                        {!asstPrdDetail.installDate}
+                                                    </td>
+                                                    
+                                                    <td class="slds-col slds-size_1-of-12">
+                                                        <lightning:formattedNumber value="{!asstPrdDetail.amount}" style="currency" currencyCode="USD"/>
+                                                    </td>
+                                                    
+                                                    <td class="slds-col slds-size_2-of-12 slds-cell-wrap">
+                                                        {!productDetail.productName}
+                                                    </td>
+                                                    
+                                                    <td class="slds-col slds-size_1-of-12 slds-cell-wrap">
+                                                        {!productDetail.productCode}
+                                                    </td>
+                                                    
+                                                    <td class="slds-col slds-size_1-of-12 slds-cell-wrap">
+                                                        {!productDetail.productType}
+                                                    </td>
+                                                    
+                                                    
+                                                    <td class="slds-col slds-size_1-of-12 ">
+                                                        <lightning:formattedNumber value="{!productDetail.percentageAmount/100}" style="percent" maximumFractionDigits="2"/>
+                                                    </td>
+                                                    
+                                                    
+                                                    <td class="slds-col slds-size_1-of-12 ">
+                                                        <lightning:formattedNumber value="{!productDetail.revenue}" style="currency" currencyCode="USD"/>
+                                                    </td>
+                                                </div>
+                                            </tr>
+                                        </aura:iteration>
+                                        
+                                    </aura:iteration>
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="slds-align_absolute-center">
+                            <aura:if isTrue="{!v.totalRecords > v.pageSize}">
+                                <c:Pagination currentPageNumber="{!v.pageNumber}" 
+                                              maxPageNumber="{!v.maxPage}"
+                                              totalRecords="{!v.totalRecords}"
+                                              pageSize="{!v.pageSize}"/>
+                            </aura:if>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!not(v.hasRecords)}">
+                        There are no Purchase Histories Between these dates.
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>

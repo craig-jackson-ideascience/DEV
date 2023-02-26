@@ -1,0 +1,63 @@
+<!--c:ChooseProducts-->
+<aura:component controller="AddOpportunityProductController">
+    <!--ATTRIBUTES-->
+    <aura:attribute name="selectedProductType" type="String"/>
+    <aura:attribute name="selectedCurrency" type="String"/>
+    <aura:attribute name="selectedProductCategory" type="String"/>
+    <aura:attribute name="selectedProjectOrEvent" type="String"/>
+    <aura:attribute name="selectedProducts" type="List"/>
+    <aura:attribute name="mainSelectedProducts" type="List"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="products" type="List"/>
+    <aura:attribute name="filteredProducts" type="List"/>
+    <aura:attribute name="sortedBy" type="String" default="productName"/>
+    <aura:attribute name="filter" type="String"/>
+    <aura:attribute name="sortedDirection" type="String" default="asc"/>
+    <aura:attribute name="showSelectedProducts" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="boolean"/>
+    <aura:attribute name="activeSections" type="List" default="['chooseProducts']"/>
+    
+    <!--HANDLER-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler  event="c:RemoveProductEvent" action="{!c.removeProductFromList}" includeFacets="true"/>
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+    
+    <!--SELECTED PRODUCTS CARD-->
+    <aura:if isTrue="{!v.showSelectedProducts}">
+        <c:SelectedProducts aura:id="selectedProducts" mainSelectedProducts="{!v.mainSelectedProducts}"/>
+    </aura:if>
+    
+    <!--START-->
+    <lightning:accordion aura:id="accordion" activeSectionName="{!v.activeSections}" allowMultipleSectionsOpen="true"
+                         class="accordionMargin">
+        <lightning:card class="slds-card_boundary" variant="base">
+            <lightning:accordionSection name="chooseProducts" label="Choose Products"> 
+                <lightning:input aura:id="searchInput"
+                                 name="searchProducts"
+                                 label="Search"
+                                 type="search"
+                                 autocomplete="off"
+                                 value="{!v.filter}" 
+                                 onchange="{!c.filter}"
+                                 class="filterClass"
+                                 />
+                <div aura:id="dataTable" class="tableStyle">
+                    <lightning:datatable aura:id="chooseProducts"
+                                         columns="{! v.columns }"
+                                         data="{! v.filteredProducts }"
+                                         keyField="productDetailID"
+                                         onrowselection="{! c.handleRowSelect }"
+                                         onsort="{!c.handleSort}"
+                                         sortedBy="{!v.sortedBy}"  
+                                         sortedDirection="{!v.sortedDirection}"
+                                         resizeColumnDisabled="true"
+                                         />
+                </div>
+            </lightning:accordionSection>
+        </lightning:card>
+    </lightning:accordion>
+    <!--END-->
+    
+</aura:component>

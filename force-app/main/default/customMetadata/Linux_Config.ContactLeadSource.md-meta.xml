@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>ContactLeadSource</label>
+    <protected>false</protected>
+    <values>
+        <field>Value__c</field>
+        <value xsi:type="xsd:string">Event;External Data Source;Other;Referral;Sales Prospecting;Web Direct;Webinar;Join Us Form;Training;Member Inquiry Form;Newsletter Subscriber Form</value>
+    </values>
+</CustomMetadata>

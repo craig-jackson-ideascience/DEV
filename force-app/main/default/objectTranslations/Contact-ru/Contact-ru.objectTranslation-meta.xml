@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Admin Contact Layout</layout>
+        <sections>
+            <label></label>
+            <section>First &amp; Last Lead Source Attribution</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Last Touch Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Linux Foundation ID Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>TI section</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Tux Rewards</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact Layout</layout>
+        <sections>
+            <label></label>
+            <section>Last Touch Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Linux Foundation ID Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Copy of Contact Layout - CCR</layout>
+        <sections>
+            <label></label>
+            <section>Contact Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Email Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>First &amp; Last Lead Source Attribution</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Social Accounts</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Tux Rewards</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Test Contact Layout</layout>
+        <sections>
+            <label></label>
+            <section>Last Touch Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Linux Foundation ID Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Log_a_Ticket</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>View_ZoomInfo</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>RestrictSalesforceUserNotToUpdateName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Start_Year_must_be_between_1950_and_now</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__Add_to_Mass_Merge_List</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__Email_Docs</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__S_Docs</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SDOC__View_Mass_Merge_List</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+</CustomObjectTranslation>

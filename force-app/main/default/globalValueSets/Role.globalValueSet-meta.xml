@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Vice Chair</fullName>
+        <default>false</default>
+        <label>Vice Chair</label>
+    </customValue>
+    <customValue>
+        <fullName>Chair</fullName>
+        <default>false</default>
+        <label>Chair</label>
+    </customValue>
+    <customValue>
+        <fullName>Treasurer</fullName>
+        <default>false</default>
+        <label>Treasurer</label>
+    </customValue>
+    <customValue>
+        <fullName>Secretary</fullName>
+        <default>false</default>
+        <label>Secretary</label>
+    </customValue>
+    <customValue>
+        <fullName>None</fullName>
+        <default>true</default>
+        <label>None</label>
+    </customValue>
+    <customValue>
+        <fullName>Developer Seat</fullName>
+        <default>false</default>
+        <label>Developer Seat</label>
+    </customValue>
+    <customValue>
+        <fullName>Lead</fullName>
+        <default>false</default>
+        <label>Lead</label>
+    </customValue>
+    <customValue>
+        <fullName>Counsel</fullName>
+        <default>false</default>
+        <label>Counsel</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Staff</fullName>
+        <default>false</default>
+        <label>LF Staff</label>
+    </customValue>
+    <customValue>
+        <fullName>Director</fullName>
+        <default>false</default>
+        <label>Director</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborator</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collaborator</label>
+    </customValue>
+    <customValue>
+        <fullName>Organizer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Organizer</label>
+    </customValue>
+    <customValue>
+        <fullName>Observer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Observer</label>
+    </customValue>
+    <customValue>
+        <fullName>Primary</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Primary</label>
+    </customValue>
+    <customValue>
+        <fullName>Sponsor</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Sponsor</label>
+    </customValue>
+    <customValue>
+        <fullName>Platinum &amp; Premier</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Platinum &amp; Premier</label>
+    </customValue>
+    <customValue>
+        <fullName>Secondary</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Secondary</label>
+    </customValue>
+    <masterLabel>Role</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

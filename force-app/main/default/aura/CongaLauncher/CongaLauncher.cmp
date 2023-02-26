@@ -1,0 +1,31 @@
+<!--c:CongaLauncher-->
+<!--DESCRIPTION:THIS COMPONENT IS USED TO LAUNCH CONGA-->
+<!--USED ON THE RECORD PAGE OF QUOTE-->
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"
+                controller="CongaLauncherController">
+   
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+    
+    <!--STYLING FOR QUICK ACTION-->
+    <aura:html tag="style">
+        .slds-backdrop {
+        background: rgba(43, 40, 38, 0) !important;  
+        }
+        .slds-fade-in-open {
+        display:none !important;
+        }
+    </aura:html>
+    
+    <!--ATTRIBUTES-->
+    <aura:attribute name="Quote" type="object"/>
+    
+    
+    <force:recordData 
+                      aura:id="refreshLoader"
+                      recordId="{!v.recordId}"
+                      fields="Id,Opportunity_Name__c,Contact_ID__c,Opportunity_RecordType__c"
+                      targetFields="{!v.Quote}"
+                      recordUpdated="{!c.handleRecordUpdated}"/>
+</aura:component>

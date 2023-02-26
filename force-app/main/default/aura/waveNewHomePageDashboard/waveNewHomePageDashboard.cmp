@@ -1,0 +1,39 @@
+<aura:component description="waveNewHomePageDashboard"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+	
+    <!-- Atrributes -->
+    <aura:attribute name="filterData" type="string" />
+    <aura:attribute name="newHomePageDashboardId" type="String" default="0FK2M000000bp2VWAQ"/>
+       <!--<aura:attribute name="newHomePageDashboardId" type="String" default="0FK2M000000boggWAA"/> -SA Sales-->
+
+    <!--Dashboard Name : Dashboard Id-->
+    <!--
+		New Home Page Dashboard_1 : 0FK2M000000bofOWAQ
+		Prod - New Home Page Dashboard : 0FK2M000000bogbWAA
+		Production - New Home Page Dashboard : 0FK2M000000bp2VWAQ
+		Dev - New Home Page Dashboard : 0FK2M000000boggWAA
+		height="1000"
+	-->
+    <aura:attribute name="foundationRecord" type="Sobject"/>
+    <!-- Handlers -->
+    <aura:handler event="c:foundationName" action="{!c.filteronOnPurchaseHistory}"/>
+    <aura:registerEvent name="waveAccountReceivableEvent" type="c:waveAccountReceivableEvent" />
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="isViewAll" type="boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.filterData}">
+        <lightning:card>
+            <div>
+                <wave:waveDashboard  showTitle="false" showHeader="false" dashboardId="{!v.newHomePageDashboardId}" height="1000" filter="{!v.filterData}"/>
+            </div>
+            <div>
+                <span class="slds-p-around_small"><a onclick = "{!c.viewAll}" class="custom-css-link">View All</a></span>
+            </div>
+        </lightning:card>
+    </aura:if>
+    
+</aura:component>

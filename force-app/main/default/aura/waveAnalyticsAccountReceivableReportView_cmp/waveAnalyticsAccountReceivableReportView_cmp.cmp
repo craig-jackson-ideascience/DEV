@@ -1,0 +1,98 @@
+<aura:component description="waveAnalyticsAccountRceivableReportView_cmp" 
+                implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" 
+                controller="membershipOpportunityViewCMP_controller" >
+    
+    <!-- Attribute-->
+    <aura:attribute name="arReportViewData" type="list" />
+    <aura:attribute name="foundationId" type="String"/>
+    <aura:attribute name="foundationName" type="Sobject"/>
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.onPageReferenceChange}"/>
+    <!-- Attribute list for Sort Function-->
+    <aura:attribute name="arrowDirection" type="string" default="arrowup" description="Use for change arrow sign direction on header based on click"/>
+    <aura:attribute name="isAsc" type="boolean" default="true" description="boolean flag for pass sorting condition to apex class"/> 
+    <aura:attribute name="selectedTabsoft" type="string" default="Name" description="Use for show/hide arraow sign on header based on conditions"/>
+    
+    <div class="slds-p-around_xxx-small slds-card slds-card_boundary slds-grid slds-wrap">
+        <lightning:card class="custom-css-card" title="">
+            <div aura:id="dataTable" class="tableStyle">
+                <!-- data table start--> 
+                <!-- Id, Name, AccountId, Account.Name, Status, PurchaseDate, Product2.Name, Product2.Family, Price, Days__c, Projects__c, Projects__r.Name -->
+                <table class="slds-table  slds-table_bordered">
+                    <thead>
+                        <tr class="slds-text-title_caps thStyle">
+                            <th class="slds-cell-wrap" onclick="{!c.sortByName}">
+                                <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                    <span class="slds-assistive-text">Sort</span>
+                                    <span class="slds-truncate" title="Name">Name</span>  
+                                    <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Name') }">&nbsp;  &#9660; </aura:if>  
+                                    <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Name') }"> &nbsp;  &#9650; </aura:if>                        
+                                </a>
+                            </th>
+                            <th class="slds-cell-wrap" onclick="{!c.sortByAccountName}">
+                                <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                    <span class="slds-assistive-text">Sort</span>
+                                    <span class="slds-truncate" title="Account Name">Account Name</span> 
+                                    <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Account.Name') }">&nbsp;  &#9660; </aura:if>  
+                                    <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Account.Name') }"> &nbsp;  &#9650; </aura:if>                        
+                                </a>
+                            </th>
+                            <th class="slds-cell-wrap" onclick="{!c.sortByPrice}">
+                                <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                    <span class="slds-assistive-text">Sort</span>
+                                    <span class="slds-truncate" title="Price">Price</span> 
+                                    <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Price') }">&nbsp;  &#9660; </aura:if>  
+                                    <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Price') }"> &nbsp;  &#9650; </aura:if>                        
+                                </a>
+                            </th>
+                            <th class="slds-cell-wrap" onclick="{!c.sortByDays}">
+                                <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                                    <span class="slds-assistive-text">Sort</span>
+                                    <span class="slds-truncate" title="Days">Days</span> 
+                                    <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Days__c') }">&nbsp;  &#9660; </aura:if>  
+                                    <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Days__c') }"> &nbsp;  &#9650; </aura:if>                        
+                                </a>
+                            </th>
+                            <th class="slds-cell-wrap">
+                                <span class="slds-truncate" title="Product Name">Product Name</span> 
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.arReportViewData}" var="obj" indexVar="index">
+                            <tr class="slds-hint-parent">
+                                <td class="slds-cell-wrap slds-truncate">
+                                    <a href="{!'/lightning/r/Asset/'+ obj.objAsset.Id + '/view'}" target="_blank">
+                                        {!obj.objAsset.Name}
+                                    </a>
+                                </td>
+                                <!--td class="slds-cell-wrap slds-truncate">
+                                    {!obj.objAsset.Account.Name}
+                                    <a href="{!'/lightning/r/Account/'+ obj.objAsset.Account.Id + '/view'}" target="_blank">
+                                        {!obj.objAsset.Account.Name}
+                                    </a>
+                                </td-->
+                                <td class="slds-cell-wrap slds-truncate">
+                                    <a href="{!'/lightning/r/Account/'+ obj.objAsset.Account.Id + '/view'}" target="_blank">
+                                        {!obj.objAsset.Account.Name}
+                                    </a>
+                                </td>
+                                <td class="slds-cell-wrap slds-truncate">
+                                    <span><lightning:formattedNumber value="{! obj.objAsset.Price}" style="currency" currencyCode="USD"/></span>
+                                </td>
+                                <td class="slds-cell-wrap slds-truncate">
+                                    <span>{!obj.objAsset.Days__c}</span>
+                                </td>
+                                <td class="slds-cell-wrap slds-truncate">
+                                    <span>{!obj.objAsset.Product2.Name}</span>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                <!-- DataTable End -->
+            </div>
+        </lightning:card>
+    </div>
+</aura:component>

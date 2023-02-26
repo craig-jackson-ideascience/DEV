@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>171</fullName>
+        <default>false</default>
+        <label>4200 Training</label>
+    </customValue>
+    <customValue>
+        <fullName>290</fullName>
+        <default>false</default>
+        <label>4105 Membership Dues : Platinum Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>291</fullName>
+        <default>false</default>
+        <label>4110 Membership Dues : Gold Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>292</fullName>
+        <default>false</default>
+        <label>4115 Membership Dues : Silver Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>293</fullName>
+        <default>false</default>
+        <label>4120 Membership Dues : Premier Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>294</fullName>
+        <default>false</default>
+        <label>4125 Membership Dues : Community</label>
+    </customValue>
+    <customValue>
+        <fullName>4476</fullName>
+        <default>false</default>
+        <label>4126 Membership Dues : Promoter</label>
+    </customValue>
+    <customValue>
+        <fullName>4477</fullName>
+        <default>false</default>
+        <label>4128 Membership Dues : Supporter</label>
+    </customValue>
+    <customValue>
+        <fullName>4478</fullName>
+        <default>false</default>
+        <label>4129 Membership Dues : Adopter Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>295</fullName>
+        <default>false</default>
+        <label>4130 Membership Dues : Affiliates &amp; Colleges</label>
+    </customValue>
+    <customValue>
+        <fullName>296</fullName>
+        <default>false</default>
+        <label>4150 Membership Dues : Individual Memberships</label>
+    </customValue>
+    <customValue>
+        <fullName>297</fullName>
+        <default>false</default>
+        <label>4310 Directed Funds : Directed Fund Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>298</fullName>
+        <default>false</default>
+        <label>4312 Directed Funds : Directed Fund Rev. used to offset Event Mgmt exp&apos;s</label>
+    </customValue>
+    <customValue>
+        <fullName>299</fullName>
+        <default>false</default>
+        <label>4315 Directed Funds : Directed Fund Event Sponsorship/Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>300</fullName>
+        <default>false</default>
+        <label>4410 Events (non EMS) : Event Sponsor Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>301</fullName>
+        <default>false</default>
+        <label>4415 Events (non EMS) : Event Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>302</fullName>
+        <default>false</default>
+        <label>4420 Events (non EMS) : Event Commission</label>
+    </customValue>
+    <customValue>
+        <fullName>306</fullName>
+        <default>false</default>
+        <label>4530 Donations</label>
+    </customValue>
+    <customValue>
+        <fullName>175</fullName>
+        <default>false</default>
+        <label>4550 Oth Income</label>
+    </customValue>
+    <customValue>
+        <fullName>307</fullName>
+        <default>false</default>
+        <label>4560 Oth Income : Advertising Income</label>
+    </customValue>
+    <customValue>
+        <fullName>308</fullName>
+        <default>false</default>
+        <label>4570 Oth Income : Event Management Services (non CP&apos;s)</label>
+    </customValue>
+    <customValue>
+        <fullName>309</fullName>
+        <default>false</default>
+        <label>4590 Oth Income : Other Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>310</fullName>
+        <default>false</default>
+        <label>4605 Collaborative Projects : Event Management Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>311</fullName>
+        <default>false</default>
+        <label>4610 Collaborative Projects : Marketing Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>312</fullName>
+        <default>false</default>
+        <label>4615 Collaborative Projects : IT Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>313</fullName>
+        <default>false</default>
+        <label>4620 Collaborative Projects : Project Coordination Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>314</fullName>
+        <default>false</default>
+        <label>4625 Collaborative Projects : License Scanning Compliance Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>315</fullName>
+        <default>false</default>
+        <label>4690 Collaborative Projects : SG&amp;A - CP&apos;s</label>
+    </customValue>
+    <customValue>
+        <fullName>5429</fullName>
+        <default>false</default>
+        <label>4124 Founding</label>
+    </customValue>
+    <customValue>
+        <fullName>5426</fullName>
+        <default>false</default>
+        <label>4121 Associate</label>
+    </customValue>
+    <customValue>
+        <fullName>5427</fullName>
+        <default>false</default>
+        <label>4122 Contributor</label>
+    </customValue>
+    <customValue>
+        <fullName>5428</fullName>
+        <default>false</default>
+        <label>4123 Steering</label>
+    </customValue>
+    <customValue>
+        <fullName>5949</fullName>
+        <default>false</default>
+        <label>4425 Event Webinars</label>
+    </customValue>
+    <customValue>
+        <fullName>391</fullName>
+        <default>false</default>
+        <label>6420 Web &amp; Media Promo</label>
+    </customValue>
+    <customValue>
+        <fullName>4496</fullName>
+        <default>false</default>
+        <label>4320 Directed Fund Event Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Gold Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Gold Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Silver Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Silver Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Bronze Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Bronze Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Premier Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Premier Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Community</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Community</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Affiliates &amp; Colleges</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Affiliates &amp; Colleges</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Individual Memberships</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Individual Memberships</label>
+    </customValue>
+    <customValue>
+        <fullName>Directed Funds : Directed Fund Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Directed Funds : Directed Fund Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Directed Funds : Directed Fund Rev. used to offset Event Mgmt exp&apos;s</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Directed Funds : Directed Fund Rev. used to offset Event Mgmt exp&apos;s</label>
+    </customValue>
+    <customValue>
+        <fullName>Directed Funds : Directed Fund Event Sponsorship/Registration</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Directed Funds : Directed Fund Event Sponsorship/Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>Events (non EMS) : Event Sponsor Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Events (non EMS) : Event Sponsor Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Events (non EMS) : Event Registration</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Events (non EMS) : Event Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>Events (non EMS) : Event Commission</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Events (non EMS) : Event Commission</label>
+    </customValue>
+    <customValue>
+        <fullName>Oth Income : Advertising Income</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Oth Income : Advertising Income</label>
+    </customValue>
+    <customValue>
+        <fullName>Oth Income : Event Management Services (non CP&apos;s</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Oth Income : Event Management Services (non CP&apos;s</label>
+    </customValue>
+    <customValue>
+        <fullName>Oth Income : Other Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Oth Income : Other Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Projects : Event Management Services Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collaborative Projects : Event Management Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Projects : Marketing Services Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collaborative Projects : Marketing Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Projects : IT Services Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collaborative Projects : IT Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Projects : Project Coordination Services Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collaborative Projects : Project Coordination Services Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Projects : License Scanning Compliance Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collaborative Projects : License Scanning Compliance Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Projects : SG&amp;A - CP&apos;s</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collaborative Projects : SG&amp;A - CP&apos;s</label>
+    </customValue>
+    <customValue>
+        <fullName>Event Registration</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Event Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>Accrued Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Accrued Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Gold Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Gold Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues:  Affiliates &amp; Colleges</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues:  Affiliates &amp; Colleges</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Dues : Platinum Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership Dues : Platinum Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Silver Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Silver Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Training</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Event Sponsor Revenue</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Event Sponsor Revenue</label>
+    </customValue>
+    <customValue>
+        <fullName>Directed Fund Event Sponsorship/Registration</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Directed Fund Event Sponsorship/Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>Deferred Revenue : Deferred Revenue - Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Deferred Revenue : Deferred Revenue - Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Deferred Revenue : Deferred Revenue - Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Deferred Revenue : Deferred Revenue - Other</label>
+    </customValue>
+    <masterLabel>NetSuite Income GL Account</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

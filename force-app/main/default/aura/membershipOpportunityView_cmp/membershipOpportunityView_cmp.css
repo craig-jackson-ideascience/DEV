@@ -1,0 +1,18 @@
+.THIS {
+}
+
+.THIS .custom-css-card {
+    width: 100% !important;
+}
+
+.THIS .custom-hide {
+    display: none !important;
+}
+
+.THIS .slds-notify_alert {
+    color: black !important;
+}
+
+.THIS .custom-css-link{
+    margin-left: 30px;
+}

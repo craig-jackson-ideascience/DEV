@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Community</fullName>
+        <default>false</default>
+        <label>Community</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Governing Board</fullName>
+        <default>false</default>
+        <label>Vote of Governing Board</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Silver Member Class</fullName>
+        <default>false</default>
+        <label>Vote of Silver Member Class</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Gold Member Class</fullName>
+        <default>false</default>
+        <label>Vote of Gold Member Class</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of General Member Class</fullName>
+        <default>false</default>
+        <label>Vote of General Member Class</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of End User Member Class</fullName>
+        <default>false</default>
+        <label>Vote of End User Member Class</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Associate Member Class</fullName>
+        <default>false</default>
+        <label>Vote of Associate Member Class</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of TOC Committee</fullName>
+        <default>false</default>
+        <label>Vote of TOC Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of TSC Committee</fullName>
+        <default>false</default>
+        <label>Vote of TSC Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of End User Committee</fullName>
+        <default>false</default>
+        <label>Vote of End User Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Marketing Committee</fullName>
+        <default>false</default>
+        <label>Vote of Marketing Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership Entitlement</fullName>
+        <default>false</default>
+        <label>Membership Entitlement</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Academic Member Class</fullName>
+        <default>false</default>
+        <label>Vote of Academic Member Class</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Lab Member Class</fullName>
+        <default>false</default>
+        <label>Vote of Lab Member Class</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of TAC Committee</fullName>
+        <default>false</default>
+        <label>Vote of TAC Committee</label>
+    </customValue>
+    <customValue>
+        <fullName>Vote of Strategic Membership Class</fullName>
+        <default>false</default>
+        <label>Vote of Strategic Membership Class</label>
+    </customValue>
+    <customValue>
+        <fullName>TAC</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>TAC</label>
+    </customValue>
+    <customValue>
+        <fullName>General Members</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>General Members</label>
+    </customValue>
+    <customValue>
+        <fullName>Silver Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Silver Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>Governing Board</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Governing Board</label>
+    </customValue>
+    <customValue>
+        <fullName>End User</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>End User</label>
+    </customValue>
+    <customValue>
+        <fullName>TOC</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>TOC</label>
+    </customValue>
+    <customValue>
+        <fullName>Gold Membership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Gold Membership</label>
+    </customValue>
+    <masterLabel>Appointed By</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

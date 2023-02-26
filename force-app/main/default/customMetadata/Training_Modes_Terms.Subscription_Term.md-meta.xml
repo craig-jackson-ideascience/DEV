@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Subscription Term</label>
+    <protected>false</protected>
+    <values>
+        <field>Term__c</field>
+        <value xsi:type="xsd:string">1. During the term, and subject to Client’s compliance with the provisions of the Agreement, Provider authorizes Client to provide the eLearning Courses to Authorized Participants using a secure learning management system (LMS) that Provider provides.
+2. Within five business days following the Effective Date set forth above, Provider will provide Client access to a Client-only platform on Provider&apos;s LMS. Client admins will have authority to grant Authorized Participants access to training. Each Authorized Participant will have access to training LMS for a period of one year.
+3. Client admins will receive usage reports regularly and can request them as needed. Reports will provide detailed user data on progress and completion of eLearning and certifications.
+4. Provider will maintain the applicable eLearning Courses for Client, making updates available as they occur, providing tech support to Client admins, and end-user support questions submitted at trainingsupport.linuxfoundation.org.</value>
+    </values>
+</CustomMetadata>

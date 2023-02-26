@@ -1,0 +1,95 @@
+<template>
+    <div class="outer-container">
+        <div class="red-heading-box">
+            <div class="bold-heading">{heading}</div>
+        </div> 
+        <div class="inner-container">
+
+            <!-- employee count verification -->
+            <template if:true={employeesNeedsVerified}>
+                <div if:false={lwcSpinner} class="section">
+                    <div class="instructions">
+                        {employeesInstruction}
+                    </div>
+                    <lightning-combobox
+                        name="employees"
+                        placeholder="None selected"
+                        options={employeesChoices}
+                        value={employeesChoice}
+                        onchange={handleEmployeeSelection}
+                        variant="label-hidden">
+                    </lightning-combobox>
+                </div>
+                <div if:true={lwcSpinner} class="slds-spinner_inline slds-p-around_x-large">
+                    <lightning-spinner variant="brand" 
+                                       alternative-text="Verifying Employee Count"     
+                                       size="medium">
+                    </lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Product Tier verification -->
+            <template if:true={productNeedsVerified}>
+                <div if:false={lwcSpinner} class="section">  
+                    <div class="instructions">
+                        {productInstruction}
+                    </div>
+                    <lightning-combobox
+                        name="products"
+                        placeholder="None selected"
+                        options={productsChoices}
+                        value={productChoice}
+                        onchange={handleProductSelection}
+                        variant="label-hidden">
+                    </lightning-combobox>
+                </div>
+                <div if:true={lwcSpinner} class="slds-spinner_inline slds-p-around_x-large">
+                    <lightning-spinner variant="brand" 
+                                       alternative-text="Verifying Product Tier"     
+                                       size="medium">
+                    </lightning-spinner>
+                </div>
+            </template>
+
+            <!-- company type verification -->
+            <template if:true={typeNeedsVerified}>
+                <div class="section">
+                    <div class="instructions">
+                        {typeInstruction}
+                    </div>
+                    <lightning-combobox
+                            name="type"
+                            placeholder="None selected"
+                            options={typeChoices}
+                            value={typeChoice}
+                            onchange={handleTypeSelection}
+                            variant="label-hidden">
+                    </lightning-combobox>
+                </div>
+            </template>
+
+            <!-- message that tells users what will happen when they save -->
+            <template if:true={message1}>
+                <div class="message-wrapper">
+                    <div>
+                        {message1}
+                    </div>
+                    <div>
+                        {message2}
+                    </div>
+                    <div>
+                        {message3}
+                    </div>
+                    <div>
+                        {message4}
+                    </div>
+                </div>
+            </template>
+
+            <div class="button-wrapper">                
+                <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+            </div>
+        </div>
+    </div>
+
+</template>

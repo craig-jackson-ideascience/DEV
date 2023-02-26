@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>APAC_Country</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APAC Country</shortDescription>
+        <value>%Australia%;%Bangladesh%;%British Indian Ocean Territory%;%Fiji%;%Hong Kong%;%India%;%Indonesia%;%Lao People&apos;s Democratic Republic%;%Macao%;%Malaysia%;%Micronesia%;%Federated States of%;%Myanmar%;%Nepal%;%New Zealand%;%Pakistan%;%Philippines%;%Singapore%;%Sri Lanka%;%Taiwan%;%Province of China%;%Thailand%;%Viet Nam%;%China%;%Korea%;%Democratic People&apos;s Republic of%</value>
+    </labels>
+    <labels>
+        <fullName>AWS_SNS_ARN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AWS_SNS_ARN</shortDescription>
+        <value>arn:aws:sns:us-east-2:844390194980:lfx-topic-staging-acs-events</value>
+    </labels>
+    <labels>
+        <fullName>AWS_SNS_audience</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AWS_SNS_audience</shortDescription>
+        <value>https://api-gw.staging.platform.linuxfoundation.org/---</value>
+    </labels>
+    <labels>
+        <fullName>AWS_SNS_client_id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AWS_SNS_client_id</shortDescription>
+        <value>EWV0oYAI3lZ5CwUdjB8m0j9licWs4e26</value>
+    </labels>
+    <labels>
+        <fullName>AWS_SNS_client_secret</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AWS_SNS_client_secret</shortDescription>
+        <value>wgcyRDtjRKmNUPcmDQ0GbfuWdCdCW7bXqnlssvBwdyKCHs3_HpO09LA5muHD3xGz</value>
+    </labels>
+    <labels>
+        <fullName>AWS_SNS_notifications_endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AWS_SNS_notifications_endpoint</shortDescription>
+        <value>https://api-gw.staging.platform.linuxfoundation.org/notification-service/v1/notifications---</value>
+    </labels>
+    <labels>
+        <fullName>AWS_SNS_ouath_token_endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AWS_SNS_ouath_token_endpoint</shortDescription>
+        <value>https://linuxfoundation-staging.auth0.com/oauth/token---</value>
+    </labels>
+    <labels>
+        <fullName>Additional_email_address3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Additional email address3</shortDescription>
+        <value>apacinvoices@linuxfoundation.org</value>
+    </labels>
+    <labels>
+        <fullName>AssetCoporateRecordTypeID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AssetCoporateRecordTypeID</shortDescription>
+        <value>01241000001E1jAAAS</value>
+    </labels>
+    <labels>
+        <fullName>Beneficiary_Authentication</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Beneficiary Authentication</shortDescription>
+        <value>W52HGhtp7yvQxWnb</value>
+    </labels>
+    <labels>
+        <fullName>Billing_Contact_Required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Billing Contact Required</shortDescription>
+        <value>Primary Billing Contact Role is Required.</value>
+    </labels>
+    <labels>
+        <fullName>CNCFID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CNCFID</shortDescription>
+        <value>a0941000002wBz4</value>
+    </labels>
+    <labels>
+        <fullName>CNCF_Report_Link</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CNCF Report Link</shortDescription>
+        <value>/lightning/r/Report/00O2h000000GQUWEA4/view?fv2=</value>
+    </labels>
+    <labels>
+        <fullName>Campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign</shortDescription>
+        <value>False</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Disposition_Statuses</fullName>
+        <categories>Campaigns</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Disposition Statuses</shortDescription>
+        <value>0. New
+1. MQL
+2a. Unqualified
+2b. Existing Opp
+2c. Do Not Pursue
+3. SAL
+4. Follow Up
+5. Working
+6. SQL
+Customer
+Nurture</value>
+    </labels>
+    <labels>
+        <fullName>Chart_AR_DefaultProjectId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Chart_AR_DefaultProjectId</shortDescription>
+        <value>a0941000002wBz9AAE</value>
+    </labels>
+    <labels>
+        <fullName>Closed_Lost_Email_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Closed Lost Email Notification</shortDescription>
+        <value>Hi Project Team,&lt;br&gt;&lt;br&gt;Following opportunity is &lt;b&gt;Closed Lost&lt;/b&gt;&lt;br&gt;Please use the below URL to access the Opportunity.&lt;br&gt;
+&lt;a href=&quot;[OpportunityLink]&quot;&gt; [OpportunityName]&lt;/a&gt;.</value>
+    </labels>
+    <labels>
+        <fullName>Community_Message_VF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Community_Message_VF</shortDescription>
+        <value>No Records Found</value>
+    </labels>
+    <labels>
+        <fullName>CorporateTrainingRecordTypeId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CorporateTrainingRecordTypeId</shortDescription>
+        <value>0122M000001UZ9ZQAW</value>
+    </labels>
+    <labels>
+        <fullName>Corporate_Asset_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Corporate Asset Record Type</shortDescription>
+        <value>01241000001E1jA</value>
+    </labels>
+    <labels>
+        <fullName>Create_Meeting_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Meeting Button</shortDescription>
+        <value>True</value>
+    </labels>
+    <labels>
+        <fullName>Cvent_Contact_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cvent Contact Id</shortDescription>
+        <value>0032M00002bv1IvQAI</value>
+    </labels>
+    <labels>
+        <fullName>Default_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Default Owner</shortDescription>
+        <value>00541000002veE6AAI</value>
+    </labels>
+    <labels>
+        <fullName>Dev_AWS_SNS_ARN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dev_AWS_SNS_ARN</shortDescription>
+        <value>arn:aws:sns:us-east-2:395594542180:collaboration-triggers-dev-collaboration-sns-topic</value>
+    </labels>
+    <labels>
+        <fullName>Dev_AWS_SNS_audience</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dev_AWS_SNS_audience</shortDescription>
+        <value>https://api-gw.dev.platform.linuxfoundation.org/</value>
+    </labels>
+    <labels>
+        <fullName>Dev_AWS_SNS_client_id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dev_AWS_SNS_client_id</shortDescription>
+        <value>7oS5zWWOVdtXZ3mIgHQ00vwnBcWnwDIL</value>
+    </labels>
+    <labels>
+        <fullName>Dev_AWS_SNS_client_secret</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dev_AWS_SNS_client_secret</shortDescription>
+        <value>ojJhPmuEEYi3GC2Fqulp_Tw-oGmAyzyTb_OrpN7OmAPEFL_SCKNh1GVnQ58RS4WM</value>
+    </labels>
+    <labels>
+        <fullName>Dev_AWS_SNS_notifications_endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dev_AWS_SNS_notifications_endpoint</shortDescription>
+        <value>https://api-gw.dev.platform.linuxfoundation.org/notification-service/v1/notifications</value>
+    </labels>
+    <labels>
+        <fullName>Dev_AWS_SNS_ouath_token_endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dev_AWS_SNS_ouath_token_endpoint</shortDescription>
+        <value>https://linuxfoundation-dev.auth0.com/oauth/token</value>
+    </labels>
+    <labels>
+        <fullName>Directed_Fund_RT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Directed Fund RT</shortDescription>
+        <value>01241000001AA24AAG</value>
+    </labels>
+    <labels>
+        <fullName>Director_Profile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Director Profile</shortDescription>
+        <value>00e41000000vk41AAA</value>
+    </labels>
+    <labels>
+        <fullName>Ecommerce</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ecommerce</shortDescription>
+        <value>Ecommerce</value>
+    </labels>
+    <labels>
+        <fullName>Ecommerce_Asset_Record_type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ecommerce_Asset_Record_Type</shortDescription>
+        <value>1</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateForContractReview</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailTemplateForContractReview</shortDescription>
+        <value>DocuSign_For_Review</value>
+    </labels>
+    <labels>
+        <fullName>EmailTemplateForIndividualMembershipContractReview</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailTemplateForIndividualMembershipContractReview</shortDescription>
+        <value>DocuSign_For_Individual_Membership_Review</value>
+    </labels>
+    <labels>
+        <fullName>End_Date_Not_Null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>End Date Not Null</shortDescription>
+        <value>Please enter End Date</value>
+    </labels>
+    <labels>
+        <fullName>Event_LF_Asia_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event_LF_Asia_Address</shortDescription>
+        <value>2771 Centerville RD Suite 400
+Wilmington, Delaware 19808
+www.lfasiallc.com</value>
+    </labels>
+    <labels>
+        <fullName>EventsStartingID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EventsStartingID</shortDescription>
+        <value>a0A</value>
+    </labels>
+    <labels>
+        <fullName>Executive_Event_Sales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Executive Event Sales</shortDescription>
+        <value>00e41000000OwIjAAK</value>
+    </labels>
+    <labels>
+        <fullName>Foundation_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Foundation Address</shortDescription>
+        <value>The Linux Foundation
+548 Market St , PMB 57274
+San Francisco, California 94104
+United States</value>
+    </labels>
+    <labels>
+        <fullName>Free_Training</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Free Training</shortDescription>
+        <value>Free Training</value>
+    </labels>
+    <labels>
+        <fullName>Hubspot_Api_Key</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hubspot Api Key</shortDescription>
+        <value>0b490840-6d49-4477-8e0e-085792d9b209</value>
+    </labels>
+    <labels>
+        <fullName>Hubspot_ContactSync_Endpoint</fullName>
+        <categories>Hubspot</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hubspot Contact Sync Endpoint</shortDescription>
+        <value>https://api.hubapi.com/contacts/v1/lists/2733/contacts/all</value>
+    </labels>
+    <labels>
+        <fullName>Hubspot_User_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hubspot User List</shortDescription>
+        <value>0052M000009nfBeQAI;0052M00000937XNQAY;</value>
+    </labels>
+    <labels>
+        <fullName>Incorporated_Project_RT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Incorporated Project RT</shortDescription>
+        <value>01241000001AA25AAG</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Asset_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Asset Record Type</shortDescription>
+        <value>01241000001E2Ki</value>
+    </labels>
+    <labels>
+        <fullName>Individual_No_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual - No Account</shortDescription>
+        <value>0014100001NrJWn</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Supporter_Auto_Renewal_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Supporter Auto-Renewal Email</shortDescription>
+        <value>7012M000001rc2gQAA</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Supporter_Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Supporter Product</shortDescription>
+        <value>01t2M000005wBb0QAE</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Supporter_Renewal_Reminder</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Supporter Renewal Reminder</shortDescription>
+        <value>7012M000001rc2bQAA</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Supporter_Unenrolled_No_Renewal_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Supporter Unenrolled No-Renewal Email</shortDescription>
+        <value>7012M000001rc2lQAA</value>
+    </labels>
+    <labels>
+        <fullName>Install_Date</fullName>
+        <categories>Asset</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InstallDate</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Instructor_Led_Products_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Instructor-Led Products Error</shortDescription>
+        <value>You cannot Closed this Opportunity.Please add the Correct Instructor-Led Product</value>
+    </labels>
+    <labels>
+        <fullName>JoinNowIndividualProduct</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JoinNowIndividualProduct</shortDescription>
+        <value>a0I2M00000P2c7UUAR,</value>
+    </labels>
+    <labels>
+        <fullName>JoinNowIndividual_DefaultAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JoinNowIndividual_DefaultAccount</shortDescription>
+        <value>0014100001NrJWn</value>
+    </labels>
+    <labels>
+        <fullName>JoinNowIndividual_OpportunityOwnerMail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JoinNowIndividual_OpportunityOwnerMail</shortDescription>
+        <value>Hi [OpportunityOwnerFirstName],&lt;br&gt;&lt;br&gt;
+
+A new membership application has been submitted by [OpportunityBillingContact]. This resulted in either creating or updating an Opportunity ([OpportunityName]) for the following:&lt;br&gt;&lt;br&gt;
+
+[MembershipDetails]&lt;br&gt;&lt;br&gt;
+
+The contact roles and information have been provided by [OpportunityBillingContact].&lt;br&gt;&lt;br&gt;
+
+
+Please review the [OpportunityLink]. If you have any questions, please contact Sales Ops.&lt;br&gt;&lt;br&gt;
+
+Thanks,&lt;br&gt;
+Sales Ops</value>
+    </labels>
+    <labels>
+        <fullName>JoinNow_Form_Submission_Recipients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JoinNow_Form_Submission_Recipients</shortDescription>
+        <value>npatel@linuxfoundation.org;mwhite@linuxfoundation.org;linux_foundation@cloudroute.in;tlovato@linuxfoundation.org</value>
+    </labels>
+    <labels>
+        <fullName>JoinNow_OpportunityOwnerEmail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JoinNow_OpportunityOwnerEmail</shortDescription>
+        <value>Hi [OpportunityOwnerFirstName],&lt;br&gt;&lt;br&gt;
+
+A new membership application has been submitted by [OpportunityAccount]. This resulted in either creating or updating an Opportunity ([OpportunityName]) for the following:&lt;br&gt;&lt;br&gt;[ProductDetails]The contact roles and information have been provided by [PrimaryContactFullName] from [OpportunityAccount].&lt;br&gt;&lt;br&gt;
+
+
+[BrandNewAccountMessage][EmployeeSizeUpdated] Please review the [OpportunityLink].If you have any questions, please contact Sales Ops.&lt;br&gt;&lt;br&gt;
+
+Thanks,&lt;br&gt;
+Sales Ops</value>
+    </labels>
+    <labels>
+        <fullName>JoinNow_Opportunity_Pricebook</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JoinNow_Opportunity_Pricebook</shortDescription>
+        <value>01s41000002QIXJ</value>
+    </labels>
+    <labels>
+        <fullName>JoinNow_Opportunity_RecordTypeId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JoinNow_Opportunity_RecordTypeId</shortDescription>
+        <value>01241000000Zut4</value>
+    </labels>
+    <labels>
+        <fullName>Join_Now_Form_Submission_Mail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Join Now Form Submission Mail</shortDescription>
+        <value>[UserFirstName], &lt;br&gt;&lt;br&gt;
+Thank you for your interest in [ProjectName].  Your membership request has been received and we will be in touch soon. &lt;br&gt;&lt;br&gt;
+In the meantime, here are some resources to learn more about the project:&lt;br&gt;
+[ProjectURL]
+&lt;br&gt;
+Thank you, &lt;br&gt;
+The [ProjectName] Team</value>
+    </labels>
+    <labels>
+        <fullName>LF_Anonymous</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LF Anonymous</shortDescription>
+        <value>LF Anonymous</value>
+    </labels>
+    <labels>
+        <fullName>LF_Asia_Address_Conga</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LF Asia Address Conga</shortDescription>
+        <value>2771 Centerville RD Suite 400, Wilmington, Delaware 19808, United States</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Conversion_Account</fullName>
+        <categories>lead conversion</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Conversion Account</shortDescription>
+        <value>Individual - No Account</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Report_Link</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Report Link</shortDescription>
+        <value>/lightning/r/Report/00O2M000009WIM6UAO/view?fv1=</value>
+    </labels>
+    <labels>
+        <fullName>Linux_Associate_Template_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Linux Associate Template Id</shortDescription>
+        <value>9f215c6e-aa96-47eb-8822-25d7bc5b6720</value>
+    </labels>
+    <labels>
+        <fullName>Linux_Foundation_Europe</fullName>
+        <categories>LFEU</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Linux Foundation Europe</shortDescription>
+        <value>a092M00001KWzi6QAD</value>
+    </labels>
+    <labels>
+        <fullName>Linux_Foundation_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Linux Foundation User</shortDescription>
+        <value>0052M0000092t2jQAA</value>
+    </labels>
+    <labels>
+        <fullName>Linux_Membership_Template_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Linux Membership Template Id</shortDescription>
+        <value>616a14ea-55a8-4a54-acb0-595653cb0a94</value>
+    </labels>
+    <labels>
+        <fullName>MailBoxLayerAccessCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MailBoxLayerAccessCode</shortDescription>
+        <value>fb33c701e5ef50831eec97204159e844</value>
+    </labels>
+    <labels>
+        <fullName>MembersRollUpSubscription_batch_Query</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MembersRollUpSubscription batch Query</shortDescription>
+        <value>SELECT Id, Name, ContactId, LeadId, CampaignId, Campaign.Name, Campaign.Project__c   FROM CampaignMember WHERE Campaign.Do_Not_Include_in_Master_Subscriber_List__c = FALSE AND LF_Training__c = FALSE  AND Campaign.Type != &apos;Subscription Center&apos; AND CreatedDate &gt;=: lastFifteenHours</value>
+    </labels>
+    <labels>
+        <fullName>No_Opp_Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No_Opp_Product</shortDescription>
+        <value>Cannot Closed/Won opportunity as no products are added.</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_SubscriptionExpirationValidation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity_SubscriptionExpirationValidation</shortDescription>
+        <value>Subscription/Certification Expiration Date field on Opportunity is required for subscription &amp; certification products</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_tiPanoramaSublicenseIdValidation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity_tiPanoramaSublicenseIdValidation</shortDescription>
+        <value>TI Panorama Sublicense ID field on Opportunity is required for subscription &amp; certification products</value>
+    </labels>
+    <labels>
+        <fullName>Org_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Org URL</shortDescription>
+        <value>https://na35.salesforce.com/</value>
+    </labels>
+    <labels>
+        <fullName>ProductDetailsGroupName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProductDetailsGroupName</shortDescription>
+        <value>Product_Details</value>
+    </labels>
+    <labels>
+        <fullName>Product_Names_to_Exclude</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Names to Exclude</shortDescription>
+        <value>Associate Membership;Individual Membership</value>
+    </labels>
+    <labels>
+        <fullName>Project_Corporate_Memberships_Report_ID</fullName>
+        <categories>Embedded Report IDs</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Corporate Memberships Report ID</shortDescription>
+        <value>00O2M0000099GqcUAE</value>
+    </labels>
+    <labels>
+        <fullName>Project_Email_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Email Template</shortDescription>
+        <value>00X2M000000OSmo</value>
+    </labels>
+    <labels>
+        <fullName>Project_Individual_Memberships_Report_ID</fullName>
+        <categories>Embedded Report IDs</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Individual Memberships Report ID</shortDescription>
+        <value>00O2M0000099EacUAE</value>
+    </labels>
+    <labels>
+        <fullName>ProjectsForClosedLostNotification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectsForClosedLostNotification</shortDescription>
+        <value>FINOS (The Fintech Open Source Foundation);</value>
+    </labels>
+    <labels>
+        <fullName>ProjectsStartingID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectsStartingID</shortDescription>
+        <value>a09</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_History_Display_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchase History Display Name</shortDescription>
+        <value>Purchase history issue with Netsuite sync</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_History_To_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchase History To Address</shortDescription>
+        <value>pchennoju@linuxfoundation.org</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_Sent_Integration_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchase Sent Integration User</shortDescription>
+        <value>0052M00000934EnQAI</value>
+    </labels>
+    <labels>
+        <fullName>QuoteTemplateId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QuoteTemplateId</shortDescription>
+        <value>0EH2M000003DLxL</value>
+    </labels>
+    <labels>
+        <fullName>Readout_PurchaseHistoryStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Readout_PurchaseHistoryStatus</shortDescription>
+        <value>Purchased;Active;</value>
+    </labels>
+    <labels>
+        <fullName>RenewalOpportunityBatchClassErrorSendingEmail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RenewalOpportunityBatchClassErrorSendingEmail</shortDescription>
+        <value>pchennoju@contractor.linuxfoundation.org</value>
+    </labels>
+    <labels>
+        <fullName>Renewal_Opportunity_Opp_Team_Role</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Renewal Opportunity : Opp Team Role</shortDescription>
+        <value>Project Manager</value>
+    </labels>
+    <labels>
+        <fullName>Renewal_Opportunity_Stage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Renewal Opportunity : Stage</shortDescription>
+        <value>5. Decision Commitment</value>
+    </labels>
+    <labels>
+        <fullName>Renewal_Opportunity_Task_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Renewal Opportunity Task Status</shortDescription>
+        <value>Renewal Open Opportunity Task</value>
+    </labels>
+    <labels>
+        <fullName>Renewal_Product_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Renewal Product List</shortDescription>
+        <value>01t2M000005wBb0QAE;01t2M000006sgfaQAA;</value>
+    </labels>
+    <labels>
+        <fullName>Renewal_Project_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Renewal Project List</shortDescription>
+        <value>a0941000002wBz9AAE;a0941000002wBygAAE;</value>
+    </labels>
+    <labels>
+        <fullName>Revenue_Chart_Report_Link</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Revenue Chart Report Link</shortDescription>
+        <value>/lightning/r/Report/00O2M000009WJeRUAW/view?fv0=</value>
+    </labels>
+    <labels>
+        <fullName>SFDC_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SFDC Email</shortDescription>
+        <value>sfdc_integration@linuxfoundation.org</value>
+    </labels>
+    <labels>
+        <fullName>Send_Date_Not_Null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send Date Not Null</shortDescription>
+        <value>Send Date cannot be null</value>
+    </labels>
+    <labels>
+        <fullName>Start_Date_Not_Null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start Date Not Null</shortDescription>
+        <value>Please enter Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Task_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Subject</shortDescription>
+        <value>New Contact Created for follow-up</value>
+    </labels>
+    <labels>
+        <fullName>The_Linux_Foundation_Project</fullName>
+        <categories>Project ID</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The Linux Foundation Project 18-digit ID</shortDescription>
+        <value>a0941000002wBz9AAE</value>
+    </labels>
+    <labels>
+        <fullName>TrainingMSATeam</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TrainingMSATeam</shortDescription>
+        <value>salesops@linuxfoundation.org;lbarrett@linuxfoundation.org;eventsales@linuxfoundation.org</value>
+    </labels>
+    <labels>
+        <fullName>TrainingStartingID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TrainingStartingID</shortDescription>
+        <value>a0C</value>
+    </labels>
+    <labels>
+        <fullName>Training_MSA_Template_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Training MSA Template Id</shortDescription>
+        <value>041c0ac8-b99c-4e1e-8f2e-460269f41afb</value>
+    </labels>
+    <labels>
+        <fullName>Tux_Rewards_Campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tux Rewards Campaign</shortDescription>
+        <value>7012M000001rgUrQAI</value>
+    </labels>
+    <labels>
+        <fullName>URLForEmailNotificationPrefix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URLForEmailNotificationPrefix</shortDescription>
+        <value>https://na35.salesforce.com/</value>
+    </labels>
+    <labels>
+        <fullName>User_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User Email</shortDescription>
+        <value>pchennoju@linuxfoundation.org;mbrown@linuxfoundation.org;pratikd@proximabiz.com;</value>
+    </labels>
+    <labels>
+        <fullName>User_to_assign_to_lead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User to assign to lead</shortDescription>
+        <value>Sales Operations</value>
+    </labels>
+    <labels>
+        <fullName>Visa_Request_Form_Submission_Not_Registered_Email</fullName>
+        <categories>Visa Request</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Visa Request Form Submission Not Registered Email</shortDescription>
+        <value>Dear [Name],
+&lt;br/&gt;&lt;br/&gt;
+There was an error in processing your visa letter request. Please make sure you are using the same email address you used to register for the event when requesting a visa letter.
+&lt;br/&gt;&lt;br/&gt;
+If you have not registered yet, please go &lt;a href=&quot;[RegistrationURL]&quot;&gt;here&lt;/a&gt; for more information
+&lt;br/&gt;&lt;br/&gt;
+Should you require any further assistance, please contact visaletters@linuxfoundation.org.
+&lt;br/&gt;&lt;br/&gt;
+Sincerely,
+&lt;br/&gt;
+The Linux Foundation Events Team</value>
+    </labels>
+    <labels>
+        <fullName>Visa_Request_Form_Submission_Recipients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Visa Request Form Submission Recipients</shortDescription>
+        <value>mwhite@linuxfoundation.org;skrehbiel@linuxfoundation.org;aleroux@linuxfoundation.org;tlovato@linuxfoundation.org;linux_foundation@cloudroute.in</value>
+    </labels>
+    <labels>
+        <fullName>Voting_Contact_Required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Voting Contact Required</shortDescription>
+        <value>Primary Voting Contact is Required on Membership Opportunity.</value>
+    </labels>
+    <labels>
+        <fullName>Year_end_Renewal_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Year end Renewal date</shortDescription>
+        <value>2020-11-20</value>
+    </labels>
+    <labels>
+        <fullName>expensify_Adm_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>expensify Adm Email</shortDescription>
+        <value>communitybridgefinance@linuxfoundation.org</value>
+    </labels>
+    <labels>
+        <fullName>expensify_partnerUserID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>expensify_partnerUserID</shortDescription>
+        <value>aa_fsexpensify_linuxfoundation_org</value>
+    </labels>
+    <labels>
+        <fullName>expensify_partnerUserSecret</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>expensify_partnerUserSecret</shortDescription>
+        <value>d5e82a7f1b8b22c3ed082178e9cc46ee6e412d2b</value>
+    </labels>
+    <labels>
+        <fullName>homepageLink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>homepageLink</shortDescription>
+        <value>https://na96.salesforce.com/</value>
+    </labels>
+    <labels>
+        <fullName>lead_converted_status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lead converted status</shortDescription>
+        <value>Converted</value>
+    </labels>
+</CustomLabels>

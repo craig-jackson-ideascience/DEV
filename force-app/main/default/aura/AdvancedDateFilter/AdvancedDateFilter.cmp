@@ -1,0 +1,262 @@
+<!--
+ - Created by cloudroutesolutions on 10/02/21.
+ -->
+
+<aura:component description="AdvancedDateFilter">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <ltng:require scripts="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></ltng:require>
+    <ltng:require scripts="https://code.jquery.com/jquery-1.9.1.js"></ltng:require>
+    <!-- aura attributes -->
+    <!--{'label': 'Current Fiscal Year To Date', 'value': ''},
+                    {'label': 'Previous Fiscal Year To Date', 'value': ''},-->
+    <!--{'label': 'Current Fiscal Quarter To Date', 'value': ''},
+                    {'label': 'Previous Fiscal Quarter To Date', 'value': ''},-->
+    <!--{'label': 'Current Year To Date', 'value': ''},
+                    {'label': 'Previous Year To Date', 'value': ''},-->
+    <!--{'label': 'Current Quarter To Date', 'value': ''},
+                   {'label': 'Previous Quarter To Date', 'value': ''},-->
+    <!--{'label': 'Current Month To Date', 'value': ''},
+                    {'label': 'Previous Month To Date', 'value': ''},-->
+    <aura:attribute name="options" type="List"  access="public"/>
+
+    <aura:attribute name="absoluteSelectedDateOperator" type="List"/>
+
+    <aura:attribute name="componentType" type="String" default="Lead" access="public" />
+
+    <aura:attribute name="selectedSoqlOperator" type="String" default="equal" />
+
+    <aura:attribute name="selectedDateOperator" type="String" default="both" />
+    <aura:attribute name="selectedTabDate" type="String" default="absolute" />
+
+    <aura:attribute name="selectedFromDate" type="Date" />
+    <aura:attribute name="selectedToDate" type="Date" />
+
+    <aura:attribute name="minFromDate" type="Date" />
+    <aura:attribute name="maxFromDate" type="Date" />
+    <aura:attribute name="minToDate" type="Date" />
+    <aura:attribute name="maxToDate" type="Date" />
+
+    <aura:attribute name="selectedItems" type="String[]" />
+    <aura:attribute name="infoText" type="String" default="Last 7 days" access="global" />
+    <aura:attribute name="defaultText" type="String" default="Select an Option" access="global" />
+    <aura:attribute name="auraidmodal" type="String" default="combobox-id-1" />
+    <aura:attribute name="label" type="String" default="" />
+    <aura:attribute name="labelHideClass" type="String" default=""
+                    description="to hide label, add 'label-hidden' as a labelHideClass" />
+    <aura:attribute name="width" type="String" default="240px;" />
+    <aura:attribute name="dropdownLength" type="Integer" default="5" />
+    <aura:attribute name="dropdownOver" type="Boolean" default="false" />
+    <aura:attribute name="initialized" type="Boolean" default="false" />
+    <aura:attribute name="options_" type="List" />
+    <aura:attribute name="searchVar" type="String" />
+
+    <aura:attribute name="customSelected" type="Boolean" default="false" />
+
+    <aura:attribute name="isFromEditMode" type="Boolean" default="false" />
+    <aura:attribute name="isToEditMode" type="Boolean" default="false" />
+
+    <aura:attribute name="selectedRelativeFilterOption" type="String" default="Year" />
+    <aura:attribute name="selectedRelativeFilterFromValue" type="Integer" default="1" />
+    <aura:attribute name="selectedRelativeFilterToValue" type="Integer" default="1" />
+    <aura:attribute name="selectedRelativeType" type="String" default="Calendar" />
+
+    <aura:attribute name="relativeButtonOptions" type="List"/>
+    <!--<aura:attribute name="relativeButtonOptionValue" type="String" default="option1"/>-->
+    <!-- aura attributes -->
+    <aura:attribute type="boolean" name="fromPicklist" default="false"/>
+    <aura:method name="sampleMethod" action="{!c.reInit}" />
+
+    <!-- aura events -->
+    <aura:registerEvent name="selectChange" type="c:SelectChange" />
+    <aura:registerEvent name="AdvancedDateChangedEvent" type="c:AdvancedDateChangedEvent" />
+    <!-- aura events -->
+
+    <!-- aura handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="change" value="{!v.options}" action="{!c.reInit}" />
+    <!-- aura handlers -->
+
+    <!-- aura methods -->
+    <aura:method name="reInit" action="{!c.reInit}" description="Allows the lookup to be reinitalized">
+    </aura:method>
+    <!-- aura methods -->
+
+    <aura:html tag="style">
+        .relativebtnGrp:active, .relativebtnGrp:focus, .relativebtnGrp:visited {
+        background-color: #1f5874 !important;
+        border-color: #1f5874 !important;
+        color: white !important;
+        }
+    </aura:html>
+
+
+
+    <div class="slds-form-element" style="{!'width:' + v.width }">
+        <label class="{!if (v.labelHideClass == 'label-hidden' , 'slds-hide' , 'slds-form-element__label')}"
+               for="combobox-id-1">{!v.label}</label>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+                <div aura:id="main-div" class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
+                     aria-expanded="false" aria-haspopup="listbox" role="combobox" onmouseleave="{!c.handleMouseOutButton}">
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                        <div onkeypress="{!c.searchOption}" onkeydown="{!c.backspaceEvent}">
+                            <input tabindex="-1" type="text" class="slds-input slds-combobox__input"
+                                   id="{!v.auraidmodal}" aria-controls="listbox-id-1" autocomplete="off" role="textbox"
+                                   placeholder="{!v.infoText}" value="{!v.searchVar}" readonly=""
+                                   onclick="{!c.handleClick}" 
+                                   onfocus="{!c.autocompleteFntn}" /><!--onmouseleave="{!c.handleMouseOutButton}"-->
+                        </div>
+                        <span
+                                class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                            <lightning:icon iconName="utility:down" size="x-small"
+                                            class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default" />
+                        </span>
+                    </div>
+
+                    <div tabindex="0" style="padding: 1rem;z-index: 9999;max-width: 360px !important;width: auto;min-width: 330px;left: 62%;"
+                         class="{!'slds-dropdown  slds-dropdown_fluid slds-dropdown_length-5' + v.dropdownLength}"
+                         id="focusId"  role="listbox"  onmouseenter="{!c.handleMouseEnter}" onmouseleave="{!c.hanldeFocusOut}"><!--onblur="{!c.hanldeFocusOut}" onmouseenter="{!c.handleMouseEnter}"-->
+
+                        <div aura:id="custom-date-filter" class="custom-date-filter slds-hide">
+                            <div class="slds-button_reset slds-text-link back-button" onclick="{!c.handleToggleCustomDateSelection}">&lt; Back</div>
+                            <lightning:tabset selectedTabId="{!v.selectedTabDate}" >
+                                <lightning:tab label="Absolute" id="absolute" onactive="{! c.handleActive }" >
+                                    <lightning:select name="operatorDate" label="Operator" aura:id="operatorDate" value="{!v.selectedDateOperator}" onchange="{! c.handleDateOperatorChange }">
+                                        <aura:iteration items="{!v.absoluteSelectedDateOperator}" var="item">
+                                            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                    <lightning:layout multipleRows="true">
+                                        <aura:if isTrue="{!v.selectedDateOperator == 'both'}">
+                                            <lightning:layoutItem size="6" class="slds-p-right--medium">
+                                                <lightning:input type="date" name="fromDate" label="From" value="{!v.selectedFromDate}" min="{!v.minFromDate}" max="{!v.maxFromDate}" onchange="{!c.handleDateInputChange}"/>
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem size="6">
+                                                <lightning:input type="date" name="toDate" label="To" value="{!v.selectedToDate}" min="{!v.minToDate}" max="{!v.maxToDate}" onchange="{!c.handleDateInputChange}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.selectedDateOperator == 'to'}">
+                                            <lightning:layoutItem size="12">
+                                            <lightning:input type="date" name="toDate" label="To" value="{!v.selectedToDate}" min="{!v.minFromDate}" max="{!v.maxFromDate}" onchange="{!c.handleDateInputChange}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.selectedDateOperator == 'from'}">
+                                            <lightning:layoutItem size="12">
+                                            <lightning:input type="date" name="fromDate" label="From" value="{!v.selectedFromDate}" min="{!v.minToDate}" max="{!v.maxToDate}" onchange="{!c.handleDateInputChange}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                    
+                                        <lightning:layoutItem padding="around-small" size="12">
+                                            <lightning:button label="Apply" onclick="{!c.handleApplyFilter}" variant="brand" />
+                                        </lightning:layoutItem>
+                                    </lightning:layout>
+                                </lightning:tab>
+                                <lightning:tab label="Relative" id="relative" onactive="{! c.handleActive }" >
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="12">
+                                        <lightning:radioGroup name="radioButtonGroup"
+                                                              variant="label-hidden"
+                                                              options="{! v.relativeButtonOptions }"
+                                                              value="{! v.selectedRelativeFilterOption }"
+                                                              type="button"/>
+                                        </lightning:layoutItem>
+                                        <lightning:layoutItem size="12">
+                                            <lightning:layout multipleRows="false" verticalAlign="center">
+                                                <lightning:layoutItem size="6" class="slds-p-vertical--medium slds-p-right--medium">
+                                                    <label class="slds-form-element__label slds-no-flex">From the start of</label> <br/>
+                                                    <aura:if isTrue="{!not(v.isFromEditMode)}">
+                                                        <span> {!if(v.selectedRelativeFilterFromValue == 0 || v.selectedRelativeFilterFromValue == 1, 'Current '+v.selectedRelativeFilterOption, if(v.selectedRelativeFilterFromValue > 0, v.selectedRelativeFilterFromValue, -(v.selectedRelativeFilterFromValue) ) +' '+ v.selectedRelativeFilterOption+' Ago' )} </span>
+                                                        <span><lightning:buttonIcon iconName="utility:edit" variant="bare" onclick="{! c.handleFromEditMode }" alternativeText="Settings" title="Settings" /></span>
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!v.isFromEditMode}">
+                                                        <lightning:input type="number" name="startOfInput" variant="label-hidden" value="{!v.selectedRelativeFilterFromValue}" max="100" onblur="{!c.handleFromEditMode}" /> {!v.selectedRelativeFilterOption}
+                                                    </aura:if>
+                                                </lightning:layoutItem>
+                                                <lightning:layoutItem size="6" class="slds-p-vertical--medium">
+                                                    <label class="slds-form-element__label slds-no-flex">To the end of</label><br/>
+                                                    <aura:if isTrue="{!not(v.isToEditMode)}">
+                                                        <span> {!if(v.selectedRelativeFilterToValue == 0 || v.selectedRelativeFilterToValue == 1, 'Current '+v.selectedRelativeFilterOption, v.selectedRelativeFilterToValue +' '+ v.selectedRelativeFilterOption+' Ahead' )} </span>
+                                                        <span><lightning:buttonIcon iconName="utility:edit" variant="bare" onclick="{! c.handleToEditMode }" alternativeText="Settings" title="Settings" /></span>
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!v.isToEditMode}">
+                                                        <lightning:input type="number" name="endOfInput" variant="label-hidden" value="{!v.selectedRelativeFilterToValue}" max="100" onblur="{!c.handleToEditMode}"/> {!v.selectedRelativeFilterOption}
+                                                    </aura:if>
+                                                </lightning:layoutItem>
+                                            </lightning:layout>
+                                        </lightning:layoutItem>
+                                        <lightning:layoutItem size="12">
+                                            <!--<c:CustomSliderComponent min="0" max="6"/>-->
+                                            <lightning:layout multipleRows="false">
+                                                <lightning:layoutItem size="6">
+                                                    <lightning:slider value="{!v.selectedRelativeFilterFromValue}" step="1" max="0" min="-6"/>
+                                                </lightning:layoutItem>
+                                                <lightning:layoutItem size="6">
+                                                    <lightning:slider value="{!v.selectedRelativeFilterToValue}" step="1" max="6" min="0"/>
+                                                </lightning:layoutItem>
+                                            </lightning:layout>
+                                        </lightning:layoutItem>
+                                        <aura:if isTrue="{!v.selectedRelativeFilterOption != 'Day'}">
+                                            <lightning:layoutItem padding="around-small" size="12">
+                                                <lightning:buttonIcon iconName="utility:event" onclick="{! c.handleRelativeTypeFilterOption }"  alternativeText="Calendar" value="Calendar" title="Calendar" aura:id="calendarYear" class=" slds-button_brand colorWhite"/>
+                                                <lightning:buttonIcon iconName="utility:moneybag" onclick="{! c.handleRelativeTypeFilterOption }"  alternativeText="Fiscal Year" value="Fiscal Year" title="Fiscal Year" aura:id="fiscalYear"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                        <lightning:layoutItem padding="around-small" size="12">
+                                            <lightning:button label="Apply" onclick="{!c.handleApplyRelativeFilter}" variant="brand" />
+                                        </lightning:layoutItem>
+                                    </lightning:layout>
+                                </lightning:tab>
+                            </lightning:tabset>
+                        </div>
+
+                        <ul aura:id="standard-date-filter" class="slds-listbox slds-listbox_vertical standard-date-filter" role="presentation" style="min-height: 300px;max-height: 300px;overflow: auto;">
+                            <aura:iteration items="{!v.options_}" var="option">
+                                <aura:if isTrue="{!option.value == 'Custom'}">
+                                    <li class="slds-listbox__item" role="presentation" onclick="{!c.handleCustomDate}">
+                                        <div class="{!' slds-media  slds-listbox__option_plain slds-media_small slds-listbox__option ' + (option.selected == true ? ' slds-is-selected' : '')}"
+                                             role="option">
+                                            <span class="slds-media__figure">
+                                                <lightning:icon iconName="utility:check" size="x-small"
+                                                                class="slds-icon-utility-check slds-current-color slds-listbox__icon-selected slds-icon_container" />
+                                            </span>
+                                            <span class="slds-media__body">
+                                                <span class="slds-truncate"
+                                                      title="{!option.label}">&nbsp;{!option.label}</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </aura:if>
+
+                                <aura:if isTrue="{!option.value == 'Static'}">
+                                    <li class="slds-dropdown__header slds-has-divider_bottom-space" role="separator">
+                                        <span>{!option.label}</span>
+                                    </li>
+                                </aura:if>
+
+                                <aura:if isTrue="{!and(option.value != 'Static', option.value != 'Custom')}">
+                                    <li class="slds-listbox__item" role="presentation" onclick="{!c.handleSelection}"
+                                        data-value="{!option.value}" data-selected="{!option.selected}">
+                                        <div class="{!' slds-media  slds-listbox__option_plain slds-media_small slds-listbox__option ' + (option.selected == true ? ' slds-is-selected' : '')}"
+                                             role="option">
+                                            <span class="slds-media__figure">
+                                                <lightning:icon iconName="utility:check" size="x-small"
+                                                                class="slds-icon-utility-check slds-current-color slds-listbox__icon-selected slds-icon_container" />
+                                            </span>
+                                            <span class="slds-media__body">
+                                                <span class="slds-truncate"
+                                                      title="{!option.label}">&nbsp;{!option.label}</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </aura:if>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

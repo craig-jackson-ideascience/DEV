@@ -1,0 +1,302 @@
+<!-- Typeahead.js enabled text box component - searches the database using SOSL as you type -->
+<apex:component controller="Typeahead">
+<apex:includeScript value="{!URLFOR($Resource.Typeahead1, '/typeahead.bundle.min.js')}"/>
+    <!--
+        SAMPLE OF HOW TO USE THIS COMPONENT TO SEARCH ACCOUNTS:
+
+        <h3>Account Name:</h3>
+        <c:Typeahead searchBoxId="acctSearchBox" object="Account" destinationForSelectedId="accountId" />   
+        <input type="hidden" name="accountId" id="accountId" />     
+    -->
+
+
+
+    <apex:attribute name="searchBoxId" type="String" default="searchBox"
+                    description="Id attribute for the search input box." />
+    <apex:attribute name="styleClass" type="String"
+                    description="CSS class attribute to apply on the search input box." />
+    <apex:attribute name="style" type="String"
+                    description="CSS style attribute to apply on the search input box." />
+    <apex:attribute name="placeholder" type="String" default="Search"
+                    description="Text to display as a placeholder in the search input box." />
+
+    <apex:attribute name="object" type="String" default="Contact"
+                    description="The type of record we are searching." />
+    <apex:attribute name="objectIdField" type="String" default="Id"
+                    description="The field that provides the object Id." />
+    <apex:attribute name="primaryField" type="String" default="Name"
+                    description="The field that provides the primary display value." />
+    <apex:attribute name="secondaryField" type="String" default=""
+                    description="A field to differentiate the display value. Appears in parens." />
+    <apex:attribute name="minSearchLength" type="Integer" default="2"
+                    description="How many characters you must type before searching.  Must be 2 or more." />
+
+    <apex:attribute name="searchScope" type="String" default="ALL"
+                    description="Indicates which types of fields on the object to search. One of ALL, NAME, EMAIL, PHONE, SIDEBAR." />
+    <apex:attribute name="filterClause" type="String"
+                    description="WHERE clause to filter records. Do not include WHERE." />
+    <apex:attribute name="orderBy" type="String" default="Name"
+                    description="Name of field to sort records by." />
+    <apex:attribute name="recordLimit" type="String" default="2000"
+                    description="Maximum number of records to return to the list. " />
+
+    <apex:attribute name="destinationForSelectedId" type="String"
+                    description="Id of a field, such as an apex:inputHidden, that should get Salesforce Id of the selected item." />
+    <apex:attribute name="destinationForSelectedValue" type="String"
+                    description="Id of a field, such as an apex:inputHidden, that should get the displayed name/value of the selected item." />
+    <apex:attribute name="MultiSelectdestinationForSelectedValue" type="String"
+                    description="Id of a field, such as an apex:inputHidden, that should get the displayed name/value of the selected item." />
+    <apex:attribute name="MultiSelectdestinationForSelectedId" type="String"
+                    description="Id of a field, such as an apex:inputHidden, that should get the displayed name/value of the selected item." />
+
+    <apex:attribute name="stealFocus" type="Boolean" default="true"
+                    description="Whether to automatically move the focus to the search box when the component is displayed." />
+    <apex:attribute name="MultiSelect" type="Boolean" default="false"
+                    description="If set to true, multi select option is activated." />
+    <apex:attribute name="pillClassName" type="String" default="topicPanel"
+                    description="This is class name where we want to append pills after multi selection. This is intridued when we want to add multiple typeahead on same Page.e.g. XChange_FavoriteRecommendedList component." />
+
+    <apex:attribute name="JsFunction" type="String"
+                    description="specify which JS function to call on your VF after value is selected" />
+    <apex:attribute name="RemovePillJsFunction" type="String"
+                    description="specify which JS function to call on your VF after clicked on 'X' on pills" />
+      <apex:attribute name="queryName" type="String" default="SOSL"
+					description="Whether to automatically move the focus to the search box when the component is displayed." />
+
+    <style>
+        .twitter-typeahead {
+          width:100%;
+          margin-top : 4px;
+          margin-bottom : 4px;
+        }
+        .tt-search-box,
+        .tt-query,
+        .tt-hint {
+          display:inline-block;
+          width:97%;
+          font-size: inherit;
+          height: inherit;
+          padding: 8px 12px;
+          line-height: inherit;
+          border: 2px solid #ccc;
+          -webkit-border-radius: 8px;
+             -moz-border-radius: 8px;
+                  border-radius: 8px;
+          outline: none;
+        }
+
+        .tt-search-box:focus {
+          border: 2px solid #0097cf;
+        }
+
+        .tt-query {
+          -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+             -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+        .tt-hint {
+          color: #999
+        }
+
+        .tt-dropdown-menu {
+          width: 100%;
+          margin-top: 5px;
+          padding: 8px 0;
+          z-index: 9999 !important;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          -webkit-border-radius: 8px;
+             -moz-border-radius: 8px;
+                  border-radius: 8px;
+          -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+             -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+                  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        }
+
+        .tt-suggestion {
+          padding: 3px 20px;
+          font-size: inherit;
+          line-height: 1.5em;
+        }
+
+        .tt-suggestion.tt-cursor {
+          color: #fff;
+          background-color: #0097cf;
+
+        }
+
+        .tt-suggestion p {
+          margin: 0;
+        }
+        .slds li
+        {
+        margin-left:4px;
+        }
+    </style>
+    <script>
+        
+        var soslRegex = /%3F|%26|%7C|%7B|%7D|%5B|%5D|%5E|%3A|%5C|%22|%2B|['!\(\)~\*-]/g;
+        // different typeaheads need their own data
+        var boxData;
+        if (!boxData) boxData = {};
+        boxData['{!searchBoxId}'] = {
+            setSelectedValue : 
+                function( ctrl, id, value ) {
+                    console.log( id + ' => ' + value );
+
+
+                    // put the id on the input tag
+                    $(ctrl).attr('data-id', id);
+
+                    // if destinations are defined, set them too
+                    console.log('MultiSelect--'+'{!MultiSelect}');
+                    if('{!MultiSelect}' == 'true'){
+                        if(value != null && value != ''){
+                         addTopicToNow(id, value);
+                        }
+                    }else{
+                    $('[id$={!destinationForSelectedId}]').val( id );
+                    $('[id$={!destinationForSelectedValue}]').val( value );
+                    }
+                },
+
+            fieldList: 
+                ['{!objectIdField}', '{!primaryField}'],
+
+            boxQuery: 
+                function( queryString, typeaheadCallback ) {
+                    console.log('test');
+                    Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.Typeahead.searchRecords}', 
+                        queryString, 
+                        '{!object}', 
+                        boxData['{!searchBoxId}'].fieldList,
+                        '{!searchScope}',
+                        '{!filterClause}',
+                        '{!orderBy}',
+                        {!recordLimit},
+                        '{!queryName}',
+                        function(result, event){
+                            if (event.status) {
+                                // console.log(result);
+                                var dataList = [];
+                                $.each(result, function(i, r) {
+                                    dataList.push({
+                                        id: r.{!objectIdField},
+                                        value: r.{!primaryField} + 
+                                            (('{!secondaryField}'.length && r['{!secondaryField}']) ? 
+                                            (' (' + r['{!secondaryField}'] + ')') : '')
+                                    });
+                                });
+                                typeaheadCallback( dataList );
+                            } else {
+                                // TODO: deal with error
+                                alert('Callout error: ' + event.message);
+                                typeaheadCallback( [] );
+                            }
+                        }, 
+                        {escape: false}
+                    );
+                }
+            };
+
+        $(document).ready(function(){
+
+            $('#{!searchBoxId}').typeahead({
+                minLength: {!minSearchLength},
+                hint: true,
+                autoselect: true,
+                highlight: true
+            },
+            {
+                source: boxData['{!searchBoxId}'].boxQuery, // calls our remoting function
+                name: '{!searchBoxId}Typeahead',
+                //displayKey: ,
+                /*templates: {
+                    suggestion: function(c) { 
+                        return '<p><strong>' + c.name + '</strong><br />' + c.addr + '</p>'; 
+                    }
+                    //, empty: '<p>No results found.</p>'
+                    //, header: '' 
+                    //, footer: ''
+                }
+                */
+            }).on('typeahead:selected', function (object, datum) {
+                boxData['{!searchBoxId}'].setSelectedValue( this, datum.id, datum.value );
+                console.log('JS---'+'{!JsFunction}');
+                {!JsFunction}
+
+            }).on('typeahead:autocompleted', function (object, datum) {
+                boxData['{!searchBoxId}'].setSelectedValue( this, datum.id, datum.value );
+            }).on('focusout', function (object, datum) {
+                 if('{!destinationForSelectedId}' != '' && $('[id$={!destinationForSelectedId}]').val() == ''){
+                 console.log($('[id$={!destinationForSelectedId}]').val()+' - '+'{!destinationForSelectedId}'+' - '+'{!destinationForSelectedValue}');
+                 console.log('-->'+$('[id$={!searchBoxId}]').val());
+                     boxData['{!searchBoxId}'].setSelectedValue( this, $('[id$={!destinationForSelectedId}]').val(), $('[id$={!searchBoxId}]').val() );
+                 }
+
+            }).keyup( function(ev) {
+                //console.log(ev);
+                // if they press backspace or escape, we want to clear the selection
+                if ( ev.which == 8 || ev.which == 27 ) {
+                    boxData['{!searchBoxId}'].setSelectedValue( this, null, null );
+                }
+            });
+
+            if ({!stealFocus}) $('#{!searchBoxId}').focus();
+        });
+
+        if ('{!secondaryField}'.length) {
+            boxData['{!searchBoxId}'].fieldList.push('{!secondaryField}');
+        }
+
+        var listOfValues = [];
+        var listOfIds = [];
+        function addTopicToNow(SelectedId, Selectedvalue){
+            console.log('addTopicToNow--'+Selectedvalue);
+            if(Selectedvalue){
+                if(listOfIds.indexOf(SelectedId) == -1){
+                    listOfValues.push(Selectedvalue);
+                    listOfIds.push(SelectedId);
+                    var pillHtm = ''
+                    pillHtm += '<li class="slds-listbox-item slds-grid ' + Selectedvalue + ' " role="presentation" style="min-height:0px !important;display: inline-block;float: left; margin-top: 4px;">';
+                    pillHtm += '<span  class="slds-pill" style="max-width: 104px;min-width: 104px;" role="option" tabindex="0" aria-selected="true">';
+                    pillHtm += '<span style="max-width: 82px;min-width: 82px;" class="slds-pill__label slds-truncate" title="'+Selectedvalue+'">';
+                    pillHtm += Selectedvalue + '</span>';
+                    pillHtm += '<span class="slds-icon_container slds-pill__remove" title="Remove" style="display:inline-block;margin-left: 3px;">';
+                    pillHtm += '<a onclick="removeTopicFunction(\'' + SelectedId + '\',\'' + Selectedvalue + '\',this);return false;" style="font-weight: bold;">X</a>';
+                    var pillsElementClassName = '.'+'{!pillClassName}';
+                    console.log('##pillsElementClassName :',pillsElementClassName);
+                    jQuery(pillsElementClassName).before(pillHtm);
+                    jQuery('.tt-search-box.slds-input.tt-input').val('');
+                    $('[id$={!MultiSelectdestinationForSelectedValue}]').val( listOfValues.toString() );
+                    $('[id$={!MultiSelectdestinationForSelectedId}]').val( listOfIds.toString() );
+                    jQuery('.tt-search-box.tt-input').val('');
+                }
+                else{
+                    jQuery('.tt-search-box.tt-input').val('');
+                }
+            }
+        }
+
+        function removeTopicFunction(SelectedId,Selectedvalue,evt){
+            jQuery('.tt-search-box.tt-input').val('');
+            console.log('topic--'+SelectedId);
+            {!RemovePillJsFunction}(SelectedId);
+            listOfValues.splice(listOfValues.indexOf(Selectedvalue),1);
+            listOfIds.splice(listOfIds.indexOf(SelectedId),1);
+            jQuery(evt).parent().parent().parent().remove();
+            console.log('listOfValues.indexOf(Selectedvalue)--'+listOfValues.indexOf(Selectedvalue));
+            console.log('Names--'+listOfValues);
+            console.log('Ids--'+listOfIds);
+            $('[id$={!MultiSelectdestinationForSelectedValue}]').val( listOfValues.toString() );
+            $('[id$={!MultiSelectdestinationForSelectedId}]').val( listOfIds.toString() );
+        }
+
+    </script>
+
+    <input id="{!searchBoxId}" placeholder="{!placeholder}" class="tt-search-box {!styleClass}" style="{!style}" />
+
+</apex:component>

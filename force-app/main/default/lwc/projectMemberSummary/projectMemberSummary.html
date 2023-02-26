@@ -1,0 +1,117 @@
+<template>
+    <div class="outermost-container">
+
+        <!-- left container -->
+        <div class="container-border left-and-middle-container">
+
+            <!-- left content when there are corporate memberships -->
+            <template if:true={hasCorpMemberships}>
+                <div class="container member-summary-wrapper" data-id="corpMembContainer1">
+                    <b>Corporate Members</b>
+                    <div class="slds-grid slds-grid_vertical slds-wrap">
+                        <template for:each={corpMembershipTiers} for:item="tier">
+                            <div class="slds-col slds-size_12-of-12" key={tier.Name}>
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_3-of-12">
+                                        {tier.Count}
+                                    </div>
+                                    <div class="slds-col slds-size_9-of-12">
+                                        {tier.Name}
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- print total -->
+                        <div class="slds-col slds-size_12-of-12 total">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_3-of-12">
+                                    <b>{corpMemberCount}</b>
+                                </div>
+                                <div class="slds-col slds-size_9-of-12">
+                                    <b>Total</b>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a href={corpReportURL}>View Details</a>
+                </div>
+            </template>
+
+            <!-- left content when there are NOT corporate memberships -->
+            <template if:false={hasCorpMemberships}>
+                <div class="container no-memberships" data-id="corpMembContainer2">
+                    There are no corporate members for this project.
+                </div>
+            </template>
+        </div>
+
+
+        <!-- middle container -->
+        <div class="container-border left-and-middle-container">
+
+            <!-- middle content when there are individual memberships -->
+            <template if:true={hasIndMemberships}>
+                <div class="container member-summary-wrapper" data-id="indMembContainer1">
+                    <b>Individual Members</b>
+                    <div class="slds-grid slds-grid_vertical slds-wrap">
+                        <template for:each={indMembershipTiers} for:item="tier">
+                            <div class="slds-col slds-size_12-of-12" key={tier.Name}>
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_3-of-12">
+                                        {tier.Count}
+                                    </div>
+                                    <div class="slds-col slds-size_9-of-12">
+                                        {tier.Name}
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- print total -->
+                        <div class="slds-col slds-size_12-of-12 total">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_3-of-12">
+                                    <b>{indMemberCount}</b>
+                                </div>
+                                <div class="slds-col slds-size_9-of-12">
+                                    <b>Total</b>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a href={indReportURL}>View Details</a>
+                </div>
+            </template>
+
+            <!-- middle content when there are NOT individual memberships -->
+            <template if:false={hasIndMemberships}>
+                <div class="container no-memberships" data-id="indMembContainer2">
+                    There are no individual members for this project.
+                </div>
+            </template>
+        </div>
+
+
+        <!-- right container -->
+        <div class="container-border right-container">
+
+            <!-- right content when there is a logo -->
+            <template if:true={logoURL}>
+                <div class="container logo-wrapper" data-id="logoContainer1">
+                    <img src={logoURL} alt="Project Logo" class="logo">
+                </div>
+            </template>
+
+            <!-- right content when there is NOT a logo -->
+            <template if:false={logoURL}>
+                <div class="container logo-wrapper" data-id="logoContainer2">
+                    No logo has been selected for this project.
+                </div>
+            </template>
+        </div>
+
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>pchennoju@contractor.linuxfoundation.org</contactEmail>
+    <contactPhone>4157239709</contactPhone>
+    <label>GravityForm8</label>
+    <oauthConfig>
+        <callbackUrl>https://www.r-consortium.org/?callback=gravityformssalesforce
+https://www.sofproject.org/?callback=gravityformssalesforce
+https://js.foundation/?callback=gravityformssalesforce
+https://training.linuxfoundation.org/?callback=gravityformssalesforce</callbackUrl>
+        <consumerKey>3MVG9Nc1qcZ7BbZ0Ep18pfQsltaCXZEeY02wMuU9g3Jl5k.BSxAmeSlnPExtQ26jZiOF79DAclRao8A.36eZw</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

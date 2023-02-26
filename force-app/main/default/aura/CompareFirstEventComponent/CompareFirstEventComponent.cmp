@@ -1,0 +1,64 @@
+<!-- c:CompareFirstEventComponent -->
+
+<aura:component implements="force:appHostable" controller="CompareEventsController">
+
+    <!--================================= attributes ================================-->
+    <aura:attribute name="checkboxOptions" type="List" default="[]" />
+    <aura:attribute name="checkboxValues" type="List" />
+    <aura:attribute name="registrationTableList" type="List" access="global" />
+    <aura:attribute name="defaultSelected" type="String" />
+    <aura:attribute name="totalRegistrationString" type="String" default='Total Registrations' />
+    <aura:attribute name="lastRegDateString" type="String" default='Last Registration' />
+    <aura:attribute name="totalRegistration" type="String" />
+    <aura:attribute name="lastRegDate" type="String" />
+    <aura:attribute name="multiSelectId" type="String" />
+    <aura:attribute name="showSpinner" type="boolean" default="false" />
+    <aura:attribute name="hasError" type="Boolean" default="false" />
+
+    <!--================================= handlers =================================-->
+    <!-- init -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- event change handler -->
+    <aura:handler name="selectChange" event="c.selectChange" action="{!c.handleEventChange}" />
+
+    <!-- ApexService -->
+    <c:ApexService aura:id="service" />
+
+    <!--=============================== component part =============================-->
+
+    <!-- spinner -->
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativetext="Loading" variant="brand" class="spins" />
+    </aura:if>
+
+    <lightning:layout multipleRows="true">
+        <!-- Event Filter -->
+        <lightning:layoutItem size="12" padding="around-small">
+            <c:MultiSelectLC aura:id="{!v.multiSelectId}" options="{!v.checkboxOptions}" width="100%" infoText="None Selected"
+                label="EventName" isSingleSelect="true" auraidmodal="{!v.multiSelectId}" selectedItems="{!v.checkboxValues}"
+                showCancelButton="true" showApplyButton="true" />
+
+        </lightning:layoutItem>
+
+        <!-- Summary Details -->
+        <lightning:layoutItem size="4" padding="around-small" class="summaryStyle">
+            {!v.totalRegistrationString}
+        </lightning:layoutItem>
+        <lightning:layoutItem size="2" padding="around-small" class="summaryStyle">
+            {!v.totalRegistration}
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6" padding="around-small" class="summaryStyle">
+            {!v.lastRegDateString} : {!v.lastRegDate}
+
+        </lightning:layoutItem>
+
+        <!-- Registration Table -->
+        <lightning:layoutItem size="12" padding="around-small">
+            <aura:if isTrue="{!not(empty(v.registrationTableList))}">
+                <c:CompareEventDataTable_LC registrationTableList="{!v.registrationTableList}" />
+
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- End -->
+</aura:component>

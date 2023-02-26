@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>External P&amp;Ls : Automotive Grade Linux (AGL)</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Automotive Grade Linux (AGL)</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : CAF - IT SVS</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : CAF - IT SVS</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : CII</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : CII</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Civil Infrastructure Platform</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Civil Infrastructure Platform</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Cloud Native Computing Fdn</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Cloud Native Computing Fdn</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Hyperledger</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Hyperledger</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : IO Visor Project</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : IO Visor Project</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Kernel.org</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Kernel.org</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Kinetic Open Storage Project</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Kinetic Open Storage Project</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Open API Initiative</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Open API Initiative</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Open Chain</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Open Chain</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Open Container Initiative</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Open Container Initiative</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Open Mainframe Project</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Open Mainframe Project</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : OpenHPC</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : OpenHPC</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : OpenMAMA</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : OpenMAMA</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : OPEN-Orchestrator</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : OPEN-Orchestrator</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : OpenSwitch</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : OpenSwitch</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : OVA</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : OVA</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Plumbers Conference</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Plumbers Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Qualcomm</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Qualcomm</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Real Time Linux Project</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Real Time Linux Project</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Tizen Project-Samsung/Intel</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Tizen Project-Samsung/Intel</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : XEN Project</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : XEN Project</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Yocto Project</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Yocto Project</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Zephyr</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Zephyr</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ALS (Automotive Linux Summit)</fullName>
+        <default>false</default>
+        <label>LF Events : ALS (Automotive Linux Summit)</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ALS 2017 (Automotive Linux Summ</fullName>
+        <default>false</default>
+        <label>LF Events : ALS 2017 (Automotive Linux Summ</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Apache Big Data EU</fullName>
+        <default>false</default>
+        <label>LF Events : Apache Big Data EU</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Apache Big Data NA</fullName>
+        <default>false</default>
+        <label>LF Events : Apache Big Data NA</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ApacheCon Europe</fullName>
+        <default>false</default>
+        <label>LF Events : ApacheCon Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ApacheCon NA</fullName>
+        <default>false</default>
+        <label>LF Events : ApacheCon NA</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ApacheCon NA 2017</fullName>
+        <default>false</default>
+        <label>LF Events : ApacheCon NA 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Collaboration Summit</fullName>
+        <default>false</default>
+        <label>LF Events : Collaboration Summit</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : DevOps Networking Forum</fullName>
+        <default>false</default>
+        <label>LF Events : DevOps Networking Forum</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ELC + OpenIoT EU Oct17</fullName>
+        <default>false</default>
+        <label>LF Events : ELC + OpenIoT EU Oct17</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ELC EU (Embedded Linux)</fullName>
+        <default>false</default>
+        <label>LF Events : ELC EU (Embedded Linux)</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ELC NA + Open IoT</fullName>
+        <default>false</default>
+        <label>LF Events : ELC NA + Open IoT</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : ELC NA + Open IoT 2017</fullName>
+        <default>false</default>
+        <label>LF Events : ELC NA + Open IoT 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Kernel Summit</fullName>
+        <default>false</default>
+        <label>LF Events : Kernel Summit</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Kernel Summit 2017</fullName>
+        <default>false</default>
+        <label>LF Events : Kernel Summit 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : KVM Forum</fullName>
+        <default>false</default>
+        <label>LF Events : KVM Forum</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : KVM Forum 2017</fullName>
+        <default>false</default>
+        <label>LF Events : KVM Forum 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Linux Security Summit</fullName>
+        <default>false</default>
+        <label>LF Events : Linux Security Summit</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Linux Security Summit 2017</fullName>
+        <default>false</default>
+        <label>LF Events : Linux Security Summit 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Linux Storage &amp; Filesystems</fullName>
+        <default>false</default>
+        <label>LF Events : Linux Storage &amp; Filesystems</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : LinuxCon / ContainerCon EU</fullName>
+        <default>false</default>
+        <label>LF Events : LinuxCon / ContainerCon EU</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : LinuxCon / ContainerCon Japan</fullName>
+        <default>false</default>
+        <label>LF Events : LinuxCon / ContainerCon Japan</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : LinuxCon / ContainerCon NA</fullName>
+        <default>false</default>
+        <label>LF Events : LinuxCon / ContainerCon NA</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : LinuxCon / ContainerCon NA 2017</fullName>
+        <default>false</default>
+        <label>LF Events : LinuxCon / ContainerCon NA 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : LinuxCon China 2017</fullName>
+        <default>false</default>
+        <label>LF Events : LinuxCon China 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : MesosCon</fullName>
+        <default>false</default>
+        <label>LF Events : MesosCon</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : MesosCon Asia</fullName>
+        <default>false</default>
+        <label>LF Events : MesosCon Asia</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : MesosCon Asia 2017</fullName>
+        <default>false</default>
+        <label>LF Events : MesosCon Asia 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : MesosCon EU 2017</fullName>
+        <default>false</default>
+        <label>LF Events : MesosCon EU 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : MesosCon Europe</fullName>
+        <default>false</default>
+        <label>LF Events : MesosCon Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : MesosCon NA 2017</fullName>
+        <default>false</default>
+        <label>LF Events : MesosCon NA 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Open Networking Summit</fullName>
+        <default>false</default>
+        <label>LF Events : Open Networking Summit</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Open Networking Summit 2017</fullName>
+        <default>false</default>
+        <label>LF Events : Open Networking Summit 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Open Source Leaders Summit 2017</fullName>
+        <default>false</default>
+        <label>LF Events : Open Source Leaders Summit 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Open Source Summit &amp; ELC EU</fullName>
+        <default>false</default>
+        <label>LF Events : Open Source Summit &amp; ELC EU</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Open Source Summit Japan</fullName>
+        <default>false</default>
+        <label>LF Events : Open Source Summit Japan</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Open Source Summit NA</fullName>
+        <default>false</default>
+        <label>LF Events : Open Source Summit NA</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Vault 2017</fullName>
+        <default>false</default>
+        <label>LF Events : Vault 2017</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Vault Storage Conference</fullName>
+        <default>false</default>
+        <label>LF Events : Vault Storage Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : AA CES Jan 20161000</fullName>
+        <default>false</default>
+        <label>Project Events : AA CES Jan 20161000</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : AGL All-Member Meeting Winter16</fullName>
+        <default>false</default>
+        <label>Project Events : AGL All-Member Meeting Winter16</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : AGL AMM Winter 17011008</fullName>
+        <default>false</default>
+        <label>Project Events : AGL AMM Winter 17011008</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : AGL Fall Meeting Sep 20161019</fullName>
+        <default>false</default>
+        <label>Project Events : AGL Fall Meeting Sep 20161019</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CFF Summit Asia Dec 20161017</fullName>
+        <default>false</default>
+        <label>Project Events : CFF Summit Asia Dec 20161017</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CFF Summit Europe Sep 20161012</fullName>
+        <default>false</default>
+        <label>Project Events : CFF Summit Europe Sep 20161012</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CFF Summit May 20161002</fullName>
+        <default>false</default>
+        <label>Project Events : CFF Summit May 20161002</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CFF Summit NA 2017061001</fullName>
+        <default>false</default>
+        <label>Project Events : CFF Summit NA 2017061001</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCF AWS re-invent 11161098</fullName>
+        <default>false</default>
+        <label>Project Events : CNCF AWS re-invent 11161098</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCF CloudNativeCon 11161072</fullName>
+        <default>false</default>
+        <label>Project Events : CNCF CloudNativeCon 11161072</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCF CloudNativeDay</fullName>
+        <default>false</default>
+        <label>Project Events : CNCF CloudNativeDay</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCF CloudNativeDay 08161070</fullName>
+        <default>false</default>
+        <label>Project Events : CNCF CloudNativeDay 08161070</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCF KubeCon 2016</fullName>
+        <default>false</default>
+        <label>Project Events : CNCF KubeCon 2016</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCF Native_KubeCon EU 17041006</fullName>
+        <default>false</default>
+        <label>Project Events : CNCF Native_KubeCon EU 17041006</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCF NW Roadshow 17021015</fullName>
+        <default>false</default>
+        <label>Project Events : CNCF NW Roadshow 17021015</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CNCFCon &amp; KubeCon NA 17121016</fullName>
+        <default>false</default>
+        <label>Project Events : CNCFCon &amp; KubeCon NA 17121016</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : CoreOS Fest</fullName>
+        <default>false</default>
+        <label>Project Events : CoreOS Fest</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : Node EUInteractive Sep 20161025</fullName>
+        <default>false</default>
+        <label>Project Events : Node EUInteractive Sep 20161025</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : Node Live 20161024</fullName>
+        <default>false</default>
+        <label>Project Events : Node Live 20161024</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : Node NAInteractive 20161026</fullName>
+        <default>false</default>
+        <label>Project Events : Node NAInteractive 20161026</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : ODL Developer Design F 20161010</fullName>
+        <default>false</default>
+        <label>Project Events : ODL Developer Design F 20161010</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : ODL Forum India 20161011</fullName>
+        <default>false</default>
+        <label>Project Events : ODL Forum India 20161011</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : ODL Misc. Event Exp. 20161038</fullName>
+        <default>false</default>
+        <label>Project Events : ODL Misc. Event Exp. 20161038</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : ODL Summit Sep 20161003</fullName>
+        <default>false</default>
+        <label>Project Events : ODL Summit Sep 20161003</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : Open vSwitch Fall 11161101</fullName>
+        <default>false</default>
+        <label>Project Events : Open vSwitch Fall 11161101</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : Open-O Mini Summit 11161097</fullName>
+        <default>false</default>
+        <label>Project Events : Open-O Mini Summit 11161097</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : OPNFV Summit 17061005</fullName>
+        <default>false</default>
+        <label>Project Events : OPNFV Summit 17061005</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : OPNFV Summit Jun 20161007</fullName>
+        <default>false</default>
+        <label>Project Events : OPNFV Summit Jun 20161007</label>
+    </customValue>
+    <customValue>
+        <fullName>Project P&amp;Ls : LF : Dronecode</fullName>
+        <default>false</default>
+        <label>Project P&amp;Ls : LF : Dronecode</label>
+    </customValue>
+    <customValue>
+        <fullName>Project P&amp;Ls : LF : Plumbers</fullName>
+        <default>false</default>
+        <label>Project P&amp;Ls : LF : Plumbers</label>
+    </customValue>
+    <customValue>
+        <fullName>Project P&amp;Ls : LF : Yocto</fullName>
+        <default>false</default>
+        <label>Project P&amp;Ls : LF : Yocto</label>
+    </customValue>
+    <customValue>
+        <fullName>Training : Certification</fullName>
+        <default>false</default>
+        <label>Training : Certification</label>
+    </customValue>
+    <customValue>
+        <fullName>Training : Channel Sales</fullName>
+        <default>false</default>
+        <label>Training : Channel Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>Training : Corporate Sales</fullName>
+        <default>false</default>
+        <label>Training : Corporate Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : MesosCon NA</fullName>
+        <default>false</default>
+        <label>LF Events : MesosCon NA</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Open Source Leaders Summit</fullName>
+        <default>false</default>
+        <label>LF Events : Open Source Leaders Summit</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : Vault</fullName>
+        <default>false</default>
+        <label>LF Events : Vault</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : Iotivity</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : Iotivity</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : ODL Developer Design F 20161011</fullName>
+        <default>false</default>
+        <label>Project Events : ODL Developer Design F 20161011</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Events : ODL Developer Design F 20161012</fullName>
+        <default>false</default>
+        <label>Project Events : ODL Developer Design F 20161012</label>
+    </customValue>
+    <customValue>
+        <fullName>LF Events : LinuxCon / ContainerCon</fullName>
+        <default>false</default>
+        <label>LF Events : LinuxCon / ContainerCon</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : DPDK</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : DPDK</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : EdgeX Foundry</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : EdgeX Foundry</label>
+    </customValue>
+    <customValue>
+        <fullName>External P&amp;Ls : ONAP</fullName>
+        <default>false</default>
+        <label>External P&amp;Ls : ONAP</label>
+    </customValue>
+    <masterLabel>Netsuite Class</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

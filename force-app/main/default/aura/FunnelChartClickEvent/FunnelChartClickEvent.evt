@@ -1,0 +1,8 @@
+<!-- ** Created by Cloudroute Soulutions on 06-04-2021 
+ * Event used for Funnel Chart
+-->
+
+<aura:event type="COMPONENT" description="FunnelChartClickEvent">
+    <aura:attribute name="clickedValue" type="Object" />
+    <aura:attribute name="chartId" type="Object" />
+</aura:event>

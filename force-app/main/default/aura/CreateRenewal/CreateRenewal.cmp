@@ -1,0 +1,60 @@
+<!--c:CreateRenewal-->
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader"
+                controller="CreateRenewal"
+                access="global" >
+    
+    <!--STYLING FOR QUICK ACTION-->
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    
+    
+    <!--Apex Service-->
+    <c:ApexService aura:id="service" />
+   
+    
+    <!--ATTRIBUTES-->
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="asset" type="object"/>
+    <aura:attribute name="content" type="string"/>
+    <aura:attribute name="isRenewable" type="boolean" default="false"/>
+    
+    
+    <!--START-->
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.asset}"
+                      recordUpdated="{!c.handleRecordUpdated}"
+                      fields="Projects__c,Auto_Renew__c,Is_Person_Account__c,Renewal_Opportunity_Created__c"/>
+    
+    <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium" >Renewal</h4>
+    </div>
+    <!-- MODAL BODY / INPUT FORM -->    
+    <div class="slds-modal__content slds-p-around--x-small slds-align_absolute-center slds-size_1-of-1 slds-is-relative" aura:id="modalbody" id="modalbody">
+        <form class="slds-form--stacked">
+            <p>{!v.content}</p>
+        </form> 
+        
+    </div>   <!-- End of Modal Content -->
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <div class="forceChangeRecordTypeFooter">
+            <lightning:button variant="brand" label="Ok" title="Ok" onclick="{! c.handleOk }" />
+            <lightning:button label="Cancel" title="Cancel" onclick="{! c.handleCancel }"/>
+        </div>
+    </div>
+    
+    <!--END-->
+    
+</aura:component>

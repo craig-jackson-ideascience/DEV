@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DuplicateRule xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOnInsert>Block</actionOnInsert>
+    <actionOnUpdate>Block</actionOnUpdate>
+    <alertText>Use one of these records?</alertText>
+    <description xsi:nil="true"/>
+    <duplicateRuleFilter xsi:nil="true"/>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>Alternate_Email__c</matchRuleSObjectType>
+        <matchingRule>Email_Validation_Check_matching_rule</matchingRule>
+        <objectMapping>
+            <inputObject>Contact</inputObject>
+            <mappingFields>
+                <inputField>Email</inputField>
+                <outputField>Alternate_Email_Address__c</outputField>
+            </mappingFields>
+            <outputObject>Alternate_Email__c</outputObject>
+        </objectMapping>
+    </duplicateRuleMatchRules>
+    <isActive>false</isActive>
+    <masterLabel>Contact Rules For Validation</masterLabel>
+    <securityOption>EnforceSharingRules</securityOption>
+    <sortOrder>5</sortOrder>
+</DuplicateRule>

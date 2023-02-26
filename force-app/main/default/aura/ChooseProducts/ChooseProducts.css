@@ -1,0 +1,22 @@
+.THIS .tableStyle {
+    overflow : auto !important;
+    margin-left : 23px !important;
+    margin-right: 5px !important;
+    border: 1px solid #ddd !important;
+}
+
+.THIS .tableStyle .slds-button_icon-bare{
+    display: none !important;
+}
+.THIS .tableStyle tbody td div{
+    float : left !important;
+}
+.THIS .filterClass{
+    padding: 5px !important;
+    width:17% !important;
+    margin-left : 18px !important;
+    margin-right: 5px !important;
+}
+.THIS .tableStyle .slds-grid_align-end{
+    justify-content: flex-start !important;
+}

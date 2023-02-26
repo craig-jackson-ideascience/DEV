@@ -1,0 +1,93 @@
+<aura:component controller="OpportunitylistViewCom"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="NotesAndAttach" type="list" />
+    <aura:attribute name="AttachmentList" type="List" />
+    <aura:attribute name="selectedCount" type="integer" default="0"/>
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:attribute type="Integer" name="totalRecords" />
+    <aura:attribute name="Attendees" type="List"/>
+    <aura:attribute type="Integer" name="pageSize" default="10" />
+    <aura:attribute name="backupPaginationList" type="List"/>
+    
+    <aura:attribute type="Boolean" name="sortAsc" default="true"/>
+    <aura:attribute type="String" name="sortField" />
+    
+    <aura:attribute name="selectedDocumentId" type="string"/>
+    <aura:attribute name="hasModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="Opportunity" type="RecordType[]"></aura:attribute>
+    
+    <aura:attribute name="recordtypeSelected" type="RecordType"></aura:attribute>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit1}"></aura:handler>
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.sortBycompany}" />
+     <lightning:card iconName="standard:work_capacity_usage" title="Attachments">
+         <aura:set attribute="actions">
+             <lightning:select label="Type" name="uzr" aura:id="uzr" onchange="{!c.onChangeVal}"> 
+                 <option>---All---</option>
+        <aura:iteration items="{!v.Opportunity}" var="Opportunity">
+            <option value="{!Opportunity.name}">{!Opportunity.Name}</option>
+        </aura:iteration>
+             </lightning:select>
+         </aura:set>
+    
+    
+   
+    <div class="slds-scrollable_x" >
+        
+      <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+        <thead>
+             <tr class="slds-line-height_reset">
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="File Name" onclick="{!c.sortByName}">Title</div>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="File Name" onclick="{!c.sortByAmount}">Related to</div>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="File Name" onclick="{!c.sortBycompany}">Last Modified</div>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="File Name" onclick="{!c.sortByEmail}">Created By</div>
+                    </th>
+                    
+                </tr>
+        </thead>
+        
+        <tbody>
+            <aura:iteration items="{!v.AttachmentList}" var="con">
+                <tr>
+                    <td scope="row" class="slds-cell-wrap">
+                        <div class="slds-truncate slds-cell-wrap" title="{!con.Name}"><a onclick="{!c.openRecord}" id="{!con.Attid}">{!con.Title}</a></div>
+                    </td>
+                    <td scope="row">
+                        <div class="slds-truncate" title="{!con.Parent.Name}"><a onclick="{!c.openopp}" id="{!con.OppId}">{!con.Parent}</a></div>   
+                    </td>
+                    <td scope="row">
+                        <div class="slds-truncate" title="{!con.LastModified}"><lightning:formattedDateTime value="{!con.LastModified}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit" timeZone="UTC" timeZoneName="short" hour12="false"/></div>   
+                    </td>
+                    <td scope="row">
+                        <div class="slds-truncate" title="{!con.CreatedBy}">{!con.CreatedBy}</div>   
+                    </td>
+                    
+                </tr>
+            </aura:iteration>
+        </tbody>
+        
+    </table>
+        </div>
+        
+        <br/>
+        <div class="slds-align_absolute-center">
+        <aura:renderIf isTrue="{!v.totalRecords > v.pageSize}">
+            <c:Pagination currentPageNumber="{!v.pageNumber}" 
+                          maxPageNumber="{!v.maxPage}"
+                          totalRecords="{!v.totalRecords}"
+                          pageSize="{!v.pageSize}"/>
+        </aura:renderIf>
+    </div>
+    </lightning:card>
+</aura:component>

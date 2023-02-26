@@ -1,0 +1,134 @@
+<!-- ** Created by Cloudroute Soulutions on 30-03-2021 
+ * EventDashboard_Sponsorships used to display Sponsorships block on Dashboard page
+-->
+
+<aura:component description="EventDashboard_SponsorshipsLC" access="global"
+    controller="EventDashboard_SponsorshipsController">
+
+    <!--================================= attributes ================================-->
+    <aura:attribute name="showSpinner" type="boolean" default="false" />
+    <!-- event filter -->
+    <aura:attribute name="eventNames" type="List" default="[
+    {'label': 'All', 'value': 'All'}
+    ]" />
+    <aura:attribute name="selectedEvents" type="List" />
+    <aura:attribute name="listOfEventWrapper" type="List" default="" />
+
+    <!-- week numbers -->
+    <aura:attribute name="currentWeek" type="Object[]" />
+
+    <!--================================= hanlders ================================-->
+    <!-- init hanlder -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- event name change -->
+    <aura:handler name="selectChange" event="c.selectChange" action="{!c.handleEventNameChange}" />
+
+    <!--================================= events ================================-->
+
+    <!--================================= component part ================================-->
+
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativetext="Loading" variant="brand" class="spins" />
+    </aura:if>
+
+    <lightning:layout multipleRows="true">
+
+        <!-- Metric Header Component -->
+        <lightning:layoutItem size="6" padding="around-small">
+            <c:MetricHeaderComponent />
+        </lightning:layoutItem>
+
+        <!-- event filter -->
+        <lightning:layoutItem padding="around-small" size="3">
+            <c:MultiSelectLC aura:id="my-multi-monthDownload" width="100%" infoText="All" label="Event Name"
+                auraidmodal="my-multi-monthDownload" showCancelButton="true" showApplyButton="true"
+                options="{!v.eventNames}" selectedItems="{!v.selectedEvents}" isAllDifferent="true" />
+        </lightning:layoutItem>
+
+        <!-- current week -->
+        <lightning:layoutItem padding="around-small" size="3">
+            <table
+                class="slds-table border slds-table_bordered slds-table_col-bordered slds-table_striped slds-table_col-bordered"
+                border="1" style="border-color: #e0e5ee !important;border-collapse: collapse !important;border: 0;">
+                <tr>
+                    <th class="header borderDark-right headerFixed1" style="width: 50%"> Week</th>
+                    <th class="header borderDark-right headerFixed1" style="width: 50%"> Current/Week End Date</th>
+                </tr>
+                <aura:iteration items="{!v.currentWeek}" var="record" indexVar="index">
+                    <aura:if isTrue="{!index==1}">
+                        <tr>
+                            <td class="slds-cell-wrap cellStyle">
+                                {!record.week}
+                            </td>
+                            <td class="slds-cell-wrap cellStyle borderDark-right" style="text-align: right;">
+                                <lightning:formattedDateTime value="{!record.relatedDate}" year="numeric"
+                                    month="2-digit" day="2-digit" />
+                            </td>
+                        </tr>
+                    </aura:if>
+                </aura:iteration>
+            </table>
+        </lightning:layoutItem>
+
+        <!-- Sponsorships header -->
+        <lightning:layoutItem size="12" padding="around-small">
+            <div class="compareHeaderStyle">
+                Sponsorships
+            </div>
+        </lightning:layoutItem>
+
+        <aura:if isTrue="{!not(empty(v.listOfEventWrapper))}">
+            <lightning:layoutItem size="12" padding="around-small" class="tableSticky">
+                <table
+                    class="slds-table border slds-table_bordered slds-table_col-bordered slds-table_striped slds-table_col-bordered"
+                    border="1" style="border-color: #e0e5ee !important;border-collapse: collapse !important;border: 0;">
+                    <tr>
+                        <th class="header borderDark-right headerFixed1" style="width: 30%"> Week</th>
+                        <aura:iteration items="{!v.currentWeek}" var="record">
+                            <th class="header borderDark-bottom headerFixed1" colspan="2"> {!record.week} </th>
+                        </aura:iteration>
+                    </tr>
+                    <tr class="borderDark-bottom">
+                        <th class="header headerFixed2">Event Name</th>
+                        <th class="header headerFixed2" scope="col">Reg</th>
+                        <th class="header headerFixed2 borderDark-right" scope="col">Revenue</th>
+                        <th class="header headerFixed2" scope="col">Reg</th>
+                        <th class="header headerFixed2" scope="col">Revenue</th>
+                    </tr>
+                    <aura:iteration items="{!v.listOfEventWrapper}" var="event" indexVar="index">
+                        <tr>
+                            <th class="slds-cell-wrap cellStyle borderDark-right">
+                                <a href="{!'/lightning/r/Event/'+ event.eventId + '/view'}" target="_blank">
+                                    {!event.eventName}
+                                </a>
+                            </th>
+                            <td class="slds-cell-wrap cellStyle">
+                                Amount to Goal ($)
+                            </td>
+                            <td class="slds-cell-wrap cellStyle borderDark-right" style="text-align: right;">
+                                <lightning:formattedNumber value="{!event.revenue1}" />
+                            </td>
+                            <td class="slds-cell-wrap cellStyle">
+                                Amount to Goal ($)
+                            </td>
+                            <td class="slds-cell-wrap cellStyle" style="text-align: right;">
+                                <lightning:formattedNumber value="{!event.revenue2}" />
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </table>
+            </lightning:layoutItem>
+            <aura:set attribute="else">
+                <div style="height: 5rem;" class="slds-align_absolute-center">
+                    No results found
+                </div>
+            </aura:set>
+        </aura:if>
+
+
+    </lightning:layout>
+
+    <!--================================= apex service ================================-->
+    <c:ApexService aura:id="service" />
+
+</aura:component>

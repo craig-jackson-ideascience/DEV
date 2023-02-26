@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Certifications Term</label>
+    <protected>false</protected>
+    <values>
+        <field>Term__c</field>
+        <value xsi:type="xsd:string">1. Within five business days following the Effective Date set forth above, Provider will provide Client admins with unique voucher codes for the Certification exams. Client admins will assign one code per exam to eligible participants. The allocation of the voucher codes will be at the discretion of the Client admins. 
+2. Each certification exam participant will be allowed 2 attempts to pass the exam within one year of the date they register for the exam.</value>
+    </values>
+</CustomMetadata>

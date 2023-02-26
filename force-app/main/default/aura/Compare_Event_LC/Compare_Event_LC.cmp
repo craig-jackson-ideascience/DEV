@@ -1,0 +1,36 @@
+<!--Compare_Event_LC-->
+<aura:component>
+
+    <!--================================= attributes ================================-->
+    <aura:attribute name="hasError" type="Boolean" default="false" />
+
+    <!--=============================== component part =============================-->
+    <lightning:layout multipleRows="true">
+        
+        <!-- Metric Header Component -->
+        <lightning:layoutItem size="12">
+            <c:MetricHeaderComponent />
+        </lightning:layoutItem>
+
+        <!-- Compare Events header -->
+        <lightning:layoutItem size="12" padding="around-small">
+            <div class="compareHeaderStyle">
+                Compare Events
+            </div>
+        </lightning:layoutItem>
+        <aura:if isTrue="{!not(v.hasError)}">
+            <!-- Compare Events First Component -->
+            <lightning:layoutItem size="6" padding="around-small">
+                <c:CompareFirstEventComponent defaultSelected="a0A2M00000UNE2ZUAX" 
+                hasError="{!v.hasError}" multiSelectId="firstCompareComponent"/>
+            </lightning:layoutItem>
+
+            <!-- Compare Events Second Component -->
+            <lightning:layoutItem size="6" padding="around-small">
+                <c:CompareFirstEventComponent defaultSelected="a0A41000007SkvvEAC" 
+                hasError="{!v.hasError}" multiSelectId="secondCompareComponent"/>
+            </lightning:layoutItem>
+        </aura:if>
+    </lightning:layout>
+    <!-- End -->
+</aura:component>

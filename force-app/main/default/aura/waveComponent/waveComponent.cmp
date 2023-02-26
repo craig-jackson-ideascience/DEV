@@ -1,0 +1,27 @@
+<aura:component description="waveComponent"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    <!-- Atrributes -->
+    <aura:attribute name="purchaseHistoryData" type="string" />
+    <aura:attribute name="purchaseHistoryDBId" type="String" default="0FK2M000000XdEWWA0"/>
+    <aura:attribute name="foundationRecord" type="Sobject"/>
+    <!-- Handlers -->
+    <aura:handler event="c:foundationName" action="{!c.filteronOnPurchaseHistory}"/>
+    <aura:registerEvent name="purchaseHistoryByFoundation" type="c:purchaseHistoryByFoundation" />
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="isViewAll" type="boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.purchaseHistoryData}">
+        <div>
+            <div>
+                <wave:waveDashboard  showTitle="false" showHeader="false" dashboardId="{!v.purchaseHistoryDBId}" height="580" filter="{!v.purchaseHistoryData}"/>
+            </div>
+            <!--div>
+                <span class="slds-p-around_small"><a onclick = "{!c.viewAll}" class="custom-css-link">View All</a></span>
+            </div-->
+        </div>
+    </aura:if>
+</aura:component>

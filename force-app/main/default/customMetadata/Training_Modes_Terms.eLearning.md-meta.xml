@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>eLearning</label>
+    <protected>false</protected>
+    <values>
+        <field>Term__c</field>
+        <value xsi:type="xsd:string">1. During the term, and subject to Client’s compliance with the provisions of the Agreement, Provider authorizes Client to provide the eLearning Courses to Authorized Participants using a secure learning management system (LMS) that Client provides and manages.
+2. Provider will maintain the applicable eLearning Courses for Client, making updates available as they occur, providing tech support to Client admins, and providing limited end-user support for questions emailed to training@linuxfoundation.org.</value>
+    </values>
+</CustomMetadata>

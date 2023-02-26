@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Services (Fab, design services)</fullName>
+        <default>false</default>
+        <label>Services (Fab, design services)</label>
+    </customValue>
+    <customValue>
+        <fullName>Chip (SoC, IP, FPGA)</fullName>
+        <default>false</default>
+        <label>Chip (SoC, IP, FPGA)</label>
+    </customValue>
+    <customValue>
+        <fullName>I/O (Memory, network, storage)</fullName>
+        <default>false</default>
+        <label>I/O (Memory, network, storage)</label>
+    </customValue>
+    <customValue>
+        <fullName>Systems (ODM, OEM)</fullName>
+        <default>false</default>
+        <label>Systems (ODM, OEM)</label>
+    </customValue>
+    <customValue>
+        <fullName>Software (Dev tools, firmware, OS)</fullName>
+        <default>false</default>
+        <label>Software (Dev tools, firmware, OS)</label>
+    </customValue>
+    <customValue>
+        <fullName>Industry (cloud, mobile, HPC, ML, automotive)</fullName>
+        <default>false</default>
+        <label>Industry (cloud, mobile, HPC, ML, automotive)</label>
+    </customValue>
+    <customValue>
+        <fullName>Research (Universities, Labs, other alliances, etc)</fullName>
+        <default>false</default>
+        <label>Research (Universities, Labs, other alliances, etc)</label>
+    </customValue>
+    <customValue>
+        <fullName>Individual</fullName>
+        <default>false</default>
+        <label>Individual</label>
+    </customValue>
+    <description>Account Project Category</description>
+    <masterLabel>Category</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

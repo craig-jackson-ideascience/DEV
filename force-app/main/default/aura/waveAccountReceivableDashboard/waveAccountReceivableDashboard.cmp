@@ -1,0 +1,33 @@
+<aura:component description="waveAccountReceivable"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    <!-- Atrributes -->
+       <aura:attribute name="dashboardId" type="String" default="0FK2M000000bofJWAQ"/>
+
+    
+    <aura:attribute name="waveAccountReceivableData" type="string" />  
+    <aura:attribute name="isWADisplay" type="boolean" default="false"/>
+    <aura:attribute name="foundationRecord" type="Sobject" />
+    <!-- Handlers -->
+    <aura:handler event="c:waveAccountReceivableEvent" action="{!c.filteronOnAR}"/>
+    <aura:registerEvent name="LeadWithCampaignDashboardEvent" type="c:LeadWithCampaignDashboardEvent" />
+    <!-- View All Attributes -->
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="isViewAll" type="boolean" default="false"/>
+    <aura:if isTrue="{!v.waveAccountReceivableData}">
+       <lightning:card>
+            <div>
+                <wave:waveDashboard aura:id="myDashboard" showTitle="false" showHeader="false" dashboardId="{!v.dashboardId}" height="850" filter="{!v.waveAccountReceivableData}"/>
+            </div>
+            <div>
+                <span class="slds-p-around_small"><a onclick = "{!c.viewAll}" class="custom-css-link">View All</a></span>
+            </div>
+        </lightning:card>
+        <aura:set attribute="else">
+            Loading....
+        </aura:set>
+    </aura:if>
+    
+</aura:component>

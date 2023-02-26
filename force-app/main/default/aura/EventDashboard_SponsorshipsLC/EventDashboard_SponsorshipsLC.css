@@ -1,0 +1,60 @@
+.THIS .compareHeaderStyle{
+    font-size: 24px;
+    color: rgb(9, 26, 62);
+    font-weight: 400;
+    text-align: left;
+}
+
+.THIS th.header{
+    border-color: #e0e5ee;
+    font-size: 12px;
+    height: 35px;
+    color: #16325c;
+    fill: #16325c;
+    font-weight: 700;
+    background-color: #f4f6f9;
+    padding: 8px;
+}
+
+ .THIS .cellStyle {
+    font-size: 12px;
+    font-weight: 400;
+    color: #16325c;
+    fill: #16325c;
+    padding: 8px !important;
+    line-height: 1;
+}
+
+.THIS .borderDark-right{
+    border-right: 1.5px solid #a8b7c7;
+}
+
+.THIS .borderDark-bottom{
+    border-bottom: 1.5px solid #a8b7c7;
+}
+
+.THIS .tableSticky{
+    overflow-y: auto;
+    height: 400px !important;
+ }
+
+.THIS .headerFixed1{
+    position: sticky !important;
+    top: -13px;
+    z-index: 1;
+}
+
+.THIS .headerFixed2{
+    position: sticky !important;
+    top: 21px;
+    z-index: 1;
+}
+
+.THIS .cellStyle a{
+    font-size: 12px;
+    font-weight: 400;
+    color: #16325c;
+    fill: #16325c;
+    padding: 8px !important;
+    line-height: 1;
+}

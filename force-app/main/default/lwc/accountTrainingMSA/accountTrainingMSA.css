@@ -1,0 +1,29 @@
+.msa-container{
+    padding: 10px;
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: 0.25rem;
+    background-color: white;
+}
+.bold-heading{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 6px;
+    padding-bottom: 8px;
+}
+.green-icon{
+    --sds-c-icon-color-foreground-default: rgb(2, 126, 70);
+    padding-right: 5px;
+    padding-left: 4px;
+}
+.orange-icon{
+    --sds-c-icon-color-foreground-default: rgb(255, 183, 93);
+    padding-right: 5px;
+    padding-left: 4px;
+}
+.uploader-container{
+    margin-top: -10px;
+    padding-left: 2px;
+}
+.msg{
+    padding-top: 10px;
+}

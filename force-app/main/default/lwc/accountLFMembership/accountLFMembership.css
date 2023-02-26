@@ -1,0 +1,44 @@
+.container{
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.lf-membership-container{
+    background-color: #f3f2f2;
+    padding: 12px;
+    text-align: center;
+}
+.renewals-container{
+    background-color: white;
+    margin-top: 12px;
+}
+.renewals-padding{
+    padding: 16px;
+}
+.renewal:not(:last-child){
+    margin-bottom: 10px;
+}
+.bold-heading{
+    font-size: 16px;
+    font-weight: bold;
+}
+.italic-heading{
+    font-size: 16px;
+    font-style: italic;
+}
+.italic{
+    font-style: italic;
+}
+.red-heading-box{
+    height: 65px;
+    background-color: #ffcccb;
+    border-bottom: 1px solid rgb(221, 219, 218);
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+}
+.clrRed {
+    background-color:#74ED9D;
+}

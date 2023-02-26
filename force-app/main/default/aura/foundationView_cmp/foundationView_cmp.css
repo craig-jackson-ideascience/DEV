@@ -1,0 +1,14 @@
+.THIS {
+}
+
+.THIS .custom-css-card {
+    width: 100% !important;
+}
+
+.THIS .uiInputCheckbox {
+    margin-right: -6px !important;
+}
+
+.THIS .custom-hide {
+    display: none !important;
+}
