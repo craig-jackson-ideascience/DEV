@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Convert_To_Business_Account</fullName>
+    <availability>online</availability>
+    <description>Button to Change Person Account To Business Account</description>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Convert To Business Account</masterLabel>
+    <openType>noSidebar</openType>
+    <page>ConvertAccountType</page>
+    <protected>false</protected>
+</WebLink>

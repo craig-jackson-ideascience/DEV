@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_in_Dubai</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_CITY</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Additional_Email__pc</columns>
+    <columns>Owner_Email__c</columns>
+    <columns>PC_EMAIL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>UAE,United Arab Emerites,Saudi Arabia</value>
+    </filters>
+    <label>Accounts in Dubai</label>
+</ListView>

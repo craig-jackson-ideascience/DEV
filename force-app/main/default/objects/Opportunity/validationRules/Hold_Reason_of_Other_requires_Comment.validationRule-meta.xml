@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hold_Reason_of_Other_requires_Comment</fullName>
+    <active>true</active>
+    <description>When a user selects the Hold Reason &quot;Other (add comment)&quot;, a Renewal / Hold Comment is required.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Hold_Reason__c, &quot;Other (add comment)&quot;),
+    ISBLANK(Renewal_Hold_Comment__c)
+   )</errorConditionFormula>
+    <errorDisplayField>Renewal_Hold_Comment__c</errorDisplayField>
+    <errorMessage>Since you selected &quot;Other&quot; for the Hold Reason, please enter a comment.</errorMessage>
+</ValidationRule>

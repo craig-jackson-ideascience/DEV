@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Travel Fund Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Travel Fund Requests</value>
+    </caseValues>
+    <layouts>
+        <layout>Travel Fund Request Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Event Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Expensify</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Form Answers</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Non LF Event Section</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Expensify_Report</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>IsStatusRequestApprovedAndAmountSet</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Approve_Expensify_Report</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Conga_Composer_Send_Final_Approval_Non_US</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Conga_Composer_Send_Final_Approval_US</name>
+    </webLinks>
+</CustomObjectTranslation>

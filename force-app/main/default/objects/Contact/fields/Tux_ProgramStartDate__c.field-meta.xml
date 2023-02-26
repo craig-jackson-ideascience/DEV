@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tux_ProgramStartDate__c</fullName>
+    <description>This field will store the updated date when the tux rewards points for the contact crossed 500 points.</description>
+    <externalId>false</externalId>
+    <label>Tux ProgramStartDate</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

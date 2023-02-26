@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EvntBenchmarkScoreGtZero</fullName>
+    <active>true</active>
+    <description>Event Benchmark Score must be &gt;=0</description>
+    <errorConditionFormula>EvntBenchmarkScore__c &lt;  0</errorConditionFormula>
+    <errorMessage>Event Benchmark Score must be &gt;= 0</errorMessage>
+</ValidationRule>

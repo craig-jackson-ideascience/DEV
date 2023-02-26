@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Owner_when_Support_Ticket_Completed</fullName>
+        <description>Email Owner when Support Ticket Completed</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Owner_when_Support_Ticket_Completed</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Support_Team_with_New_Assigned_Tickets</fullName>
+        <description>Email Support Team with New Assigned Tickets</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Assigned_To__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Support_Team_with_Assigned_Tickets</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Support_Team_with_New_Tickets</fullName>
+        <description>Email Support Team with New Tickets</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>pchennoju1@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>pratikd@proximabiz.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_Support_Team_with_New_Tickets</template>
+    </alerts>
+    <rules>
+        <fullName>Email Owner when Support Ticket Completed</fullName>
+        <actions>
+            <name>Email_Owner_when_Support_Ticket_Completed</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Ticket__c.Backlog__c</field>
+            <operation>equals</operation>
+            <value>Closed,Completed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Support Team on Create of Ticket</fullName>
+        <actions>
+            <name>Email_Support_Team_with_New_Tickets</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Ticket__c.CreatedById</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Support Team with Assigned Tickets</fullName>
+        <actions>
+            <name>Email_Support_Team_with_New_Assigned_Tickets</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Ticket__c.Assigned_To__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

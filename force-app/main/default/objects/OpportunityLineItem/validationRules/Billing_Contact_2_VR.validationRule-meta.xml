@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Contact_2_VR</fullName>
+    <active>false</active>
+    <description>This validates that any billing contact 2 assigned to OLI is a contact at the correct Opportunity Account (either Bill To Account or Primary Account on Opp)</description>
+    <errorConditionFormula>IF(
+  AND( NOT(ISNULL(Billing_Contact2__c)),NOT(ISBLANK(Billing_Contact2__c)) ),
+  
+  IF(
+     AND(NOT(ISNULL(Billing_Contact2__r.AccountId)),NOT(ISBLANK(Billing_Contact2__r.AccountId))),  
+     
+     IF(
+        AND(
+         Billing_Contact2__r.AccountId &lt;&gt; Opportunity.AccountId
+        ),
+
+        IF(
+           AND(NOT(ISNULL(Opportunity.Bill_To_Account__c)),NOT(ISBLANK(Opportunity.Bill_To_Account__c))),       
+          
+          IF(
+            Billing_Contact2__r.AccountId &lt;&gt; Opportunity.Bill_To_Account__c,
+            TRUE,
+            FALSE
+          ),
+          
+          TRUE
+        ),
+        
+        FALSE
+        
+     ),
+     TRUE
+   ),
+ FALSE
+)</errorConditionFormula>
+    <errorDisplayField>Billing_Contact2__c</errorDisplayField>
+    <errorMessage>Billing contacts must belong to correct billing account on opportunity</errorMessage>
+</ValidationRule>

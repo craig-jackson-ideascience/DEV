@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_Date__c</fullName>
+    <description>Standard Memberships will auto-populate date.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Standard Memberships will auto-populate date.</inlineHelpText>
+    <label>End Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

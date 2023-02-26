@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cross_Industry_stands_alone</fullName>
+    <active>true</active>
+    <description>If “Cross-Industry” is selected for the Industry Sector field, it should be the *only* value selected.</description>
+    <errorConditionFormula>AND(
+    INCLUDES(Industry__c, &quot;Cross-Industry&quot;),
+    OR(
+       INCLUDES(Industry__c, &quot;Automotive&quot;),
+       INCLUDES(Industry__c, &quot;Consumer Electronics&quot;),
+       INCLUDES(Industry__c, &quot;Energy &amp; Climate&quot;),
+       INCLUDES(Industry__c, &quot;Financial Services&quot;),
+       INCLUDES(Industry__c, &quot;Health Care&quot;),
+       INCLUDES(Industry__c, &quot;Information Technology&quot;),
+       INCLUDES(Industry__c, &quot;Manufacturing&quot;),
+       INCLUDES(Industry__c, &quot;Materials&quot;),
+       INCLUDES(Industry__c, &quot;Motion Pictures&quot;),
+       INCLUDES(Industry__c, &quot;Non-profit Organizations&quot;),
+       INCLUDES(Industry__c, &quot;Pharmaceuticals&quot;),
+       INCLUDES(Industry__c, &quot;Professional Services&quot;),
+       INCLUDES(Industry__c, &quot;Public Health &amp; Disaster Response&quot;),
+       INCLUDES(Industry__c, &quot;Telecommunications&quot;)
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Industry__c</errorDisplayField>
+    <errorMessage>If “Cross-Industry” is chosen for Industry Sector, it should be the only Industry Sector value chosen.</errorMessage>
+</ValidationRule>

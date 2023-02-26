@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Likelihood__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Renewal Likelihood
+- Renew - WILL Renew
+- Upgrade - Plan upgrade
+- Upgrade - Tier Upgrade
+- Downgrade - Plan / Tier downgrade 
+- At Risk - Salvageable - Focus
+- At Risk - Not Salvageable - Focus
+- Will Not Renew - Confirmed - Set to &quot;Closed/Lost&quot;</inlineHelpText>
+    <label>Renewal Likelihood</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Renew</fullName>
+                <default>false</default>
+                <label>Renew</label>
+            </value>
+            <value>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+                <label>Upgrade</label>
+            </value>
+            <value>
+                <fullName>Upgrade Tier</fullName>
+                <default>false</default>
+                <label>Upgrade Tier</label>
+            </value>
+            <value>
+                <fullName>Downgrade</fullName>
+                <default>false</default>
+                <label>Downgrade</label>
+            </value>
+            <value>
+                <fullName>At Risk - Salvageable</fullName>
+                <default>false</default>
+                <label>At Risk - Salvageable</label>
+            </value>
+            <value>
+                <fullName>At Risk - Not Salvageable</fullName>
+                <default>false</default>
+                <label>At Risk - Not Salvageable</label>
+            </value>
+            <value>
+                <fullName>Will Not Renew - Confirmed</fullName>
+                <default>false</default>
+                <label>Will Not Renew - Confirmed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

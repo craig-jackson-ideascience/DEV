@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Blockchain__c</fullName>
+    <externalId>false</externalId>
+    <formula>Campaign.Blockchain__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Blockchain</label>
+    <type>Checkbox</type>
+</CustomField>

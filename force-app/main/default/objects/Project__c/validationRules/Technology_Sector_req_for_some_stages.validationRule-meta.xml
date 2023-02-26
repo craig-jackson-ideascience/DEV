@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technology_Sector_req_for_some_stages</fullName>
+    <active>true</active>
+    <description>All projects except Internal Allocations and Unofficial Subprojects must have a Technology Sector before they’re allowed to be set to the “Formation - Engaged&quot; or &quot;Active&quot; Stage.</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Technology__c),
+    NOT(ISPICKVAL(Category__c, &quot;Internal Allocation&quot;)),
+    NOT(ISPICKVAL(Category__c, &quot;Unofficial Subproject&quot;)),
+    OR(
+       ISPICKVAL(Project_Status__c, &quot;Formation - Engaged&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Active&quot;)
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Technology__c</errorDisplayField>
+    <errorMessage>Technology Sector is required for &quot;Formation - Engaged&quot; and &quot;Active&quot; projects.</errorMessage>
+</ValidationRule>

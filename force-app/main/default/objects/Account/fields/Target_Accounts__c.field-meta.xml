@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_Accounts__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>used for demand base integration</description>
+    <externalId>false</externalId>
+    <label>Target Accounts</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

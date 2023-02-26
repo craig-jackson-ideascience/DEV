@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>O3DECon_2021</fullName>
+    <columns>NAME</columns>
+    <columns>First_Approval__c</columns>
+    <columns>Comments__c</columns>
+    <columns>Event__c</columns>
+    <columns>Recipient_Category__c</columns>
+    <columns>Diversity_Or_Need_Based__c</columns>
+    <columns>Company_or_Organization__c</columns>
+    <columns>q03_Can_Receive_Funding_From_Org__c</columns>
+    <columns>Travelling_From__c</columns>
+    <columns>Estimated_Cost__c</columns>
+    <columns>ContactEmail__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Event_Start_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Waiting Approval</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>12/1/2020 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Event__c</field>
+        <operation>equals</operation>
+        <value>O3DECon 2021</value>
+    </filters>
+    <label>O3DECon 2021</label>
+</ListView>

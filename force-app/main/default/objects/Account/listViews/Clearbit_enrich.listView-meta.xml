@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clearbit_enrich</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>cbit__Clearbit__c</columns>
+    <columns>cbit__Clearbit__pc</columns>
+    <columns>cbit__ClearbitDomain__c</columns>
+    <columns>cbit__ClearbitReady__c</columns>
+    <columns>cbit__ClearbitReady__pc</columns>
+    <columns>Account_Domain__c</columns>
+    <columns>Company_Domains__c</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>cbit__CreatedByClearbit__pc</columns>
+    <columns>cbit__CreatedByClearbit__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>cbit__ClearbitDomain__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Clearbit enrich</label>
+</ListView>

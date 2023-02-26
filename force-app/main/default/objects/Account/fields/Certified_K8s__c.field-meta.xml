@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Certified_K8s__c</fullName>
+    <description>Access to this field is granted by the &quot;CNCF fields&quot; permission set.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is the Account Certified Kubernetes?</inlineHelpText>
+    <label>Certified K8s</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Certified Kubernetes</fullName>
+                <default>true</default>
+                <label>Not Certified Kubernetes</label>
+            </value>
+            <value>
+                <fullName>Certified Kubernetes</fullName>
+                <default>false</default>
+                <label>Certified Kubernetes</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

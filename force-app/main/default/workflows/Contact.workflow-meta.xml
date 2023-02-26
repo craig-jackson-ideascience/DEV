@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Uncheck_the_flag_on_contact</fullName>
+        <field>Updated_by_Myprofile__c</field>
+        <literalValue>0</literalValue>
+        <name>Uncheck the flag on contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Additional_Email_in_Contact</fullName>
+        <field>Additional_Email__c</field>
+        <formula>Email</formula>
+        <name>Update Additional Email in Contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Date_for_MyProfile</fullName>
+        <field>Updation_Date_by_Myprofile__c</field>
+        <formula>Today()</formula>
+        <name>Update Date for MyProfile</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Flag_on_Contact</fullName>
+        <field>Updated_by_Myprofile__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Flag on Contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Last_Modified_By_Platform_User</fullName>
+        <field>Last_Modified_By_Platform_User__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Last Modified By Platform User</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Check if contact updated by Platform User%3F</fullName>
+        <actions>
+            <name>Update_Last_Modified_By_Platform_User</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(OR(ISCHANGED(FirstName), ISCHANGED(LastName), ISCHANGED(Email), ISCHANGED(Title), ISCHANGED(Phone), ISCHANGED( MailingAddress ), ISCHANGED(  Description ), ISCHANGED(AccountId)),LastModifiedBy.FirstName == &apos;Platform&apos;, LastModifiedBy.LastName == &apos;Service&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>UncheckFlagOnContact</fullName>
+        <actions>
+            <name>Uncheck_the_flag_on_contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( 				OR( 								ISCHANGED(FirstName), 								ISCHANGED(LastName) 				), 				AND($User.Id != &apos;0052M0000093AMh&apos;, 								OR($Profile.Name == &apos;Sysadmin With Security&apos;, 											$Profile.Name == &apos;System Admin Custom&apos;, 											$Profile.Name == &apos;System Administrator&apos; 										) 							) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Contact Additional Email</fullName>
+        <actions>
+            <name>Update_Additional_Email_in_Contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.Additional_Email__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>It Updates the Additional Email Field on Contact from Primary Email field</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>UpdateFlagOnContactForMyProfile</fullName>
+        <actions>
+            <name>Update_Date_for_MyProfile</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Flag_on_Contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>update flag on change of firstname or lastname by myprofile application</description>
+        <formula>AND( OR( ISCHANGED(FirstName), ISCHANGED(LastName) ), $User.Id == &apos;0052M0000093AMh&apos; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

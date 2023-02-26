@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Presentations__c</fullName>
+    <description>Total number of presentations for an event. Formula field calculated if Regsitration type= Speaker and Presentations &gt;0</description>
+    <externalId>false</externalId>
+    <label>Presentations</label>
+    <summarizedField>Event_Registrations__c.AttendeePresentations__c</summarizedField>
+    <summaryFilterItems>
+        <field>Event_Registrations__c.AttendeePresentations__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Event_Registrations__c.Cvent_Registration_RegistrationType__c</field>
+        <operation>equals</operation>
+        <value>Speaker</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Event_Registrations__c.Event__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

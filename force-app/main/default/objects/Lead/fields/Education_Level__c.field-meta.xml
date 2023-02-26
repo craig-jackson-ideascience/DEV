@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Education_Level__c</fullName>
+    <externalId>false</externalId>
+    <label>Education Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Some high school</fullName>
+                <default>false</default>
+                <label>Some high school</label>
+            </value>
+            <value>
+                <fullName>Some college/technical training</fullName>
+                <default>false</default>
+                <label>Some college/technical training</label>
+            </value>
+            <value>
+                <fullName>Completed college</fullName>
+                <default>false</default>
+                <label>Completed college</label>
+            </value>
+            <value>
+                <fullName>Completed master&apos;s degree</fullName>
+                <default>false</default>
+                <label>Completed master&apos;s degree</label>
+            </value>
+            <value>
+                <fullName>Completed Ph.D</fullName>
+                <default>false</default>
+                <label>Completed Ph.D</label>
+            </value>
+            <value>
+                <fullName>I don&apos;t want to provide</fullName>
+                <default>false</default>
+                <label>I don&apos;t want to provide</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

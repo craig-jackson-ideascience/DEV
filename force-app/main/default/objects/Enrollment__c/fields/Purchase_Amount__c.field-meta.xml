@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Amount__c</fullName>
+    <description>This is calculated field gets actual price from purchase history and return.</description>
+    <externalId>false</externalId>
+    <formula>Purchase_History__r.Price + Refund_Purchase_History__r.Price</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Use this field if you need accurate price for enrollment.</inlineHelpText>
+    <label>Purchase Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

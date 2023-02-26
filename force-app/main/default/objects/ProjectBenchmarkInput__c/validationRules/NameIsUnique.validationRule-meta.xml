@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NameIsUnique</fullName>
+    <active>true</active>
+    <description>Project and Benchmark Type Combination must be unique</description>
+    <errorConditionFormula>AND(
+CONTAINS(
+VLOOKUP(
+$ObjectType.ProjectBenchmarkInput__c.Fields.Name ,
+$ObjectType.ProjectBenchmarkInput__c.Fields.Name, Name
+),
+Name
+),
+OR(
+ISNEW(), ISCHANGED(Name)
+)
+)</errorConditionFormula>
+    <errorMessage>Project and Benchmark Type Combination must be unique</errorMessage>
+</ValidationRule>

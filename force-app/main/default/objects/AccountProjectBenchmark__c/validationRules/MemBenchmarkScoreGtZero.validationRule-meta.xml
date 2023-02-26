@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MemBenchmarkScoreGtZero</fullName>
+    <active>true</active>
+    <description>Membership Benchmark Score must be &gt;= 0</description>
+    <errorConditionFormula>MemBenchmarkScore__c &lt; 0</errorConditionFormula>
+    <errorMessage>Membership Benchmark Score must be &gt;= 0</errorMessage>
+</ValidationRule>

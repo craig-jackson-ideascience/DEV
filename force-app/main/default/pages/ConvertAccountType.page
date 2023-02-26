@@ -1,0 +1,98 @@
+<apex:page id="pageID" standardController="Account" showHeader="true" sidebar="true" extensions="ConvertAccountTypeController" docType="html-5.0" >
+    <apex:includeScript value="{!URLFOR($Resource.JqueyDataTable , '/jquery-1.12.0.min.js')}"/> 
+    <apex:slds />
+    <style>
+        .entityPanel{
+        background: rgb(243, 242, 242);
+        margin-bottom: .25rem;
+        padding-top: .5rem;
+        display: flex;
+        border-radius: 0;
+        }
+    </style>
+    <apex:form id="formID">
+        
+        <apex:actionstatus id="showProcessing">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #ffffff; height:100%;opacity:0.5;width:100%;position:fixed;">
+                    <div class="waitingHolder" style=" width: 100px;">
+                        <div class="slds-spinner_container">
+                            <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+        <div class="slds-scope">
+            <apex:pageMessages id="Message"/>
+            <div class="slds-wrap slds-grid slds-grid_vertical-align-center slds-card slds-p-around--medium">  
+                <div class="slds-section slds-is-open slds-size_12-of-12 slds-p-around--small" style="margin-bottom:0px;font-size:20px">
+                    <h3 class="slds-section__title slds-button slds-section__title-action ">
+                        <span class="slds-truncate" title="Section Title">Convert {!Account.Name}</span>
+                       
+                    </h3>
+                </div>
+                <div class="slds-form-element__control slds-size_12-of-12 " >
+                    <div class="slds-p-around--small" style="padding-top:0px;">
+                        
+                        
+                        <div class="slds-size_4-of-12 slds-p-around_xx-small entityPanel slds-box_border expand " style="display:block;padding:5px">
+                            <div class="slds-size_12-of-12 ">
+                                
+                                <apex:inputCheckbox value="{!selectedVal}" style="margin: 4px;" id="existingRadio" styleClass="slds-m-around--small" onchange="disabledTypeahead();return false;"/> 
+                                <label style="position: relative;top: -3px;">Check this box to find existing account and type in Account Name below (if not an exisitng account just click on Convert Account)</label>
+                                <br/><br/><label>Search Account</label>
+                            </div>
+                            <div class="slds-size_12-of-12 ">
+                                <div id="accountID" style="display:none">
+                                    <c:Typeahead object="Account"
+                                                 searchBoxId="SearchAccount"
+                                                 destinationForSelectedValue="accountvalue"
+                                                 destinationForSelectedId="accountId"
+                                                 searchScope="Name"
+                                                 filterClause="RecordTypeId = \'{!recordTypeId}\'"/>
+                                    <apex:inputHidden id="accountId" value="{!BussinessAccountID}"/>
+                                    <apex:inputHidden id="accountvalue"/>
+                                </div>
+                                <div id="accountIDHide">
+                                    <apex:input styleClass="slds-input" disabled="true" style="height: 37px;"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-size_12-of-12 slds-p-around_xx-small" style="display:block;">          
+                            <apex:commandButton value="Convert Account" styleClass="slds-button slds-button--brand" action="{!mergeAccount}" status="showProcessing" />
+                            <apex:commandButton value="Cancel" styleClass="slds-button slds-button--brand" action="{!closeVf}" status="showProcessing" />
+                        </div>
+                    </div>
+                </div>
+            </div>       
+             
+         </div>
+        <script>
+       
+        function disabledTypeahead(){
+            if(document.getElementById('pageID:formID:existingRadio').checked){
+                document.getElementById("accountID").style.display  = 'block';
+                document.getElementById('accountIDHide').style.display='none';
+            }
+            else{
+                document.getElementById("accountID").style.display  = 'none';
+                document.getElementById('accountIDHide').style.display='block';
+                
+            }    
+            
+        } 
+        
+        
+        function Validate(){
+            if(document.getElementById('pageID:formID:existingRadio').checked && document.getElementById("SearchAccount").value == ''){
+                alert('Please select Account');
+            }
+        }   
+        </script>
+        
+    </apex:form>
+</apex:page>

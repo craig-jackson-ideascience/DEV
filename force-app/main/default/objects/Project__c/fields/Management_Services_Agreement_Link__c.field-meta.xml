@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Management_Services_Agreement_Link__c</fullName>
+    <description>This field (rather than the Management Services Agreement File URL field) should be displayed on the page layout.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+   ISBLANK(MasterServiceAgreementURL__c),
+   &quot;&quot;,
+   IF(
+      OR(
+         BEGINS(MasterServiceAgreementURL__c, &quot;https://&quot;),
+         BEGINS(MasterServiceAgreementURL__c, &quot;http://&quot;)
+        ),
+      HYPERLINK(
+                MasterServiceAgreementURL__c,
+                &quot;Click to open the Management Services Agreement&quot;,
+                &quot;_blank&quot;
+               ),
+      HYPERLINK(
+                &quot;http://&quot; + MasterServiceAgreementURL__c,
+                &quot;Click to open the Management Services Agreement&quot;,
+                &quot;_blank&quot;
+               )
+     )
+  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Displays a link to the Management Services Agreement, if one has been uploaded via the file uploader (below).</inlineHelpText>
+    <label>Management Services Agreement Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

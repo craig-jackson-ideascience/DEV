@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Waiting Approval</fullName>
+                <default>false</default>
+                <label>Waiting Approval</label>
+            </value>
+            <value>
+                <fullName>Request Approved - Waiting For Expense Report</fullName>
+                <default>false</default>
+                <label>Request Approved - Waiting For Expense Report</label>
+            </value>
+            <value>
+                <fullName>Denied</fullName>
+                <default>false</default>
+                <label>Denied</label>
+            </value>
+            <value>
+                <fullName>Expense Report Received - Waiting Final Approval</fullName>
+                <default>false</default>
+                <label>Expense Report Received - Waiting Final Approval</label>
+            </value>
+            <value>
+                <fullName>Problem With Expense Report</fullName>
+                <default>false</default>
+                <label>Problem With Expense Report</label>
+            </value>
+            <value>
+                <fullName>Expense Report Approved</fullName>
+                <default>false</default>
+                <label>Expense Report Approved</label>
+            </value>
+            <value>
+                <fullName>Paid</fullName>
+                <default>false</default>
+                <label>Paid</label>
+            </value>
+            <value>
+                <fullName>Transferred to Another Event</fullName>
+                <default>false</default>
+                <label>Transferred to Another Event</label>
+            </value>
+            <value>
+                <fullName>Unable to Use Funds</fullName>
+                <default>false</default>
+                <label>Unable to Use Funds</label>
+            </value>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>ExpenseReportWaitingFinal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ExpenseReportWaitingFinal</label>
+            </value>
+            <value>
+                <fullName>InitialApproval</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>InitialApproval</label>
+            </value>
+            <value>
+                <fullName>Partially Approved</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Partially Approved</label>
+            </value>
+            <value>
+                <fullName>Partially Paid</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Partially Paid</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Rejected</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

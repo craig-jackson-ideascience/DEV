@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meetings_Full_List</fullName>
+    <columns>Project__c</columns>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Project__c</field>
+        <operation>equals</operation>
+        <value>LF AI Foundation</value>
+    </filters>
+    <label>Meetings - Full List</label>
+</ListView>

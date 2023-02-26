@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SalesOrderStatus__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Order Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>false</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Not Synced to Netsuite</fullName>
+                <default>true</default>
+                <label>Not Synced to Netsuite</label>
+            </value>
+            <value>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>At Risk</label>
+            </value>
+            <value>
+                <fullName>Invoice not created</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Invoice not created</label>
+            </value>
+            <value>
+                <fullName>Sent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sent</label>
+            </value>
+            <value>
+                <fullName>Unsent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Unsent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

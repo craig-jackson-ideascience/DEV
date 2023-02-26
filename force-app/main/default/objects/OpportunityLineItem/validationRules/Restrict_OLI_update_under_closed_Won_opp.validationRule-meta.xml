@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_OLI_update_under_closed_Won_opp</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF( AND( NOT(ISNEW()) , PRIORVALUE(Converted_to_Asset__c) , Opportunity.IsWon) , TRUE , FALSE )</errorConditionFormula>
+    <errorMessage>Can not update Opportunity Products under Close Win Opportunity</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Join_requires_Docusign_Template_Id</fullName>
+    <active>false</active>
+    <description>Requires the Docusign Template Id field to be populated when Auto Join Enabled = TRUE. {disabled on 9-9-2021 for further review}</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Docusign_Template_Id__c),
+    Auto_Join_Enabled__c
+   )</errorConditionFormula>
+    <errorDisplayField>Docusign_Template_Id__c</errorDisplayField>
+    <errorMessage>Docusign Template Id is required for projects that are Auto Join Enabled.</errorMessage>
+</ValidationRule>

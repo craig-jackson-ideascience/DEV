@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visa_Request_Blocklist_Notes__c</fullName>
+    <description>Formula from Contact object field</description>
+    <externalId>false</externalId>
+    <formula>Contact__r.Visa_Request_Blocklist_Notes__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Visa Request Blocklist Notes</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

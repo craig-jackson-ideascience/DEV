@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>q04_How_Will_This_Help__c</fullName>
+    <description>How will this event enable you to contribute to your mainline project and accelerate the use of Linux?
+this field was created to support migration there are 3,326 records with data. hiding for now.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How will this event enable you to contribute to your mainline project and accelerate the use of Linux?</inlineHelpText>
+    <label>How Will This Help</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

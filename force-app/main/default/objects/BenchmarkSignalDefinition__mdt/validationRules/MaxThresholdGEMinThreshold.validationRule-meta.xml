@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaxThresholdGEMinThreshold</fullName>
+    <active>true</active>
+    <description>Maximum Threshold must be &gt;= the Minimum Threshold</description>
+    <errorConditionFormula>MaxThreshold__c &lt; MinThreshold__c</errorConditionFormula>
+    <errorMessage>Maximum Threshold must be &gt;= the Minimum Threshold</errorMessage>
+</ValidationRule>

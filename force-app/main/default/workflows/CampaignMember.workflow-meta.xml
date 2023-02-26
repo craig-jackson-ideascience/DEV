@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CommunityBridge_Information_Request</fullName>
+        <description>CommunityBridge Information Request</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CommunityBridge</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/ConmmunityBridge_Notification</template>
+    </alerts>
+    <rules>
+        <fullName>CommunityBridge Information Request Notificaiton</fullName>
+        <actions>
+            <name>CommunityBridge_Information_Request</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Name</field>
+            <operation>equals</operation>
+            <value>CommunityBridge Information Request</value>
+        </criteriaItems>
+        <description>CommunityBridge Information Request Notificaiton</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>update interest for community bridge</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Lead.Interest_in_CommunityBridge__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Interest_in_CommunityBridge__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

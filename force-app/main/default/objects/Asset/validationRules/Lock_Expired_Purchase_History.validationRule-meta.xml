@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Expired_Purchase_History</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Status), &quot;Expired&quot; ),
+NOT(ISPICKVAL(Status, &quot;Invoice Cancelled&quot;)),
+NOT( ISCHANGED(Renewal_Opportunity_Created__c)),
+AND($Profile.Name != &apos;System Admin Custom&apos;, 
+				$Profile.Name !=&apos;SysAdmin No project Access&apos;,
+$Profile.Name !=&apos;SysAdmin Project Read-Only Access&apos;,
+		$Profile.Name !=	&apos;System Administrator&apos;))</errorConditionFormula>
+    <errorMessage>This Purchase History is expired and hence can not be edited.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project Membership Benchmark</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Project Membership Benchmarks</value>
+    </caseValues>
+    <layouts>
+        <layout>Project Membership Benchmark Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>EvntBenchmarkGtZero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>EvntMaxValueGEBenchmark</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>MemBenchmarkGtZero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>MemMaxValueGEBenchmark</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>NameIsUnique</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>TandCBenchmarkGtZero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>TandCMaxValueGEBenchmark</name>
+    </validationRules>
+</CustomObjectTranslation>

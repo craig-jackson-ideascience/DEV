@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Grant_Finance_Team_Edit_access_to_all_Project_records</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Grants Finance Team Edit access to all Project records.  This sharing rule is used instead of &quot;Modify All&quot; in the Edit NetSuite Details permission set in order to prevent granting this team Delete permissions for Project.</description>
+        <label>Grant Finance Team Edit access to all Project records</label>
+        <sharedTo>
+            <group>Product_Details</group>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Grant_Project_Operations_Team_Edit_access_to_all_Project_records</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Grants Project Operations Team Edit access to all Project records.  This sharing rule is used instead of &quot;Modify All&quot; in the Project Operations Team permission set in order to prevent granting this team Delete permissions for Project.</description>
+        <label>Grant Project Operations Team Edit access to all Project records</label>
+        <sharedTo>
+            <group>Project_Operations_Team</group>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

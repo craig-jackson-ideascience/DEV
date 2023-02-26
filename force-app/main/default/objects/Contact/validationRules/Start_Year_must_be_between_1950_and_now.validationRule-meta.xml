@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Year_must_be_between_1950_and_now</fullName>
+    <active>true</active>
+    <description>Since Start Year is a text field (to prevent, for example, the year 2020 showing up as 2,020), this validation rule ensures it&apos;s getting a number value, then it checks to make sure the year is sometime between 1950 and the current year.</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(Start_Year__c)),
+    OR(
+       NOT(ISNUMBER(Start_Year__c)),
+       VALUE(Start_Year__c) &lt; 1950,
+       VALUE(Start_Year__c) &gt; YEAR(TODAY())
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Start_Year__c</errorDisplayField>
+    <errorMessage>Start Year must be a year between 1950 and now.</errorMessage>
+</ValidationRule>

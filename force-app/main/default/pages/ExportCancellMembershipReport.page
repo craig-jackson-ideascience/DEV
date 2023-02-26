@@ -1,0 +1,39 @@
+<apex:page controller="CancelMembershipReport" contentType="application/vnd.ms-excel#CancelledMembership.xls" cache="true">
+    <style>
+        table {
+        border-collapse: collapse;
+        }
+        
+        table, td, th {
+        border: 1px solid black;
+        }
+    </style>
+    
+    <apex:pageBlock >
+        
+        <table>
+            <tr>
+                    <th>Account</th>
+                    <th>Cancellation Date</th>
+                    <th>Cancellation Reason</th>
+                    <th>Join Date</th>
+                    <th>Level</th>
+                    <th>Country</th>
+                    <th>Annual Membership Dues</th>
+                <th >Voting Contact</th>
+                                <th >Marketing Contact</th>
+                                <th >Technical Contact</th>
+                </tr>
+            <apex:repeat value="{!lstwrap}" var="tab">
+                
+               <tr>
+                <apex:repeat value="{!selectedFieldsList}" var="field" >
+                   <td>{!tab[field]}</td>
+                 </apex:repeat>
+                   </tr>
+            </apex:repeat>
+        </table>
+        
+        
+    </apex:pageBlock>
+</apex:page>

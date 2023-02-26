@@ -1,0 +1,604 @@
+<apex:page id="EventAndProjectRolesReportVf" controller="EventAndProjectRolesReportCtrl" showHeader="false"
+           sidebar="false" docType="html-5.0" title="Event-Project Report">
+    <apex:slds />
+
+    <apex:includeScript value="{!URLFOR($Resource.JqueyDataTable , '/jquery-1.12.0.min.js')}"/>
+    <apex:actionstatus id="counterStatus">
+        <apex:facet name="start">
+            <div class="waitingSearchDiv" id="el_loading"
+                 style="z-index: 9002; background-color: #ffffff; height:100%;opacity:0.5;width:100%;position:fixed;">
+                <div class="waitingHolder" style="top: 100px; width: 100px;">
+                    <div class="slds-spinner_container">
+                        <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionstatus>
+    <apex:form id="campaignModal" styleClass="slds">
+
+        <!--Action Functions-->
+        <apex:actionFunction id="eventActionFunc" name="eventSelected" action="{!eventSelectedMethod}"
+                             reRender="projectFields" status="counterStatus">
+            <apex:param name="selectedEventId" value="" assignTo="{!EventId}"/>
+        </apex:actionFunction>
+        <apex:actionFunction id="projectActionFunc" name="projectSelected" action="{!projectSelectedMethod}"
+                             reRender="projectRoleField,projectRoleField1" status="counterStatus">
+            <apex:param name="selectedProjectId" value="" assignTo="{!ProjectID}"/>
+        </apex:actionFunction>
+
+
+        <apex:outputPanel rendered="{!addtoCampaignModal}">
+            <div style="height: 800px">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                         aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Add to
+                                Campaign</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" style="height: 150px;"
+                             id="modal-content-id-1">
+                            <div style="top:20px; position: relative;">
+                                <span>Campaign</span>
+                                <c:Typeahead object="Campaign"
+                                             searchBoxId="SearchCampaign"
+                                             searchScope="Name"
+                                             destinationForSelectedValue="campaignValue"
+                                             destinationForSelectedId="campaignId"/>
+                                <apex:inputHidden id="campaignId" value="{!campaignId}"/>
+                                <apex:inputHidden id="campaignValue"/>
+                            </div>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <apex:commandButton styleClass="slds-button slds-button_neutral" value="Cancel"
+                                                action="{!cancelAddtoCampaign}"
+                                                rendered="{!filterType != ''}"
+                                                rerender="campaignModal"/>
+                            <apex:commandButton styleClass="slds-button slds-button--brand" value="Add"
+                                                action="{!addSelectedToCampaign}"
+                                                status="counterStatus"
+                                                rendered="{!filterType != '' && recordsFetched}"
+                                                rerender="campaignModal,statusMsg"/>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+    <apex:form id="reportForm">
+        <center class="slds-p-around--medium"><h1 style="font-size:25px;padding:10px;" class="slds-card">Event and
+            Project Roles Report</h1></center>
+        <div class="slds-p-around--medium">
+
+            <div class="slds-size_12-of-12 slds-p-around--medium slds-card">
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title slds-button slds-section__title-action">
+                        <span class="slds-truncate" title="Section Title">Filters</span>
+
+                    </h3>
+                </div>
+                <apex:selectRadio value="{!filterType}" label="Filter By:" layout="pageDirection"
+                                  styleClass="convertToLDS">
+                    <apex:selectOption itemValue="events" itemLabel="Events"/>
+                    <apex:selectOption itemValue="projects" itemLabel="Project"/>
+                    <apex:actionSupport event="onchange" reRender="reportForm" status="counterStatus"
+                                        action="{!clearFilter}"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel rendered="{!filterType == 'projects'}">
+                    <div class="slds-grid slds-grid_vertical slds-gutters">
+                        <div class="slds-col"
+                             style="margin-top: 9px;">
+                            <div class="slds-col"
+                                 style="margin-top: 9px;">
+                                <span>Project</span>
+                                <c:Typeahead object="Project__c"
+                                             searchBoxId="SearchProject"
+                                             JsFunction="itemSelected(object);"
+                                             searchScope="Name"
+                                             destinationForSelectedValue="projectvalue1"
+                                             destinationForSelectedId="projectId1"/>
+                                <apex:inputHidden id="projectId1" value="{!ProjectID}"/>
+                                <apex:inputHidden id="projectvalue1"/>
+                            </div>
+                            <apex:outputPanel id="projectRoleField1">
+
+                                <div class="slds-col"
+                                     style="margin-top:9px; ">
+                                    <span>Project Role</span>
+                                    <apex:selectlist size="1" styleclass="slds-select"
+                                                     style="margin-top: 6px; width: 97%;"
+                                                     value="{!selectedProjectRole}">
+                                        <apex:selectoptions value="{!rolesPickListSelectoptions}"/>
+                                    </apex:selectlist>
+                                </div>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!filterType == 'events'}">
+
+                    <div class="slds-grid slds-grid_vertical slds-gutters">
+                        <div class="slds-col"
+                             style="margin-top: 9px;">
+                            <span>Event</span>
+                            <c:Typeahead object="Event__c"
+                                         searchBoxId="SearchEvent"
+                                         searchScope="Name"
+                                         JsFunction="itemSelected(object);"
+                                         destinationForSelectedValue="eventvalue"
+                                         destinationForSelectedId="eventId"/>
+                            <apex:inputHidden id="eventId" value="{!EventID}"/>
+
+
+                            <apex:inputHidden id="eventvalue"/>
+                        </div>
+                        <apex:outputPanel id="projectFields">
+                            <apex:outputPanel rendered="{!eventSelected}">
+                                <div class="slds-col"
+                                     style="margin-top: 9px; <!--{!IF(eventSelected, '', 'display: none;')}-->">
+                                    <span>Project</span>
+                                    <c:Typeahead object="Project__c"
+                                                 searchBoxId="SearchProject"
+                                                 JsFunction="itemSelected(object);"
+                                                 searchScope="Name"
+                                                 filterClause="Id IN {!ProjectIdsString}"
+                                                 destinationForSelectedValue="projectvalue"
+                                                 destinationForSelectedId="projectId"/>
+                                    <apex:inputHidden id="projectId" value="{!ProjectID}"/>
+                                    <apex:inputHidden id="projectvalue"/>
+                                </div>
+                                <apex:outputPanel id="projectRoleField">
+
+                                    <div class="slds-col"
+                                         style="margin-top:9px; {!IF(eventSelected, '', 'display: none;')}">
+                                        <span>Project Role</span>
+                                        <apex:selectlist size="1" styleclass="slds-select"
+                                                         style="margin-top: 6px; width: 97%;"
+                                                         value="{!selectedProjectRole}">
+                                            <apex:selectoptions value="{!rolesPickListSelectoptions}"/>
+                                        </apex:selectlist>
+                                    </div>
+                                </apex:outputPanel>
+                                <div class="slds-col"
+                                     style="margin-top: 13px; {!IF(eventSelected, '', 'display: none;')}">
+                                    <span>Email Opt-Out</span>
+                                    <apex:selectlist size="1" styleclass="slds-select"
+                                                     style="margin-top: 6px; width: 97%;"
+                                                     value="{!emailOptOut}">
+                                        <apex:selectoption itemValue="" itemLabel=""/>
+                                        <apex:selectoption itemValue="true" itemLabel="True"/>
+                                        <apex:selectoption itemValue="false" itemLabel="False"/>
+                                    </apex:selectlist>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </div>
+
+                </apex:outputPanel>
+
+
+                <div class="slds-size_12-of-12 slds-text-align--center slds-p-around--small">
+                    <apex:outputPanel id="buttonDiv">
+                        <apex:commandButton styleClass="slds-button slds-button--brand " value="Run Report"
+                                            action="{!callReport}"
+                                            status="counterStatus" rendered="{!filterType != ''}"
+                                            rerender="tableID,buttonDiv,paginationBlockBottom,paginationBlockTop"/>
+                        <apex:commandButton styleClass="slds-button slds-button--brand" value="Add to Campaign"
+                                            action="{!addToCampaign}"
+                                            rendered="{!filterType != '' && recordsFetched}"
+                                            rerender="campaignModal,statusMsg"/>
+                    </apex:outputPanel>
+                </div>
+
+                <div class="slds-section slds-is-open slds-size_12-of-12">
+                    <h3 class="slds-section__title slds-button slds-section__title-action">
+                        <span class="slds-truncate" title="Section Title">Report Table</span>
+                    </h3>
+                </div>
+
+                <apex:outputPanel id="tableID" style="width: 100%;max-height: 30rem;">
+                    <apex:outputPanel id="statusMsg" style="width: 100%;">
+                        <apex:outputPanel rendered="{!errorMsg}" style="width: 100%; margin-left: 20px;">
+                            <span style="text-align: center;">{!statusMsgString}</span>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+
+                    <!-- Pagination Start -->
+                    <apex:outputPanel id="paginationBlockTop" styleClass="slds-p-top_small">
+                        <apex:outputPanel rendered="{!recordsFetched && setCon.totalPages > 0}">
+                            <div class="paginator" style="margin-bottom:5px; padding-bottom:5px;">
+                            <span class="prevNextLinks">
+
+
+                                <!-- Previous Button -->
+                                <span class="prevNext">
+                                    <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        <apex:commandLink value="" action="{!previous}"
+                                                          rendered="{!hasPrevious}"
+                                                          rerender="tableID,paginationBlockBottom,paginationBlockTop"
+                                                          status="counterStatus">
+                                            <img class="prev" src="/s.gif" alt=""/>Previous
+                                        </apex:commandLink>
+                                        <apex:outputPanel rendered="{!NOT(hasPrevious)}">
+                                            <img class="prevoff" src="/s.gif" alt=""/>Previous
+                                        </apex:outputPanel>
+                                    </apex:outputPanel>
+                                </span>
+
+
+                                <span class="prevNext">
+                                    <!-- Show next button if page set has next -->
+                                    <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        <apex:commandLink value="" action="{!next}"
+                                                          rendered="{!hasNext}"
+                                                          rerender="tableID,paginationBlockBottom,paginationBlockTop"
+                                                          status="counterStatus">
+                                            Next<img class="next" alt="Next" title="Next" src="/s.gif"/>
+                                        </apex:commandLink>
+                                        <apex:outputPanel rendered="{!NOT(hasNext)}">
+                                            Next<img class="nextOff" alt="Next" title="Next" src="/s.gif"/>
+                                        </apex:outputPanel>
+                                    </apex:outputPanel>
+                                </span>
+
+                                <!-- Last Button -->
+                                <!-- <span class="prevNext">
+                                     &lt;!&ndash; Show last button if page set has next &ndash;&gt;
+                                     <apex:outputPanel rendered="{!setCon.resultSize > 0}">
+                                         <apex:commandLink value="" action="{!setCon.last}"
+                                                           rendered="{!setCon.hasNext}"
+                                                           title="Last" rerender="tableID,paginationBlock"
+                                                           status="counterStatus">
+                                             <img class="last" src="/s.gif" alt=""/>
+                                         </apex:commandLink>
+
+                                         &lt;!&ndash; Show disabled last button if page set has no next &ndash;&gt;
+                                         <apex:outputPanel rendered="{!NOT(setCon.hasNext)}">
+                                             <img class="lastoff" src="/s.gif" alt=""/>
+                                         </apex:outputPanel>
+                                     </apex:outputPanel>
+                                 </span>-->
+                            </span>
+                                <span class="right pagenumber">
+                                Page&nbsp;
+                                <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        {!setCon.pageNumber}
+                                </apex:outputPanel>
+                                of
+                                <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        {!CEILING(setCon.totalPages)}
+                                </apex:outputPanel>
+                            </span>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!recordsFetched}">
+                        <div style="overflow: auto; width: 100%;">
+                            <table class="reportTable slds-max-medium-table_stacked slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-m-top--small"
+                                   style="border-left: 1px solid rgb(221, 219, 218);    border-right: 1px solid rgb(221, 219, 218);">
+                                <thead>
+                                <th>
+                                    <input type="checkbox" id="selectAll" checked="checked"
+                                           onchange="checkAll(this); return false;"/>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Contact{!IF(sortExpression=='cnt.Name',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort1"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="Contact" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Contact First Name{!IF(sortExpression=='cnt.FirstName',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort2"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="cnt.FirstName" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Contact Last Name{!IF(sortExpression=='cnt.LastName',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort3"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="cnt.LastName" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Contact Mailing Country{!IF(sortExpression=='cnt.MailingCountry',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort4"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="cnt.MailingCountry" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Contact Primary Email{!IF(sortExpression=='cnt.Email',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort5"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="cnt.Email" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Email Opt-out{!IF(sortExpression=='cnt.HasOptedOutOfEmail',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort6"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="cnt.HasOptedOutOfEmail" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Project Name{!IF(sortExpression=='projRole.Asset__r.Projects__r.Name',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort7"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="projRole.Asset__r.Projects__r.Name" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Project Role Name{!IF(sortExpression=='projRole.Role__c',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort8"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="projRole.Role__c" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Primary Contact{!IF(sortExpression=='projRole.PrimaryContact__c',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort9"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="projRole.PrimaryContact__c" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Event Name{!IF(sortExpression=='event.Name',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort10"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="event.Name" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Event Date{!IF(sortExpression=='event.Start_Date__c',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort11"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="event.Start_Date__c" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+
+                                </th>
+                                <th>
+                                    <apex:commandLink action="{!sortWrapperList}"
+                                                      value="Event Country{!IF(sortExpression=='event.Event_Location_Country__c',IF(sortDirection='ASC','▼','▲'),'')}"
+                                                      id="cmdSort12"
+                                                      reRender="tableID,paginationBlockTop,paginationBlockBottom"
+                                                      status="counterStatus">
+                                        <apex:param value="event.Event_Location_Country__c" name="column"
+                                                    assignTo="{!sortExpression}"></apex:param>
+                                    </apex:commandLink>
+                                </th>
+                                </thead>
+                                <tbody>
+                                <apex:repeat value="{!limitedreportWrapperList}" var="eventWrapper">
+                                    <tr>
+                                        <td>
+                                            <apex:inputCheckbox id="selectAll" styleClass="cb"
+                                                                value="{!eventWrapper.selected}"/>
+                                        </td>
+                                        <td><a href="/{!eventWrapper.cnt.id}" target="_blank">
+                                                {!eventWrapper.cnt.Name}
+                                        </a></td>
+                                        <td>{!eventWrapper.cnt.FirstName}</td>
+                                        <td>{!eventWrapper.cnt.LastName}</td>
+                                        <td>{!eventWrapper.cnt.MailingCountry}</td>
+                                        <td>{!eventWrapper.cnt.Email}</td>
+                                        <td>{!eventWrapper.cnt.HasOptedOutOfEmail}</td>
+                                        <td><a href="/{!eventWrapper.projRole.Asset__r.Projects__c}" target="_blank">
+                                                {!eventWrapper.projRole.Asset__r.Projects__r.Name}
+                                        </a></td>
+                                        <td>{!rolesPicklistMap[eventWrapper.projRole.Role__c]}</td>
+                                        <td>{!eventWrapper.projRole.PrimaryContact__c}</td>
+                                        <td><a href="/{!eventWrapper.event.Id}" target="_blank">
+                                                {!eventWrapper.event.Name}
+                                        </a></td>
+                                        <td>
+                                            <apex:outputText value="{0,date,MM/dd/yy}">
+                                                <apex:param value="{!eventWrapper.event.Start_Date__c}"/>
+                                            </apex:outputText>
+                                        </td>
+                                        <td>{!eventWrapper.event.Event_Location_Country__c}</td>
+                                    </tr>
+                                </apex:repeat>
+                                </tbody>
+                            </table>
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+
+                <!-- Pagination Start -->
+                <apex:outputPanel id="paginationBlockBottom" styleClass="slds-p-top_small">
+                    <apex:outputPanel rendered="{!recordsFetched && setCon.totalPages > 0}">
+                        <div class="paginator" style="margin-bottom:5px; padding-bottom:5px;">
+                            <span class="prevNextLinks">
+
+
+                                <!-- Previous Button -->
+                                <span class="prevNext">
+                                    <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        <apex:commandLink value="" action="{!previous}"
+                                                          rendered="{!hasPrevious}"
+                                                          rerender="tableID,paginationBlockBottom,paginationBlockTop"
+                                                          status="counterStatus">
+                                            <img class="prev" src="/s.gif" alt=""/>Previous
+                                        </apex:commandLink>
+                                        <apex:outputPanel rendered="{!NOT(hasPrevious)}">
+                                            <img class="prevoff" src="/s.gif" alt=""/>Previous
+                                        </apex:outputPanel>
+                                    </apex:outputPanel>
+                                </span>
+
+
+                                <span class="prevNext">
+                                    <!-- Show next button if page set has next -->
+                                    <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        <apex:commandLink value="" action="{!next}"
+                                                          rendered="{!hasNext}"
+                                                          rerender="tableID,paginationBlockBottom,paginationBlockTop"
+                                                          status="counterStatus">
+                                            Next<img class="next" alt="Next" title="Next" src="/s.gif"/>
+                                        </apex:commandLink>
+                                        <apex:outputPanel rendered="{!NOT(hasNext)}">
+                                            Next<img class="nextOff" alt="Next" title="Next" src="/s.gif"/>
+                                        </apex:outputPanel>
+                                    </apex:outputPanel>
+                                </span>
+
+                                <!-- Last Button -->
+                                <!-- <span class="prevNext">
+                                     &lt;!&ndash; Show last button if page set has next &ndash;&gt;
+                                     <apex:outputPanel rendered="{!setCon.resultSize > 0}">
+                                         <apex:commandLink value="" action="{!setCon.last}"
+                                                           rendered="{!setCon.hasNext}"
+                                                           title="Last" rerender="tableID,paginationBlock"
+                                                           status="counterStatus">
+                                             <img class="last" src="/s.gif" alt=""/>
+                                         </apex:commandLink>
+
+                                         &lt;!&ndash; Show disabled last button if page set has no next &ndash;&gt;
+                                         <apex:outputPanel rendered="{!NOT(setCon.hasNext)}">
+                                             <img class="lastoff" src="/s.gif" alt=""/>
+                                         </apex:outputPanel>
+                                     </apex:outputPanel>
+                                 </span>-->
+                            </span>
+                            <span class="right pagenumber">
+                                Page&nbsp;
+                                <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        {!setCon.pageNumber}
+                                </apex:outputPanel>
+                                of
+                                <apex:outputPanel rendered="{!setCon.PageSize > 0}">
+                                        {!CEILING(setCon.totalPages)}
+                                </apex:outputPanel>
+                            </span>
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </div>
+        </div>
+        <script>
+        convertCheckBoxToLDS();
+        //Convert standard checkboxes to Lightning Design System
+        function convertCheckBoxToLDS() {
+            var Row = document.getElementsByClassName("convertToLDS");
+            for (var k = 0; k < Row.length; k++) {
+                var colTds = Row[k].getElementsByTagName("td");
+                for (var i = 0; i < colTds.length; i++) {
+                    var inrHtml = colTds[i].innerHTML;
+                    var chkId = inrHtml.substring(inrHtml.indexOf("id=") + 4, inrHtml.indexOf("\"", inrHtml.indexOf("id=") + 4));
+                    var chkBx = inrHtml.substring(inrHtml.indexOf("<input"), inrHtml.indexOf(">") + 1);
+                    var chkLable = colTds[i].getElementsByTagName("label")[0].textContent;
+                    var typeOfInput = colTds[i].getElementsByTagName("input")[0].getAttribute("type");
+                    var newChkBox = '<label class="slds-' + typeOfInput + '" for="' + chkId + '">' + chkBx +
+                        '<span class="slds-' + typeOfInput + '--faux" style="margin-right: 5px;"></span>' +
+                        '<span class="slds-form-element__label checkboxLabel">' + chkLable + '</span>' +
+                        '</label>';
+                    colTds[i].innerHTML = newChkBox;
+                }
+            }
+        }
+
+function checkAll(checktoggle)
+            {
+                var checkboxes = new Array();
+                checkboxes = document.getElementsByClassName('cb');
+                for (var i=0; i<checkboxes.length; i++)  {
+                    checkboxes[i].checked = checktoggle.checked;
+                }
+            }
+
+        function toggleCheckbox() {
+            var b = document.getElementById('selectAll').checked;
+            var items = document.getElementsByName('selectedCheckbox');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = b;
+            }
+        }
+
+        function itemSelected(obj){
+            console.log('ItemSelected');
+            console.log(obj);
+            console.log({!EventID});
+
+
+            var selectedEventId = $("[id$='eventId']").val();
+            var selectedProjectId;
+
+            selectedProjectId = $("[id$='projectId']").val();
+            if(selectedProjectId == undefined)
+            {
+                selectedProjectId = $("[id$='projectId1']").val() ;
+            }
+            //console.log(selectedEventId);
+            if(obj.currentTarget.id == 'SearchEvent'){
+                eventSelected(selectedEventId);
+            } else if(obj.currentTarget.id == 'SearchProject'){
+                console.log('Project Selected' + selectedProjectId);
+                projectSelected(selectedProjectId);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+    </apex:form>
+
+</apex:page>

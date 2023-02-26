@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <frameHeight>600</frameHeight>
+    <hasSidebar>false</hasSidebar>
+    <label>Jira</label>
+    <motif>Custom64: Compass</motif>
+    <url>https://jira.linuxfoundation.org/secure/RapidBoard.jspa?rapidView=252&amp;projectKey=SFDC</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

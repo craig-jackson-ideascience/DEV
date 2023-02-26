@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Either_associate_with_Project_or_Event</fullName>
+    <active>true</active>
+    <description>Either associate Product Detail with Project or Event or Training</description>
+    <errorConditionFormula>OR(AND(NOT(ISBLANK(Project__c)),NOT(ISBLANK(Event__c))),
+AND(NOT(ISBLANK(Training__c)),NOT(ISBLANK(Event__c))),
+AND(NOT(ISBLANK(Training__c)),NOT(ISBLANK(Project__c))))</errorConditionFormula>
+    <errorMessage>Associate Product Details to either Project or Event</errorMessage>
+</ValidationRule>

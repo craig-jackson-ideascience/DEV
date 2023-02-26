@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validates_the_product_family</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND( NOT(ISBLANK(Event__c)) , NOT(ISPICKVAL(Products__r.Family, &apos;Event&apos;)) ),
+AND( NOT(ISBLANK(Training__c)) , NOT(ISPICKVAL(Products__r.Family, &apos;Training&apos;)) ),
+AND( NOT(ISBLANK(Project__c)) , NOT(ISPICKVAL(Products__r.Family, &apos;Membership&apos;)), NOT(ISPICKVAL(Products__r.Family, &apos;Alternate Funding&apos;)))
+)</errorConditionFormula>
+    <errorMessage>Product Family of the product should match associated project/event/training</errorMessage>
+</ValidationRule>

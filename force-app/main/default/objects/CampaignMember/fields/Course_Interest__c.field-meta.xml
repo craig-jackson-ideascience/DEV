@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course_Interest__c</fullName>
+    <externalId>false</externalId>
+    <label>Course Interest</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Please select a course</fullName>
+                <default>true</default>
+                <label>Please select a course</label>
+            </value>
+            <value>
+                <fullName>LFS541 Introduction to Linux KVM Virtualization</fullName>
+                <default>false</default>
+                <label>LFS541 Introduction to Linux KVM Virtualization</label>
+            </value>
+            <value>
+                <fullName>LFS540 Linux KVM Virtualization</fullName>
+                <default>false</default>
+                <label>LFS540 Linux KVM Virtualization</label>
+            </value>
+            <value>
+                <fullName>LFS520 OpenStack Architecture and Deployment</fullName>
+                <default>false</default>
+                <label>LFS520 OpenStack Architecture and Deployment</label>
+            </value>
+            <value>
+                <fullName>LFS430 Linux Enterprise Automation</fullName>
+                <default>false</default>
+                <label>LFS430 Linux Enterprise Automation</label>
+            </value>
+            <value>
+                <fullName>LFS426 Linux Performance Tuning</fullName>
+                <default>false</default>
+                <label>LFS426 Linux Performance Tuning</label>
+            </value>
+            <value>
+                <fullName>LFS425 Linux Performance Tuning Crash Course</fullName>
+                <default>false</default>
+                <label>LFS425 Linux Performance Tuning Crash Course</label>
+            </value>
+            <value>
+                <fullName>LFS422 High Availability Linux Architecture</fullName>
+                <default>false</default>
+                <label>LFS422 High Availability Linux Architecture</label>
+            </value>
+            <value>
+                <fullName>LFS416 Linux Security</fullName>
+                <default>false</default>
+                <label>LFS416 Linux Security</label>
+            </value>
+            <value>
+                <fullName>LFS252 OpenStack Administration Fundamentals</fullName>
+                <default>false</default>
+                <label>LFS252 OpenStack Administration Fundamentals</label>
+            </value>
+            <value>
+                <fullName>LFS230 Linux Network Management</fullName>
+                <default>false</default>
+                <label>LFS230 Linux Network Management</label>
+            </value>
+            <value>
+                <fullName>LFS220 Linux System Administration</fullName>
+                <default>false</default>
+                <label>LFS220 Linux System Administration</label>
+            </value>
+            <value>
+                <fullName>LFS201 Essentials of System Administration</fullName>
+                <default>false</default>
+                <label>LFS201 Essentials of System Administration</label>
+            </value>
+            <value>
+                <fullName>LFS101 Introduction to Linux</fullName>
+                <default>false</default>
+                <label>LFS101 Introduction to Linux</label>
+            </value>
+            <value>
+                <fullName>LFD432 Optimizing Linux Device Drivers for Power Efficiency</fullName>
+                <default>false</default>
+                <label>LFD432 Optimizing Linux Device Drivers for Power Efficiency</label>
+            </value>
+            <value>
+                <fullName>LFD415 Inside Android: An Intro to Android Internals</fullName>
+                <default>false</default>
+                <label>LFD415 Inside Android: An Intro to Android Internals</label>
+            </value>
+            <value>
+                <fullName>LFD414 Introduction to Embedded Android Development</fullName>
+                <default>false</default>
+                <label>LFD414 Introduction to Embedded Android Development</label>
+            </value>
+            <value>
+                <fullName>LFD411 Embedded Linux Development</fullName>
+                <default>false</default>
+                <label>LFD411 Embedded Linux Development</label>
+            </value>
+            <value>
+                <fullName>LFD410 Embedded Linux Development: A Crash Course</fullName>
+                <default>false</default>
+                <label>LFD410 Embedded Linux Development: A Crash Course</label>
+            </value>
+            <value>
+                <fullName>LFD405 Embedded Linux Development with the Yocto Project</fullName>
+                <default>false</default>
+                <label>LFD405 Embedded Linux Development with the Yocto Project</label>
+            </value>
+            <value>
+                <fullName>LFD404 Building Embedded Linux with the Yocto Project: Crash Course</fullName>
+                <default>false</default>
+                <label>LFD404 Building Embedded Linux with the Yocto Project: Crash Course</label>
+            </value>
+            <value>
+                <fullName>LFD331 Developing Linux Device Drivers</fullName>
+                <default>false</default>
+                <label>LFD331 Developing Linux Device Drivers</label>
+            </value>
+            <value>
+                <fullName>LFD320 Linux Kernel Internals and Debugging</fullName>
+                <default>false</default>
+                <label>LFD320 Linux Kernel Internals and Debugging</label>
+            </value>
+            <value>
+                <fullName>LF312 Developing Applications For Linux</fullName>
+                <default>false</default>
+                <label>LF312 Developing Applications For Linux</label>
+            </value>
+            <value>
+                <fullName>LFD262 Developing with GIT</fullName>
+                <default>false</default>
+                <label>LFD262 Developing with GIT</label>
+            </value>
+            <value>
+                <fullName>LFD211 Introduction to Linux For Developers</fullName>
+                <default>false</default>
+                <label>LFD211 Introduction to Linux For Developers</label>
+            </value>
+            <value>
+                <fullName>LFD205 How to Participate with the Linux Community</fullName>
+                <default>false</default>
+                <label>LFD205 How to Participate with the Linux Community</label>
+            </value>
+            <value>
+                <fullName>LFC288 Implementation and Management of Open Source Compliance</fullName>
+                <default>false</default>
+                <label>LFC288 Implementation and Management of Open Source Compliance</label>
+            </value>
+            <value>
+                <fullName>LFC284 Overview of Open Source Compliance End-to-End Process</fullName>
+                <default>false</default>
+                <label>LFC284 Overview of Open Source Compliance End-to-End Process</label>
+            </value>
+            <value>
+                <fullName>LFC281 Executive Review of Open Source Compliance</fullName>
+                <default>false</default>
+                <label>LFC281 Executive Review of Open Source Compliance</label>
+            </value>
+            <value>
+                <fullName>LFC272 Open Source Compliance Programs - What You Must Know</fullName>
+                <default>false</default>
+                <label>LFC272 Open Source Compliance Programs - What You Must Know</label>
+            </value>
+            <value>
+                <fullName>LFC271 Practical Guide to the Open Source Development Model</fullName>
+                <default>false</default>
+                <label>LFC271 Practical Guide to the Open Source Development Model</label>
+            </value>
+            <value>
+                <fullName>LFT220 Portable Application Development for Tizen Devices</fullName>
+                <default>false</default>
+                <label>LFT220 Portable Application Development for Tizen Devices</label>
+            </value>
+            <value>
+                <fullName>LF210 Tizen Training For Non-Developers</fullName>
+                <default>false</default>
+                <label>LF210 Tizen Training For Non-Developers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

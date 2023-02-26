@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_Roles_Form</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Error__c</columns>
+    <columns>Request_Body__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Source__c</field>
+        <operation>equals</operation>
+        <value>Membership Roles Form</value>
+    </filters>
+    <label>Membership Roles Form</label>
+</ListView>

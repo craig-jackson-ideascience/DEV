@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Project_coding_neeced</fullName>
+        <description>Project coding neeced</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>jwood@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sfcontractor@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Project_Coding_Needed</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_an_Email_Alert_to_Notify_Finance_to_populate_Netsuite_Fields</fullName>
+        <description>Send an Email Alert to Notify Finance to populate Netsuite Fields</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Product_Details</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <recipient>integration@00d190000007ni6eae.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sfdc-api@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Notify_Finance_On_Insert_of_OLI</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Set_order_on_Oli_to_1</fullName>
+        <field>Order__c</field>
+        <formula>1</formula>
+        <name>Set order on Oli to 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Bill_From</fullName>
+        <description>Update Bill From Name on OLI from either Project or Event</description>
+        <field>Bill_From__c</field>
+        <formula>IF(ISBLANK( Event__c ),Projects__r.Bill_From_Name__c,Event__r.BillFromProject__r.Bill_From_Name__c)</formula>
+        <name>Update Bill From Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Bill_From_Id</fullName>
+        <field>Billfrom_ID__c</field>
+        <formula>IF(ISBLANK( Event__c ),Projects__r.Id,Event__r.BillFromProject__c)</formula>
+        <name>Update Bill From Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_End_date_On_opportunity_Product</fullName>
+        <field>End_Date__c</field>
+        <formula>IF(  AND(NOT( CONTAINS(Product2.Name,&apos;Associate Membership&apos;) ),NOT( CONTAINS(Product2.Name,&apos;Individual Membership&apos;) ) ),DATE( Year(Start_Date__c)+floor((MONTH(Start_Date__c) + 11) / 12) , mod(MONTH(Start_Date__c) + 11, 12) + 1 , day(Start_Date__c)) - 1,
+IF( AND(NOT( CONTAINS(Product2.Name,&apos;Event&apos;)), TotalPrice = 0),DATE(2099,12,31),
+DATE( Year(Start_Date__c)+floor((MONTH(Start_Date__c) + 11) / 12) , mod(MONTH(Start_Date__c) + 11, 12) + 1 , day(Start_Date__c)) - 1))</formula>
+        <name>Update End date On opportunity Product</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Field_Opportunity_Product</fullName>
+        <description>Update 	Opportunity Product: Membership Voting Contact Roles field</description>
+        <field>Membership_Voting_Contact_Roles__c</field>
+        <formula>IF(NOT(ISBLANK( Projects__c )) , IF(ISBLANK(Representative_Voting_Contact__c ) , &apos;True&apos; , &apos;False&apos;) , &apos;False&apos;)</formula>
+        <name>Update Field Opportunity Product</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Price_to_0</fullName>
+        <field>UnitPrice</field>
+        <formula>0</formula>
+        <name>Update Price to $0</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>OLI%3A Send Email Alert to Populate Netsuite Fields</fullName>
+        <actions>
+            <name>Send_an_Email_Alert_to_Notify_Finance_to_populate_Netsuite_Fields</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Please_Code_NetSuite_Fields</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <formula>IF(AND(NOT(ISBLANK(Project__c)),(ISPICKVAL(Projects__r.Status__c,&apos;Planned&apos;)))  ||  AND(NOT(ISBLANK(Event__c)),(ISPICKVAL(Event__r.Status__c ,&apos;Planned&apos;))),TRUE,FALSE)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity Product %3A Auto Populate End Date for Membership</fullName>
+        <actions>
+            <name>Update_End_date_On_opportunity_Product</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-populate End Date on OLI with Start date + 12 months as soon Start date is populated/updated</description>
+        <formula>AND( 
+NOT(ISNULL(Start_Date__c)), 
+NOT(ISBLANK(Projects__c)), 
+NOT(CONTAINS(Product2.Name,&apos;Training&apos;)), 
+Prorate__c = FALSE 
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity Product %3A Set Order for OLI with no Parent asset</fullName>
+        <actions>
+            <name>Set_order_on_Oli_to_1</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND (  NOT( ISPICKVAL(Opportunity.Type, &apos;Renewal&apos;) ) , ISBLANK(Opportunity.Parent_Asset__c) )</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Bill From</fullName>
+        <actions>
+            <name>Update_Bill_From</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Bill_From_Id</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>OpportunityLineItem.Bill_From__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Opp Product Year based on Start Date</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>OpportunityLineItem.Start_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Opp product fields</fullName>
+        <actions>
+            <name>Update_Field_Opportunity_Product</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Opp product fields based on Project Id and Representative Voting Contact Value</description>
+        <formula>AND(NOT(ISBLANK( Projects__c )) , OR(ISNEW(),ISChanged(Representative_Voting_Contact__c)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Risc-V Individual membership Products to %240</fullName>
+        <actions>
+            <name>Update_Price_to_0</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Product2.Name</field>
+            <operation>equals</operation>
+            <value>Individual Membership</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>OpportunityLineItem.Project__c</field>
+            <operation>equals</operation>
+            <value>RISC-V Foundation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>notEqual</operation>
+            <value>Closed Won,Closed Lost</value>
+        </criteriaItems>
+        <description>Update Risc-V Foundation Individual membership Opportunity Products to $0</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Please_Code_NetSuite_Fields</fullName>
+        <assignedTo>sfdc-api@linuxfoundation.org</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Code NetSuite Fields for Project/Event</subject>
+    </tasks>
+</Workflow>

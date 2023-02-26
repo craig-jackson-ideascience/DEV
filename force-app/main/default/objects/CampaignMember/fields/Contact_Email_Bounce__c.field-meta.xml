@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Email_Bounce__c</fullName>
+    <externalId>false</externalId>
+    <formula>Contact.MC_Hard_Bounce__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Contact Email Bounce</label>
+    <type>Checkbox</type>
+</CustomField>

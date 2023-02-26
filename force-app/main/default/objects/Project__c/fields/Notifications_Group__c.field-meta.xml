@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notifications_Group__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The email address of the email group to which Join Now notifications will be sent.  The email address entered here will receive emails when a new Join Now submission is received and when a Join Now contract is fully executed.</inlineHelpText>
+    <label>Notifications Group</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

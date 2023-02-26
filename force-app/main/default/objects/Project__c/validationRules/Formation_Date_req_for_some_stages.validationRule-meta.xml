@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Formation_Date_req_for_some_stages</fullName>
+    <active>true</active>
+    <description>All projects except Internal Allocations, Unofficial Subprojects, and Series LLCs must have a value chosen for Formation Date before they’re allowed to be set to the &quot;Active&quot; or &quot;Archived&quot; Stage.</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Start_Date__c),
+    NOT(ISPICKVAL(Category__c, &quot;Internal Allocation&quot;)),
+    NOT(ISPICKVAL(Category__c, &quot;Unofficial Subproject&quot;)),
+    NOT(ISPICKVAL(Category__c, &quot;Series LLC&quot;)),
+    OR(
+       ISPICKVAL(Project_Status__c, &quot;Active&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Archived&quot;)
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Start_Date__c</errorDisplayField>
+    <errorMessage>Formation Date is required for most &quot;Active&quot; and &quot;Archived&quot; projects.</errorMessage>
+</ValidationRule>

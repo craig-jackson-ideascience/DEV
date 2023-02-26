@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Roles_should_belong_to_Same_Acc</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+AND(NOT(ISBLANK(Legal_Contact__c)),Legal_Contact__r.AccountId  &lt;&gt;  Opportunity.AccountId),
+AND(NOT(ISBLANK(Representative_Voting_Contact__c)),Representative_Voting_Contact__r.AccountId  &lt;&gt;  Opportunity.AccountId),
+AND(NOT(ISBLANK(Marketing_Contact__c)),Marketing_Contact__r.AccountId  &lt;&gt;  Opportunity.AccountId),
+AND(NOT(ISBLANK(Marketing_Contact_2__c)),Marketing_Contact__r.AccountId  &lt;&gt;  Opportunity.AccountId),
+AND(NOT(ISBLANK(Marketing_Contact_3__c)),Marketing_Contact__r.AccountId  &lt;&gt;  Opportunity.AccountId),
+AND(NOT(ISBLANK(Press_Contact__c)),Press_Contact__r.AccountId  &lt;&gt;  Opportunity.AccountId),
+AND(NOT(ISBLANK(Technical_Contact__c)),Technical_Contact__r.AccountId  &lt;&gt;  Opportunity.AccountId))</errorConditionFormula>
+    <errorMessage>Project roles should belong to the same Account</errorMessage>
+</ValidationRule>

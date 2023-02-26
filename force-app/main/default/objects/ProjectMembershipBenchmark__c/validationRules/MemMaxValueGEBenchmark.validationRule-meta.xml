@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MemMaxValueGEBenchmark</fullName>
+    <active>true</active>
+    <description>Membership Max Benchmark must be &gt;= Benchmark Value</description>
+    <errorConditionFormula>MembershipMaxValue__c &lt; MembershipBenchmark__c</errorConditionFormula>
+    <errorMessage>Membership Max Benchmark must be &gt;= Benchmark Value</errorMessage>
+</ValidationRule>

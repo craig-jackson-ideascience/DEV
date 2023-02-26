@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_To_Addr_Line_2__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+   ISBLANK(Bill_To_Address__c),
+
+   IF(
+      ISBLANK(Bill_To_Account__c),
+
+      Account.BillingCity + &quot;, &quot; +
+      Account.BillingState + &quot; &quot; +
+      Account.BillingPostalCode,
+
+      Bill_To_Account__r.BillingCity + &quot;, &quot; + 
+      Bill_To_Account__r.BillingState + &quot; &quot; + 
+      Bill_To_Account__r.BillingPostalCode
+     ),
+
+   Bill_To_Address__r.City__c + &quot;, &quot; + 
+   Bill_To_Address__r.State__c + &quot; &quot; + 
+   Bill_To_Address__r.Zip_Postal_Code__c
+  )</formula>
+    <label>Billing To Addr Line 2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cross_Technology_stands_alone</fullName>
+    <active>true</active>
+    <description>If “Cross-Technology” is selected for the Technology Sector field, it should be the *only* value selected.</description>
+    <errorConditionFormula>AND(
+    INCLUDES(Technology__c, &quot;Cross-Technology&quot;),
+    OR(
+       INCLUDES(Technology__c, &quot;AI, ML, Data &amp; Analytics&quot;),
+       INCLUDES(Technology__c, &quot;Blockchain&quot;),
+       INCLUDES(Technology__c, &quot;Cloud, Containers &amp; Virtualization&quot;),
+       INCLUDES(Technology__c, &quot;DevOps, CI/CD &amp; Site Reliability&quot;),
+       INCLUDES(Technology__c, &quot;IoT &amp; Embedded&quot;),
+       INCLUDES(Technology__c, &quot;Linux Kernel&quot;),
+       INCLUDES(Technology__c, &quot;Networking &amp; Edge&quot;),
+       INCLUDES(Technology__c, &quot;Open Hardware&quot;),
+       INCLUDES(Technology__c, &quot;Open Source &amp; Compliance Best Practices&quot;),
+       INCLUDES(Technology__c, &quot;Privacy &amp; Security&quot;),
+       INCLUDES(Technology__c, &quot;Safety-Critical Systems&quot;),
+       INCLUDES(Technology__c, &quot;Storage&quot;),
+       INCLUDES(Technology__c, &quot;System Administration&quot;),
+       INCLUDES(Technology__c, &quot;System Engineering&quot;),
+       INCLUDES(Technology__c, &quot;Visual Effects&quot;),
+       INCLUDES(Technology__c, &quot;Web &amp; Application Development&quot;)
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Technology__c</errorDisplayField>
+    <errorMessage>If “Cross-Technology” is chosen for Technology Sector, it should be the only Technology Sector value chosen.</errorMessage>
+</ValidationRule>

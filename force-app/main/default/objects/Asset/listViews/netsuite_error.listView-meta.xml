@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>netsuite_error</fullName>
+    <columns>ASSET.NAME</columns>
+    <columns>ASSET.SERIAL_NUMBER</columns>
+    <columns>ASSET.INSTALL_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.NAME</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>NetSuite_Error__c</columns>
+    <columns>ASSET.PRICE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SalesOrderNumber__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Skip_NetSuite_Sync__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ASSET.PRICE</field>
+        <operation>notEqual</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ASSET.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>2/25/2021 12:00 AM</value>
+    </filters>
+    <label>netsuite error</label>
+    <sharedTo>
+        <role>Developer</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ScoreMultiplierGtZero</fullName>
+    <active>true</active>
+    <description>Score Multiplier must be &gt; 0</description>
+    <errorConditionFormula>ScoreMultiplier__c &lt;= 0</errorConditionFormula>
+    <errorMessage>Score Multiplier must be &gt; 0</errorMessage>
+</ValidationRule>

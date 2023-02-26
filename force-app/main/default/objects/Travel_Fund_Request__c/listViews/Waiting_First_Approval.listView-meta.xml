@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waiting_First_Approval</fullName>
+    <columns>NAME</columns>
+    <columns>Event__c</columns>
+    <columns>First_Approval__c</columns>
+    <columns>Comments__c</columns>
+    <columns>Recipient_Category__c</columns>
+    <columns>Diversity_Or_Need_Based__c</columns>
+    <columns>Company_or_Organization__c</columns>
+    <columns>Previous_Approval__c</columns>
+    <columns>q03_Can_Receive_Funding_From_Org__c</columns>
+    <columns>Travelling_From__c</columns>
+    <columns>Estimated_Cost__c</columns>
+    <columns>ContactEmail__c</columns>
+    <columns>Event_Start_Date__c</columns>
+    <columns>Contact__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>First_Approval__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Waiting Approval</value>
+    </filters>
+    <label>Waiting for Manager Approval</label>
+</ListView>

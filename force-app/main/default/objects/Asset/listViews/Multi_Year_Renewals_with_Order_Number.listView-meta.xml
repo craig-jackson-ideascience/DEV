@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Multi_Year_Renewals_with_Order_Number</fullName>
+    <columns>Project__c</columns>
+    <columns>ASSET.NAME</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>OpportunityLineItem__c</columns>
+    <columns>ASSET.STATUS</columns>
+    <columns>Number_of_Years_Required__c</columns>
+    <columns>Order__c</columns>
+    <columns>Bill_From__c</columns>
+    <columns>Bill_From_ID__c</columns>
+    <columns>Bill_To_Account__c</columns>
+    <columns>Auto_Renew__c</columns>
+    <columns>Year__c</columns>
+    <columns>ASSET.INSTALL_DATE</columns>
+    <columns>ASSET.USAGE_END_DATE</columns>
+    <columns>Renewal_Opportunity_Created__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ASSET.USAGE_END_DATE</field>
+        <operation>equals</operation>
+        <value>11/30/2017</value>
+    </filters>
+    <filters>
+        <field>Auto_Renew__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Multi Year Renewals with Order Number</label>
+    <sharedTo>
+        <group>Admin_Group</group>
+    </sharedTo>
+</ListView>

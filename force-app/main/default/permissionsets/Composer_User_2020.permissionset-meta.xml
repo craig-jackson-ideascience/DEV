@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set providing basic access to Composer objects and functionality updated with winter &apos;20 release</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Composer User 2020</label>
+</PermissionSet>

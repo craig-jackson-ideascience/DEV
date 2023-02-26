@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Function__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  Cvent_Registration_Title__c = &apos;Engineer&apos;, &apos;Engineer&apos;, 
+IF(Cvent_Registration_Title__c = &apos;Sr. Engineer&apos;,&apos;Senior Engineer&apos;,&apos;Other&apos;))</formula>
+    <label>Job Function</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

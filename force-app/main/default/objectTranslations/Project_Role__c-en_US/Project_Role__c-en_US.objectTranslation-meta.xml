@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Membership Roles</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Membership Roles</value>
+    </caseValues>
+    <layouts>
+        <layout>Project Member Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Marketing Cloud</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Membership Info</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Project Role Contact Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Asset_Required_For_Renewal</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Lock_Expired_Purchase_History</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Require_Role_Association_with_Account</name>
+    </validationRules>
+</CustomObjectTranslation>

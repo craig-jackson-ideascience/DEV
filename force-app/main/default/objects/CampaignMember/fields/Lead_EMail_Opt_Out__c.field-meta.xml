@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_EMail_Opt_Out__c</fullName>
+    <externalId>false</externalId>
+    <formula>Lead.HasOptedOutOfEmail</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lead EMail Opt-Out</label>
+    <type>Checkbox</type>
+</CustomField>

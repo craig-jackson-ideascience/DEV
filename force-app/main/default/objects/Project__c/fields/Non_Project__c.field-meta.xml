@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Project__c</fullName>
+    <description>Distinguishes actual projects from things that have to be stored as a Project record for the sake of an LFX integration (e.g. Insights or EasyCLA), or for testing purposes.</description>
+    <externalId>false</externalId>
+    <formula>OR(
+   ISPICKVAL(Category__c, &quot;Internal Allocation&quot;),
+   ISPICKVAL(Category__c, &quot;Unofficial Subproject&quot;),
+   Test_Record__c,
+   Slug__c = &quot;o-ran-alliance&quot;,
+   Id = &quot;a092M00001KWo0rQAD&quot;
+  )
+
+/* a092M00001KWo0rQAD is the ID of the O-RAN Alliance record in production */
+/* It&apos;s included in this formula to handle the (very small) chance that the slug of that record changes */</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Non-Project?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

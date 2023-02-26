@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Product_Detail_Custom</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Product Detail</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>if({!Event__c.Netsuite_Sync__c}==0) 
+window.open(&apos;/a0I/e?CF00N4100000Q4vaE={!Event__c.Name}&amp;00N4100000dMFxh=0&amp;RecordType=01241000001E0Ug&amp;retURL={!Event__c.Id}&apos;,&apos;_blank&apos;); 
+if({!Event__c.Netsuite_Sync__c}==1) 
+window.open(&apos;/a0I/e?CF00N4100000Q4vaE={!Event__c.Name}&amp;00N4100000dMFxh=1&amp;RecordType=01241000001E0Ug&amp;retURL={!Event__c.Id}&apos;,&apos;_blank&apos;);</url>
+</WebLink>

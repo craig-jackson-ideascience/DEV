@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Join_projects_must_have_Membership</fullName>
+    <active>true</active>
+    <description>Requires the Model field to include the value &apos;Membership&apos; when Auto Join Enabled = TRUE.</description>
+    <errorConditionFormula>AND(
+    NOT(INCLUDES(Model__c, &quot;Membership&quot;)),
+    Auto_Join_Enabled__c
+   )</errorConditionFormula>
+    <errorDisplayField>Model__c</errorDisplayField>
+    <errorMessage>Model must include &apos;Membership&apos; for projects that are Auto Join Enabled.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_via_Docusign_w_Docs_Contacts</fullName>
+    <availability>online</availability>
+    <description>With an Opportunity containing Attachments, RCs, and Quotes, this script retrieves Attachments, RCs, and Quotes, the contact(s) in the Opportunity Contacts, and the names defined in CRL</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send via Docusign w/ Docs &amp; Contacts</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>//{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)} 
+function GetRelContentIDs(curObjID)
+	{
+		var relContElem = curObjID + &quot;_ContentDocumentRelatedList_body&quot;;
+		var rc = &quot;&quot;;
+		var relatedContentElem = document.getElementById(relContElem);
+	
+		if (relatedContentElem != null)
+		{
+			var aList = relatedContentElem.getElementsByTagName(&quot;a&quot;);
+			for (var i = 0; i &lt; aList.length; i++)
+            		{
+		                var alink = aList[i].getAttribute(&quot;href&quot;);
+		                if ( (alink !=null) &amp;&amp; (alink != undefined) &amp;&amp; ( (alink.indexOf(&quot;/068&quot;) === 0) || (alink.indexOf(&quot;javascript:srcUp(%27%2F068&quot;)) === 0)  )
+		                {   
+		                    rc = rc + alink.substr(alink.indexOf(&quot;068&quot;), 15) + &quot;,&quot;;
+		                }
+            		}
+			if (rc.indexOf(&quot;068&quot;) &gt; -1)
+			{
+				rc = rc.substring(0, rc.lastIndexOf(&quot;,&quot;));
+			}
+		}
+		return rc;
+	}
+	
+	function DSGetPageIDFromHref()
+	{
+		var r=window.location.href;
+		var qm = r.indexOf(&quot;?&quot;);
+		if (qm &gt; -1)
+		{
+		   r = r.substr(0, qm);
+		}
+		r = r.substr(r.lastIndexOf(&quot;/&quot;)+1);
+		return r;
+	}
+	
+	function DSNS()
+	{
+	    var dsns_=&quot;dsfs__&quot;;
+	    if (typeof(DSDevEnv)!=&quot;undefined&quot;)
+	    {
+	        if (DSDevEnv==&quot;true&quot;)
+	        {
+	            dsns_ = &quot;&quot;;
+	        }
+	    }
+	    return dsns_
+	}
+	
+	function getDnbLogo(){
+		return &quot;/resource/1494331402000/dsfs__DNB&quot;;
+	}
+	
+	function getDnbCross(){
+		return &quot;/resource/1494331402000/dsfs__Cross&quot;;
+	}
+	
+	function getjQueryUI(){
+		return &quot;/resource/1494331402000/dsfs__jqueryui&quot;;
+	}
+	
+	function inIframe () {
+	    try {
+	        return window.self !== window.top;
+	    } catch (e) {
+	        return true;
+	    }
+	}
+	
+	function DocuSign_CreateEnvelope()
+	{
+		var sourceId = DSGetPageIDFromHref();
+		var rc = GetRelContentIDs(sourceId);
+		if(inIframe()){
+			window.open(&quot;/apex/dsfs__DocuSign_CreateEnvelope?DSEID=0&amp;SourceID=&quot;+sourceId+&quot;&amp;rc=&quot;+rc+&quot;&amp;nw=1&quot;, &quot;Popup&quot;, &quot;location=1, status=1, scrollbars=1, resizable=1, directories=1, toolbar=1, titlebar=1, width=1200&quot;);
+		} else {
+			window.location.href = &quot;/apex/dsfs__DocuSign_CreateEnvelope?DSEID=0&amp;SourceID=&quot;+sourceId+&quot;&amp;rc=&quot;+rc;
+		}
+	}
+	
+	function DocuSign_GetVerifyWithDnb(objectType)
+	{
+		var sourceId = DSGetPageIDFromHref();
+		var rc = GetRelContentIDs(sourceId);
+		var endPoint = &quot;/apex/dsfs__DocuSign_VerifyWithDnb?SourceID=&quot;+sourceId+&quot;&amp;objectType=&quot;+objectType;
+		
+		return endPoint;
+	}
+var RQD = DSGetPageIDFromHref(); 
+var SourceID = &quot;{!Opportunity.Id}&quot;; 
+var CRL = &quot;Email~{!User.Email};FirstName~{!User.FirstName};LastName~{!User.LastName},LoadDefaultContacts~1&quot;; 
+var LA = &quot;1&quot;; 
+var RC = GetRelContentIDs(&quot;{!Opportunity.Id}&quot;); 
+window.location.href = &quot;/apex/dsfs__DocuSign_CreateEnvelope?DSEID=0&amp;RQD=&quot;+RQD+&quot;&amp;SourceID=&quot;+SourceID+&quot;&amp;CRL=&quot;+CRL+&quot;&amp;LA=&quot;+LA+&quot;&amp;RC=&quot;+RC;</url>
+</WebLink>

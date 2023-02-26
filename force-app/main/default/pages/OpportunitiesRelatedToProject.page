@@ -1,0 +1,21 @@
+<apex:page sidebar="false" showHeader="false" standardController="Project__c">
+    <apex:includeLightning />
+    <!--Lightning Container-->
+    <div id="LightningContainer"/>
+    
+    <script type="text/javascript">
+    //get foundation Id from URL
+    var recordId = "{!$CurrentPage.parameters.id}";
+    //console.log("recordId  " + recordId);
+    //alert("recordId  " + recordId);
+    
+    //Create Lightning Component
+    $Lightning.use("c:OpportunitiesRelatedToProject", function() {
+        $Lightning.createComponent("c:OpportunitiesRelatedToProject_cmp", 
+                                   { "recordId" : recordId }, //Pass Parameter
+                                   "LightningContainer", function(component) {
+                                       console.log('Component created');
+                                   });
+    });
+    </script>
+</apex:page>

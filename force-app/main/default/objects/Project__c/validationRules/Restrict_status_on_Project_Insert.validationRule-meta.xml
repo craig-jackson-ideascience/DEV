@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_status_on_Project_Insert</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISNEW() , NOT(ISPICKVAL(Status__c, &apos;Planned&apos;) ),
+OR(
+ISPICKVAL(Category__c, &quot;Subproject&quot;),
+ISPICKVAL(Category__c, &quot;Incorporated Entity&quot;)))</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Please set status as Planned</errorMessage>
+</ValidationRule>

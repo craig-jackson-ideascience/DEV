@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Training_NS_Product_Details</fullName>
+    <columns>NAME</columns>
+    <columns>Training__c</columns>
+    <columns>Products__c</columns>
+    <columns>Duration__c</columns>
+    <columns>Price__c</columns>
+    <columns>Tax_Class__c</columns>
+    <columns>NS_Deferred_Revenue_Account__c</columns>
+    <columns>NS_Department__c</columns>
+    <columns>NS_Income_GL_Account__c</columns>
+    <columns>NS_Revenue_Schedule__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Product_Details__c.Training</value>
+    </filters>
+    <label>Training NS Product Details</label>
+    <sharedTo>
+        <group>Admin_Group</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,47 @@
+<apex:page standardController="Event__c" extensions="DisplayAssets"  sidebar="false" action="{!assetsListMethod}">
+    <style>
+        td.empty{
+        display:none;
+        } 
+    </style>
+    <script>
+    function goToList(a)
+    {    
+        var Listurl =  '{!$Label.Org_URL}/apex/AssetsOnEvents?id='+a+'&main=0';
+        window.open(Listurl,'_blank');
+        
+    }
+    </script>
+    
+    <!-- Show Assets Related to Event-->
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!assetsList}" var="a" rendered="{!IF(assetsList.size > 0,true,false)}">
+                <apex:column headerValue="Account Name">
+                    <apex:outputLink value="/{!a.Accountid}" target="_top">{!a.Account.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Name">
+                    <apex:outputLink value="/{!a.id}" target="_top">{!a.name}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Tier" value="{!a.Tier__c}"/>
+                <apex:column headerValue="Description" value="{!a.Description }" />
+                <apex:column headerValue="Purchase Date" value="{!a.PurchaseDate }" />
+                <apex:column headerValue="End Date" value="{!a.UsageEndDate }" />
+                <apex:column headerValue="Price" value="{!a.Price}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+        
+        <!-- Show  output text-"No records to display"  when no Assets related to Event -->
+        <apex:outputPanel rendered="{!(assetsList.size == 0)}">
+            <div style="margin-left: 18px;">
+                <strong>No records to display</strong>
+            </div>  
+        </apex:outputPanel>
+        
+        <!-- Show link when Assets are greater than 10 -->
+        <apex:pageBlockSection rendered="{!IF(allAssetsList.size > 10 && mainpage == false,true,false)}">
+            <a href=""  style="cursor:pointer;text-decoration:underline;" target="_blank" onclick="goToList('{!Id}')">Go to list ({!allAssetsList.size}) »</a>
+        </apex:pageBlockSection> 
+        
+    </apex:pageBlock>    
+</apex:page>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Archived_Projects</fullName>
+    <columns>NAME</columns>
+    <columns>Parent_Entity_Relationship__c</columns>
+    <columns>Parent_Project__c</columns>
+    <columns>Model__c</columns>
+    <columns>Funding__c</columns>
+    <columns>Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Project_Status__c</field>
+        <operation>equals</operation>
+        <value>Archived</value>
+    </filters>
+    <label>Archived Projects</label>
+</ListView>

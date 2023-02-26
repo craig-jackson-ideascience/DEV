@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NetSuite_Invoice_Memo__c</fullName>
+    <description>Add notes for the Finance team; internal only, customer will not see these</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Add notes for the Finance team; internal only, customer will not see these</inlineHelpText>
+    <label>NetSuite Invoice Memo</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget__c</fullName>
+    <externalId>false</externalId>
+    <label>Budget Confirmed</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Budget_CFY</fullName>
+                <default>false</default>
+                <label>Budget in current FY</label>
+            </value>
+            <value>
+                <fullName>Budget_NFY</fullName>
+                <default>false</default>
+                <label>Budget in next FY</label>
+            </value>
+            <value>
+                <fullName>Unsure of budget status</fullName>
+                <default>false</default>
+                <label>Unsure of budget status</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

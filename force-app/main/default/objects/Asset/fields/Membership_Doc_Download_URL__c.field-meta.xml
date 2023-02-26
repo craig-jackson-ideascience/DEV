@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_Doc_Download_URL__c</fullName>
+    <description>Membership Download URL. This is created in the Attachment TriggerHandler for &quot;Fully Executed&quot; Membership Documents</description>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.Membership_Doc_Download_URL__c</formula>
+    <label>Membership Doc Download URL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

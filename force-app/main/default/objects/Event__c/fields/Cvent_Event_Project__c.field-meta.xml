@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cvent_Event_Project__c</fullName>
+    <externalId>false</externalId>
+    <label>Cvent Event Project</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Automotive Grade Linux (AGL)</fullName>
+                <default>false</default>
+                <label>Automotive Grade Linux (AGL)</label>
+            </value>
+            <value>
+                <fullName>Cloud Foundry (CF)</fullName>
+                <default>false</default>
+                <label>Cloud Foundry (CF)</label>
+            </value>
+            <value>
+                <fullName>Cloud Native Computing Foundation (CNCF)</fullName>
+                <default>false</default>
+                <label>Cloud Native Computing Foundation (CNCF)</label>
+            </value>
+            <value>
+                <fullName>Hyperledger</fullName>
+                <default>false</default>
+                <label>Hyperledger</label>
+            </value>
+            <value>
+                <fullName>JS Foundation</fullName>
+                <default>false</default>
+                <label>JS Foundation</label>
+            </value>
+            <value>
+                <fullName>The Linux Foundation (LF)</fullName>
+                <default>false</default>
+                <label>The Linux Foundation (LF)</label>
+            </value>
+            <value>
+                <fullName>LF Deep Learning</fullName>
+                <default>false</default>
+                <label>LF Deep Learning</label>
+            </value>
+            <value>
+                <fullName>LF Energy</fullName>
+                <default>false</default>
+                <label>LF Energy</label>
+            </value>
+            <value>
+                <fullName>LF Networking</fullName>
+                <default>false</default>
+                <label>LF Networking</label>
+            </value>
+            <value>
+                <fullName>Node Foundation</fullName>
+                <default>false</default>
+                <label>Node Foundation</label>
+            </value>
+            <value>
+                <fullName>Xen Project</fullName>
+                <default>false</default>
+                <label>Xen Project</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_OLIs_Start_Date_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(StageName),
+				ISPICKVAL(StageName,&apos;Closed Won&apos;), 
+				OLI_Count_without_Start_date_as_First__c &gt; 0,
+			NOT(Skip_Start_Date_Validation__c ))</errorConditionFormula>
+    <errorMessage>Start Date of Membership Opportunity Products should be the First date of the Month</errorMessage>
+</ValidationRule>

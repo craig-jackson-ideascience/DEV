@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bill_From_Project_is_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISNEW(), 
+				ISBLANK(BillFromProject__c),
+				NOT(TEXT(Registration_Source__c) == &apos;Cvent&apos;)
+				)</errorConditionFormula>
+    <errorDisplayField>BillFromProject__c</errorDisplayField>
+    <errorMessage>Bill From Project must be set to save the event</errorMessage>
+</ValidationRule>

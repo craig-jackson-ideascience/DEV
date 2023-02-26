@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jira_Cases</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>Jira_Key__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Component__c</columns>
+    <columns>Jira_Assignee__c</columns>
+    <columns>Jira_Creator__c</columns>
+    <columns>JIRA_on_behalf_of__c</columns>
+    <columns>JIRA_Reporter__c</columns>
+    <columns>User_Email__c</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CASES.CLOSED_DATE</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <columns>CASES.ORIGIN</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Jira_Key__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Jira Cases</label>
+</ListView>

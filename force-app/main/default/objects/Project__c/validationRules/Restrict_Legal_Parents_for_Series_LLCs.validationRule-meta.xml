@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Legal_Parents_for_Series_LLCs</fullName>
+    <active>true</active>
+    <description>Projects that are Series LLCs must have a Legal Parent of either “JDF Projects LLC” or “LF Projects, LLC.&quot;</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Category__c, &quot;Series LLC&quot;),
+    Parent_Entity_Relationship__r.Name != &quot;JDF Projects LLC&quot;,
+    Parent_Entity_Relationship__r.Id  != &quot;a092M00001IkOVQQA3&quot;,
+    Parent_Entity_Relationship__r.Name != &quot;LF Projects, LLC&quot;,
+    Parent_Entity_Relationship__r.Id  != &quot;a092M00001IkOVVQA3&quot;
+   )</errorConditionFormula>
+    <errorDisplayField>Parent_Entity_Relationship__c</errorDisplayField>
+    <errorMessage>Since this project is a Series LLC, the Legal Parent must be either &quot;JDF Projects LLC&quot; or &quot;LF Projects, LLC.&quot;</errorMessage>
+</ValidationRule>

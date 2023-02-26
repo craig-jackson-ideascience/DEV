@@ -1,0 +1,173 @@
+<apex:page controller="HLAllMemberContact" lightningStylesheets="false" applyHtmlTag="true"  docType="html-5.0" showHeader="false" readOnly="true">
+    <apex:form id="fid">
+        <apex:slds />
+        <apex:includeScript value="{!URLFOR($Resource.JqueyDataTable , '/jquery-1.12.0.min.js')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.Multiselect_Select2 , 'select2.min.css')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.Multiselect_Select2 , 'select2.min.js')}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        <style>
+            
+            select2-selection__rendered{
+            white-space: normal !important;
+            }
+            
+            .select2-selection__choice{
+            word-break: break-word !important;
+            }
+            
+            .select2-container{
+            width:100% !important;
+            }
+            span.select2-dropdown{
+            z-index: 9999;
+            }
+            
+            .slds-dropdown{
+            max-width: 5000px !important;
+            width:100% !important;
+            }
+            .select2-container--default .select2-selection--multiple .select2-selection__choice{
+            padding : 2px 5px !important;
+            }
+            .stickerHeaderClass{
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            z-index: 10;
+            }
+            ul li, ol li{
+            margin-left: 0.5em !important;
+            }
+        </style>
+        <body>
+            <div class="slds-scope">
+                
+                <center class="slds-p-around--medium"><h1 style="font-size:25px;padding:10px;" class="slds-card">All Member Contacts with Account Teams</h1></center>
+                <div class="slds-p-around--medium">
+                    <div class="slds-size_12-of-12 slds-p-around--medium slds-card">        
+                        <div class="slds-grid slds-wrap" style="border:0px solid red;">
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                                <span>Project Name</span> <br/>
+                                <apex:selectList styleClass="ProName" size="1" value="{!projectName}" multiselect="true">
+                                    <apex:selectOptions value="{!selectedProject}" />
+                                </apex:selectList>
+                            </div>
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                                <span>Team Role</span> <br/>
+                               <apex:selectList styleClass="AccName" size="1" value="{!AccountTeamName}" multiselect="true">
+                                    <apex:selectOptions value="{!selectedAccountTeam}" />
+                                </apex:selectList>
+                            </div>
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                                <span>Team Member</span> <br/>
+                               <apex:selectList styleClass="UserName" size="1" value="{!UserName}" multiselect="true">
+                                    <apex:selectOptions value="{!selectedUser}" />
+                                </apex:selectList>
+                            </div>
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                                <apex:commandButton value="Search" action="{!getProjectRole}" styleClass="slds-button slds-button--brand" style="margin-top: 17px;"/>
+                                <apex:commandButton value="Export" action="{!ExportToExcel}" styleClass="slds-button slds-button--brand" style="margin-top: 17px;"/>
+                            </div>
+                            <script>
+                            $('.AccName').select2();
+                            var myList = new Array();
+                            myList = '{!AccountTeamName}';
+                            myList = myList.replace('[','').replace(']','').trim();
+                            console.log('-------'+myList);
+                            if(myList){
+                                var contexts = myList.split(',');
+                                
+                                console.log('--------'+contexts);
+                                $('.AccName').select2().val(contexts).trigger('change');
+                                
+                            }
+                            </script>
+                            <script>
+                            $('.ProName').select2();
+                            var myList = new Array();
+                            myList = '{!ProjectName}';
+                            myList = myList.replace('[','').replace(']','').trim();
+                            console.log('-------'+myList);
+                            if(myList){
+                                var contexts = myList.split(',');
+                                
+                                console.log('--------'+contexts);
+                                $('.ProName').select2().val(contexts).trigger('change');
+                                
+                            }
+                            </script>
+                            <script>
+                            $('.UserName').select2();
+                            var myList = new Array();
+                            myList = '{!UserName}';
+                            myList = myList.replace('[','').replace(']','').trim();
+                            console.log('-------'+myList);
+                            if(myList){
+                                var contexts = myList.split(',');
+                                
+                                console.log('--------'+contexts);
+                                $('.UserName').select2().val(contexts).trigger('change');
+                                
+                            }
+                            </script>
+                        </div>
+                        <div class="slds-section slds-is-open slds-size_12-of-12">
+                    <h3 class="slds-section__title slds-button slds-section__title-action">
+                         <span class="slds-truncate" title="Section Title">Report Table</span>
+
+                    </h3>
+                </div>
+                        <div class="slds-scrollable" style="height:30rem;width:100%">
+                        <apex:outputPanel style="width: 100%;overflow: auto;max-height: 30rem;">
+                        <table class="reportTable slds-max-medium-table_stacked slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-m-top--small" style="border-left: 1px solid rgb(221, 219, 218);    border-right: 1px solid rgb(221, 219, 218);">
+                           <thead>
+                            <tr >
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Account Name</th>     
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Product Name</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Industry</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Billing City</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Billing State/Province</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;"> Billing Country  </th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Role</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Full Name</th>        
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Email</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Title</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Created Date</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Purchase History Name</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;"> Sales Order Status</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Team Member Name</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Team Role</th>
+                            </tr>
+                            </thead>
+                            <apex:repeat value="{!lstwrap}" var="lstPR">
+                                <tr> 
+                                    <td style="width:20%"><a href="/lightning/r/Account/{!lstPR.AccountId}/view" target="_blank"><apex:outputText value="{!LEFT(lstPR.Account, 40)}"/></a></td>
+                                    <td><apex:outputText value="{!lstPR.Product}"/></td>
+                                    <td><apex:outputText value="{!lstPR.Industry}"/></td>
+                                    <td><apex:outputText value="{!lstPR.City}"/></td>
+                                    <td><apex:outputText value="{!lstPR.State}"/></td>
+                                    <td><apex:outputText value="{!lstPR.Country}"/></td>
+                                    <td><apex:outputText value="{!lstPR.Role}"/></td>
+                                    <td><apex:outputText value="{!LEFT(lstPR.Name, 30)}"/></td>
+                                    <td><apex:outputText value="{!lstPR.Email}"/></td>
+                                    <td><apex:outputText value="{!LEFT(lstPR.Title,40)}"/></td>
+                                    <td><apex:outputText value="{!lstPR.CreatedDate}"/></td>
+                                    <td><a href="/lightning/r/Asset/{!lstPR.PHId}/view" target="_blank"><apex:outputText value="{!lstPR.PHName}"/></a></td>
+                                    <td><apex:outputText value="{!lstPR.SaleStatus}"/></td>
+                                    <td><apex:outputText value="{!lstPR.MemberName}"/></td>
+                                    <td><apex:outputText value="{!lstPR.MemberRole}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                        </apex:outputPanel>
+                        </div>
+                        <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small slds-align_absolute-center">
+                                <apex:commandButton value="Previous" action="{!Previous}" styleClass="slds-button slds-button--brand" style="margin-top: 17px;"/>
+                                <apex:commandButton value="Next" action="{!Next}" styleClass="slds-button slds-button--brand" style="margin-top: 17px;"/>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </apex:form>
+</apex:page>

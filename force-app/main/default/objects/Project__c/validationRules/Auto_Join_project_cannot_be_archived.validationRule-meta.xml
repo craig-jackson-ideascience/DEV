@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Join_project_cannot_be_archived</fullName>
+    <active>true</active>
+    <description>As long as Auto Join Enabled = TRUE, the Stage of a Project record cannot be set to &quot;Archived.&quot;</description>
+    <errorConditionFormula>AND(
+    Auto_Join_Enabled__c,
+    ISPICKVAL(Project_Status__c, &quot;Archived&quot;)
+   )</errorConditionFormula>
+    <errorDisplayField>Project_Status__c</errorDisplayField>
+    <errorMessage>Auto Join Enabled projects cannot be archived.  Please ask an admin to set Auto Join Enabled to &quot;false&quot; if this project is no longer active.</errorMessage>
+</ValidationRule>

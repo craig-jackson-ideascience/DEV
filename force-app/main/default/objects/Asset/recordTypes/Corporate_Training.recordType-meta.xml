@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Corporate_Training</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Compact_Layout_Custom</compactLayoutAssignment>
+    <label>Corporate Training</label>
+    <picklistValues>
+        <picklist>CNCF_Level__c</picklist>
+        <values>
+            <fullName>End User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User Supporter</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Cancellation_Reason__c</picklist>
+        <values>
+            <fullName>Acquired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Downgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Org Change%2FLost Champion or Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perceived Value</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reissued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Category__c</picklist>
+        <values>
+            <fullName>Chip %28SoC%2C IP%2C FPGA%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I%2FO %28Memory%2C network%2C storage%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industry %28cloud%2C mobile%2C HPC%2C ML%2C automotive%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research %28Universities%2C Labs%2C other alliances%2C etc%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Services %28Fab%2C design services%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software %28Dev tools%2C firmware%2C OS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systems %28ODM%2C OEM%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DigitalAssetStatus</picklist>
+        <values>
+            <fullName>Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Preferred_Invoice_Method__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hard Copy</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Renewal_Type__c</picklist>
+        <values>
+            <fullName>Calendar Year</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Prorate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prorate</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SalesOrderStatus__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Synced to Netsuite</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Associate Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>At Risk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoice Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

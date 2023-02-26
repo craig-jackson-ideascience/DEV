@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Diversity_Or_Need_Based__c</fullName>
+    <externalId>false</externalId>
+    <label>Diversity vs Need Based</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Diversity</fullName>
+                <default>false</default>
+                <label>Diversity</label>
+            </value>
+            <value>
+                <fullName>Need Based</fullName>
+                <default>false</default>
+                <label>Need Based</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

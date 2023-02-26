@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Notification_on_ISR_Closed_Won</fullName>
+        <description>Email Notification on ISR Closed Won</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>dfernelius@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>jpetersen@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_Notification_for_ISRG</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Notification_on_Registration_Products</fullName>
+        <description>Email Notification on Registration Products</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>aleroux@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>skrehbiel@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_Notification_for_Registration_Product</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Sales_Ops_about_NetSuite_silent_failure_on_Purchase_History</fullName>
+        <description>Email Sales Ops about NetSuite silent failure on Purchase History</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>kat@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>kstrauch@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>pchennoju1@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sslaughter@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/NetSuite_silent_failure_on_Purchase_History</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Sales_Ops_when_a_NetSuite_error_is_logged_on_Purchase_History</fullName>
+        <description>Email Sales Ops when a NetSuite error is logged on Purchase History</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>kstrauch@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>mwhite@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>pchennoju1@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sslaughter@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/NetSuite_error_on_Purchase_History</template>
+    </alerts>
+    <alerts>
+        <fullName>Error_Email_For_Asset</fullName>
+        <description>Error Email For Asset</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>mwhite@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Error_Email_For_Asset</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Update_Asset_Status_as_Active</fullName>
+        <field>Status</field>
+        <literalValue>Active</literalValue>
+        <name>Update Asset Status as Active</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Asset_Status_as_Purchased</fullName>
+        <field>Status</field>
+        <literalValue>Purchased</literalValue>
+        <name>Update Asset Status as Purchased</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Asset_as_Complete</fullName>
+        <description>Update asset status to completed</description>
+        <field>Status</field>
+        <literalValue>Completed</literalValue>
+        <name>Update Asset as Complete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Auto_Renew_Flag</fullName>
+        <field>Auto_Renew__c</field>
+        <literalValue>0</literalValue>
+        <name>Update Auto-Renew Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Payment_Date</fullName>
+        <field>Payment_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Payment Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Asset%3A Update Membership Asset Status</fullName>
+        <actions>
+            <name>Update_Asset_Status_as_Active</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>ISPICKVAL(Product2.Family,&quot;Membership&quot;) &amp;&amp;  InstallDate  = TODAY()</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Asset%3A Update Non-Membership Asset Status</fullName>
+        <actions>
+            <name>Update_Asset_Status_as_Purchased</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Asset.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Membership</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Asset.UsageEndDate</offsetFromField>
+            <timeLength>10</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Email Notification for ISR</fullName>
+        <actions>
+            <name>Email_Notification_on_ISR_Closed_Won</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Asset.Project__c</field>
+            <operation>equals</operation>
+            <value>Internet Security Research Group</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Asset.SalesOrderStatus__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Notification for Registration Product</fullName>
+        <actions>
+            <name>Email_Notification_on_Registration_Products</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Asset.Name</field>
+            <operation>contains</operation>
+            <value>Registration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Asset.SalesOrderStatus__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Sales Ops about NetSuite sync %22silent failure%22 on Purchase History</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Asset.SalesOrderStatus__c</field>
+            <operation>equals</operation>
+            <value>Not Synced to Netsuite</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Asset.Skip_NetSuite_Sync__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Asset.Price</field>
+            <operation>greaterThan</operation>
+            <value>USD 0</value>
+        </criteriaItems>
+        <description>Email Sales Ops when NetSuite sync &quot;fails silently&quot; (i.e. no error is logged, but the sync doesn&apos;t work) on Purchase History.  (Deactivated because this has been replaced by a scheduled job: SFDC-1847)</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Email_Sales_Ops_about_NetSuite_silent_failure_on_Purchase_History</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Email Sales Ops when a NetSuite error is logged on Purchase History</fullName>
+        <actions>
+            <name>Email_Sales_Ops_when_a_NetSuite_error_is_logged_on_Purchase_History</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Email Sales Ops when a NetSuite error is logged on a Purchase History record.</description>
+        <formula>AND(     ISCHANGED(NetSuite_Error__c),     NOT(ISBLANK(NetSuite_Error__c))    )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Error Email For Asset</fullName>
+        <actions>
+            <name>Error_Email_For_Asset</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>NOT(ISBLANK( NetSuite_Error__c ))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update AutoRenew flag when purchase history status is cancelled</fullName>
+        <actions>
+            <name>Update_Auto_Renew_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Asset.Status</field>
+            <operation>equals</operation>
+            <value>Invoice Cancelled</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Asset.Status</field>
+            <operation>equals</operation>
+            <value>Associate Cancelled</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Payment Date</fullName>
+        <actions>
+            <name>Update_Payment_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND (ISCHANGED( SalesOrderStatus__c ), ISPICKVAL(SalesOrderStatus__c,&apos;Closed&apos;))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Limit_Name_to_60_char</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(LEN(NS_Item_Name__c) &gt; 180,
+ISBLANK( NetSuite_Name_Override__c ),
+OR(
+AND(ISNEW(), Not(Skip_60_Char_Limit__c) ),
+NOT( ISNEW() )
+),
+ISBLANK( Training__c )
+)</errorConditionFormula>
+    <errorDisplayField>NetSuite_Name_Override__c</errorDisplayField>
+    <errorMessage>Net suite item name value exceeds 180 character.
+Please enter value in NetSuite Name Override field.</errorMessage>
+</ValidationRule>

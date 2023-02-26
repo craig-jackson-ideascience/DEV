@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Address_is_required</fullName>
+    <active>false</active>
+    <description>Billing address is required</description>
+    <errorConditionFormula>AND(
+  NOT(CONTAINS($Profile.Name, &apos;Admin&apos;)),
+  OR(
+      ISBLANK(BillingStreet),
+      ISBLANK(BillingCity),
+      ISBLANK(BillingState),
+      ISBLANK(BillingCountry),
+      ISBLANK(BillingPostalCode)
+  )
+)</errorConditionFormula>
+    <errorMessage>Billing Address is required.</errorMessage>
+</ValidationRule>

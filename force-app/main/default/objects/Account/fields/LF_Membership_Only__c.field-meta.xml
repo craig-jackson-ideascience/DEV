@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LF_Membership_Only__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To determine Accounts that are only an active member of the Linux Foundation. Includes Active and Purchased status of membership asset.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Active member of Linux Foundation only. No other active project memberships.</inlineHelpText>
+    <label>LF Membership Only</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

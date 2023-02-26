@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UseInTandCBenchmark__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Use Input when calculating the Training and Certification Benchmark</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Use Input when calculating the Training and Certification Benchmark</inlineHelpText>
+    <label>Use In Training and Cert Benchmark</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

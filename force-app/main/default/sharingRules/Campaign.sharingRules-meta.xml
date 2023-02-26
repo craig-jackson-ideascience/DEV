@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Campaign_Sharing</fullName>
+        <accessLevel>All</accessLevel>
+        <description>All except Hubspot</description>
+        <label>Campaign Sharing</label>
+        <sharedTo>
+            <roleAndSubordinates>All_Linux_Foundation</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Name</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Campaign_sharing_for_Finos</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Campaign sharing for Finos</label>
+        <sharedTo>
+            <role>Finos_Hubspot</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Finos_Hubspot__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Campaign_sharing_for_LF</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Campaign sharing for LF</label>
+        <sharedTo>
+            <role>Hubspot</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Hubspot__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Community_Share</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Community Share</label>
+        <sharedTo>
+            <portalRole>TheLinuxFoundationPartnerUser</portalRole>
+        </sharedTo>
+        <criteriaItems>
+            <field>Name</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

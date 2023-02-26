@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technical_Activity_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Technical Activity Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open Source Software</fullName>
+                <default>false</default>
+                <label>Open Source Software</label>
+            </value>
+            <value>
+                <fullName>Open Standard / Specification</fullName>
+                <default>false</default>
+                <label>Open Standard / Specification</label>
+            </value>
+            <value>
+                <fullName>Open Hardware</fullName>
+                <default>false</default>
+                <label>Open Hardware</label>
+            </value>
+            <value>
+                <fullName>Open Data</fullName>
+                <default>false</default>
+                <label>Open Data</label>
+            </value>
+            <value>
+                <fullName>Open Governance Network</fullName>
+                <default>false</default>
+                <label>Open Governance Network</label>
+            </value>
+            <value>
+                <fullName>Community Initiative</fullName>
+                <default>false</default>
+                <label>Community Initiative</label>
+            </value>
+            <value>
+                <fullName>Peer Network</fullName>
+                <default>false</default>
+                <label>Peer Network</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

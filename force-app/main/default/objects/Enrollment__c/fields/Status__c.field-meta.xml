@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Enrolled - Update status for , Course_purchase and when enrollment date is added
+Started - Update status for Course_start and when start date is added
+Completed -Update status for Course_complete and completed date is added
+Expired - If complete date is null and Expired date is in past
+Revoked - update for revoke_access
+Not started - multiple enrollments when there is an record already with above statuses enrolled, started</description>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+                <label>Enrolled</label>
+            </value>
+            <value>
+                <fullName>Started</fullName>
+                <default>false</default>
+                <label>Started</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>Revoked</fullName>
+                <default>false</default>
+                <label>Revoked</label>
+            </value>
+            <value>
+                <fullName>Not started</fullName>
+                <default>false</default>
+                <label>Not started</label>
+            </value>
+            <value>
+                <fullName>Not Certified</fullName>
+                <default>false</default>
+                <label>Not Certified</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

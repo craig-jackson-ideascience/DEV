@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Parent_req_for_some_stages</fullName>
+    <active>true</active>
+    <description>All projects except Incorporated Entities, Internal Allocations, and Unofficial Subprojects must have a Legal Parent before they’re allowed to be set to the “Formation - Engaged,&quot; &quot;Active,&quot; or &quot;Archived&quot; Stage.</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Parent_Entity_Relationship__c),
+    NOT(ISPICKVAL(Category__c, &quot;Incorporated Entity&quot;)),
+    NOT(ISPICKVAL(Category__c, &quot;Internal Allocation&quot;)),
+    NOT(ISPICKVAL(Category__c, &quot;Unofficial Subproject&quot;)),
+    OR(
+       ISPICKVAL(Project_Status__c, &quot;Formation - Engaged&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Active&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Archived&quot;)
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Parent_Entity_Relationship__c</errorDisplayField>
+    <errorMessage>Legal Parent is required for most &quot;Formation - Engaged,&quot; &quot;Active,&quot; and &quot;Archived&quot; projects.</errorMessage>
+</ValidationRule>

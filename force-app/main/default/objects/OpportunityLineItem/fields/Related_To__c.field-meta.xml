@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_To__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(Projects__c)),HYPERLINK(&quot;/&quot;+Projects__c,Projects__r.Name,&quot;_top&quot;), 
+IF(NOT(ISBLANK(Event__c)),HYPERLINK(&quot;/&quot;+Event__c,Event__r.Name,&quot;_top&quot;),IF(NOT(ISBLANK(Training__c)),HYPERLINK(&quot;/&quot;+Training__c,Training__r.Name,&quot;_top&quot;),&quot;&quot;)) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Related To</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

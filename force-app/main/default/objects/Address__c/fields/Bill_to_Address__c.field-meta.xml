@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bill_to_Address__c</fullName>
+    <description>Created for DocuSign to show billing address in single line.</description>
+    <externalId>false</externalId>
+    <formula>SUBSTITUTE(
+
+SUBSTITUTE(
+
+IF(
+   ISBLANK(Street__c),
+   &quot;&quot;,
+   Street__c + &quot;, &quot;
+  )
++
+IF(
+   ISBLANK(City__c),
+   &quot;&quot;,
+   IF(
+      ISBLANK(State__c),
+      City__c + &quot; &quot;,
+      City__c + &quot;, &quot;
+     )
+  )
++
+IF(
+   ISBLANK(State__c),
+   &quot;&quot;,
+   State__c + &quot; &quot;
+  )
++
+IF(
+   ISBLANK(Zip_Postal_Code__c),
+   &quot;&quot;,
+   Zip_Postal_Code__c
+  )
++
+IF(
+   ISBLANK(Country__c),
+   &quot;&quot;,
+   IF(
+      ISBLANK(Zip_Postal_Code__c),
+      IF(
+         ISBLANK(State__c),
+         &quot; &quot; + Country__c,
+         &quot;, &quot; + Country__c
+        ),
+      &quot;, &quot; + Country__c
+     )
+  )
+
+/* removes any spaces that immediately precede a comma, so &quot;Madrid , Spain&quot; would become &quot;Madrid, Spain&quot; */
+, &quot; ,&quot;, &quot;,&quot;)
+
+
+/* removes any double commas and replaces them with a single comma, so &quot;Madrid,, Spain&quot; would become &quot;Madrid, Spain&quot; */
+, &quot;,,&quot;, &quot;,&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Bill to Address</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

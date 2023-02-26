@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clone_with_Product_Details</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Clone with Product Details</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+var eventId = &quot;{!Event__c.Id}&quot;;
+
+console.log(&apos;__event___&apos;+ eventId);
+
+var newEvent_Id = sforce.apex.execute(&quot;CloneEvents&quot;, &quot;clone_method&quot;, {evtId : &quot;{!Event__c.Id}&quot;});
+
+console.log(&apos;___newEvent_Id___&apos;+newEvent_Id);
+
+var url = &apos;&apos;; 
+
+if(newEvent_Id!=null &amp;&amp; newEvent_Id!=&apos;&apos;){ 
+url = &quot;/&quot;+newEvent_Id; 
+} 
+
+console.log(&apos;___url___&apos;+url); 
+
+window.location=url;</url>
+</WebLink>

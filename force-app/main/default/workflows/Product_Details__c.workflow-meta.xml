@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Notification_if_Training_Product_Detail_NS_fields_are_blank</fullName>
+        <description>Email Notification if Training Product Detail NS fields are blank</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>System_Administrator_Group</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_Notification_if_Training_Product_Detail_NS_fields_are_blank</template>
+    </alerts>
+    <alerts>
+        <fullName>Error_Email</fullName>
+        <description>Error Email</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>System_Administrator_Group</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Error_Email_For_Product_Details</template>
+    </alerts>
+    <rules>
+        <fullName>Send Error In Email</fullName>
+        <actions>
+            <name>Error_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>NOT(ISBLANK( NetSuite_Error__c ))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Notification if NS fields are blank</fullName>
+        <actions>
+            <name>Email_Notification_if_Training_Product_Detail_NS_fields_are_blank</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Sends the email to the admin if Product detail is created and its NS fields are blank.</description>
+        <formula>NOT(ISNULL(Training__c))   &amp;&amp;  (ISPICKVAL(Training__r.Category__c,&apos;Certification&apos;) || ISPICKVAL(Training__r.Category__c,&apos;E-Learning&apos;) || ISPICKVAL(Training__r.Category__c,&apos;Instructor-Led&apos;)) &amp;&amp;  (ISBLANK(NetSuite_Class__c) || ISPICKVAL(NS_Department__c, &apos;&apos;) || ISPICKVAL(NS_Income_GL_Account__c,&apos;&apos;) || ISPICKVAL(NS_Deferred_Revenue_Account__c,&apos;&apos;) || ISPICKVAL(NS_Revenue_Schedule__c,&apos;&apos;) || ISBLANK(Netsuite_ID__c))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

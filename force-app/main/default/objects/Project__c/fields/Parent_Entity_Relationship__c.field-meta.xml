@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Entity_Relationship__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The Incorporated Entity or Series LLC that is the legal parent of the project.</inlineHelpText>
+    <label>Legal Parent</label>
+    <referenceTo>Project__c</referenceTo>
+    <relationshipLabel>Child Projects of Legal Entity</relationshipLabel>
+    <relationshipName>Projects1</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

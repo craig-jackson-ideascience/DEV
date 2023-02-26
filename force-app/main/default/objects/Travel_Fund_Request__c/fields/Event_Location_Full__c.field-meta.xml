@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Location_Full__c</fullName>
+    <externalId>false</externalId>
+    <formula>Event__r.Event_Location_Name__c + BR() +
+Event__r.Event_Location_Address__c + BR()+
+Event__r.Event_Location_City__c + &quot;, &quot; + Event__r.Event_Location_State__c + &quot; &quot; + Event__r.Event_Location_Zip__c + BR() +
+TEXT(Event__r.Event_Location_Country__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Event Location Full</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

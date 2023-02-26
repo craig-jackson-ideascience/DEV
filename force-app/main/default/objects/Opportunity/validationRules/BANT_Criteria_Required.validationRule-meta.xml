@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BANT_Criteria_Required</fullName>
+    <active>false</active>
+    <description>Requires BANT fields to be completed prior to advancing past stage 02.Discovery</description>
+    <errorConditionFormula>AND(
+    TEXT(StageName) &lt;&gt; &quot;2. Discovery&quot;,
+				OR(
+					ISBLANK(TEXT(Budget__c)),
+					ISBLANK(TEXT(Buying_Time_Frame__c)),
+					NOT(Authority__c=FALSE),
+					ISBLANK(Pain_Points__c)
+				)
+	)</errorConditionFormula>
+    <errorMessage>BANT Criteria fields must be complete to advance to next stage</errorMessage>
+</ValidationRule>

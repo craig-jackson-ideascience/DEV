@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Year__c</fullName>
+    <description>This is a text field rather than a number field because we don&apos;t want (for example) the year 2020 to show up as 2,020.  There is a validation rule in place to make sure we only get valid year values for this field.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Approximation of the year this person started in the industry.  If they select &quot;0-4 years,&quot; we assume 2 years experience.  If they select &quot;5-9 years,&quot; we assume 7 years experience.  If they select &quot;10+ years,&quot; we assume 12 years experience.</inlineHelpText>
+    <label>Start Year (approximate)</label>
+    <length>4</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

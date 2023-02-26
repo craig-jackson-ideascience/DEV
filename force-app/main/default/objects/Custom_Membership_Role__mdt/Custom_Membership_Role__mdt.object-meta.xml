@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Used to store Membership Roles that are needed for specific projects but are not universal across all projects.</description>
+    <label>Custom Membership Role</label>
+    <pluralLabel>Custom Membership Roles</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

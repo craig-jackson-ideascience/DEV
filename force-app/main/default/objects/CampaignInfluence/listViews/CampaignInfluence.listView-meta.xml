@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CampaignInfluence</fullName>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.STATUS</field>
+        <operation>equals</operation>
+        <value>In Progress,Completed</value>
+    </filters>
+    <filters>
+        <field>CM.STATUS</field>
+        <operation>equals</operation>
+        <value>Responded,Sent</value>
+    </filters>
+    <filters>
+        <field>OCR.ROLE</field>
+        <operation>notEqual</operation>
+        <value>Other</value>
+    </filters>
+    <label>CampaignInfluence</label>
+    <sharedTo></sharedTo>
+</ListView>

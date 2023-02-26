@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The LF staff member who should own New Business Opportunities for this project. In the Project Control Center, this is the equivalent of the &quot;Membership New Sales Owner.&quot;</inlineHelpText>
+    <label>Opportunity Owner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Projects2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

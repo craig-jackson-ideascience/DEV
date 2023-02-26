@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_Not_Include_in_Master_Subscriber_List__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Do Not Include in Master Subscriber List
+Do_Not_Include_in_Master_Subscriber_List</description>
+    <externalId>false</externalId>
+    <label>Do Not Include in Global Subscriber List</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

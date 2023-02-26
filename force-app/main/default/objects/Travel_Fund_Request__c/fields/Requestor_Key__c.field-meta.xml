@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requestor_Key__c</fullName>
+    <description>Requestor Key is the MD5-hash of the Salesforce ID. This is used when the requestor wants to review an existing application and/or upload expenses.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Requestor Key is the MD5-hash of the Salesforce ID. This is used when the requestor wants to review an existing application and/or upload expenses.</inlineHelpText>
+    <label>Requestor Key</label>
+    <length>32</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

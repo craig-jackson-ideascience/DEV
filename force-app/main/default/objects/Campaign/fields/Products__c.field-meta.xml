@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Products__c</fullName>
+    <externalId>false</externalId>
+    <label>LFX Products</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LFX Portal</fullName>
+                <default>false</default>
+                <label>LFX Portal</label>
+            </value>
+            <value>
+                <fullName>EasyCLA</fullName>
+                <default>false</default>
+                <label>EasyCLA</label>
+            </value>
+            <value>
+                <fullName>Insights</fullName>
+                <default>false</default>
+                <label>Insights</label>
+            </value>
+            <value>
+                <fullName>Individual Dashboard</fullName>
+                <default>false</default>
+                <label>Individual Dashboard</label>
+            </value>
+            <value>
+                <fullName>Mentorship</fullName>
+                <default>false</default>
+                <label>Mentorship</label>
+            </value>
+            <value>
+                <fullName>Crowdfunding</fullName>
+                <default>false</default>
+                <label>Crowdfunding</label>
+            </value>
+            <value>
+                <fullName>Organization Dashboard Beta Program Sign-Up</fullName>
+                <default>false</default>
+                <label>Organization Dashboard Beta Program Sign-Up</label>
+            </value>
+            <value>
+                <fullName>Project Control Center Beta Program Sign-Up</fullName>
+                <default>false</default>
+                <label>Project Control Center Beta Program Sign-Up</label>
+            </value>
+            <value>
+                <fullName>Security</fullName>
+                <default>false</default>
+                <label>Security</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

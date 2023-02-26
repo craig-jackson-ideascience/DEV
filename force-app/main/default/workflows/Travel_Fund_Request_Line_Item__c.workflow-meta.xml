@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Update_TFRLid</fullName>
+        <field>TFRLid__c</field>
+        <formula>Id</formula>
+        <name>Update TFRLid</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update TFRLid</fullName>
+        <actions>
+            <name>Update_TFRLid</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Travel_Fund_Request_Line_Item__c.TFRLid__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Update TFRLid with salesforce id</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

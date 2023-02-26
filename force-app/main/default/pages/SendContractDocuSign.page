@@ -1,0 +1,138 @@
+<!--
+- Created by Martand Atrey on 14-10-2019.
+-->
+
+<apex:page id="SendContractDocuSign" standardController="Opportunity" extensions="SendContractDocuSignExtension"
+           action="{!processDocusign}"
+           showHeader="false" sideBar="false">
+    <apex:slds />
+    <script type="text/javascript">
+    
+    function redirectAfterInterval() {
+        
+        setTimeout(function(){
+            redirectToRecord();
+        }
+                   , 8000);
+    }
+    
+    function togglesendbutton(){
+        if({!enableSend}){
+            
+            document.getElementsByClassName("sendButton")[0].classList.toggle("slds-hide");
+            document.getElementsByClassName("sendButton1")[0].classList.toggle("slds-hide");
+            document.getElementsByClassName("download")[0].classList.toggle("slds-hide");
+            document.getElementsByClassName("download1")[0].classList.toggle("slds-hide");
+        }
+    }
+    
+    
+    
+    </script>
+    <apex:pageMessages id="errorMessages"></apex:pageMessages>
+    <apex:actionstatus id="counterStatus">
+        <apex:facet name="start">
+            <div class="waitingSearchDiv" id="el_loading"
+                 style="background-color: #ffffff; height:100%;opacity:0.5;width:100%;position:fixed;">
+                <div class="waitingHolder" style="top: 100px; width: 100px;">
+                    <div class="slds-spinner_container">
+                        <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionstatus>
+    
+    <apex:form id="dsform">
+        <apex:actionFunction action="{!goToRecord}" name="redirectToRecord"/>
+        <!--<apex:actionFunction action="{!enableSendButton}" name="enableSendButton" reRender="dsform"/>-->
+        
+        <article class="slds-card" style="margin: 10px;">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-account" title="account">
+                            <span class="slds-assistive-text">DocuSign</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <span>DocuSign</span>
+                        </h2>
+                    </div>
+                    
+                    <apex:commandButton styleclass="slds-button slds-button_neutral" style="float: right;"
+                                        value="Back"
+                                        action="{!goToRecord}"/>
+                    <apex:commandButton styleclass="slds-button slds-button_brand sendButton " id="sendButton"
+                                        style="float: right;" value="Send"
+                                        disabled="true"
+                                        status="counterStatus" reRender="errorMessages,dsform"
+                                        onComplete="redirectAfterInterval(); return null;"/>
+                    <apex:commandButton styleclass="slds-button slds-button_brand sendButton1 slds-hide"
+                                        id="sendButton1"
+                                        style="float: right;" value="Send" action="{!sendDocusign}"
+                                        status="counterStatus" reRender="errorMessages,dsform"
+                                        onComplete="redirectAfterInterval(); return null;"/>
+                    <apex:commandButton styleclass="slds-button slds-button_brand download slds-hide " id="download"
+                                        style="float: right;"  value="Download" onclick="downloadDocument();return false;"/>
+                    <apex:commandButton styleclass="slds-button slds-button_brand download1" id="download1"
+                                        disabled="true"
+                                        style="float: right;"  value="Download" onclick="downloadDocument();return false;"/>
+                    
+                    <!--<apex:commandButton styleclass="slds-button slds-button_brand"
+style="float: right;" value="Send DS" action="{!sendDS}"
+status="counterStatus"/>-->
+                </header>
+            </div>
+            
+        </article>
+        <apex:outputPanel rendered="{!authSignatoryEmail != '' && authSignatoryEmail != null }">
+            <center style="color: red; padding-bottom: 10px;">This Contract will be sent
+                to: {!authSignatoryEmail}</center>
+        </apex:outputPanel>
+        
+    </apex:form>
+    
+    <div>
+        <iframe src="{!redirectPreviewURL}" width="100%" frameborder="0" scrolling="yes" style="height:100vh;"
+                onload="togglesendbutton(); return null;"/>
+    </div>
+    
+    <script>
+    function downloadDocument() {
+        console.log('inside method');
+        var envelopId = '{!envelopeId}';
+        Visualforce.remoting.Manager.invokeAction(
+            
+            '{!$RemoteAction.SendContractDocuSignExtension.downloadDocumentToSystem}', envelopId,
+            function(result, event){
+                //We can access the records through the parameter result
+                //event.status determines if there is error or not 
+                
+                saveData(result, 'docusign.pdf');
+                
+            },
+            {escape: true}
+        );
+    }
+    
+    
+    function saveData(data, fileName) {
+        var strFile = "data:application/pdf;base64,"+data;
+        const anchor = document.createElement('a');
+        anchor.href = strFile;
+        anchor.download = fileName;
+        
+        
+        // Trigger `click` event
+        anchor.click();
+        
+        
+    }
+    </script>
+    
+</apex:page>

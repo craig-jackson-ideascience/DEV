@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Logo_Url__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( CONTAINS(Billfrom_ID__r.Name, &apos;AllSeen Alliance, Inc.&apos;) , &apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTFk&apos; , 
+IF( CONTAINS(Billfrom_ID__r.Name, &apos;CloudFoundry.org Foundation&apos;) , &apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTF1&apos; ,
+IF( CONTAINS(Billfrom_ID__r.Name, &apos;OpenJS Foundation&apos;) , &apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=0152M00000361Yl&apos; , 
+IF( CONTAINS(Billfrom_ID__r.Name, &apos;Dronecode Project&apos;) , &apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTFL&apos; , 
+IF( CONTAINS(Billfrom_ID__r.Name, &apos;JS Foundation&apos;) , &apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTFp&apos; , 
+IF( CONTAINS(Billfrom_ID__r.Name , &apos;Node.js Foundation&apos;) ,&apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTFu&apos; , 
+IF( CONTAINS(Billfrom_ID__r.Name , &apos;ODPi&apos;) ,&apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTFf&apos; , 
+IF( CONTAINS(Billfrom_ID__r.Name , &apos;OpenFabrics&apos;) ,&apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTFa&apos; , 
+IF( CONTAINS(Billfrom_ID__r.Name , &apos;R Consortium&apos;) ,&apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTFB&apos; ,
+IF( CONTAINS(Billfrom_ID__r.Name , &apos;LF Asia, LLC&apos;) ,&apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=015410000021IjW&apos;,
+IF( CONTAINS(Billfrom_ID__r.Name , &apos;RISC-V International&apos;) ,&apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=0152M00000356DC&apos;, &apos;https://linuxfoundation--c.na96.content.force.com/servlet/servlet.FileDownload?file=01541000002vTF6&apos; 
+)))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Logo Url</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

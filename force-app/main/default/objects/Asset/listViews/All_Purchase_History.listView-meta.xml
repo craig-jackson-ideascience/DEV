@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Purchase_History</fullName>
+    <columns>ASSET.NAME</columns>
+    <columns>ASSET.SERIAL_NUMBER</columns>
+    <columns>ASSET.INSTALL_DATE</columns>
+    <columns>ASSET.USAGE_END_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.NAME</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>PRODUCT2.STOCK_KEEPING_UNIT</columns>
+    <columns>Project__c</columns>
+    <columns>Account_Name_with_both_Active_and_Cancel__c</columns>
+    <columns>ASSET.STATUS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ASSET.INSTALL_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>3/20/2022</value>
+    </filters>
+    <label>All Purchase History</label>
+</ListView>

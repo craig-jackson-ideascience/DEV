@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Type__c</fullName>
+    <description>Back-end field needed to indicate whether this project has any child projects nested below it (via the Parent Project lookup field). If so, this is a Project Group. If not, this is a Project. This field is automatically updated; users should not set this field manually.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Back-end field needed to indicate whether this project has any child projects nested below it. If so, this is a Project Group. If not, this is a Project.</inlineHelpText>
+    <label>Type</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Project</fullName>
+                <default>true</default>
+                <label>Project</label>
+            </value>
+            <value>
+                <fullName>Project Group</fullName>
+                <default>false</default>
+                <label>Project Group</label>
+            </value>
+            <value>
+                <fullName>LF Supported</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LF Supported</label>
+            </value>
+            <value>
+                <fullName>Member Project</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Member Project</label>
+            </value>
+            <value>
+                <fullName>Member Sub-Project</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Member Sub-Project</label>
+            </value>
+            <value>
+                <fullName>Non-Member Project</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Non-Member Project</label>
+            </value>
+            <value>
+                <fullName>Preformation</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Preformation</label>
+            </value>
+            <value>
+                <fullName>Public Domain Project</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Public Domain Project</label>
+            </value>
+            <value>
+                <fullName>Standalone</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Standalone</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

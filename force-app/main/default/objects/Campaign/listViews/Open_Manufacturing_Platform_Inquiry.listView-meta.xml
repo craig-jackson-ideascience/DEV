@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_Manufacturing_Platform_Inquiry</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>Project__c</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Project__c</field>
+        <operation>contains</operation>
+        <value>Open Manufacturing Platform</value>
+    </filters>
+    <label>Open Manufacturing Platform</label>
+</ListView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LF_Event_Validation</fullName>
+    <active>true</active>
+    <description>LF Event Category must have Bill From Project = The Linux Foundation</description>
+    <errorConditionFormula>AND(ISNEW(),ISPICKVAL(Category__c, &apos;LF Event&apos;) , BillFromProject__r.Name &lt;&gt; &apos;The Linux Foundation&apos;)</errorConditionFormula>
+    <errorMessage>For LF Projects, set the BIll From Project to &apos;The Linux Foundation&apos; before saving.</errorMessage>
+</ValidationRule>

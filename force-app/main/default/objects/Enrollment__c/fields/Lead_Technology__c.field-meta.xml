@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Technology__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(Lead_Name__r.Technology__c,&quot;AI, ML, Data &amp; Analytics&quot;),&quot;AI, ML, Data &amp; Analytics;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Blockchain&quot;),&quot;Blockchain;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Cloud, Containers &amp; Virtualization&quot;),&quot;Cloud, Containers &amp; Virtualization;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Cross-Technology&quot;),&quot;Cross-Technology;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;DevOps, CI/CD &amp; Site Reliability&quot;),&quot;DevOps, CI/CD &amp; Site Reliability;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;IoT &amp; Embedded&quot;),&quot;IoT &amp; Embedded;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Linux Kernel&quot;),&quot;Linux Kernel;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Networking &amp; Edge&quot;),&quot;Networking &amp; Edge;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Open Hardware&quot;),&quot;Open Hardware;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Open Source &amp; Compliance Best Practices&quot;),&quot;Open Source &amp; Compliance Best Practices;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Privacy &amp; Security&quot;),&quot;Privacy &amp; Security;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Safety-Critical Systems&quot;),&quot;Safety-Critical Systems;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Storage&quot;),&quot;Storage;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;System Administration&quot;),&quot;System Administration;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;System Engineering&quot;),&quot;System Engineering;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Visual Effects&quot;),&quot;Visual Effects;&quot;,null)&amp;
+IF(INCLUDES(Lead_Name__r.Technology__c,&quot;Web &amp; Application Development&quot;),&quot;Web &amp; Application Development;&quot;,null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lead Technology</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

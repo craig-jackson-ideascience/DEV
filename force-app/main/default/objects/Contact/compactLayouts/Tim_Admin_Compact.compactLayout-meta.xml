@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tim_Admin_Compact</fullName>
+    <fields>Name</fields>
+    <fields>AccountId</fields>
+    <fields>Title</fields>
+    <fields>Email</fields>
+    <fields>Phone</fields>
+    <fields>MobilePhone</fields>
+    <fields>Twitter_ID__c</fields>
+    <label>Tim Admin Compact</label>
+</CompactLayout>

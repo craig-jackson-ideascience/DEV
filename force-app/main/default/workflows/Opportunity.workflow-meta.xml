@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Events_Team_on_Closed_Won</fullName>
+        <ccEmails>acarlson@linuxfoundation.org</ccEmails>
+        <ccEmails>mnino@linuxfoundation.org</ccEmails>
+        <description>Email Events Team on Closed Won</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Event_Sponsorship</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Alert_Events_Team_of_Closed_Won</template>
+    </alerts>
+    <alerts>
+        <fullName>Jim_notification</fullName>
+        <description>Jim notification template</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>jzemlin@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_template_For_Jim</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_escalation_to_Manager</fullName>
+        <description>Send escalation to Manager</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Manager_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Escalate_Manager_for_Open_Renewal_Opportunity</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Clears_out_the_Hold_Date</fullName>
+        <field>Hold_Date__c</field>
+        <name>Clear out the Hold Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Clears_out_the_Hold_Reason</fullName>
+        <field>Hold_Reason__c</field>
+        <name>Clear out the Hold Reason</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Clears_out_the_Hold_User</fullName>
+        <field>Hold_User__c</field>
+        <name>Clear out the Hold User</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_Won_Opp</fullName>
+        <description>Change the stage to closed won and create the asset- this baby is approved!</description>
+        <field>StageName</field>
+        <literalValue>Closed Won</literalValue>
+        <name>Close Won Opp</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Owner_Manger_Email_Update</fullName>
+        <field>Manager_Email__c</field>
+        <formula>Owner.Manager.Email</formula>
+        <name>Owner Manger Email Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Hold_Date_to_today_s_date</fullName>
+        <field>Hold_Date__c</field>
+        <formula>today()</formula>
+        <name>Set Hold Date to today&apos;s date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Hold_User_to_running_user_s_fullname</fullName>
+        <field>Hold_User__c</field>
+        <formula>$User.FirstName + &quot; &quot; + $User.LastName</formula>
+        <name>Set Hold User to running user&apos;s fullname</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_CloseDate_to_Today</fullName>
+        <field>CloseDate</field>
+        <formula>TODAY()</formula>
+        <name>Update CloseDate to Today</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Events_Workflow_Fired</fullName>
+        <field>Events_Email_Notification_Fired__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Events Workflow Fired</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Field_Renewal_Opportunity_Closed</fullName>
+        <field>Renewal_Opportunity_Closed__c</field>
+        <formula>IF( AND(  IsClosed , ISPICKVAL( Type , &apos;Renewal&apos;) ) , &apos;True&apos;, &apos;False&apos;)</formula>
+        <name>Update Field: Renewal Opportunity Closed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Opportunity_Authority_Field</fullName>
+        <field>Authority__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Opportunity Authority Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Opportunity_Name</fullName>
+        <field>Name</field>
+        <formula>IF(AND(NOT(ISBLANK(Account.Name)), NOT(ISNULL(Amount)), NOT(ISBLANK(First_Project_Event_Training_Name__c)), NOT(ISBLANK(First_Product_Name__c )),NOT(ISBLANK(First_Product_Year__c))), 
+Account.Name &amp; &apos; - &apos; &amp; First_Project_Event_Training_Name__c &amp; &apos; - &apos; &amp; First_Product_Name__c /*&amp; &apos; - &apos; &amp; First_Product_Year__c &amp; &apos; - &apos; &amp; TEXT(ROUND(Amount , 2))*/, 
+IF(AND(NOT(ISBLANK(Account.Name)), NOT(ISNULL(Amount)), NOT(ISBLANK(First_Project_Event_Training_Name__c)), NOT(ISBLANK(First_Product_Name__c ))), 
+Account.Name &amp; &apos; - &apos; &amp; First_Project_Event_Training_Name__c &amp; &apos; - &apos; &amp; First_Product_Name__c /*&amp; &apos; - &apos; &amp; TEXT(ROUND(Amount , 2))*/, 
+IF(NOT(ISBLANK(First_Product_Year__c)), 
+Account.Name &amp; &apos; - &apos; &amp; First_Product_Year__c &amp; &apos; - &apos; &amp; TEXT(ROUND(Amount , 2)), 
+Account.Name &amp; &apos; - &apos; &amp; TEXT(ROUND(Amount , 2))) 
+) 
+)</formula>
+        <name>Update Opportunity Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Stage_to_Pending_Approval</fullName>
+        <field>StageName</field>
+        <literalValue>Pending Approval</literalValue>
+        <name>Update Stage to Pending Approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Clear out fields when Hold is unchecked</fullName>
+        <actions>
+            <name>Clears_out_the_Hold_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Clears_out_the_Hold_Reason</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Clears_out_the_Hold_User</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Hold__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>When the Hold checkbox is set to FALSE, clears out the Hold Date, the Hold User, and the Hold Reason.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Field Update for Open Renewal  Opportunity after 15 days</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Type</field>
+            <operation>equals</operation>
+            <value>Renewal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.IsClosed</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Field Update for Open Renewal  Opportunity after 15 days, Then Task created</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Field_Renewal_Opportunity_Closed</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>15</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Jim Notification</fullName>
+        <actions>
+            <name>Jim_notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.CreatedById</field>
+            <operation>equals</operation>
+            <value>Join Now Form</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Type</field>
+            <operation>equals</operation>
+            <value>New Business</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Closed Won</value>
+        </criteriaItems>
+        <description>Jim Notification for CLosedWon New Business</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity %3A Escalate Manager for Open Renewal Opportunity after 20 days</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Type</field>
+            <operation>equals</operation>
+            <value>Renewal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.IsClosed</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_escalation_to_Manager</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>20</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Opportunity %3A Set Owner Manager Email</fullName>
+        <actions>
+            <name>Owner_Manger_Email_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR( ISNEW() , ISCHANGED( OwnerId ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity %3A Update Name with Opportunity and Account Fields</fullName>
+        <actions>
+            <name>Update_Opportunity_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Name</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Update Opportunity Name: account name - first project/event/training name - product name - amount</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity - Alert Email Events Team on Closed Won</fullName>
+        <actions>
+            <name>Email_Events_Team_on_Closed_Won</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_Events_Workflow_Fired</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Event</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Closed Won</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate fields when Hold is checked</fullName>
+        <actions>
+            <name>Set_Hold_Date_to_today_s_date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Hold_User_to_running_user_s_fullname</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Hold__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>When the Hold checkbox is set to TRUE, sets Hold Date to today&apos;s date and sets Hold User to the running user&apos;s full name.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update CloseDate on ClosedWon</fullName>
+        <actions>
+            <name>Update_CloseDate_to_Today</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(  				IsWon,  				IsClosed,   				OR( 				    ISPICKVAL(  Type , &apos;New Business&apos; ), 								AND( 												ISPICKVAL(  Type , &apos;Existing Business&apos; ), 												CASESAFEID(RecordTypeId) == $Label.CorporateTrainingRecordTypeId 								) 				)    )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Opportunity_Ready_for_Approva_Min</fullName>
+        <assignedTo>myu@linuxfoundation.org</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>2</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Opportunity Ready for Approval</subject>
+    </tasks>
+    <tasks>
+        <fullName>Opportunity_Ready_for_Approval</fullName>
+        <assignedTo>sfdc-api@linuxfoundation.org</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>2</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Opportunity Ready for Approval</subject>
+    </tasks>
+    <tasks>
+        <fullName>Renewal_Approval_Needed</fullName>
+        <assignedToType>accountOwner</assignedToType>
+        <dueDateOffset>2</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Renewal Approval Needed</subject>
+    </tasks>
+    <tasks>
+        <fullName>Your_Opportunity_was_Not_Approved</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>The following project membership opportunity requires you to review the associated contract prior to approval: 
+Opportuntiy: {!Opportunity.Name} 
+Date: {!Opportunity.LastStageChangeDate}</description>
+        <dueDateOffset>2</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Your Opportunity was Not Approved</subject>
+    </tasks>
+</Workflow>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Alert_when_cvent_event_is_created</fullName>
+        <description>Alert when cvent event is created</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Cvent_Events</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Jacynth/Cvent_Event</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Finance_on_New_Event</fullName>
+        <description>Email Finance on New Event</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>sfdc-api-user@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>tpresley@linux.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Alert_Finance_of_New_Event</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Event_Update_Event_Name</fullName>
+        <field>Event_Name__c</field>
+        <formula>Name</formula>
+        <name>Event: Update Event Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Manual_Check_Status_to_True</fullName>
+        <field>Manual_Status_Check__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Manual Check Status to True</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Alert for cvent events</fullName>
+        <actions>
+            <name>Alert_when_cvent_event_is_created</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event__c.Cvent_Event_Id__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Finance on New Event</fullName>
+        <actions>
+            <name>Email_Finance_on_New_Event</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event__c.Start_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Event__c.Name</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Event%3A Set Manual Check Status to True</fullName>
+        <actions>
+            <name>Update_Manual_Check_Status_to_True</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event__c.Manual_Status_Check__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Event%3A Update Name as Event Name</fullName>
+        <actions>
+            <name>Event_Update_Event_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(ISNEW(),ISCHANGED(Name))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

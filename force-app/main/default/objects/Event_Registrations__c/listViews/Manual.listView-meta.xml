@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Data_Source__c</field>
+        <operation>equals</operation>
+        <value>Manual Entry</value>
+    </filters>
+    <label>Manual</label>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tux_rewards_most_recent_coupon_gen_date__c</fullName>
+    <description>Tracks the most recent time the Tux Rewards Balance hit 500 points.</description>
+    <externalId>false</externalId>
+    <label>Last Tux Rewards Coupon Generation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

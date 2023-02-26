@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Slug_changes_by_non_admins</fullName>
+    <active>true</active>
+    <description>Only SFDC administrators can change the value of the Slug field once it has already been set.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Slug__c),
+    $Profile.Name != &apos;System Admin Custom&apos;,
+    $Profile.Name != &apos;System Administrator&apos;
+   )</errorConditionFormula>
+    <errorDisplayField>Slug__c</errorDisplayField>
+    <errorMessage>Please contact an admin to change the Slug of this project.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <layouts>
+        <layout>Admin Project Layout</layout>
+        <sections>
+            <label></label>
+            <section>All Entity Type Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Bill From Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Categorization &amp; Funding</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Docusign Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Incorporated Entity Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Industry/Technology &amp; Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Membership &amp; Renewals</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Notifications</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Online Presence</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Opportunities</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Overview</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Parent Projects</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Pipeline Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Project Members</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Project Personnel</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Reports</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Series LLC &amp; Subproject Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Social</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Admin Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label></label>
+            <section>All Entity Type Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Bill From Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Categorization &amp; Funding</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Docusign Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Drive Link</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Incorporated Entity Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Industry/Technology &amp; Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Membership &amp; Renewals</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NetSuite Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Online Presence</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Opportunities</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Overview</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Parent Projects</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Pipeline Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Project Members</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Project Personnel</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Reports</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Series LLC &amp; Subproject Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Social</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Code_Project</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>New_Product_Detail</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Auto_Join_project_cannot_be_archived</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Auto_Join_projects_must_have_Membership</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Auto_Join_projects_require_Website</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Auto_Join_requires_Docusign_Template_Id</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Auto_Join_requires_Project_Signatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cross_Industry_stands_alone</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Cross_Technology_stands_alone</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Description_req_for_Formation_Engaged</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Enforce_Series_LLC_for_two_Legal_Parents</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Enforce_characters_allowed_for_Slugs</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Entity_Type_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Entity_Type_required_when_Active_or_Arch</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>ExpAnnouncDate_req_for_Formation_Engaged</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Formal_Name_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Formation_Date_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Funding_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Industry_Sector_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>JDF_Projects_LLC_Formal_Name_format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>LF_Projects_LLC_Formal_Name_format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Legal_Parent_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Model_required_for_Funded_projects</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Only_Project_Operations_can_edit_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Parent_Project_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Prevent_Slug_changes_by_non_admins</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Restrict_Legal_Parents_for_Series_LLCs</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Restrict_Manual_Status_Set_As_Active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Restrict_status_on_Project_Insert</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Series_Agreement_must_precede_FormalName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Supported_by_Parent_projects_need_Parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Tech_Activity_Type_req_for_some_stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Technology_Sector_req_for_some_stages</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Code_Project</name>
+    </webLinks>
+</CustomObjectTranslation>

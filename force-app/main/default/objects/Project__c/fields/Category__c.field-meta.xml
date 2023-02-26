@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates the type of entity the project is established as. If you&apos;re debating between Unofficial Subproject and Subproject, note that Subproject is the more common answer.</inlineHelpText>
+    <label>Entity Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Subproject</fullName>
+                <default>false</default>
+                <label>Subproject</label>
+            </value>
+            <value>
+                <fullName>Incorporated Entity</fullName>
+                <default>false</default>
+                <label>Incorporated Entity</label>
+            </value>
+            <value>
+                <fullName>Series LLC</fullName>
+                <default>false</default>
+                <label>Series LLC</label>
+            </value>
+            <value>
+                <fullName>Unofficial Subproject</fullName>
+                <default>false</default>
+                <label>Unofficial Subproject</label>
+            </value>
+            <value>
+                <fullName>Internal Allocation</fullName>
+                <default>false</default>
+                <label>Internal Allocation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

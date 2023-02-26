@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Events</fullName>
+    <columns>NAME</columns>
+    <columns>Cvent_Event_EventCode__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Event_Registrations__c</columns>
+    <columns>Revenue__c</columns>
+    <columns>Revenue_Goal__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Cvent_Event_EventCode__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>5/20/2019</value>
+    </filters>
+    <label>Active Events</label>
+</ListView>

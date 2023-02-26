@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpenFin_Tech_Forum</fullName>
+    <columns>Start_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Event_Registrations__c</columns>
+    <columns>MCEventId__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>FinTech</value>
+    </filters>
+    <label>OpenFin Tech Forum</label>
+</ListView>

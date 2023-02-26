@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pipeline_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Pipeline Stage</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Exploratory Discussions</fullName>
+                <default>false</default>
+                <label>Exploratory Discussions</label>
+            </value>
+            <value>
+                <fullName>Engaged</fullName>
+                <default>false</default>
+                <label>Engaged</label>
+            </value>
+            <value>
+                <fullName>Intent To Form</fullName>
+                <default>false</default>
+                <label>Intent To Form</label>
+            </value>
+            <value>
+                <fullName>Moving To Full Launch</fullName>
+                <default>false</default>
+                <label>Moving To Full Launch</label>
+            </value>
+            <value>
+                <fullName>Disengaged</fullName>
+                <default>false</default>
+                <label>Disengaged</label>
+            </value>
+            <value>
+                <fullName>Launched</fullName>
+                <default>false</default>
+                <label>Launched</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

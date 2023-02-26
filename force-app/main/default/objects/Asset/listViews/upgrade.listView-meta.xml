@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>upgrade</fullName>
+    <columns>ASSET.NAME</columns>
+    <columns>ASSET.SERIAL_NUMBER</columns>
+    <columns>ASSET.INSTALL_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.NAME</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>Project__c</columns>
+    <columns>Projects__c</columns>
+    <columns>Cancellation_Reason__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Cancellation_Reason__c</field>
+        <operation>equals</operation>
+        <value>Upgrade,Downgrade</value>
+    </filters>
+    <label>upgrade</label>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_field_Required_to_Close_Ticket</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				ISBLANK(Ticket_Closed_Date__c),
+				OR(
+				ISPICKVAL(Backlog__c,&quot;Completed&quot;),
+				ISPICKVAL(Backlog__c,&quot;Closed&quot;)
+								)
+)</errorConditionFormula>
+    <errorMessage>Close Date Required</errorMessage>
+</ValidationRule>

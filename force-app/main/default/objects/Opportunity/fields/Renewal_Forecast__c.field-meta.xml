@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Forecast__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+   ISPICKVAL(Type, &quot;Renewal&quot;),
+   CASE(
+        TEXT( Renewal_Likelihood__c ),
+        &quot;Renew&quot;, Amount,
+        &quot;Upgrade&quot;, Amount * 1.1,
+        &quot;Downgrade&quot;, Amount * 0.8,
+        &quot;At Risk - Salvageable&quot;, Amount * 0.5,
+        &quot;At Risk - Not Salvageable&quot;, Amount * 0.1,
+        &quot;Will Not Renew - Confirmed&quot;, 0,
+        Amount
+   ),
+   0
+  )
+
+
+/*  once I get the go-ahead from Kat, we&apos;ll update the Upgrade and Downgrade logic to this: */
+/*  &quot;Upgrade&quot;, Parent_Asset__r.Price * 1.1,          */
+/*  &quot;Downgrade&quot;, Parent_Asset__r.Price * 0.8,        */</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Renewal Forecast $ %
+- Renew = 100%
+- Upgrade = 110%
+- Downgrade = 80%
+- At Risk - Salvageable = 50%
+- At Risk - Not Salvageable = 10%
+- Will Not Renew - Confirmed = 0% Set to &quot;Closed/Lost&quot;</inlineHelpText>
+    <label>Renewal Forecast $</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

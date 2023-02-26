@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>38.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>&lt;!--&lt;apex:commandButton action=&quot;{!Submit}&quot; value=&quot;Insert Opportunity Products&quot;/&gt;--&gt;</description>
+    <label>NewOpportunityProduct</label>
+</ApexPage>

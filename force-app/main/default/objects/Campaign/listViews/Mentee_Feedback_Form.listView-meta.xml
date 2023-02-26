@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mentee_Feedback_Form</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>Project__c</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <columns>MCCampaignID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.NAME</field>
+        <operation>contains</operation>
+        <value>Feedback Form</value>
+    </filters>
+    <label>Mentee Feedback Form</label>
+</ListView>

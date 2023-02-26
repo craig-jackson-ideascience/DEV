@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rule_to_Prevent_Roles_Association</fullName>
+    <active>true</active>
+    <description>Rule to prevent roles association with event/training opportunity product</description>
+    <errorConditionFormula>AND(ISBLANK( Projects__c ),OR(NOT(ISBLANK(Legal_Contact__c)),/*NOT(ISBLANK(Billing_Contact__c)),*/NOT(ISBLANK(Marketing_Contact__c)),NOT(ISBLANK(Press_Contact__c)),NOT(ISBLANK(Representative_Voting_Contact__c)),NOT(ISBLANK(Technical_Contact__c))))</errorConditionFormula>
+    <errorMessage>Roles can be populated only for Membership type of products</errorMessage>
+</ValidationRule>

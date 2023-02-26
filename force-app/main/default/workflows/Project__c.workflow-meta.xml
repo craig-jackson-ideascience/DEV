@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Finance_on_New_Project</fullName>
+        <description>Email Finance on New Project</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>crobinson@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>jwood@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Alert_Finance_of_New_Project</template>
+    </alerts>
+    <alerts>
+        <fullName>new_Project_needs_slug</fullName>
+        <description>new Project needs slug</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>kat@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>kstrauch@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>pchennoju1@linuxfoundation.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>salesops@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/new_Project_needs_slug</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Set_Dont_Display_on_Website_to_TRUE</fullName>
+        <description>Updates the Don&apos;t Display on Website field to TRUE.</description>
+        <field>DontDisplayOnWebsite__c</field>
+        <literalValue>1</literalValue>
+        <name>Set Don&apos;t Display on Website to TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_LF_Membership_Required_to_FALSE</fullName>
+        <field>LF_Membership_Required__c</field>
+        <literalValue>0</literalValue>
+        <name>Set LF Membership Required? to FALSE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_LF_Membership_Required_to_TRUE</fullName>
+        <field>LF_Membership_Required__c</field>
+        <literalValue>1</literalValue>
+        <name>Set LF Membership Required? to TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Manual_Check_Status_to_True</fullName>
+        <field>Manual_Status_Check__c</field>
+        <literalValue>1</literalValue>
+        <name>Set Manual Check Status to True</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_status_Active</fullName>
+        <field>Status__c</field>
+        <literalValue>Active</literalValue>
+        <name>Set status Active</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_project_processing</fullName>
+        <field>Project_Processing__c</field>
+        <literalValue>1</literalValue>
+        <name>Update project processing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Don%27t display certain Project records on the LF website</fullName>
+        <actions>
+            <name>Set_Dont_Display_on_Website_to_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Project__c.Category__c</field>
+            <operation>equals</operation>
+            <value>Internal Allocation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Project__c.Category__c</field>
+            <operation>equals</operation>
+            <value>Unofficial Subproject</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Project__c.Test_Record__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Project__c.DontDisplayOnWebsite__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Updates the Don&apos;t Display on Website checkbox to TRUE for Project records that are of Entity Type &quot;Internal Allocation,&quot; are of Entity Type &quot;Unofficial Subproject,&quot; or are test records.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Finance on New Project</fullName>
+        <actions>
+            <name>Email_Finance_on_New_Project</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Project__c.Name</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Project%3A Set Manual Check Status to True</fullName>
+        <actions>
+            <name>Set_Manual_Check_Status_to_True</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Project__c.Manual_Status_Check__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set %22LF Membership Required%3F%22 to FALSE</fullName>
+        <actions>
+            <name>Set_LF_Membership_Required_to_FALSE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Sets the &quot;LF Membership Required?&quot; field to FALSE if any of the following are true: a Project is not a Subproject, it doesn&apos;t have Membership, or it is not parented by the LF.</description>
+        <formula>OR(    NOT(ISPICKVAL(Category__c, &quot;Subproject&quot;)), 			NOT(INCLUDES(Model__c, &quot;Membership&quot;)),  			ISBLANK(Parent_Project__c),   			AND( 			CASESAFEID(Parent_Project__r.Id) != $Label.The_Linux_Foundation_Project, 							CASESAFEID(Parent_Project__r.Id) != $Label.Linux_Foundation_Europe ) 		)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set %22LF Membership Required%3F%22 to TRUE</fullName>
+        <actions>
+            <name>Set_LF_Membership_Required_to_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Sets the &quot;LF Membership Required?&quot; field to TRUE if a Project is a Subproject, has Membership, and is parented by the LF.</description>
+        <formula>AND(     ISPICKVAL(Category__c, &quot;Subproject&quot;),      INCLUDES(Model__c, &quot;Membership&quot;), 				OR( 				CASESAFEID(Parent_Project__r.Id) = $Label.The_Linux_Foundation_Project , 								CASESAFEID(Parent_Project__r.Id) = $Label.Linux_Foundation_Europe    ) 				)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Project Processing True</fullName>
+        <actions>
+            <name>Update_project_processing</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED(Name),ISPICKVAL( Project_Status__c , &apos;Active&apos;))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>email Sales Ops when a new Project is created without a slug</fullName>
+        <actions>
+            <name>new_Project_needs_slug</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Project__c.Slug__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Until the Project Control Center is launched, Sales Ops needs to manually populate a slug for all new Project records.  This workflow sends them an email to alert them to do that when a new Project record is created.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

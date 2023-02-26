@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2019_Events_cvent_only</fullName>
+    <columns>CREATED_DATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>NAME</columns>
+    <columns>Event_Registrations__c</columns>
+    <columns>BillFromProject__c</columns>
+    <columns>Category__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Sugar_Event_ID__c</columns>
+    <columns>Cvent_Event_Id__c</columns>
+    <columns>Job_Code__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2019</value>
+    </filters>
+    <filters>
+        <field>Cvent_Event_EventCode__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>2019 Events cvent only</label>
+</ListView>

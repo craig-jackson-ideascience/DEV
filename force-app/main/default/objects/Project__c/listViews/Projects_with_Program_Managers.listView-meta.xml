@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projects_with_Program_Managers</fullName>
+    <columns>NAME</columns>
+    <columns>Parent_Project__c</columns>
+    <columns>Model__c</columns>
+    <columns>Funding__c</columns>
+    <columns>Project_Status__c</columns>
+    <columns>Program_Manager__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Program_Manager__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Projects with Program Managers</label>
+</ListView>

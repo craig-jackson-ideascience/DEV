@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Events_Email_Notification_Fired__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This is a reporting field to validate the events email notification successfully fired.</description>
+    <externalId>false</externalId>
+    <label>Events Email Notification Fired</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

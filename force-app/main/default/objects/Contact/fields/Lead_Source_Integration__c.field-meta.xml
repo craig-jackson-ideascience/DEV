@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source_Integration__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Thisfield is here to support Heroku integration</inlineHelpText>
+    <label>Lead Source Integration</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3rd Party Event</fullName>
+                <default>false</default>
+                <label>3rd Party Event</label>
+            </value>
+            <value>
+                <fullName>Adwords</fullName>
+                <default>false</default>
+                <label>Adwords</label>
+            </value>
+            <value>
+                <fullName>Board Member</fullName>
+                <default>false</default>
+                <label>Board Member</label>
+            </value>
+            <value>
+                <fullName>Cold Calling</fullName>
+                <default>false</default>
+                <label>Cold Calling</label>
+            </value>
+            <value>
+                <fullName>Customer</fullName>
+                <default>false</default>
+                <label>Customer</label>
+            </value>
+            <value>
+                <fullName>Discover.org</fullName>
+                <default>false</default>
+                <label>Discover.org</label>
+            </value>
+            <value>
+                <fullName>Employee</fullName>
+                <default>false</default>
+                <label>Employee</label>
+            </value>
+            <value>
+                <fullName>Facebook Ad</fullName>
+                <default>false</default>
+                <label>Facebook Ad</label>
+            </value>
+            <value>
+                <fullName>GitHub</fullName>
+                <default>false</default>
+                <label>GitHub</label>
+            </value>
+            <value>
+                <fullName>GitLab</fullName>
+                <default>false</default>
+                <label>GitLab</label>
+            </value>
+            <value>
+                <fullName>Groups.io</fullName>
+                <default>false</default>
+                <label>Groups.io</label>
+            </value>
+            <value>
+                <fullName>LF Events</fullName>
+                <default>false</default>
+                <label>LF Events</label>
+            </value>
+            <value>
+                <fullName>LF Home</fullName>
+                <default>false</default>
+                <label>LF Home</label>
+            </value>
+            <value>
+                <fullName>LF Project</fullName>
+                <default>false</default>
+                <label>LF Project</label>
+            </value>
+            <value>
+                <fullName>LF Training</fullName>
+                <default>false</default>
+                <label>LF Training</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Ad</fullName>
+                <default>false</default>
+                <label>LinkedIn Ad</label>
+            </value>
+            <value>
+                <fullName>Linux.com</fullName>
+                <default>false</default>
+                <label>Linux.com</label>
+            </value>
+            <value>
+                <fullName>Meetup</fullName>
+                <default>false</default>
+                <label>Meetup</label>
+            </value>
+            <value>
+                <fullName>Member</fullName>
+                <default>false</default>
+                <label>Member</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Networking</fullName>
+                <default>false</default>
+                <label>Networking</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Partner</fullName>
+                <default>false</default>
+                <label>Partner</label>
+            </value>
+            <value>
+                <fullName>Sugar CRM</fullName>
+                <default>false</default>
+                <label>Sugar CRM</label>
+            </value>
+            <value>
+                <fullName>LF Event</fullName>
+                <default>false</default>
+                <label>LF Event</label>
+            </value>
+            <value>
+                <fullName>Edx</fullName>
+                <default>false</default>
+                <label>Edx</label>
+            </value>
+            <value>
+                <fullName>TI Portal</fullName>
+                <default>false</default>
+                <label>TI Portal</label>
+            </value>
+            <value>
+                <fullName>LF Auth0</fullName>
+                <default>false</default>
+                <label>LF Auth0</label>
+            </value>
+            <value>
+                <fullName>Cvent</fullName>
+                <default>false</default>
+                <label>Cvent</label>
+            </value>
+            <value>
+                <fullName>TI Corp</fullName>
+                <default>false</default>
+                <label>TI Corp</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Bevy</fullName>
+                <default>false</default>
+                <label>Bevy</label>
+            </value>
+            <value>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+                <label>Meeting</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

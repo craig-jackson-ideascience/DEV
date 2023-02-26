@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supported_by_Parent_projects_need_Parent</fullName>
+    <active>true</active>
+    <description>Projects with Funding set to “Supported by Parent Project” must have a Parent Project specified.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Funding__c, &quot;Supported by Parent Project&quot;),
+    ISBLANK(Parent_Project__c)
+   )</errorConditionFormula>
+    <errorDisplayField>Parent_Project__c</errorDisplayField>
+    <errorMessage>Projects with Funding set to “Supported by Parent Project” must have a Parent Project specified.</errorMessage>
+</ValidationRule>

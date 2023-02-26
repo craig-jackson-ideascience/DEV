@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Entity_Dissolution_Date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>For Series LLCs, the date that the series was terminated.  For Incorporated Entities, the date the project dissolution was accepted by the Secretary of State. For Subprojects, the date the project was deemed no longer in operation.</inlineHelpText>
+    <label>Dissolution/End Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

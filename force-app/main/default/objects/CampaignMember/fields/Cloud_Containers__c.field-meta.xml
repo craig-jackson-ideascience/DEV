@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cloud_Containers__c</fullName>
+    <externalId>false</externalId>
+    <formula>Campaign.Cloud_Containers__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Cloud &amp; Containers</label>
+    <type>Checkbox</type>
+</CustomField>

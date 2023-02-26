@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LF_Training_Campaigns</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>MCCampaignID__c</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>Project__c</columns>
+    <columns>Technology__c</columns>
+    <columns>LF_Training__c</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MC_Project_ID__c</field>
+        <operation>equals</operation>
+        <value>a0941000002wBz9AAE</value>
+    </filters>
+    <filters>
+        <field>LF_Training__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+        <operation>equals</operation>
+        <value>Training</value>
+    </filters>
+    <label>LF Training Campaigns</label>
+</ListView>

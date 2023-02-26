@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sugar_GUID__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Sugar table lf_accounts_ns_cp.id</description>
+    <externalId>true</externalId>
+    <label>Sugar GUID</label>
+    <length>36</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

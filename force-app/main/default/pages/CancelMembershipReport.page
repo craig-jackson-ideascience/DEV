@@ -1,0 +1,218 @@
+<apex:page lightningStylesheets="false" controller="CancelMembershipReport" applyHtmlTag="true"  docType="html-5.0" showHeader="false" readOnly="true">
+    
+       
+    <apex:form id="fid">
+        <apex:slds />
+        
+        <apex:includeScript value="{!URLFOR($Resource.JqueyDataTable , '/jquery-1.12.0.min.js')}"/>
+        <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+        <apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/js/jquery.tablesorter.min.js" />
+        <apex:stylesheet value="{!URLFOR($Resource.Multiselect_Select2 , 'select2.min.css')}"/>
+         <apex:stylesheet value="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/css/theme.blue.css" />
+        <apex:includeScript value="{!URLFOR($Resource.Multiselect_Select2 , 'select2.min.js')}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        <style>
+            
+            select2-selection__rendered{
+            white-space: normal !important;
+            }
+            
+            .select2-selection__choice{
+            word-break: break-word !important;
+            }
+            
+            .select2-container{
+            width:100% !important;
+            }
+            span.select2-dropdown{
+            z-index: 9999;
+            }
+            
+            .slds-dropdown{
+            max-width: 5000px !important;
+            width:100% !important;
+            }
+            .select2-container--default .select2-selection--multiple .select2-selection__choice{
+            padding : 2px 5px !important;
+            }
+            .stickerHeaderClass{
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            z-index: 10;
+            }
+            ul li, ol li{
+            margin-left: 0.5em !important;
+            }
+        </style>
+        <body>
+            <div class="slds-scope">
+                
+                <center class="slds-p-around--medium"><h1 style="font-size:25px;padding:10px;" class="slds-card">Cancelled Opportunities Report</h1></center>
+                <div class="slds-p-around--medium">
+                    <div class="slds-size_12-of-12 slds-p-around--medium slds-card">        
+                        <div class="slds-grid slds-wrap" style="border:0px solid red;">
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small" style="border:0px solid orange;">
+                                <span>Start Date</span> <br/>
+                                <apex:input type="date" value="{!startDate}" styleClass="slds-input"/>
+                            </div>
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                                <span>End Date</span> <br/>
+                                <apex:input type="date" value="{!EndDate}" styleClass="slds-input"/>
+                            </div>
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                                <span>Project Name</span> <br/>
+                                <apex:selectList styleClass="ProName" size="1" value="{!projectName}" multiselect="true">
+                                    <apex:selectOptions value="{!selectedProject}" />
+                                </apex:selectList>
+                            </div>
+                            <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                                <apex:commandButton value="Search" action="{!getAsset}" styleClass="slds-button slds-button--brand" style="margin-top: 17px;"/>
+                                <apex:commandButton value="Export" action="{!ExportToExcel}" styleClass="slds-button slds-button--brand" style="margin-top: 17px;"/>
+                            </div>
+                            <script>
+                            $('.ProName').select2();
+                            var myList = new Array();
+                            myList = '{!projectName}';
+                            myList = myList.replace('[','').replace(']','').trim();
+                            console.log('-------'+myList);
+                            if(myList){
+                                var contexts = myList.split(',');
+                                
+                                console.log('--------'+contexts);
+                                $('.ProName').select2().val(contexts).trigger('change');
+                                
+                            }
+                            </script>
+                        </div>
+                        <div class="slds-section slds-is-open slds-size_12-of-12">
+                    <h3 class="slds-section__title slds-button slds-section__title-action">
+                         <span class="slds-truncate" title="Section Title">Report Table</span>
+
+                    </h3>
+                </div>
+                        <div class="slds-scrollable" style="height:30rem;width:100%">
+                            
+                        
+                        <apex:outputPanel style="width: 100%;overflow: auto;max-height: 30rem;">
+                        <table class="reportTable slds-max-medium-table_stacked slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-m-top--small" style="border-left: 1px solid rgb(221, 219, 218);    border-right: 1px solid rgb(221, 219, 218);" id="accsTable">
+                           <thead>
+                            <tr >
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;" onclick="sortTable(0)">Member
+                                   </th>       
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Cancellation Date</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Cancellation Reason</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Join Date</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Level</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Country</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Project Name</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Annual Membership Dues</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Voting Contact</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Voting Corporate Email</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Marketing </th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Marketing Corporate Email</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Technical Contact</th>
+                                <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">Technical Corporate Email</th>
+                                
+                            </tr>
+                            </thead>
+                            <apex:repeat value="{!lstwrap}" var="lstAsset">
+                                <tr> 
+                                    <td><apex:outputText value="{!LEFT(lstAsset.Account,35)}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.Canceldate}"/></td>
+                                    <td style="" ><apex:outputText value="{!LEFT(lstAsset.CancelReason, 25)}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.Joindate}"/></td>
+                                    
+                                    <td><apex:outputText value="{!lstAsset.Product}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.Country}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.ProjectName}"/></td>
+                                    <td><apex:outputText value="{0, number, ###,###,###,###.00}">
+                                        <apex:param value="{!lstAsset.Amount}" />
+                                        </apex:outputText></td>
+                                    <td><apex:outputText value="{!lstAsset.Voting}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.VCorporateEmail}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.Marketing}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.MCorporateEmail}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.Technical}"/></td>
+                                    <td><apex:outputText value="{!lstAsset.TCorporateEmail}"/></td>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                        </apex:outputPanel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </apex:form>
+    <script>
+  $(document).ready(function()
+  {
+    $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+  });
+</script>
+    <!--<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>-->
+</apex:page>

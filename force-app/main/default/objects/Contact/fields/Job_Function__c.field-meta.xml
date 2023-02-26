@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Function__c</fullName>
+    <externalId>false</externalId>
+    <label>Job Function</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Application Developer</fullName>
+                <default>false</default>
+                <label>Application Developer</label>
+            </value>
+            <value>
+                <fullName>Front-End</fullName>
+                <default>false</default>
+                <label>Front-End</label>
+            </value>
+            <value>
+                <fullName>Back-End</fullName>
+                <default>false</default>
+                <label>Back-End</label>
+            </value>
+            <value>
+                <fullName>Full Stack</fullName>
+                <default>false</default>
+                <label>Full Stack</label>
+            </value>
+            <value>
+                <fullName>Systems Embedded Developer</fullName>
+                <default>false</default>
+                <label>Systems Embedded Developer</label>
+            </value>
+            <value>
+                <fullName>Kernel Operating Systems Developer</fullName>
+                <default>false</default>
+                <label>Kernel Operating Systems Developer</label>
+            </value>
+            <value>
+                <fullName>Architect</fullName>
+                <default>false</default>
+                <label>Architect</label>
+            </value>
+            <value>
+                <fullName>Executive Leader</fullName>
+                <default>false</default>
+                <label>Executive Leader</label>
+            </value>
+            <value>
+                <fullName>Manager-Technical Teams</fullName>
+                <default>false</default>
+                <label>Manager-Technical Teams</label>
+            </value>
+            <value>
+                <fullName>Manager-OSPO</fullName>
+                <default>false</default>
+                <label>Manager-OSPO</label>
+            </value>
+            <value>
+                <fullName>Manager-Other</fullName>
+                <default>false</default>
+                <label>Manager-Other</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Product/Biz Dev</fullName>
+                <default>false</default>
+                <label>Product/Biz Dev</label>
+            </value>
+            <value>
+                <fullName>Legal/Compliance</fullName>
+                <default>false</default>
+                <label>Legal/Compliance</label>
+            </value>
+            <value>
+                <fullName>Media/Analyst</fullName>
+                <default>false</default>
+                <label>Media/Analyst</label>
+            </value>
+            <value>
+                <fullName>Student</fullName>
+                <default>false</default>
+                <label>Student</label>
+            </value>
+            <value>
+                <fullName>Professor/Academic</fullName>
+                <default>false</default>
+                <label>Professor/Academic</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Manager - Other</fullName>
+                <default>false</default>
+                <label>Manager - Other</label>
+            </value>
+            <value>
+                <fullName>Manager - Technical Teams</fullName>
+                <default>false</default>
+                <label>Manager - Technical Teams</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

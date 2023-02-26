@@ -1,0 +1,57 @@
+<apex:page docType="html-5.0">
+    <head>
+    <style>
+    .widthButton {
+        width: 12rem !important;
+    }
+    </style>
+    </head>
+    <apex:form >
+        <div style="margin: 20px;
+                    padding: 10px;
+                    background-color: #1797c0;
+                    border-radius: 3px;" class="widthButton">
+            <a href="/apex/ReportSettingVF" target="_blank" style="text-decoration: none;color: white;margin-left: 0.6rem;">Event Sponsorship report</a>
+        </div>
+
+        <div style="margin: 20px;
+                    padding: 10px;
+                    background-color: #1797c0;
+                    border-radius: 3px;" class="widthButton">
+            <a href="/apex/CommunityReportVF" target="_blank" style="text-decoration: none;color: white;margin-left: 0.6rem; text-align: center;">Communities report</a>
+        </div>
+
+        <div style="margin: 20px;
+                    padding: 10px;
+                    background-color: #1797c0;
+                    border-radius: 3px;" class="widthButton">
+            <a href="/apex/EventAndProjectRolesReportVf" target="_blank" style="text-decoration: none;color: white;margin-left: 0.6rem;">Event and Project Roles Report</a>
+        </div>
+        
+        <div style="margin: 20px;
+                    padding: 10px;
+                    background-color: #1797c0;
+                    border-radius: 3px;" class="widthButton">
+            <a href="https://linuxfoundation--stage.lightning.force.com/lightning/cmp/c__TrainingSubscriptionsReport" target="_blank" style="text-decoration: none;color: white;margin-left: 0.6rem;">Training Subscription Report</a>
+        </div>
+        <div style="margin: 20px;
+                    padding: 10px;
+                    background-color: #1797c0;
+                    border-radius: 3px;" class="widthButton">
+            <a href="/apex/CancelMembershipReport" target="_blank" style="text-decoration: none;color: white;margin-left: 0.6rem;">Cancelled Opportunities Report</a>
+        </div>
+        <div style="margin: 20px;
+                    padding: 10px;
+                    background-color: #1797c0;
+                    border-radius: 3px;" class="widthButton">
+            <a href="/apex/HLAllMemberContact" target="_blank" style="text-decoration: none;color: white;margin-left: 0.6rem;">HL All Member Contacts</a>
+        </div>
+        <!--Event Report-->
+        <div style="margin: 20px;
+                    padding: 10px;
+                    background-color: #1797c0;
+                    border-radius: 3px;" class="widthButton">
+            <a href="https://linuxfoundation.lightning.force.com/lightning/cmp/c__EventReport" target="_blank" style="text-decoration: none;color: white;margin-left: 0.6rem;">Event Attendee Detail Report</a>
+        </div>
+    </apex:form>
+</apex:page>

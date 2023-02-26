@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject></baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Collaborations and Details</description>
+    <label>Collaborations and communities detail</label>
+    <sections>
+        <masterLabel>Collaborations</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Communities</masterLabel>
+    </sections>
+</ReportType>

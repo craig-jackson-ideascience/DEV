@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Set_End_Date_when_Inactive</fullName>
+        <field>End_Date__c</field>
+        <formula>Today()</formula>
+        <name>Set End Date when Inactive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_end_date_from_asset</fullName>
+        <field>End_Date__c</field>
+        <formula>Asset__r.UsageEndDate</formula>
+        <name>Set end date from asset</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_start_date_on_role_from_asset</fullName>
+        <field>Start_Date__c</field>
+        <formula>Asset__r.InstallDate</formula>
+        <name>Set start date on role from asset</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Type</fullName>
+        <field>Type__c</field>
+        <formula>Text(Asset__r.Opportunity__r.Type)</formula>
+        <name>Update Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Set End Date when Inactive</fullName>
+        <actions>
+            <name>Set_End_Date_when_Inactive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Project_Role__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Inactive</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set project role start and end dates</fullName>
+        <actions>
+            <name>Set_end_date_from_asset</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_start_date_on_role_from_asset</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(  ISPICKVAL(Status__c,&apos;Active&apos;), Asset__c != null   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Type</fullName>
+        <actions>
+            <name>Update_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Type from Opportunity Type field</description>
+        <formula>NOT(ISPICKVAL(Asset__r.Opportunity__r.Type , &quot;&quot;))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

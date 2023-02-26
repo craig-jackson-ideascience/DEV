@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>All_sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>All sharing</label>
+        <sharedTo>
+            <roleAndSubordinates>All_Linux_Foundation</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Email</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Community_Share</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Community Share</label>
+        <sharedTo>
+            <portalRole>TheLinuxFoundationPartnerUser</portalRole>
+        </sharedTo>
+        <criteriaItems>
+            <field>Email</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Finos_Lead_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Finos Lead share for HUbspot</description>
+        <label>Finos Lead Sharing</label>
+        <sharedTo>
+            <role>Finos_Hubspot</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Finos_Hubspot__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Hubspot_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing Rule for LF Hubspot</description>
+        <label>Hubspot Sharing</label>
+        <sharedTo>
+            <role>Hubspot</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Hubspot__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

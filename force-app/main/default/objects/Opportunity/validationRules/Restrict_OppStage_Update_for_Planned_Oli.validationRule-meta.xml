@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_OppStage_Update_for_Planned_Oli</fullName>
+    <active>false</active>
+    <description>Restrict the Opportunity stage progress upto 4. if there is any OLI under opportunity associated to planned project/event</description>
+    <errorConditionFormula>IF(
+  AND( No_of_Planned_Olis__c &gt; 0 , ISCHANGED(StageName),NOT(ISPICKVAL(StageName,&quot;Closed Lost&quot;)) ),
+  IF(
+    CONTAINS(TEXT(StageName),&apos;Closed Won&apos;) ,
+    TRUE ,
+    IF( 
+      VALUE(LEFT(TEXT(StageName), 1)) &gt; 4 ,
+      TRUE ,
+      FALSE 
+    ) 
+  ) ,
+  FALSE
+)</errorConditionFormula>
+    <errorMessage>All the OLIs should be associated to Active Project/Event for this Stage</errorMessage>
+</ValidationRule>

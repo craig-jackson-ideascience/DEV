@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_change_required_for_non_admin</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				  ISCHANGED(Training__c),  
+				    NOT(
+												OR(
+																CONTAINS(&apos;System Admin Custom&apos;, $Profile.Name ),
+																CONTAINS(&apos;System Administrator&apos;, $Profile.Name ),
+																CONTAINS(&apos;Administrator&apos;, $Profile.Name )
+												)
+								), 
+				OR(
+								ISNULL( Reason_for_change__c),
+								ISBLANK(Reason_for_change__c)
+				)			
+)</errorConditionFormula>
+    <errorDisplayField>Reason_for_change__c</errorDisplayField>
+    <errorMessage>Please Enter Reason for change value</errorMessage>
+</ValidationRule>

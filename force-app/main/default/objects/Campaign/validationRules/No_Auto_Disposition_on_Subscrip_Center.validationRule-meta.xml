@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Auto_Disposition_on_Subscrip_Center</fullName>
+    <active>true</active>
+    <description>Prevents the &quot;Auto Disposition Allowed&quot; checkbox from being checked on Subscription Center Campaigns.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Type, &quot;Subscription Center&quot;),
+    Auto_Disposition_Allowed__c
+   )</errorConditionFormula>
+    <errorDisplayField>Auto_Disposition_Allowed__c</errorDisplayField>
+    <errorMessage>Auto-Dispositioning is not allowed on Subscription Center campaigns.</errorMessage>
+</ValidationRule>

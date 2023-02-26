@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Descrip_required_for_Membership_and_Alt</fullName>
+    <active>true</active>
+    <description>Requires a value in the Description field for Product Details associated with Membership and Alternate Funding Products, since the Description is printed to NetSuite invoices for those two product families.</description>
+    <errorConditionFormula>AND(
+ISBLANK(Description__c),
+OR(
+OR(
+ISPICKVAL(Products__r.Family, &quot;Membership&quot;),
+ISPICKVAL(Products__r.Family, &quot;Alternate Funding&quot;)
+),
+OR(
+RecordType.Name = &quot;Membership&quot;,
+RecordType.Name = &quot;Alternate Funding&quot;
+)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Description__c</errorDisplayField>
+    <errorMessage>The Description is printed on NetSuite invoices for Membership and Alternate Funding products, so Description is required.</errorMessage>
+</ValidationRule>

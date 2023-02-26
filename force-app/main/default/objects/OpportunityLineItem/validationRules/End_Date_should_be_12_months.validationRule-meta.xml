@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_Date_should_be_12_months</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+  NOT(ISNEW()), 
+  NOT(ISCHANGED(Start_Date__c)), 
+  NOT(ISBLANK(Projects__c)), 
+  NOT(CONTAINS(Product2.Name,&apos;Training&apos;)), 
+NOT(TotalPrice &lt; 1),
+  Prorate__c = False, 
+  OR( 
+    End_Date__c - Start_Date__c &lt; 364, 
+    End_Date__c - Start_Date__c &gt; 366 
+) 
+)</errorConditionFormula>
+    <errorDisplayField>End_Date__c</errorDisplayField>
+    <errorMessage>End Date should be exact 12 month from its Start Date for Membership Opportunity Products</errorMessage>
+</ValidationRule>

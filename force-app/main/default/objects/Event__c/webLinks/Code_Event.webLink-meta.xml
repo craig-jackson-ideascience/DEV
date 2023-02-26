@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Code_Event</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Code Event</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
+
+var eventId = &quot;{!Event__c.Id}&quot;; 
+
+console.log(&apos;__event___&apos;+ eventId); 
+
+var success = sforce.apex.execute(&quot;MapNStoProductDetails&quot;, &quot;mappingMethod&quot;, {recordId : &quot;{!Event__c.Id}&quot; , projectOrEvent:&apos;event&apos;}); 
+
+console.log(&apos;_____success____&apos;+success); 
+
+if(success!=null &amp;&amp; success==1){ 
+
+alert(&apos;Netsuite Fields mapped Successfully!!&apos;); 
+
+var url = &quot;/&quot;+eventId; 
+console.log(&apos;___url___&apos;+url); 
+
+window.location=url; 
+} 
+else if(success!=null &amp;&amp; success==0){ 
+alert(&apos;No Associated Product Detail Record!&apos;); 
+} 
+
+else if(success!=null &amp;&amp; success==2){ 
+alert(&apos;Please make sure that following Fields are Populated - \nNS Deferred Revenue Account \nNS Income GL Account \nNS Department \nNS Class \nBillFromProject&apos;); 
+}</url>
+</WebLink>

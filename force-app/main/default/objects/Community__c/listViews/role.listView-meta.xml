@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>role</fullName>
+    <columns>NAME</columns>
+    <columns>Appointed_By__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Project_Name__c</columns>
+    <columns>Role__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Status__c</columns>
+    <columns>Type__c</columns>
+    <columns>Lead_Name__c</columns>
+    <columns>Contact_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Role__c</field>
+        <operation>equals</operation>
+        <value>None</value>
+    </filters>
+    <label>role</label>
+</ListView>

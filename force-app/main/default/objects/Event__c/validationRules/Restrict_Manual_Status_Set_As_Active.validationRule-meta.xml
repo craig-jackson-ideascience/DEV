@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Manual_Status_Set_As_Active</fullName>
+    <active>false</active>
+    <description>This rule prevents events from being manually set to active and reinforces the use of the code event button.</description>
+    <errorConditionFormula>IF(Manual_Status_Check__c == TRUE &amp;&amp; ISPICKVAL(Status__c,&apos;Active&apos;)&amp;&amp; ISCHANGED(Status__c) , TRUE, FALSE)</errorConditionFormula>
+    <errorMessage>Please Hit the &apos;Code Event&apos; Button to change the Event Status.</errorMessage>
+</ValidationRule>

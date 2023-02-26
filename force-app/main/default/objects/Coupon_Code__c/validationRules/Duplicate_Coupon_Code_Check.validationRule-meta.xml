@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_Coupon_Code_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  CONTAINS(
+      VLOOKUP( 
+        $ObjectType.Coupon_Code__c.Fields.Name , 
+        $ObjectType.Coupon_Code__c.Fields.Name, Name
+      ), 
+      Name
+    ), 
+  OR(
+      ISNEW(), ISCHANGED(Name)
+    ) 
+  )</errorConditionFormula>
+    <errorMessage>The Coupon Code already exist.</errorMessage>
+</ValidationRule>

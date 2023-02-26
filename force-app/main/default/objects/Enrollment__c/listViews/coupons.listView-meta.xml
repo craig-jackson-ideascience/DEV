@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>coupons</fullName>
+    <columns>NAME</columns>
+    <columns>Product_Name__c</columns>
+    <columns>Coupon_Code__c</columns>
+    <columns>Contact_Name__c</columns>
+    <columns>Lead_Name__c</columns>
+    <columns>Source__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>isBootcampbundle__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Coupon_Code__c</field>
+        <operation>equals</operation>
+        <value>VmeaMulti20</value>
+    </filters>
+    <filters>
+        <field>Source__c</field>
+        <operation>equals</operation>
+        <value>TI Purchase</value>
+    </filters>
+    <label>coupons</label>
+</ListView>

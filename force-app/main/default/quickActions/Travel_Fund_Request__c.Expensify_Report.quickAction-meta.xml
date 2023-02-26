@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Action is created to get expensify Report from Travel Fund Detail Page.</description>
+    <height>250</height>
+    <label>Get Expensify Report</label>
+    <lightningComponent>expensifyReceiptRequestComp</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

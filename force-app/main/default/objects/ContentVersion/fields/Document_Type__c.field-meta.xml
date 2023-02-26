@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Document Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account Training Master Service Agreement</fullName>
+                <default>false</default>
+                <label>Account Training Master Service Agreement</label>
+            </value>
+            <value>
+                <fullName>Project Assignment Agreement</fullName>
+                <default>false</default>
+                <label>Project Assignment Agreement</label>
+            </value>
+            <value>
+                <fullName>Project Dissolution Document</fullName>
+                <default>false</default>
+                <label>Project Dissolution Document</label>
+            </value>
+            <value>
+                <fullName>Project Governance Document</fullName>
+                <default>false</default>
+                <label>Project Governance Document</label>
+            </value>
+            <value>
+                <fullName>Project Incorporation Document</fullName>
+                <default>false</default>
+                <label>Project Incorporation Document</label>
+            </value>
+            <value>
+                <fullName>Project Management Services Agreement</fullName>
+                <default>false</default>
+                <label>Project Management Services Agreement</label>
+            </value>
+            <value>
+                <fullName>Project Series Agreement</fullName>
+                <default>false</default>
+                <label>Project Series Agreement</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

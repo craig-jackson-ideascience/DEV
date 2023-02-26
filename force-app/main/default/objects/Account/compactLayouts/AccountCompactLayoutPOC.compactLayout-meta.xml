@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountCompactLayoutPOC</fullName>
+    <fields>Account_Name_Formula__c</fields>
+    <fields>Type</fields>
+    <fields>Website</fields>
+    <fields>OwnerId</fields>
+    <label>Account Compact Layout POC</label>
+</CompactLayout>

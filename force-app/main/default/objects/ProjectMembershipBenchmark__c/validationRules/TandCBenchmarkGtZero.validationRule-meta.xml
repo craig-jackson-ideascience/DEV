@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TandCBenchmarkGtZero</fullName>
+    <active>true</active>
+    <description>Training and Certification Benchmark must be &gt;0</description>
+    <errorConditionFormula>TandCMaxValue__c &lt;= 0</errorConditionFormula>
+    <errorMessage>Training and Certification Benchmark must be &gt; 0</errorMessage>
+</ValidationRule>

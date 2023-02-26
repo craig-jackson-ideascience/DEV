@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MixMax_Create_Campaign__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If this is checked, we are yet to create MixMax campaign for this Lead. It will be created within and hour.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This will identify whether campaign and campaign member needs to be created or not?</inlineHelpText>
+    <label>MixMax Create Campaign?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

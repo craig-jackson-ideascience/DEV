@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Project Benchmark Input Types Related To</description>
+    <externalId>false</externalId>
+    <label>Project</label>
+    <lookupFilter>
+        <active>false</active>
+        <filterItems>
+            <field>Project__c.Project_Status__c</field>
+            <operation>equals</operation>
+            <value>Formation - Engaged, Formation - Confidential, Active</value>
+        </filterItems>
+        <infoMessage>Project Stage must be Formation - Engaged, Formation - Confidential or Active</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Project__c</referenceTo>
+    <relationshipLabel>Project Benchmark Inputs</relationshipLabel>
+    <relationshipName>ProjectBenchmarkInputsProject</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

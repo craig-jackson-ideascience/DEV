@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Accommodations_paid_by__c</name>
+    <picklistValues>
+        <masterLabel>Delegate</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Delegate Company</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Linux Foundation</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

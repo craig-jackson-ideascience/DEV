@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Android Development Training</fullName>
+                <default>false</default>
+                <label>Android Development Training</label>
+            </value>
+            <value>
+                <fullName>Enterprise IT &amp; Linux System Administration Training</fullName>
+                <default>false</default>
+                <label>Enterprise IT &amp; Linux System Administration Training</label>
+            </value>
+            <value>
+                <fullName>Linux Programming &amp; Development Training</fullName>
+                <default>false</default>
+                <label>Linux Programming &amp; Development Training</label>
+            </value>
+            <value>
+                <fullName>Open Source Compliance Courses</fullName>
+                <default>false</default>
+                <label>Open Source Compliance Courses</label>
+            </value>
+            <value>
+                <fullName>Tizen Project Training</fullName>
+                <default>false</default>
+                <label>Tizen Project Training</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Bundle</fullName>
+                <default>false</default>
+                <label>Bundle</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

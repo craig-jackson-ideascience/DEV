@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Allow_Contact_Update</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Allow_Lead_Update</name>
+    </customPermissions>
+    <description>Allow users with this permission set to update First Name and Last Name for the contact updated by MyProfile.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Allow Contact Update</label>
+    <license>Salesforce</license>
+</PermissionSet>

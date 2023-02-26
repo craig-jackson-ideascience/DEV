@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Start_Date_Text__c</fullName>
+    <description>Formula to stringify Event Start date field.  This is to accomodate out of the box duplicate matching rules that do not allow date fields for matching.</description>
+    <externalId>false</externalId>
+    <label>Event Start Date Text</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

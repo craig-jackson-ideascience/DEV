@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_without_Filter</fullName>
+    <columns>NAME</columns>
+    <columns>Category__c</columns>
+    <columns>Parent_Entity_Relationship__c</columns>
+    <columns>Parent_Project__c</columns>
+    <columns>Model__c</columns>
+    <columns>Funding__c</columns>
+    <columns>Bill_From_Address__c</columns>
+    <columns>Status__c</columns>
+    <columns>Program_Manager__c</columns>
+    <columns>Executive_Director__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <columns>Header_Color__c</columns>
+    <columns>Skip_Start_Date_Validation__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All without Filter</label>
+    <sharedTo>
+        <allPartnerUsers></allPartnerUsers>
+        <portalRoleAndSubordinates>AndelaIncPartnerUser</portalRoleAndSubordinates>
+        <portalRoleAndSubordinates>CloudNativeComputingFoundationPartnerUser</portalRoleAndSubordinates>
+        <portalRoleAndSubordinates>TheLinuxFoundationPartnerUser</portalRoleAndSubordinates>
+    </sharedTo>
+</ListView>

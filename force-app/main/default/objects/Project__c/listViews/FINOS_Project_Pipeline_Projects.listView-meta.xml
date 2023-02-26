@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINOS_Project_Pipeline_Projects</fullName>
+    <columns>NAME</columns>
+    <columns>Project_Status__c</columns>
+    <columns>Program_Manager__c</columns>
+    <columns>RepositoryURL__c</columns>
+    <columns>Business_Development_Manager__c</columns>
+    <columns>Parent_Project__c</columns>
+    <columns>Executive_Director__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Parent_Project__c</field>
+        <operation>contains</operation>
+        <value>FINOS</value>
+    </filters>
+    <label>FINOS Project Pipeline &amp; Projects</label>
+</ListView>

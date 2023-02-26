@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>New_Visa_Request_Notification</fullName>
+        <ccEmails>visaletters@linuxfoundation.org</ccEmails>
+        <description>New Visa Request Notification</description>
+        <protected>false</protected>
+        <senderAddress>visaletters@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>TravelFund/Visa_Request_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Thank_you_Email_for_Visa_Request</fullName>
+        <description>Thank you Email for Visa Request</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>visaletters@linuxfoundation.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>TravelFund/Visa_Request</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Visa_Request_Name_Generation</fullName>
+        <field>Name</field>
+        <formula>LEFT(Contact__r.FirstName + &quot; &quot; + Contact__r.LastName + &quot; &quot; + Event__r.Name, 80)</formula>
+        <name>Visa Request Name Generation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Notify on Visa Request Form Submission</fullName>
+        <actions>
+            <name>New_Visa_Request_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Visa Request</fullName>
+        <actions>
+            <name>Thank_you_Email_for_Visa_Request</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visa_Request__c.ContactEmail__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Visa Request Name Generation</fullName>
+        <actions>
+            <name>Visa_Request_Name_Generation</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( NOT( ISBLANK( Contact__c ) ) ,Name  &lt;&gt;  (Contact__r.FirstName + &quot; &quot; + Contact__r.LastName + &quot; &quot; +  Event__r.Name))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Pipeline_enrichment_detail</fullName>
+    <columns>NAME</columns>
+    <columns>Project_Logo__c</columns>
+    <columns>Parent_Project__c</columns>
+    <columns>Parent_Entity_Relationship__c</columns>
+    <columns>Category__c</columns>
+    <columns>Project_Status__c</columns>
+    <columns>Expected_Announcement_Date__c</columns>
+    <columns>Expected_Budget__c</columns>
+    <columns>Description__c</columns>
+    <columns>Industry__c</columns>
+    <columns>Technology__c</columns>
+    <columns>Technical_Activity_Type__c</columns>
+    <columns>Funding__c</columns>
+    <columns>Model__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Project_Status__c</field>
+        <operation>equals</operation>
+        <value>Formation - Exploratory,Formation - Engaged,Formation - Confidential</value>
+    </filters>
+    <filters>
+        <field>Test_Record__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Project Pipeline [enrichment detail]</label>
+    <sharedTo>
+        <group>Project_Operations_Team</group>
+    </sharedTo>
+</ListView>

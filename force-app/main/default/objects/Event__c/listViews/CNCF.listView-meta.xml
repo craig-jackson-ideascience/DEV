@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CNCF</fullName>
+    <columns>NAME</columns>
+    <columns>BillFromProject__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Event_Location_City__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BillFromProject__c</field>
+        <operation>startsWith</operation>
+        <value>Cloud Native</value>
+    </filters>
+    <label>CNCF</label>
+</ListView>

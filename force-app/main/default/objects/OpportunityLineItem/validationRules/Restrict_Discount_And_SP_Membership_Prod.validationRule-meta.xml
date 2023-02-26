@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Discount_And_SP_Membership_Prod</fullName>
+    <active>false</active>
+    <description>No discounts or price adjustments are allowed on membership products (although renewals are excluded from this rule).</description>
+    <errorConditionFormula>AND(
+    NOT(Bypass_Validation__c),
+    OR(
+       Discount &gt; 0,
+       AND(
+           NOT(ISNEW()),
+           AND(
+               PRIORVALUE(UnitPrice) &lt;&gt; UnitPrice,
+               NOT(OR(
+                      $Profile.Name = &apos;System Admin Custom&apos;,
+                      $UserRole.Name = &apos;Accountant&apos;
+                   ))
+               )
+           )
+        ),
+    ISPICKVAL(Product2.Family, &apos;Membership&apos;),
+    NOT(OR(
+           ISPICKVAL(Opportunity.Type, &apos;Renewal&apos;),
+           ISPICKVAL(Opportunity.Type, &apos;Renewal - Upgrade&apos;),
+           ISPICKVAL(Opportunity.Type, &apos;Renewal - Downgrade&apos;)
+        ))
+   )</errorConditionFormula>
+    <errorMessage>No discounts or price adjustments are allowed on membership products</errorMessage>
+</ValidationRule>

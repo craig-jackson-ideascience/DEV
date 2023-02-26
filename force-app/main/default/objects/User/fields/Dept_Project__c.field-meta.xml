@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dept_Project__c</fullName>
+    <externalId>false</externalId>
+    <label>Dept / Project</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Application (API)</fullName>
+                <default>false</default>
+                <label>Application (API)</label>
+            </value>
+            <value>
+                <fullName>Events</fullName>
+                <default>false</default>
+                <label>Events</label>
+            </value>
+            <value>
+                <fullName>Product</fullName>
+                <default>false</default>
+                <label>Product</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>The Linux Foundation</fullName>
+                <default>false</default>
+                <label>The Linux Foundation</label>
+            </value>
+            <value>
+                <fullName>Academy Software Foundation</fullName>
+                <default>false</default>
+                <label>Academy Software Foundation</label>
+            </value>
+            <value>
+                <fullName>CloudFoundry.org Foundation, Inc.</fullName>
+                <default>false</default>
+                <label>CloudFoundry.org Foundation, Inc.</label>
+            </value>
+            <value>
+                <fullName>Cloud Native Computing Foundation</fullName>
+                <default>false</default>
+                <label>Cloud Native Computing Foundation</label>
+            </value>
+            <value>
+                <fullName>GraphQL Foundation</fullName>
+                <default>false</default>
+                <label>GraphQL Foundation</label>
+            </value>
+            <value>
+                <fullName>Joint Development Foundation</fullName>
+                <default>false</default>
+                <label>Joint Development Foundation</label>
+            </value>
+            <value>
+                <fullName>LF Edge Foundation</fullName>
+                <default>false</default>
+                <label>LF Edge Foundation</label>
+            </value>
+            <value>
+                <fullName>LF Energy Foundation</fullName>
+                <default>false</default>
+                <label>LF Energy Foundation</label>
+            </value>
+            <value>
+                <fullName>OpenJS Foundation</fullName>
+                <default>false</default>
+                <label>OpenJS Foundation</label>
+            </value>
+            <value>
+                <fullName>RISC-V Foundation</fullName>
+                <default>false</default>
+                <label>RISC-V Foundation</label>
+            </value>
+            <value>
+                <fullName>S Foundation</fullName>
+                <default>false</default>
+                <label>S Foundation</label>
+            </value>
+            <value>
+                <fullName>3MF Consortium</fullName>
+                <default>false</default>
+                <label>3MF Consortium</label>
+            </value>
+            <value>
+                <fullName>Akraino Edge Stack</fullName>
+                <default>false</default>
+                <label>Akraino Edge Stack</label>
+            </value>
+            <value>
+                <fullName>Alliance for Open Media (AOM)</fullName>
+                <default>false</default>
+                <label>Alliance for Open Media (AOM)</label>
+            </value>
+            <value>
+                <fullName>AllSeen Alliance, Inc.</fullName>
+                <default>false</default>
+                <label>AllSeen Alliance, Inc.</label>
+            </value>
+            <value>
+                <fullName>Automated Compliance Tooling (ACT)</fullName>
+                <default>false</default>
+                <label>Automated Compliance Tooling (ACT)</label>
+            </value>
+            <value>
+                <fullName>Automotive Grade Linux</fullName>
+                <default>false</default>
+                <label>Automotive Grade Linux</label>
+            </value>
+            <value>
+                <fullName>Ceph Foundation</fullName>
+                <default>false</default>
+                <label>Ceph Foundation</label>
+            </value>
+            <value>
+                <fullName>Chips Alliance Fund</fullName>
+                <default>false</default>
+                <label>Chips Alliance Fund</label>
+            </value>
+            <value>
+                <fullName>Civil Infrastructure Platform</fullName>
+                <default>false</default>
+                <label>Civil Infrastructure Platform</label>
+            </value>
+            <value>
+                <fullName>Clearwater Pass</fullName>
+                <default>false</default>
+                <label>Clearwater Pass</label>
+            </value>
+            <value>
+                <fullName>Code Aurora Forum</fullName>
+                <default>false</default>
+                <label>Code Aurora Forum</label>
+            </value>
+            <value>
+                <fullName>Continuous Delivery Foundation</fullName>
+                <default>false</default>
+                <label>Continuous Delivery Foundation</label>
+            </value>
+            <value>
+                <fullName>Cord (Central Office Re-Architected As A Datacenter)</fullName>
+                <default>false</default>
+                <label>Cord (Central Office Re-Architected As A Datacenter)</label>
+            </value>
+            <value>
+                <fullName>Core Embedded Linux</fullName>
+                <default>false</default>
+                <label>Core Embedded Linux</label>
+            </value>
+            <value>
+                <fullName>Core Infrastructure Initiative</fullName>
+                <default>false</default>
+                <label>Core Infrastructure Initiative</label>
+            </value>
+            <value>
+                <fullName>Diamon Workgroup</fullName>
+                <default>false</default>
+                <label>Diamon Workgroup</label>
+            </value>
+            <value>
+                <fullName>Distributed Identity Foundation(DIF)</fullName>
+                <default>false</default>
+                <label>Distributed Identity Foundation(DIF)</label>
+            </value>
+            <value>
+                <fullName>DPDK</fullName>
+                <default>false</default>
+                <label>DPDK</label>
+            </value>
+            <value>
+                <fullName>Dronecode Project, Inc.</fullName>
+                <default>false</default>
+                <label>Dronecode Project, Inc.</label>
+            </value>
+            <value>
+                <fullName>EdgeX Foundry</fullName>
+                <default>false</default>
+                <label>EdgeX Foundry</label>
+            </value>
+            <value>
+                <fullName>ELISA Fund</fullName>
+                <default>false</default>
+                <label>ELISA Fund</label>
+            </value>
+            <value>
+                <fullName>FD.io Project</fullName>
+                <default>false</default>
+                <label>FD.io Project</label>
+            </value>
+            <value>
+                <fullName>Fossology</fullName>
+                <default>false</default>
+                <label>Fossology</label>
+            </value>
+            <value>
+                <fullName>Hyperledger Project</fullName>
+                <default>false</default>
+                <label>Hyperledger Project</label>
+            </value>
+            <value>
+                <fullName>Internet Security Research Group</fullName>
+                <default>false</default>
+                <label>Internet Security Research Group</label>
+            </value>
+            <value>
+                <fullName>Iotivity</fullName>
+                <default>false</default>
+                <label>Iotivity</label>
+            </value>
+            <value>
+                <fullName>IO Visor Project</fullName>
+                <default>false</default>
+                <label>IO Visor Project</label>
+            </value>
+            <value>
+                <fullName>Janusgraph</fullName>
+                <default>false</default>
+                <label>Janusgraph</label>
+            </value>
+            <value>
+                <fullName>KernelCI Initiative</fullName>
+                <default>false</default>
+                <label>KernelCI Initiative</label>
+            </value>
+            <value>
+                <fullName>Kinetic Open Storage Project</fullName>
+                <default>false</default>
+                <label>Kinetic Open Storage Project</label>
+            </value>
+            <value>
+                <fullName>Let&apos;s Encrypt</fullName>
+                <default>false</default>
+                <label>Let&apos;s Encrypt</label>
+            </value>
+            <value>
+                <fullName>LF Asia LLC</fullName>
+                <default>false</default>
+                <label>LF Asia LLC</label>
+            </value>
+            <value>
+                <fullName>LF Deep Learning</fullName>
+                <default>false</default>
+                <label>LF Deep Learning</label>
+            </value>
+            <value>
+                <fullName>LF Networking</fullName>
+                <default>false</default>
+                <label>LF Networking</label>
+            </value>
+            <value>
+                <fullName>Linux Labs Limited</fullName>
+                <default>false</default>
+                <label>Linux Labs Limited</label>
+            </value>
+            <value>
+                <fullName>Linux Standard Base (LSB)</fullName>
+                <default>false</default>
+                <label>Linux Standard Base (LSB)</label>
+            </value>
+            <value>
+                <fullName>MOJA Global Project</fullName>
+                <default>false</default>
+                <label>MOJA Global Project</label>
+            </value>
+            <value>
+                <fullName>Newticity Fund</fullName>
+                <default>false</default>
+                <label>Newticity Fund</label>
+            </value>
+            <value>
+                <fullName>ODPi, Inc.</fullName>
+                <default>false</default>
+                <label>ODPi, Inc.</label>
+            </value>
+            <value>
+                <fullName>ONF</fullName>
+                <default>false</default>
+                <label>ONF</label>
+            </value>
+            <value>
+                <fullName>Open Accessibility</fullName>
+                <default>false</default>
+                <label>Open Accessibility</label>
+            </value>
+            <value>
+                <fullName>OpenAPI Initiative</fullName>
+                <default>false</default>
+                <label>OpenAPI Initiative</label>
+            </value>
+            <value>
+                <fullName>OpenBEL</fullName>
+                <default>false</default>
+                <label>OpenBEL</label>
+            </value>
+            <value>
+                <fullName>OpenBMC</fullName>
+                <default>false</default>
+                <label>OpenBMC</label>
+            </value>
+            <value>
+                <fullName>OpenChain Project</fullName>
+                <default>false</default>
+                <label>OpenChain Project</label>
+            </value>
+            <value>
+                <fullName>Open Container Initiative</fullName>
+                <default>false</default>
+                <label>Open Container Initiative</label>
+            </value>
+            <value>
+                <fullName>OpenDaylight Project, Inc.</fullName>
+                <default>false</default>
+                <label>OpenDaylight Project, Inc.</label>
+            </value>
+            <value>
+                <fullName>OpenFabrics, Inc.</fullName>
+                <default>false</default>
+                <label>OpenFabrics, Inc.</label>
+            </value>
+            <value>
+                <fullName>Open Finance</fullName>
+                <default>false</default>
+                <label>Open Finance</label>
+            </value>
+            <value>
+                <fullName>OpenHPC Project</fullName>
+                <default>false</default>
+                <label>OpenHPC Project</label>
+            </value>
+            <value>
+                <fullName>Open Mainframe Project</fullName>
+                <default>false</default>
+                <label>Open Mainframe Project</label>
+            </value>
+            <value>
+                <fullName>OpenMAMA</fullName>
+                <default>false</default>
+                <label>OpenMAMA</label>
+            </value>
+            <value>
+                <fullName>Open Networking Automation Platform</fullName>
+                <default>false</default>
+                <label>Open Networking Automation Platform</label>
+            </value>
+            <value>
+                <fullName>Open Network Operating System (ONOS)</fullName>
+                <default>false</default>
+                <label>Open Network Operating System (ONOS)</label>
+            </value>
+            <value>
+                <fullName>Open Orchestrator Project</fullName>
+                <default>false</default>
+                <label>Open Orchestrator Project</label>
+            </value>
+            <value>
+                <fullName>Open Platform for NFV</fullName>
+                <default>false</default>
+                <label>Open Platform for NFV</label>
+            </value>
+            <value>
+                <fullName>OpenPrinting</fullName>
+                <default>false</default>
+                <label>OpenPrinting</label>
+            </value>
+            <value>
+                <fullName>OpenSDS Formation Fund</fullName>
+                <default>false</default>
+                <label>OpenSDS Formation Fund</label>
+            </value>
+            <value>
+                <fullName>Open Security Controller</fullName>
+                <default>false</default>
+                <label>Open Security Controller</label>
+            </value>
+            <value>
+                <fullName>OpenSwitch Project</fullName>
+                <default>false</default>
+                <label>OpenSwitch Project</label>
+            </value>
+            <value>
+                <fullName>Open Virtualization Alliance</fullName>
+                <default>false</default>
+                <label>Open Virtualization Alliance</label>
+            </value>
+            <value>
+                <fullName>Open VSwitch Project</fullName>
+                <default>false</default>
+                <label>Open VSwitch Project</label>
+            </value>
+            <value>
+                <fullName>Platform for Network Data Analytics</fullName>
+                <default>false</default>
+                <label>Platform for Network Data Analytics</label>
+            </value>
+            <value>
+                <fullName>Quartermaster</fullName>
+                <default>false</default>
+                <label>Quartermaster</label>
+            </value>
+            <value>
+                <fullName>R Consortium</fullName>
+                <default>false</default>
+                <label>R Consortium</label>
+            </value>
+            <value>
+                <fullName>Real Time Linux</fullName>
+                <default>false</default>
+                <label>Real Time Linux</label>
+            </value>
+            <value>
+                <fullName>SPDX</fullName>
+                <default>false</default>
+                <label>SPDX</label>
+            </value>
+            <value>
+                <fullName>Tizen Project</fullName>
+                <default>false</default>
+                <label>Tizen Project</label>
+            </value>
+            <value>
+                <fullName>TODO Group</fullName>
+                <default>false</default>
+                <label>TODO Group</label>
+            </value>
+            <value>
+                <fullName>Tungsten Fabric</fullName>
+                <default>false</default>
+                <label>Tungsten Fabric</label>
+            </value>
+            <value>
+                <fullName>Xen Project</fullName>
+                <default>false</default>
+                <label>Xen Project</label>
+            </value>
+            <value>
+                <fullName>Yocto Project</fullName>
+                <default>false</default>
+                <label>Yocto Project</label>
+            </value>
+            <value>
+                <fullName>Zephyr Project</fullName>
+                <default>false</default>
+                <label>Zephyr Project</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

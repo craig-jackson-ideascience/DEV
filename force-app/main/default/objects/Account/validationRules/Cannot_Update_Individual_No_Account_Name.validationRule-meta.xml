@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Update_Individual_No_Account_Name</fullName>
+    <active>true</active>
+    <description>restrict the users to update the name of Individual-No account</description>
+    <errorConditionFormula>AND( PRIORVALUE(Name) == &apos;Individual - No Account&apos;,
+				 ISCHANGED(Name) 
+				)</errorConditionFormula>
+    <errorMessage>Can &apos;t Update the Account Name of &apos;Individual - No Account&apos;</errorMessage>
+</ValidationRule>

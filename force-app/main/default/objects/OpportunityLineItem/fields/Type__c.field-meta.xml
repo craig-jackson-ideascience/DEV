@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Membership</fullName>
+                <default>false</default>
+                <label>Membership</label>
+            </value>
+            <value>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <label>Event</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Alternate Funding</fullName>
+                <default>false</default>
+                <label>Alternate Funding</label>
+            </value>
+            <value>
+                <fullName>01241000001E0UhAAK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>01241000001E0UhAAK</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Join_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+   Auto_Join_Enabled__c,
+   HYPERLINK(
+              &quot;https://enrollment.lfx.linuxfoundation.org/?project=&quot; + Slug__c,
+              &quot;https://enrollment.lfx.linuxfoundation.org/?project=&quot; + Slug__c,
+              &quot;_blank&quot;
+             ),
+   &quot;This project is not on Auto Join.&quot;
+  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Auto Join Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

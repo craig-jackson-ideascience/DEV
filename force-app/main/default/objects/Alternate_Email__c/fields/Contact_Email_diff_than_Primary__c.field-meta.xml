@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Email_diff_than_Primary__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(Primary_Email__c, Alternate_Email_Address__c &lt;&gt; Contact_Name__r.Email),True,False)</formula>
+    <label>Contact - Email Diff than Primary</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

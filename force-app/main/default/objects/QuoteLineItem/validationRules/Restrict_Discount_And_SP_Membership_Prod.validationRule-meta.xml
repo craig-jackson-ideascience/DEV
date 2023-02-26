@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Discount_And_SP_Membership_Prod</fullName>
+    <active>true</active>
+    <description>AND(OR(Discount &gt; 0, AND(NOT(ISNEW()),PRIORVALUE(UnitPrice) &lt;&gt; UnitPrice)),ISPICKVAL(Product2.Family, &apos;Membership&apos;))</description>
+    <errorConditionFormula>AND( 
+ISPICKVAL( Product2.Family , &quot;Membership&quot;), 
+NOT(ISNEW()), 
+OR(ISCHANGED( Clone_Unit_Price__c ) , NOT( ISBLANK( Discount )) ), 
+NOT($Profile.Name = &apos;System Admin Custom&apos; ),NOT($Profile.Name = &apos;System Administrator&apos; ) 
+)</errorConditionFormula>
+    <errorMessage>Neither Discount can be given nor the Sales Price can be updated for the Membership Products</errorMessage>
+</ValidationRule>

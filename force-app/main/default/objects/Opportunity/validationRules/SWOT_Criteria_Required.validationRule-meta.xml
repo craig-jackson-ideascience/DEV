@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SWOT_Criteria_Required</fullName>
+    <active>false</active>
+    <description>SWOT criteria fields must be complete to advance to next stage</description>
+    <errorConditionFormula>AND( 
+    TEXT(StageName) &lt;&gt; &quot;3. Joint Opportunity Development&quot;,
+    OR( 
+    ISBLANK(Strengths__c), 
+    ISBLANK(Opportunities__c), 
+    ISBLANK(Weaknesses__c), 
+    ISBLANK(Threats__c) 
+    ) 
+)</errorConditionFormula>
+    <errorMessage>SWOT criteria fields must be complete to advance to next stage</errorMessage>
+</ValidationRule>

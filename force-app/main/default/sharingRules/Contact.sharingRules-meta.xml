@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Community_Share</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Community Share</label>
+        <sharedTo>
+            <group>Community_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>LastName</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Community_Sharing</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Community Sharing</label>
+        <sharedTo>
+            <portalRoleAndSubordinates>TheLinuxFoundationPartnerUser</portalRoleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>LastName</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Contact_sharing_LF</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Contact Sharing for LF HUbspot</description>
+        <label>Contact sharing LF</label>
+        <sharedTo>
+            <role>Hubspot</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Hubspot__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Finos_Contact_Share</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Finos Contact Share</description>
+        <label>Finos Contact Share</label>
+        <sharedTo>
+            <role>Finos_Hubspot</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Finos_Hubspot__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Internal_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Internal Sharing</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>All_Linux_Foundation</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>LastName</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

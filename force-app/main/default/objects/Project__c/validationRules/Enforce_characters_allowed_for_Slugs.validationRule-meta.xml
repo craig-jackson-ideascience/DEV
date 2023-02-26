@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enforce_characters_allowed_for_Slugs</fullName>
+    <active>true</active>
+    <description>Enforces rules for what characters can and cannot be used in the Slug field, as required by the product team.  Purposefully only enforces those rules when the slug is set or changed, to grandfather in existing records with slugs that break these rules.</description>
+    <errorConditionFormula>AND(
+    OR(
+       ISNEW(),
+       ISCHANGED(Slug__c)
+      ),
+    NOT(REGEX(Slug__c, &quot;^[a-z][a-z0-9_-]*[a-z0-9]$&quot;))
+   )</errorConditionFormula>
+    <errorDisplayField>Slug__c</errorDisplayField>
+    <errorMessage>The Slug must start with a letter and cannot contain any uppercase letters.  It is allowed to contain numbers, but it cannot start with a number.  The only special characters allowed are hyphens and underscores, but it cannot end with a special character.</errorMessage>
+</ValidationRule>

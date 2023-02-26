@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LF_Membership_Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>LF membership is required if this project is a Subproject, it has membership, and its parent project is The Linux Foundation. The value of this field is set by workflow rules.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates if LF membership is required in addition to membership to this project. LF membership is required if this project is a Subproject, it has membership, and its parent project is The Linux Foundation.</inlineHelpText>
+    <label>LF Membership Required?</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

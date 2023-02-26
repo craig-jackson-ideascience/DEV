@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loss_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Loss Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Downgrade</fullName>
+                <default>false</default>
+                <label>Downgrade</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Firm Acquired</fullName>
+                <default>false</default>
+                <label>Firm Acquired</label>
+            </value>
+            <value>
+                <fullName>Lost to Competitor</fullName>
+                <default>false</default>
+                <label>Lost to Competitor</label>
+            </value>
+            <value>
+                <fullName>No Budget / Lost Funding</fullName>
+                <default>false</default>
+                <label>No Budget / Lost Funding</label>
+            </value>
+            <value>
+                <fullName>No Decision / Non-Responsive</fullName>
+                <default>false</default>
+                <label>No Decision / Non-Responsive</label>
+            </value>
+            <value>
+                <fullName>No Engagement</fullName>
+                <default>false</default>
+                <label>No Engagement</label>
+            </value>
+            <value>
+                <fullName>Non payment</fullName>
+                <default>false</default>
+                <label>Non payment</label>
+            </value>
+            <value>
+                <fullName>Org Change/Lost Champion or Funding</fullName>
+                <default>false</default>
+                <label>Org Change/Lost Champion or Funding</label>
+            </value>
+            <value>
+                <fullName>Perceived Value</fullName>
+                <default>false</default>
+                <label>Perceived Value</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Reissued</fullName>
+                <default>false</default>
+                <label>Reissued</label>
+            </value>
+            <value>
+                <fullName>Solution Fit</fullName>
+                <default>false</default>
+                <label>Solution Fit</label>
+            </value>
+            <value>
+                <fullName>SPAM Opportunity</fullName>
+                <default>false</default>
+                <label>SPAM Opportunity</label>
+            </value>
+            <value>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+                <label>Upgrade</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

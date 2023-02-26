@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Entity_Type_required_when_Active_or_Arch</fullName>
+    <active>true</active>
+    <description>Entity Type is required for any Active or Archived project.</description>
+    <errorConditionFormula>AND(
+    OR(
+       ISPICKVAL(Project_Status__c, &quot;Active&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Archived&quot;)
+      ),
+    ISPICKVAL(Category__c, &quot;&quot;)
+   )</errorConditionFormula>
+    <errorDisplayField>Category__c</errorDisplayField>
+    <errorMessage>Entity Type is required for any Active or Archived project.</errorMessage>
+</ValidationRule>

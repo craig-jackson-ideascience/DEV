@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contacts_in_MA</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>contains</operation>
+        <value>Brazil,Argentina,Mexico,Chile,Colombia</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notEqual</operation>
+        <value>LF Anonymous</value>
+    </filters>
+    <filters>
+        <field>CONTACT.FIRST_NAME</field>
+        <operation>notContain</operation>
+        <value>Accounts Payable</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_NAME</field>
+        <operation>notContain</operation>
+        <value>Accounts Payable</value>
+    </filters>
+    <label>Contacts in Brazil, Argentina, Mexico, C</label>
+</ListView>

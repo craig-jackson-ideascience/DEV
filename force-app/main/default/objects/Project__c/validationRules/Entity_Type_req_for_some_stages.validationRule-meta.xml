@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Entity_Type_req_for_some_stages</fullName>
+    <active>true</active>
+    <description>All projects must have an Entity Type before they’re allowed to be set to the “Formation - Engaged,&quot; &quot;Active,&quot; or &quot;Archived&quot; Stage.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Category__c, &quot;&quot;),
+    OR(
+       ISPICKVAL(Project_Status__c, &quot;Formation - Engaged&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Active&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Archived&quot;)
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Category__c</errorDisplayField>
+    <errorMessage>Entity Type is required for &quot;Formation - Engaged,&quot; &quot;Active,&quot; and &quot;Archived&quot; projects.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,43 @@
+<apex:page controller="HLAllMemberContact" contentType="application/vnd.ms-excel#HLMemeberReport.xls" cache="true">
+    <style>
+        table {
+        border-collapse: collapse;
+        }
+        
+        table, td, th {
+        border: 1px solid black;
+        }
+    </style>
+    <apex:pageBlock >
+        
+        <table>
+             <tr >
+                                <th >Account Name</th>		
+                                <th >Product Name</th>
+                                <th >Industry</th>
+                                <th >Billing City</th>
+                                <th >Billing State/Province</th>
+                                <th > Billing Country	</th>
+                                <th >Role</th>
+                                <th >Full Name</th>		
+                                <th >Email</th>
+                                <th >Title</th>
+                                <th >Created Date</th>
+                                <th >Purchase History Name</th>
+                                <th > Sales Order Status</th>
+                                <th >Team Member Name</th>
+                                <th >Team Role</th>
+                            </tr>
+            <apex:repeat value="{!lstwrap}" var="tab">
+                
+               <tr>
+                <apex:repeat value="{!selectedFieldsList}" var="field" >
+                   <td>{!tab[field]}</td>
+                 </apex:repeat>
+                   </tr>
+            </apex:repeat>
+        </table>
+        
+        
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_To_Help__c</fullName>
+    <description>The only purpose of this field is to display instructions on the page layout.  It should never be included in any reports.</description>
+    <externalId>false</externalId>
+    <formula>&quot;Scroll down to the \&quot;Alternate Bill To Name and Address\&quot; pane at the bottom-left of this page.&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Documentation available at tinyurl.com/billto</inlineHelpText>
+    <label>Need to change Billing To?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approve_Expensify_Report</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Approve Expensify Report</masterLabel>
+    <openType>noSidebar</openType>
+    <protected>false</protected>
+    <url>https://www.expensify.com/report?param={%22pageReportID%22:%22{!Travel_Fund_Request__c.Expensify_ID__c}%22,%22keepCollection%22:true}</url>
+</WebLink>

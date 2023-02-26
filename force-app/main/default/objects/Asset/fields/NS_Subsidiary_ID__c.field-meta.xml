@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NS_Subsidiary_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK( Event__c ),Bill_From_ID__r.Subsidiary_ID__c,Event__r.BillFromProject__r.Subsidiary_ID__c)</formula>
+    <label>NS Subsidiary ID</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

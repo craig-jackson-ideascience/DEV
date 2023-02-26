@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Project_Operations_can_edit_Name</fullName>
+    <active>true</active>
+    <description>This validation rule locks down the Name field, since we&apos;re not able to use standard FLS on the Name field (the way that we locked down all other fields on this object).</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Name),
+    NOT($Permission.Change_Name_of_Project_records),
+    NOT(CONTAINS($Profile.Name, &quot;System Admin&quot;))
+   )</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Only members of the Project Operations Team or Salesforce admins can edit project names.</errorMessage>
+</ValidationRule>

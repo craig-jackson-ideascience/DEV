@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Individual_Contract_Signed__c</fullName>
+    <description>This Email send to JoinNowindiviual submission user when they sign the contract</description>
+    <externalId>false</externalId>
+    <label>External Individual Contract Signed</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

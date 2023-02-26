@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dissolution_Document_Link__c</fullName>
+    <description>This field (rather than the Dissolution Document File URL field) should be displayed on the page layout.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+   ISBLANK(Dissolution_Document_URL__c),
+   &quot;&quot;,
+   IF(
+      OR(
+         BEGINS(Dissolution_Document_URL__c, &quot;https://&quot;),
+         BEGINS(Dissolution_Document_URL__c, &quot;http://&quot;)
+        ),
+      HYPERLINK(
+                Dissolution_Document_URL__c,
+                &quot;Click to open the Dissolution Document&quot;,
+                &quot;_blank&quot;
+               ),
+      HYPERLINK(
+                &quot;http://&quot; + Dissolution_Document_URL__c,
+                &quot;Click to open the Dissolution Document&quot;,
+                &quot;_blank&quot;
+               )
+     )
+  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Displays a link to the Dissolution Document, if one has been uploaded via the file uploader (below).</inlineHelpText>
+    <label>Dissolution Document Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EvntBenchmarkScore__c</fullName>
+    <defaultValue>0.1</defaultValue>
+    <description>Event Benchmark Score</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Event Benchmark Score</inlineHelpText>
+    <label>Event Benchmark Score</label>
+    <precision>4</precision>
+    <required>true</required>
+    <scale>1</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

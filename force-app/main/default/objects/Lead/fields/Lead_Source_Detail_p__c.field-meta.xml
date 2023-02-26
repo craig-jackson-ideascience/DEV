@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source_Detail_p__c</fullName>
+    <externalId>false</externalId>
+    <label>Lead Source Detail</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>LeadSource</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Email Marketing</fullName>
+                <default>false</default>
+                <label>Email Marketing</label>
+            </value>
+            <value>
+                <fullName>Organic Search</fullName>
+                <default>false</default>
+                <label>Organic Search</label>
+            </value>
+            <value>
+                <fullName>Google Ads</fullName>
+                <default>false</default>
+                <label>Google Ads</label>
+            </value>
+            <value>
+                <fullName>Bing</fullName>
+                <default>false</default>
+                <label>Bing</label>
+            </value>
+            <value>
+                <fullName>Meta</fullName>
+                <default>false</default>
+                <label>Meta</label>
+            </value>
+            <value>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+                <label>LinkedIn</label>
+            </value>
+            <value>
+                <fullName>Reddit</fullName>
+                <default>false</default>
+                <label>Reddit</label>
+            </value>
+            <value>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+                <label>Twitter</label>
+            </value>
+            <value>
+                <fullName>Drift</fullName>
+                <default>false</default>
+                <label>Drift</label>
+            </value>
+            <value>
+                <fullName>HubSpot</fullName>
+                <default>false</default>
+                <label>HubSpot</label>
+            </value>
+            <value>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+                <label>Direct Mail</label>
+            </value>
+            <value>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>Whitepaper</fullName>
+                <default>false</default>
+                <label>Whitepaper</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Video</fullName>
+                <default>false</default>
+                <label>Video</label>
+            </value>
+            <value>
+                <fullName>Experience</fullName>
+                <default>false</default>
+                <label>Experience</label>
+            </value>
+            <value>
+                <fullName>In-person Event</fullName>
+                <default>false</default>
+                <label>In-person Event</label>
+            </value>
+            <value>
+                <fullName>Virtual Event</fullName>
+                <default>false</default>
+                <label>Virtual Event</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Blog</fullName>
+                <default>false</default>
+                <label>Blog</label>
+            </value>
+            <value>
+                <fullName>Affiliate</fullName>
+                <default>false</default>
+                <label>Affiliate</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Direct Traffic</fullName>
+                <default>false</default>
+                <label>Direct Traffic</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Edx</fullName>
+                <default>false</default>
+                <label>Edx</label>
+            </value>
+            <value>
+                <fullName>Cvent</fullName>
+                <default>false</default>
+                <label>Cvent</label>
+            </value>
+            <value>
+                <fullName>LF Auth0</fullName>
+                <default>false</default>
+                <label>LF Auth0</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Organic Search</controllingFieldValue>
+            <valueName>Organic Search</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <valueName>Google Ads</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Search</controllingFieldValue>
+            <valueName>Bing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Social</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Meta</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Social</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>LinkedIn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Social</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Reddit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Social</controllingFieldValue>
+            <controllingFieldValue>Social Media</controllingFieldValue>
+            <valueName>Twitter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Content</controllingFieldValue>
+            <valueName>Whitepaper</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Content</controllingFieldValue>
+            <valueName>Research</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Content</controllingFieldValue>
+            <valueName>Video</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Content</controllingFieldValue>
+            <valueName>Experience</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Affiliate</controllingFieldValue>
+            <valueName>Affiliate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <valueName>Sales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Traffic</controllingFieldValue>
+            <valueName>Direct Traffic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Blog</controllingFieldValue>
+            <valueName>Blog</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>In-person Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>Virtual Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chat</controllingFieldValue>
+            <valueName>Drift</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chat</controllingFieldValue>
+            <valueName>HubSpot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email Marketing</controllingFieldValue>
+            <valueName>Email Marketing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Webinar</controllingFieldValue>
+            <valueName>Webinar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Mail</controllingFieldValue>
+            <valueName>Direct Mail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <valueName>Referral</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_to_Deduct__c</fullName>
+    <defaultValue>&quot;30&quot;</defaultValue>
+    <description>All renewals will close 30 days as default. If your project needs to close earlier than 30 days pick a value other than 30. This change will update all open Renewal opportunity&apos;s close date, Except for Year end renewals.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>All renewals will close 30 days as default. If your project needs to close earlier than 30 days pick a value other than 30. This change will update all open Renewal opportunity&apos;s close date.</inlineHelpText>
+    <label>Days to Close Renewals</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>30</fullName>
+                <default>true</default>
+                <label>30</label>
+            </value>
+            <value>
+                <fullName>45</fullName>
+                <default>false</default>
+                <label>45</label>
+            </value>
+            <value>
+                <fullName>60</fullName>
+                <default>false</default>
+                <label>60</label>
+            </value>
+            <value>
+                <fullName>90</fullName>
+                <default>false</default>
+                <label>90</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

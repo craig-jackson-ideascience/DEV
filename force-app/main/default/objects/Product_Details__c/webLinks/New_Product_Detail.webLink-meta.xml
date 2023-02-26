@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Product_Detail</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Product Detail</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT (&quot;/soap/ajax/28.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/apex.js&quot;)} 
+
+var projectId = &quot;{!Project__c.Id}&quot;;
+var trainingId = &quot;{!Training__c.Id}&quot;;
+var eventId = &quot;{!Event__c.Id}&quot;;
+
+console.log(&apos;__project___&apos;+&quot;{!Project__c.Name}&quot;+&apos;   &apos; + projectId);
+console.log(&apos;__training___&apos;+&quot;{!Training__c.Name}&quot; +&apos;   &apos; + trainingId);
+console.log(&apos;__event___&apos;+&quot;{!Event__c.Name}&quot;+&apos;   &apos; + eventId);
+
+var url = &apos;&apos;;
+
+if(projectId!=null &amp;&amp; projectId!=&apos;&apos;){
+url = &quot;/a0I/e?CF00N4100000Q4vaM=&quot;+&apos;{!Project__c.Name}&apos;+ &quot;&amp;RecordType=01241000001E0Uh&amp;retURL=&quot;+projectId;
+}
+else if(trainingId!=null &amp;&amp; trainingId!=&apos;&apos;){
+url = &quot;/a0I/e?CF00N4100000RZcPl=&quot;+&apos;{!Training__c.Name}&apos;+ &quot;&amp;RecordType=01241000001E2Nm&amp;retURL=&quot;+trainingId;
+}
+else if(eventId!=null &amp;&amp; eventId!=&apos;&apos;){
+url = &quot;/a0I/e?CF00N4100000Q4vaE=&quot;+ &apos;{!Event__c.Name}&apos; + &quot;&amp;RecordType=01241000001E0Ug&amp;retURL=&quot;+eventId;
+}
+
+
+console.log(&apos;___url___&apos;+url);
+
+window.location=url;</url>
+</WebLink>

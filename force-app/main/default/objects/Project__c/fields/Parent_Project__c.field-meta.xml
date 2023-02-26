@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Project__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The Incorporated Entity, Series LLC, or Subproject with which this project is associated. For example, a Series LLC entity may have a legal parent of LF Projects, LLC, but be associated with the parent project LF AI Foundation.</inlineHelpText>
+    <label>Parent Project</label>
+    <referenceTo>Project__c</referenceTo>
+    <relationshipLabel>Child Projects</relationshipLabel>
+    <relationshipName>Child_Projects</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

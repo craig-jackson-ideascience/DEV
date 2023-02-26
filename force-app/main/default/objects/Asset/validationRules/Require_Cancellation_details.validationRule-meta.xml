@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Cancellation_details</fullName>
+    <active>true</active>
+    <description>When auto-renew is set to false , cancellation details must be populated</description>
+    <errorConditionFormula>IF(
+AND( ISCHANGED(Auto_Renew__c) , Auto_Renew__c=FALSE ,
+NOT(CONTAINS(&apos;Associate Membership&apos;, Product2.Name)),OR( ISNULL(Cancellation_Date__c) , ISBLANK( TEXT(Cancellation_Reason__c) ) ) ) ,TRUE, IF(AND(ISCHANGED(Auto_Renew__c) , Auto_Renew__c=FALSE,CONTAINS(&apos;Associate Membership&apos;, Product2.Name),Price&lt;&gt;0),TRUE,FALSE))</errorConditionFormula>
+    <errorDisplayField>Auto_Renew__c</errorDisplayField>
+    <errorMessage>Specify Auto renewal Cancellation Reason and Date</errorMessage>
+</ValidationRule>

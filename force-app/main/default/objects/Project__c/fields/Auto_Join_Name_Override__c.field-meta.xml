@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Join_Name_Override__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Leave this field blank if it&apos;s okay to show the project&apos;s Common Name as the name of the project on Auto Join. If it&apos;s not, enter what should be shown as the project name here.</inlineHelpText>
+    <label>Auto Join Name Override</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

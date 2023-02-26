@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funding_req_for_some_stages</fullName>
+    <active>true</active>
+    <description>All projects except Internal Allocations and Unofficial Subprojects must have a value chosen for Funding before they’re allowed to be set to the &quot;Active&quot; or &quot;Archived&quot; Stage.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Funding__c, &quot;&quot;),
+    NOT(ISPICKVAL(Category__c, &quot;Internal Allocation&quot;)),
+    NOT(ISPICKVAL(Category__c, &quot;Unofficial Subproject&quot;)),
+    OR(
+       ISPICKVAL(Project_Status__c, &quot;Active&quot;),
+       ISPICKVAL(Project_Status__c, &quot;Archived&quot;)
+      )
+   )</errorConditionFormula>
+    <errorDisplayField>Funding__c</errorDisplayField>
+    <errorMessage>Funding is required for &quot;Active&quot; and &quot;Archived&quot; projects.</errorMessage>
+</ValidationRule>

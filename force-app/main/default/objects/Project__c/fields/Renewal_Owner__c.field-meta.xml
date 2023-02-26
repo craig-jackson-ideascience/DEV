@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The LF staff member who should own Renewal Opportunities for this project. In the Project Control Center, this is the equivalent of the &quot;Membership Renewal Owner.&quot;</inlineHelpText>
+    <label>Renewal Owner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Projects3</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

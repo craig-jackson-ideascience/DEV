@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancel_Renewal</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Cancel Renewal</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)}
+
+var dt = &quot;{!DAY(TODAY())}&quot;;
+if (dt &lt; 10){dt = &quot;0&quot;+ dt;}
+var mon = &quot;{!MONTH(TODAY())}&quot;;
+if (mon &lt; 10){mon = &quot;0&quot;+ mon;}
+var samp = new sforce.SObject(&quot;Asset&quot;);
+
+var updateAsset = new sforce.SObject(&quot;Asset&quot;);
+updateAsset.id = &apos;{!Asset.Id}&apos;;
+updateAsset.Auto_Renew__c = false;
+updateAsset.Cancellation_Date__c = &quot;{!YEAR(TODAY())}-&quot;+mon+&quot;-&quot;+dt;
+
+if(&apos;{!Asset.Projects__c}&apos;!=&quot;&quot;){
+console.log(&apos;{!Asset.Auto_Renew__c}&apos;);
+    if(&apos;{!Asset.Auto_Renew__c}&apos; == true ){
+        if(&apos;{!Asset.Renewal_Opportunity_Created__c}&apos; == false){
+            var confirmDetail = confirm(&quot;Cancel this membership?&quot;);
+            console.log(confirmDetail);
+              if(confirmDetail == true){
+										        updateAsset.Cancellation_Reason__c = prompt(&apos;Enter Cancellation Reason: Acquired, Competition,Perceived Value, Out of Business, Price, Upgrade, Downgrade, Other&apos;, &apos;&apos;);
+  												    var result = sforce.connection.update([updateAsset]);
+														    window.location.reload();
+                  if(result[0].getBoolean(&quot;success&quot;)) {
+                      alert(&apos;Asset updated successfully&apos;);
+                          }
+                      else{
+                           alert(&apos;Error : &apos;+result);
+                          }
+  												    }
+				              else{
+                  alert(&quot;No changes have been made&quot;);
+                  }
+        }
+								else{
+        alert(&quot;Membership renewal opportunity has been created&quot;);
+    }
+}
+else{
+alert(&apos;Renewal has already been cancelled for this Asset&apos;);
+}
+}</url>
+</WebLink>

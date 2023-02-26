@@ -1,0 +1,19 @@
+<apex:page controller="NavigateToHistoryRecordCntrl" action="{!RedirectToHistoryRecord}" sidebar="false" docType="html-5.0">
+    <apex:slds />
+    <apex:message title="Please wait......." />
+
+    <apex:actionstatus id="counterStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #ffffff; height:100%;opacity:0.5;width:100%;position:fixed;">
+                    <div class="waitingHolder" style="top: 100px; width: 100px;">
+                        <div class="slds-spinner_container">
+                            <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+</apex:page>

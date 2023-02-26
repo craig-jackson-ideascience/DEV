@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExpAnnouncDate_req_for_Formation_Engaged</fullName>
+    <active>true</active>
+    <description>All projects except Internal Allocations and Unofficial Subprojects must have an Expected Announcement Date before they’re allowed to be set to the “Formation - Engaged&quot; Stage.</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Expected_Announcement_Date__c),
+    NOT(ISPICKVAL(Category__c, &quot;Internal Allocation&quot;)),
+    NOT(ISPICKVAL(Category__c, &quot;Unofficial Subproject&quot;)),
+    ISPICKVAL(Project_Status__c, &quot;Formation - Engaged&quot;)
+   )</errorConditionFormula>
+    <errorDisplayField>Expected_Announcement_Date__c</errorDisplayField>
+    <errorMessage>Expected Announcement Date is required for &quot;Formation - Engaged&quot; projects.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Date__c</fullName>
+    <description>If Status was updated as a result of Auto-Dispositioning, date that the Status was last updated.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If Status was updated as a result of Auto-Dispositioning, date that the Status was last updated.</inlineHelpText>
+    <label>Status Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

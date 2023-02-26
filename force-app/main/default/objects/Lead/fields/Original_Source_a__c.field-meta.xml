@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Source_a__c</fullName>
+    <externalId>false</externalId>
+    <label>Original Source_a</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Certification Registration</fullName>
+                <default>false</default>
+                <label>Certification Registration</label>
+            </value>
+            <value>
+                <fullName>Compliance Directory</fullName>
+                <default>false</default>
+                <label>Compliance Directory</label>
+            </value>
+            <value>
+                <fullName>Created Manually</fullName>
+                <default>false</default>
+                <label>Created Manually</label>
+            </value>
+            <value>
+                <fullName>CreatedManually</fullName>
+                <default>false</default>
+                <label>CreatedManually</label>
+            </value>
+            <value>
+                <fullName>Event Incomplete Registration</fullName>
+                <default>false</default>
+                <label>Event Incomplete Registration</label>
+            </value>
+            <value>
+                <fullName>Event Registration</fullName>
+                <default>false</default>
+                <label>Event Registration</label>
+            </value>
+            <value>
+                <fullName>Individual Membership</fullName>
+                <default>false</default>
+                <label>Individual Membership</label>
+            </value>
+            <value>
+                <fullName>Linux.com Store</fullName>
+                <default>false</default>
+                <label>Linux.com Store</label>
+            </value>
+            <value>
+                <fullName>List Import</fullName>
+                <default>false</default>
+                <label>List Import</label>
+            </value>
+            <value>
+                <fullName>Pardot</fullName>
+                <default>false</default>
+                <label>Pardot</label>
+            </value>
+            <value>
+                <fullName>Training Incomplete Registration</fullName>
+                <default>false</default>
+                <label>Training Incomplete Registration</label>
+            </value>
+            <value>
+                <fullName>Training Registration</fullName>
+                <default>false</default>
+                <label>Training Registration</label>
+            </value>
+            <value>
+                <fullName>Training Self Assessment</fullName>
+                <default>false</default>
+                <label>Training Self Assessment</label>
+            </value>
+            <value>
+                <fullName>Training Student Survey</fullName>
+                <default>false</default>
+                <label>Training Student Survey</label>
+            </value>
+            <value>
+                <fullName>Travel Fund Requester</fullName>
+                <default>false</default>
+                <label>Travel Fund Requester</label>
+            </value>
+            <value>
+                <fullName>Sugar</fullName>
+                <default>false</default>
+                <label>Sugar</label>
+            </value>
+            <value>
+                <fullName>Finos</fullName>
+                <default>false</default>
+                <label>Finos</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

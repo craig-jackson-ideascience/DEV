@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LF_Training_Bootcamp_June_2020</fullName>
+    <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>MCCampaignID__c</columns>
+    <columns>Technology__c</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <columns>PARENT_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PARENT_NAME</field>
+        <operation>equals</operation>
+        <value>LF Training Bootcamp June 2020</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.NAME</field>
+        <operation>equals</operation>
+        <value>LF Training Bootcamp June 2020</value>
+    </filters>
+    <filters>
+        <field>MCCampaignID__c</field>
+        <operation>equals</operation>
+        <value>7012M0000023yuHQAQ</value>
+    </filters>
+    <filters>
+        <field>MCCampaignID__c</field>
+        <operation>equals</operation>
+        <value>7012M0000023ytxQAA</value>
+    </filters>
+    <label>LF Training Bootcamp June 2020</label>
+</ListView>

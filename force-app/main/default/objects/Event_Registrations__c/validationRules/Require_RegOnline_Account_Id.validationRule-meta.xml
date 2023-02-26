@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_RegOnline_Account_Id</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(
+  AND(
+    TEXT(Data_Source__c) = &apos;RegOnline&apos;,
+    TEXT(RegOnline_Account_Id__c) = &apos;&apos;
+  ),
+  TRUE,
+  FALSE
+)</errorConditionFormula>
+    <errorDisplayField>RegOnline_Account_Id__c</errorDisplayField>
+    <errorMessage>Please specify the RegOnline Account Id.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Automation_For_Opportunity_Owner__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this field if automation for the owner on opportunity needs to be disabled and the current user should be the owner of the New Business Membership opportunity</inlineHelpText>
+    <label>Disable Automation For Opportunity Owner</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

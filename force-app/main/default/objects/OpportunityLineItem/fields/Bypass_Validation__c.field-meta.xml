@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Validation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field allows the ChangeProductUtil class to bypass a validation rule on this object.  Anytime you run a report on this field, it should be FALSE for *all* records.  This field should not be included on any page layouts; it should only be set by Apex.</description>
+    <externalId>false</externalId>
+    <label>Bypass Validation</label>
+    <type>Checkbox</type>
+</CustomField>

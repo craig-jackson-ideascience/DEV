@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictSalesforceUserNotToUpdateName</fullName>
+    <active>true</active>
+    <description>restrict salesforce user to update name if it is updated by platform user</description>
+    <errorConditionFormula>AND(
+				AND(
+								OR(
+												ISCHANGED(FirstName),
+												ISCHANGED(LastName)
+								),
+								Updated_by_Myprofile__c
+				),
+				NOT(OR($Profile.Name == &apos;Sysadmin With Security&apos;,
+											$Profile.Name == &apos;System Admin Custom&apos;,
+											$Profile.Name == &apos;System Administrator&apos;,
+$Permission.Allow_Contact_Update					)
+							)
+)</errorConditionFormula>
+    <errorMessage>You can &apos;t modify the firstname or lastname as it is modified by the lead itself</errorMessage>
+</ValidationRule>

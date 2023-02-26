@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Join_requires_Project_Signatory</fullName>
+    <active>true</active>
+    <description>Requires the Project Signatory field to be populated when Auto Join Enabled = TRUE.</description>
+    <errorConditionFormula>AND(
+    ISBLANK(Project_Signatory__c),
+    Auto_Join_Enabled__c
+   )</errorConditionFormula>
+    <errorDisplayField>Project_Signatory__c</errorDisplayField>
+    <errorMessage>Project Signatory is required for projects that are Auto Join Enabled.</errorMessage>
+</ValidationRule>

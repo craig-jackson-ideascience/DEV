@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CNCF_Business_Development_Contacts</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Product_Interest__c</field>
+        <operation>equals</operation>
+        <value>CNCF</value>
+    </filters>
+    <label>CNCF Business Development Contacts</label>
+    <sharedTo>
+        <role>Senior_Marketing_Manager</role>
+    </sharedTo>
+</ListView>

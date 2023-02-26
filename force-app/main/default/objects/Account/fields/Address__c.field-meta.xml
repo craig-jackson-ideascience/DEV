@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address__c</fullName>
+    <description>Created for DocuSign to show Account Address in Single Line.</description>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(BillingStreet)),BillingStreet +&apos;, &apos;,&apos;&apos;)&amp;
+IF(NOT(ISBLANK(BillingCity)),BillingCity+&apos;, &apos;,&apos;&apos;)&amp;
+IF(NOT(ISBLANK(BillingPostalCode)),BillingPostalCode+&apos;, &apos;,&apos;&apos;)&amp;
+IF(NOT(ISBLANK(BillingCountry)),BillingCountry,&apos;&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

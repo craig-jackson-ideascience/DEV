@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadSourceMostRecent__c</fullName>
+    <externalId>false</externalId>
+    <label>Lead Source Most Recent</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Email Sponsorship</fullName>
+                <default>false</default>
+                <label>Email Sponsorship</label>
+            </value>
+            <value>
+                <fullName>Offline Advertising</fullName>
+                <default>false</default>
+                <label>Offline Advertising</label>
+            </value>
+            <value>
+                <fullName>Online Advertising</fullName>
+                <default>false</default>
+                <label>Online Advertising</label>
+            </value>
+            <value>
+                <fullName>Press</fullName>
+                <default>false</default>
+                <label>Press</label>
+            </value>
+            <value>
+                <fullName>Roadshow</fullName>
+                <default>false</default>
+                <label>Roadshow</label>
+            </value>
+            <value>
+                <fullName>Social Media - Paid</fullName>
+                <default>false</default>
+                <label>Social Media - Paid</label>
+            </value>
+            <value>
+                <fullName>Social Media - Organic</fullName>
+                <default>false</default>
+                <label>Social Media - Organic</label>
+            </value>
+            <value>
+                <fullName>Media Partner</fullName>
+                <default>false</default>
+                <label>Media Partner</label>
+            </value>
+            <value>
+                <fullName>Web Referral</fullName>
+                <default>false</default>
+                <label>Web Referral</label>
+            </value>
+            <value>
+                <fullName>Blog</fullName>
+                <default>false</default>
+                <label>Blog</label>
+            </value>
+            <value>
+                <fullName>List Rental</fullName>
+                <default>false</default>
+                <label>List Rental</label>
+            </value>
+            <value>
+                <fullName>Nurture Campaign</fullName>
+                <default>false</default>
+                <label>Nurture Campaign</label>
+            </value>
+            <value>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>Sales Generated</fullName>
+                <default>false</default>
+                <label>Sales Generated</label>
+            </value>
+            <value>
+                <fullName>Sponsored Event</fullName>
+                <default>false</default>
+                <label>Sponsored Event</label>
+            </value>
+            <value>
+                <fullName>SEO</fullName>
+                <default>false</default>
+                <label>SEO</label>
+            </value>
+            <value>
+                <fullName>Tradeshow</fullName>
+                <default>false</default>
+                <label>Tradeshow</label>
+            </value>
+            <value>
+                <fullName>Web Direct</fullName>
+                <default>false</default>
+                <label>Web Direct</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Website Resource</fullName>
+                <default>false</default>
+                <label>Website Resource</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

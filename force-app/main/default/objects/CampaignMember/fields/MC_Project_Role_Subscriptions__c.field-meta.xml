@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MC_Project_Role_Subscriptions__c</fullName>
+    <externalId>false</externalId>
+    <label>MC Project Role Subscriptions</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Voting Contact</fullName>
+                <default>false</default>
+                <label>Voting Contact</label>
+            </value>
+            <value>
+                <fullName>Marketing Contact</fullName>
+                <default>false</default>
+                <label>Marketing Contact</label>
+            </value>
+            <value>
+                <fullName>Marketing Contact 2</fullName>
+                <default>false</default>
+                <label>Marketing Contact 2</label>
+            </value>
+            <value>
+                <fullName>Marketing Contact 3</fullName>
+                <default>false</default>
+                <label>Marketing Contact 3</label>
+            </value>
+            <value>
+                <fullName>Technical Contact</fullName>
+                <default>false</default>
+                <label>Technical Contact</label>
+            </value>
+            <value>
+                <fullName>Technical Contact 2</fullName>
+                <default>false</default>
+                <label>Technical Contact 2</label>
+            </value>
+            <value>
+                <fullName>Technical Contact 3</fullName>
+                <default>false</default>
+                <label>Technical Contact 3</label>
+            </value>
+            <value>
+                <fullName>Billing Contact</fullName>
+                <default>false</default>
+                <label>Billing Contact</label>
+            </value>
+            <value>
+                <fullName>Billing Contact 2</fullName>
+                <default>false</default>
+                <label>Billing Contact 2</label>
+            </value>
+            <value>
+                <fullName>Billing Contact 3</fullName>
+                <default>false</default>
+                <label>Billing Contact 3</label>
+            </value>
+            <value>
+                <fullName>Press Contact</fullName>
+                <default>false</default>
+                <label>Press Contact</label>
+            </value>
+            <value>
+                <fullName>Legal Contact</fullName>
+                <default>false</default>
+                <label>Legal Contact</label>
+            </value>
+            <value>
+                <fullName>Event Sponsorship</fullName>
+                <default>false</default>
+                <label>Event Sponsorship</label>
+            </value>
+            <value>
+                <fullName>PO Contact</fullName>
+                <default>false</default>
+                <label>PO Contact</label>
+            </value>
+            <value>
+                <fullName>Authorized Signatory</fullName>
+                <default>false</default>
+                <label>Authorized Signatory</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

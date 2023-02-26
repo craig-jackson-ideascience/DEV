@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accommodation_Paid_by__c</fullName>
+    <externalId>false</externalId>
+    <label>Accommodation Paid by</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Delegate</fullName>
+                <default>false</default>
+                <label>Delegate</label>
+            </value>
+            <value>
+                <fullName>Linux Foundation</fullName>
+                <default>false</default>
+                <label>Linux Foundation</label>
+            </value>
+            <value>
+                <fullName>The Linux Foundation</fullName>
+                <default>false</default>
+                <label>The Linux Foundation</label>
+            </value>
+            <value>
+                <fullName>Delegate&apos;s Company</fullName>
+                <default>false</default>
+                <label>Delegate&apos;s Company</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

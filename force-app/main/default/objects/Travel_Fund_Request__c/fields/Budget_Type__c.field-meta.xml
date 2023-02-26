@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Budget Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cloud Native Computing Foundation</fullName>
+                <default>false</default>
+                <label>Cloud Native Computing Foundation</label>
+            </value>
+            <value>
+                <fullName>Intel Directed Fund</fullName>
+                <default>false</default>
+                <label>Intel Directed Fund</label>
+            </value>
+            <value>
+                <fullName>LF Japan Budget</fullName>
+                <default>false</default>
+                <label>LF Japan Budget</label>
+            </value>
+            <value>
+                <fullName>LF Operating Budget</fullName>
+                <default>false</default>
+                <label>LF Operating Budget</label>
+            </value>
+            <value>
+                <fullName>Open API</fullName>
+                <default>false</default>
+                <label>Open API</label>
+            </value>
+            <value>
+                <fullName>Tab Travel Fund</fullName>
+                <default>false</default>
+                <label>Tab Travel Fund</label>
+            </value>
+            <value>
+                <fullName>Xen Project</fullName>
+                <default>false</default>
+                <label>Xen Project</label>
+            </value>
+            <value>
+                <fullName>LFOperatingBudget</fullName>
+                <default>false</default>
+                <label>LFOperatingBudget</label>
+            </value>
+            <value>
+                <fullName>TabTravelFund</fullName>
+                <default>false</default>
+                <label>TabTravelFund</label>
+            </value>
+            <value>
+                <fullName>LFJapanBudget</fullName>
+                <default>false</default>
+                <label>LFJapanBudget</label>
+            </value>
+            <value>
+                <fullName>Hyperledger</fullName>
+                <default>false</default>
+                <label>Hyperledger</label>
+            </value>
+            <value>
+                <fullName>CloudFoundry.org Foundation, Inc.</fullName>
+                <default>false</default>
+                <label>CloudFoundry.org Foundation, Inc.</label>
+            </value>
+            <value>
+                <fullName>Ceph Foundation</fullName>
+                <default>false</default>
+                <label>Ceph Foundation</label>
+            </value>
+            <value>
+                <fullName>LFMarketing</fullName>
+                <default>false</default>
+                <label>LFMarketing</label>
+            </value>
+            <value>
+                <fullName>OpenDaylight Project, Inc.</fullName>
+                <default>false</default>
+                <label>OpenDaylight Project, Inc.</label>
+            </value>
+            <value>
+                <fullName>Node.js Foundation</fullName>
+                <default>false</default>
+                <label>Node.js Foundation</label>
+            </value>
+            <value>
+                <fullName>LF Networking</fullName>
+                <default>false</default>
+                <label>LF Networking</label>
+            </value>
+            <value>
+                <fullName>Cloud Foundry</fullName>
+                <default>false</default>
+                <label>Cloud Foundry</label>
+            </value>
+            <value>
+                <fullName>IntelDirectedFund</fullName>
+                <default>false</default>
+                <label>IntelDirectedFund</label>
+            </value>
+            <value>
+                <fullName>OpenPOWER</fullName>
+                <default>false</default>
+                <label>OpenPOWER</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

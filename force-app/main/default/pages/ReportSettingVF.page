@@ -1,0 +1,320 @@
+<apex:page controller="ReportSettingCtrl" showHeader="false" sidebar="false" docType="html-5.0">
+   <apex:slds />
+    <apex:includeScript value="{!URLFOR($Resource.JqueyDataTable , '/jquery-1.12.0.min.js')}"/>
+     <apex:stylesheet value="{!URLFOR($Resource.Multiselect_Select2 , 'select2.min.css')}"/>
+     <apex:includeScript value="{!URLFOR($Resource.Multiselect_Select2 , 'select2.min.js')}"/>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+
+    <style>
+           <!-- For multiselect in search filters start -->
+            
+        .select2-selection__rendered{
+        white-space: normal !important;
+        }
+        
+        .select2-selection__choice{
+            word-break: break-word !important;
+        }
+        
+        .select2-container{
+            width:100% !important;
+        }
+        span.select2-dropdown{
+            z-index: 9999;
+        }
+        
+        .slds-dropdown{
+            max-width: 5000px !important;
+            width:100% !important;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice{
+        padding : 2px 5px !important;
+        }
+        .stickerHeaderClass{
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        z-index: 10;
+        }
+        ul li, ol li{
+         margin-left: 0.5em !important;
+        }
+        <!-- For multiselect in search filters end -->
+    </style>
+    </head>
+    <apex:form id="fid" >
+        <apex:actionstatus id="counterStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #ffffff; height:100%;opacity:0.5;width:100%;position:fixed;">
+                    <div class="waitingHolder" style="top: 100px; width: 100px;">
+                        <div class="slds-spinner_container">
+                            <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+       
+     <center class="slds-p-around--medium">  <h1 style="font-size:25px;padding:10px;" class="slds-card">Top Sponsors Report</h1> </center>
+        <div class="slds-p-around--medium">
+        <div class="slds-size_12-of-12 slds-p-around--medium slds-card">
+             <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title slds-button slds-section__title-action">
+                         <span class="slds-truncate" title="Section Title"><b>Filters</b></span>
+
+                    </h3>
+                </div>
+            <div class="slds-grid slds-wrap" style="border:0px solid red;">
+               
+                <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                     <span>Bill From</span> <br/>
+                    <apex:selectList styleClass="productName1"  multiselect="true" size="1" value="{!selectedProject}">
+                     <apex:selectOptions value="{!ProjectName}" />
+                        <!--<apex:actionSupport event="onchange" reRender="EventId" action="{!LoadEventsfromProjects}" />-->
+                     </apex:selectList>
+					<apex:commandButton styleClass="slds-button slds-button--brand " value="Go!" action="{!LoadEventsfromProjects}" status="counterStatus"
+                                        rerender="EventId"/>
+                    
+                    <script>
+                         $('.productName1').select2();
+                         var myList = new Array();
+                      myList = '{!selectedProject}';
+                      myList = myList.replace('[','').replace(']','').trim();
+                      console.log('-------'+myList);
+                        if(myList){
+                        var contexts = myList.split(',');
+                        console.log('--------'+contexts);
+                        $('.productName1').select2().val(contexts).trigger('change');
+                     }
+                     </script>
+                    
+                </div>
+                <!--
+                <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                    <span>Event Name</span> <br/>
+                    <apex:inputText styleClass="slds-input" value="{!eventsWrapper.Events.EventName}"/>
+                </div>-->
+                 <apex:outputPanel id="EventId" style="border:0px solid yellow;">
+                 <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small" style="border:0px solid green;width:500px;" >
+                     <span>Event Name</span> <br/>
+                     <apex:selectList styleClass="test" style="width:200px;Height:300px;" multiselect="true" size="1" value="{!selectedEvent}" >
+                       <apex:selectOptions value="{!eventsName}"/>
+                     </apex:selectList>
+					 
+                     <script>
+                         $('.test').select2();
+                         var myList = new Array();
+                      myList = '{!selectedEvent}';
+                      myList = myList.replace('[','').replace(']','').trim();
+                      console.log('-------'+myList);
+                        if(myList){
+                        var contexts = myList.split(',');
+                        console.log('--------'+contexts);
+                        $('.test').select2().val(contexts).trigger('change');
+                     }
+                     </script>
+                    
+                </div>
+                  </apex:outputPanel>
+                <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                    
+                    
+                </div>
+                 <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small" style="border:0px solid orange;">
+                     <span>Event StartDate</span> <br/>
+                    <apex:input type="date"  value="{!eventsWrapper.Events.EventStartDate}"/>
+                </div>
+                <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                    <span>Event EndDate</span> <br/>
+                    <apex:input type="date"  value="{!eventsWrapper.Events.EventEndDate}"/>
+                </div>
+                <div class=" slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12 slds-p-around--small">
+                     <span>Product Name</span> <br/>
+                    <!-- <apex:inputText styleClass="slds-input" value="{!eventsWrapper.Events.EventName}"/> -->
+                   <apex:selectList styleClass="productName" multiselect="true" size="1" value="{!selectedProduct}">
+                       <apex:selectOptions value="{!ProductName}"/>
+                     </apex:selectList>
+                    <script>
+                         $('.productName').select2();
+                         var myList = new Array();
+                      myList = '{!selectedProduct}';
+                      myList = myList.replace('[','').replace(']','').trim();
+                      console.log('-------'+myList);
+                        if(myList){
+                        var contexts = myList.split(',');
+                        console.log('--------'+contexts);
+                        $('.productName').select2().val(contexts).trigger('change');
+                     }
+                     </script>
+                </div>
+                <div class="slds-size_12-of-12 slds-text-align--center slds-p-around--small">
+                    <apex:commandButton styleClass="slds-button slds-button--brand " value="Run Report" action="{!createReport}" status="counterStatus"
+                                        rerender="tableID"/>
+                     <apex:commandButton styleClass="slds-button slds-button--brand" value="Export" action="{!createCsv}" status="counterStatus" rerender="downloadID" oncomplete="generateCsv('{!eventReportCsv}','{!eventsWrapper.Events.EventName}');return false;"/>
+                </div>
+                <div class="slds-section slds-is-open slds-size_12-of-12">
+                    <h3 class="slds-section__title slds-button slds-section__title-action">
+                         <span class="slds-truncate" title="Section Title">Report Table</span>
+
+                    </h3>
+                </div>
+                <apex:outputPanel id="tableID" style="width: 100%;overflow: auto;max-height: 30rem;">
+                <table class="reportTable slds-max-medium-table_stacked slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-m-top--small" style="border-left: 1px solid rgb(221, 219, 218);    border-right: 1px solid rgb(221, 219, 218);">
+                    <thead>
+                       <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">
+                            Member Level
+                        </th>
+                        <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">
+                            Company Name
+                        </th>
+                        <apex:repeat value="{!eventReport}" var="eventReportTemp">
+                            <apex:repeat value="{!eventReportTemp.eventName}" var="eventReportName">
+                            <th style="position: sticky;position: -webkit-sticky;top: 0;z-index: 10;">
+                                {!eventReportName}
+                            </th>
+                           </apex:repeat>
+                        </apex:repeat>
+                    </thead>
+                    <apex:repeat value="{!eventReport}" var="eventReportAccount">
+                        <apex:repeat value="{!eventReportAccount.accountName}" var="accountName">
+                            <tr>
+                                <td>  
+                                    {!ProductNameMemberLevelMap[accountName]}
+                                </td>
+                                <td data-label="Company Name">
+                                    <a href="/{!accountNameIDMap[accountName]}" target="_blank">
+                                        {!accountName}
+                                    </a>
+                                </td>
+                                            <apex:repeat value="{!eventReport}" var="eventReportTemp">
+                                                <apex:repeat value="{!eventReportTemp.eventName}" var="eventReportName">
+                                                  <td data-label="{!eventReportName}">
+                                                      <apex:repeat value="{!accountProductMap[eventReportName][accountName]}" var="eventProductMap">
+                                                          <apex:repeat value="{!eventProductMap}" var="productName">
+                                                              <a onclick="run('{!accountName}-{!eventReportName}-{!productName}')" target="_blank">
+                                                              <apex:outputText value="{!productName}" style="{!if(productName == '','display:none;','display:block;')}"/>
+                                                              </a>
+                                                            <!--<a href="/{!PurchaseHistoryMap['Alibaba Cloud (Singapore) PTE LTDKubeCon + CloudNativeCon + Open Source Summit China 2019Diamond Sponsorship']}" target="_blank">
+                                                                {!accountName} - {!eventReportName} - {!productName}
+                                                            </a>-->
+                                                             <!--<apex:repeat value="{!productNameIDMap}" var="key"> 
+                                                                 <apex:outputText rendered="{!key==productName}"> <!-- kind of containsKey(...) -->
+                                                                     <!-- this is now safe and will never produces an exception -->
+                                                                 <!--</apex:outputText>-->
+                                                            <!--</apex:repeat>-->
+                                                            <!-- <a href="/{!productNameIDMap[productName]}" target="_blank">
+                                                                {!productName}
+                                                             </a>-->
+                                                             <!-- {!accountName}-{!eventReportName}-{!productName}-->
+                                                          </apex:repeat>
+                                                      </apex:repeat>
+                                                  </td>
+                                                </apex:repeat>
+                                            </apex:repeat>
+
+ <!--  <apex:repeat value="{!eventAccountMap}" var="eventName">
+<td>
+<apex:repeat value="{!eventAccountMap[eventName]}" var="accountName">
+<apex:repeat value="{!eventAccountMap[eventName][accountName]}" var="ProductName">
+{!ProductName}
+</apex:repeat>
+</apex:repeat>
+</td>
+</apex:repeat> -->
+                            </tr>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table>
+                </apex:outputPanel>
+            <!--    <div class="slds-size_12-of-12 slds-text-align--center slds-p-around--small">
+
+                    <apex:commandButton styleClass="slds-button slds-button--brand" value="Export Demo" status="counterStatus" rerender="downloadID" onclick="exportTableToCSV('TempFile.csv');return false;" rendered="{!if($User.Id == '00541000007liboAAA',true,false)}"/>
+
+                </div>  -->
+            </div>
+        </div>
+        </div>
+    </apex:form>
+    <script>
+    function generateCsv(csv,eventName){
+            console.log('#--#'+csv);
+            var exportedFilename = eventName+'.csv';
+            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            console.log('#-INSIDE-#');
+            var link = document.createElement("a");
+            console.log('#--#',link);
+            console.log('#-INSIDE1-#');
+            if (link.download !== undefined) { // feature detection
+                // Browsers that support HTML5 download attribute
+                var url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", exportedFilename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+   }
+    function downloadCSV(csv, filename) {
+    var csvFile;
+    var downloadLink;
+
+    // CSV file
+    csvFile = new Blob([csv], {type: "text/csv"});
+
+    // Download link
+    downloadLink = document.createElement("a");
+
+    // File name
+    downloadLink.download = filename;
+
+    // Create a link to the file
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+
+    // Hide download link
+    downloadLink.style.display = "none";
+
+    // Add the link to DOM
+    document.body.appendChild(downloadLink);
+
+    // Click download link
+    downloadLink.click();
+}
+    
+    function exportTableToCSV(filename) {
+    var csv = [];
+    var rows = document.querySelectorAll("table.reportTable tr");
+    
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+        
+        for (var j = 0; j < cols.length; j++) {
+            var colsTemp = cols[j].innerText.replace(/\r?\n/g, ',');
+            row.push('\"'+colsTemp+'\"');
+        
+            }
+        csv.push(row.join(","));
+        console.log(csv); 
+            
+    }
+
+    // Download CSV file
+    downloadCSV(csv.join("\n"), filename);
+}
+    
+  function run (paramval){
+      //alert('hello');
+      //alert(paramval);
+    var paramupdate =  paramval.replace('+', 'plus')
+    //alert(paramupdate);
+    //window.location = '/apex/NavigateToHistoryRecord?HistoryValue='+paramupdate;
+      window.open( 
+       "/apex/NavigateToHistoryRecord?HistoryValue="+paramupdate, "_blank"); 
+  }
+        
+    </script>
+</apex:page>

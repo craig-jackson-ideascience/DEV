@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Training_PO</fullName>
+    <active>false</active>
+    <businessProcess>Training</businessProcess>
+    <label>Training PO</label>
+    <picklistValues>
+        <picklist>ApplicationStatus__c</picklist>
+        <values>
+            <fullName>Application Received</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Customer Signature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Linux Foundation Signature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting to Close by PM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Budget__c</picklist>
+        <values>
+            <fullName>Budget_CFY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Budget_NFY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsure of budget status</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Buying_Time_Frame__c</picklist>
+        <values>
+            <fullName>0 - 3 Months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 - 6 Months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 - 12 Months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greater Than 12 Months</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DB_Competitor__c</picklist>
+        <values>
+            <fullName>Competitor A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor C</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>First_Campaign_Type__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gated Asset</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Member Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Member Onboarding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for Information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subscription Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Hold_Reason__c</picklist>
+        <values>
+            <fullName>Awaiting PO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28add comment%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verbal Confirmation Required</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_CreditCard_Pay__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LastLeadSourceDetail__c</picklist>
+        <values>
+            <fullName>Affiliate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blog</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Traffic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drift</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Experience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HubSpot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-person Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LinkedIn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organic Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reddit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Virtual Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Whitepaper</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LastLeadSource__c</picklist>
+        <values>
+            <fullName>Affiliate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blog</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Traffic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Data Source</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organic Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid Social</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Premium Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Last_Campaign_Type__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gated Asset</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Member Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Member Onboarding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for Information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subscription Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Data Source</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lead_Source_Detail__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Downgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Firm Acquired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Decision %2F Non-Responsive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Org Change%2FLost Champion or Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perceived Value</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reissued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solution Fit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Original_Source__c</picklist>
+        <values>
+            <fullName>Certification Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compliance Directory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Created Manually</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CreatedManually</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event Incomplete Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individual Membership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Linux%2Ecom Store</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>List Import</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pardot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sugar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Incomplete Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Self Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Student Survey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel Fund Requester</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pain_Points__c</picklist>
+        <values>
+            <fullName>Perceived Value</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solution Fit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PaymentTerms__c</picklist>
+        <values>
+            <fullName>Net 30</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Net 45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 90</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Due Immediately</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Due Prior To Training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Preferred_Invoice_Method__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hard Copy</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Renewal_Likelihood__c</picklist>
+        <values>
+            <fullName>At Risk - Salvageable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Downgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renew</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sponsor_Name__c</picklist>
+        <values>
+            <fullName>n%2Fa</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Training_Modes__c</picklist>
+        <values>
+            <fullName>Bulk Certifications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certification Subscription</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certifications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Course Subscription</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructor-led Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Per-Seat Subscriptions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eLearning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RISC_V</fullName>
+    <columns>ASSET.NAME</columns>
+    <columns>ASSET.SERIAL_NUMBER</columns>
+    <columns>ASSET.INSTALL_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.NAME</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>SalesOrderNumber__c</columns>
+    <columns>Skip_NetSuite_Sync__c</columns>
+    <columns>ASSET.USAGE_END_DATE</columns>
+    <columns>ASSET.PRICE</columns>
+    <columns>Auto_Renew__c</columns>
+    <columns>Renewal_Opportunity_Created__c</columns>
+    <columns>Cancellation_Date__c</columns>
+    <columns>Cancellation_Reason__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Projects__c</field>
+        <operation>equals</operation>
+        <value>RISC-V Foundation</value>
+    </filters>
+    <filters>
+        <field>ASSET.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Asset.Individual</value>
+    </filters>
+    <label>RISC-V</label>
+</ListView>

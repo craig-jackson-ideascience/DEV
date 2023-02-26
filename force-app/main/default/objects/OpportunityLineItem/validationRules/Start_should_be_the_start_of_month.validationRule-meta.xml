@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_should_be_the_start_of_month</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+DAY(Start_Date__c) &lt;&gt; 1, 
+NOT(ISBLANK(Projects__c)), 
+NOT(ISPICKVAL(Renewal_Type__c,&apos;Calendar Year&apos;)), 
+NOT(CONTAINS(TEXT(Opportunity.Type), &apos;Renewal&apos;)),
+NOT(Projects__r.Skip_Start_Date_Validation__c),
+NOT(Opportunity.Skip_Start_Date_Validation__c) 
+)</errorConditionFormula>
+    <errorMessage>Start date should be the first date of the Month</errorMessage>
+</ValidationRule>

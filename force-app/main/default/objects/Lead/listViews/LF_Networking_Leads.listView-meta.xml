@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LF_Networking_Leads</fullName>
+    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6</booleanFilter>
+    <columns>LEAD.STATUS</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.MOBILE_PHONE</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <label>LF Networking Lead Queue</label>
+    <sharedTo>
+        <role>CRO</role>
+        <role>Solutions_Manager</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Cancellation Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Acquired</fullName>
+                <default>false</default>
+                <label>Acquired</label>
+            </value>
+            <value>
+                <fullName>Competition</fullName>
+                <default>false</default>
+                <label>Competition</label>
+            </value>
+            <value>
+                <fullName>Perceived Value</fullName>
+                <default>false</default>
+                <label>Perceived Value</label>
+            </value>
+            <value>
+                <fullName>Out of Business</fullName>
+                <default>false</default>
+                <label>Out of Business</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+                <label>Upgrade</label>
+            </value>
+            <value>
+                <fullName>Downgrade</fullName>
+                <default>false</default>
+                <label>Downgrade</label>
+            </value>
+            <value>
+                <fullName>Reissued</fullName>
+                <default>false</default>
+                <label>Reissued</label>
+            </value>
+            <value>
+                <fullName>Non payment</fullName>
+                <default>false</default>
+                <label>Non Payment</label>
+            </value>
+            <value>
+                <fullName>Org Change/Lost Champion or Funding</fullName>
+                <default>false</default>
+                <label>Org Change/Lost Champion or Funding</label>
+            </value>
+            <value>
+                <fullName>No Engagement</fullName>
+                <default>false</default>
+                <label>No Engagement</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

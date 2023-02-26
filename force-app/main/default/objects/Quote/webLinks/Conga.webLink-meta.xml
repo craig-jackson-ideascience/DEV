@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conga</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Conga</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>if(&apos;{!Quote.Opportunity_RecordType__c}&apos; == &apos;Event&apos;){ 
+window.open( 
+&apos;https://composer.congamerge.com?SolMgr=1&amp;sessionId={!API.Session_ID}&amp;serverUrl={!API.Partner_Server_URL_290}&amp;Id={!Quote.Id}&amp;ReportId=00O41000008Yl8W&amp;QueryId=a1R41000005hQwm,a1R41000005hQwr,a1R41000005hQww,a1R2M000008GwaS,[ProductItems]a1R41000006icXk&amp;TemplateGroup=Events&amp;EmailSubject=Quotation&amp;OFN={!URLENCODE(Quote.Opportunity_Name__c)}&amp;DefaultPDF=1&amp;LiveEditVisible=0&amp;DocuSignVisible=1&amp;DocuSignR1Id={!Quote.Contact_ID__c}&amp;DocuSignR1IdDocuSignR1Type=Signer&amp;DocuSignR1Role=Signer+1&apos;,&apos;&apos;,&quot;width=600,height=600&quot;) 
+} 
+if(&apos;{!Quote.Opportunity_RecordType__c}&apos; == &apos;Corporate Training&apos; || &apos;{!Quote.Opportunity_RecordType__c}&apos; == &apos;Training PO&apos;){ 
+window.open( 
+&apos;https://composer.congamerge.com?SolMgr=1&amp;sessionId={!API.Session_ID}&amp;serverUrl={!API.Partner_Server_URL_290}&amp;Id={!Quote.Id}&amp;QueryId=a1R41000005hQwm,a1R41000005hQwr,a1R41000005hQww,[ProductItems]a1R2M000008Gcb9,[HeaderQuery]a1R2M000008H3CP&amp;TemplateGroup=Training&amp;EmailSubject=Quotation&amp;OFN={!URLENCODE(Quote.Opportunity_Name__c)}&amp;DefaultPDF=1&amp;LiveEditVisible=0&amp;DocuSignVisible=1&apos;,&apos;&apos;,&quot;width=600,height=600&quot;) 
+} 
+if(&apos;{!Quote.Opportunity_RecordType__c}&apos; != &apos;Event&apos; &amp;&amp;&apos;{!Quote.Opportunity_RecordType__c}&apos; != &apos;Corporate Training&apos; &amp;&amp;&apos;{!Quote.Opportunity_RecordType__c}&apos; != &apos;Training PO&apos;){
+alert(&apos;The Record Type of Opportunity must be either Event,Corporate Training or Training PO&apos;);
+}</url>
+</WebLink>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sponsor_Name__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If a Bill To Address is selected, choose whether that should be the sponsor name or the Account should be the sponsor name. (This field is relevant to event sponsorship contracts only.)</inlineHelpText>
+    <label>Sponsor Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>n/a</fullName>
+                <default>false</default>
+                <label>n/a</label>
+            </value>
+            <value>
+                <fullName>List the name of the Account as the sponsor.</fullName>
+                <default>false</default>
+                <label>List the name of the Account as the sponsor.</label>
+            </value>
+            <value>
+                <fullName>List the name of the Bill To Name and Address as the sponsor.</fullName>
+                <default>false</default>
+                <label>List the name of the Bill To Name and Address as the sponsor.</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

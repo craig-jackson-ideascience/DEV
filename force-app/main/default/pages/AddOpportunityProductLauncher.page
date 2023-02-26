@@ -1,0 +1,20 @@
+<apex:page standardController="Opportunity">
+    <apex:includeLightning />
+    
+    <div style="height:100vh;" id="AddOpportunityProductContainer"></div> 
+    
+    <script>
+    console.log('hello');
+    var oppID = '{!Opportunity.Id}';
+    $Lightning.use("c:AddOpportunityProductApp", function() {
+        $Lightning.createComponent("c:AddOpportunityProduct",
+                                   { 
+                                       opportunityId : oppID
+                                   },
+                                   "AddOpportunityProductContainer",
+                                   function(component) {
+                                       console.log('hello');
+                                   });
+    });
+    </script>
+</apex:page>

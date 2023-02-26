@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Signed_MSA__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to identify when MSA Agreement was signed during autojoin process. Populated via the platform integration</description>
+    <externalId>false</externalId>
+    <label>Signed MSA</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

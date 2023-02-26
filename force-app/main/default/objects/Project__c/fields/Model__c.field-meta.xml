@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates if the project has Membership, Crowdfunding (e.g. LFX Funding), or both. Note that a project may have membership requirements that do not have any fees or funding associated with them. In that case, &apos;Membership&apos; is still selected for this field.</inlineHelpText>
+    <label>Model</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Membership</fullName>
+                <default>false</default>
+                <label>Membership</label>
+            </value>
+            <value>
+                <fullName>Crowdfunding</fullName>
+                <default>false</default>
+                <label>Crowdfunding</label>
+            </value>
+            <value>
+                <fullName>Alternate Funding</fullName>
+                <default>false</default>
+                <label>Alternate Funding</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

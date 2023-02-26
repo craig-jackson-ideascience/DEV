@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Renewal</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Create Renewal</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
+
+//Calling Class and Method 
+
+
+if(&apos;{!Asset.Projects__c}&apos;!=&quot;&quot;){
+	
+	console.log(&apos;{!Asset.Auto_Renew__c}&apos;);
+	
+	if(&apos;{!Asset.Auto_Renew__c}&apos; == 1){
+		if(&apos;{!Asset.Renewal_Opportunity_Created__c}&apos;==false){
+			
+			var confirmDetail = confirm(&quot;Please confirm membership renewal&quot;); 
+
+			console.log(confirmDetail); 
+
+			if(confirmDetail == true){
+				
+				sforce.apex.execute(&quot;CreateRenewal&quot;, &quot;executeBatchForAutoRenewal&quot;, {asstId:&apos;{!Asset.Id}&apos;});	
+	window.location.reload();
+				
+				
+			}
+		}else{
+			alert(&quot;This membership has already been renewed&quot;);
+		}
+	}else{
+		alert(&quot;This membership has been cancelled- unable to renew&quot;);
+	}
+}
+else{
+	alert(&apos;Only membership assets can be renewed&apos;); 
+}</url>
+</WebLink>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HL_Member_Notes_del__c</fullName>
+    <description>Link to Hyperledger Member Notes.  Access to this field is granted by the &quot;Hyperledger fields&quot; permission set.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hyperledger Member Notes - Link to google docs</inlineHelpText>
+    <label>HL Member Notes</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Url</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Color__c</fullName>
+    <description>Hexadecimal value representing the primary brand color for this project (e.g. #01826d). The color chosen here is set as the border of the logo portion of the LWC on the Project page.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hexadecimal value representing the primary brand color for this project (e.g. #01826d)</inlineHelpText>
+    <label>Brand Color</label>
+    <length>7</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

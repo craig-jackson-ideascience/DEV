@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Community</fullName>
+    <active>true</active>
+    <label>Community</label>
+    <picklistValues>
+        <picklist>Appointed_By__c</picklist>
+        <values>
+            <fullName>Membership Entitlement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of Associate Member Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of End User Committee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of End User Member Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of General Member Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of Gold Member Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of Governing Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of Marketing Committee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of Silver Member Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of Strategic Membership Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of TOC Committee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vote of TSC Committee</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Role__c</picklist>
+        <values>
+            <fullName>Chair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Counsel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LF Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Treasurer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vice Chair</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Mailing List</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Voting_Status__c</picklist>
+        <values>
+            <fullName>Alternate Voting Rep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Observer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voting Rep</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

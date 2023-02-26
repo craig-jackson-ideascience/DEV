@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fill_either_End_and_Start_Tier_or_Tier</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(AND(OR(NOT(ISBLANK(Start_Tier__c)),NOT(ISBLANK(End_Tier__c))),NOT(ISBLANK(Tier__c))),True, False)</errorConditionFormula>
+    <errorMessage>Please enter either Start and End Tier or Tier field</errorMessage>
+</ValidationRule>

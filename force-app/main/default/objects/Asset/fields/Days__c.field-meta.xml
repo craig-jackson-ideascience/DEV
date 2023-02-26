@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((TODAY()- (PurchaseDate + VALUE( MID( PaymentTerms__c , 5, 4) )) )&lt;=30 &amp;&amp; (TODAY()- (PurchaseDate + VALUE( MID( PaymentTerms__c , 5, 4) )) )&gt;=0 ,30,IF(AND((TODAY()- (PurchaseDate + VALUE( MID( PaymentTerms__c , 5, 4) )) )&gt;30,(TODAY()- (PurchaseDate + VALUE( MID( PaymentTerms__c , 5, 4) )))&lt;=60),60,IF(AND((TODAY()- (PurchaseDate + VALUE( MID( PaymentTerms__c , 5, 4) )))&gt;60,(TODAY()- (PurchaseDate + VALUE( MID( PaymentTerms__c , 5, 4) )))&lt;=90),90,IF((TODAY()- (PurchaseDate + VALUE( MID( PaymentTerms__c , 5, 4) )))&gt;90,120,0))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Days</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

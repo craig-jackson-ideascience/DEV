@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Tier_Needs_Verification__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Drives the Product Tier verification section of the oppJoinNowVerification LWC</description>
+    <externalId>false</externalId>
+    <label>Product Tier Needs Verification</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

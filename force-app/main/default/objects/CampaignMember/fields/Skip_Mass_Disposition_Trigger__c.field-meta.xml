@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Skip_Mass_Disposition_Trigger__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field should not be on any page layouts. This field is necessary to make sure that Auto Dispositioned updates to Campaign Member statuses are not pushed out to other Campaigns, but human-dispositioned updates to Campaign Member statuses ARE pushed out to other Campaigns.</description>
+    <externalId>false</externalId>
+    <label>Skip Mass Disposition Trigger</label>
+    <type>Checkbox</type>
+</CustomField>

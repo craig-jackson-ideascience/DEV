@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Updates_2020</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>Project__c</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.NAME</field>
+        <operation>contains</operation>
+        <value>Contact Update 2020</value>
+    </filters>
+    <label>Contact Updates 2020</label>
+</ListView>

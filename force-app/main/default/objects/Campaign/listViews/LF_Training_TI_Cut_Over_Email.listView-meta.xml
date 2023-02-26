@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LF_Training_TI_Cut_Over_Email</fullName>
+    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5</booleanFilter>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.STATUS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>MCCampaignID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MCCampaignID__c</field>
+        <operation>equals</operation>
+        <value>7012M0000023z8TQAQ</value>
+    </filters>
+    <filters>
+        <field>MCCampaignID__c</field>
+        <operation>equals</operation>
+        <value>7012M0000023z8YQAQ</value>
+    </filters>
+    <filters>
+        <field>MCCampaignID__c</field>
+        <operation>equals</operation>
+        <value>7012M0000023z8OQAQ</value>
+    </filters>
+    <filters>
+        <field>MCCampaignID__c</field>
+        <operation>equals</operation>
+        <value>7012M0000023z7BQAQ</value>
+    </filters>
+    <filters>
+        <field>MCCampaignID__c</field>
+        <operation>equals</operation>
+        <value>7012M0000023z7GQAQ</value>
+    </filters>
+    <label>LF Training TI Cut Over Email</label>
+</ListView>

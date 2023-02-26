@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Node_js_Development__c</fullName>
+    <externalId>false</externalId>
+    <formula>Campaign.Node_js_Development__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Node.js Development</label>
+    <type>Checkbox</type>
+</CustomField>

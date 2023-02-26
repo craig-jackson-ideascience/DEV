@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DENT_Campaign_Test</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>STATUS</columns>
+    <columns>NAME</columns>
+    <columns>COMPANY</columns>
+    <columns>FIRST_NAME</columns>
+    <columns>LAST_NAME</columns>
+    <columns>TITLE</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>MC_Project_ID__c</field>
+        <operation>equals</operation>
+        <value>a092M00001IbJGwQAN</value>
+    </filters>
+    <label>DENT Campaign Test</label>
+</ListView>
